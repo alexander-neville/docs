@@ -5,4 +5,7 @@ This repository contains some notes about programming and system configuration.
 
 * Included Documents
 
-1. Setting up a LAMP stack (lamp.org)
+1. Setting up a LAMP stack -> (lamp.org)
+2. Python OOP, modules and package -> (python.org)
+3. NodeJs set-up for web development -> (nodejs.org)
+4. Arch Linux set-up for daily use -> (arch.org)

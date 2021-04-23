@@ -1,0 +1,44 @@
+#+TITLE: Arch Linux Notes
+#+AUTHOR: Alexander Neville
+#+DESCRIPTION: notes about using arch linux
+
+* Saving Package List
+
+To save the list of deliberately installed packages from the central repository and the AUR respectively:
+
+#+begin_src shell
+
+pacman -Qqen > ~/code/dotfiles/misc/pkglist.txt
+pacman -Qqem > ~/code/dodtfiles/misc/aurpkglist.txt
+
+#+end_src
+
+To recover all of these packages:
+
+#+begin_src shell
+
+sudo pacman -S --needed $(comm -12 <(pacman -Slq|sort) <(sort pkglist.txt) )
+pacaur -S --noedit --noconfirm --needed aurpkglist.txt
+
+#+end_src
+
+* Tidying the System
+
+Remove orphaned packages:
+
+#+begin_src shell
+
+sudo pacman -Rs $(pacman -Qtdq)
+
+#+end_src
+
+* Networking
+
+Install the =networkmanager= package and then enable the =NetworkManager.service=. This package also provides =nmtui= and =nmcli=. It can also be helpful to install =nm-connection-editor= for managing more complex connections.
+
+#+begin_src shell
+
+sudo pacman -S networkmanager nm-connection-editor
+sudo systemctl enable --now NetworkManager
+
+#+end_src
