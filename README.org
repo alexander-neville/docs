@@ -1,0 +1,8 @@
+#+TITLE: My Docs
+#+AUTHOR: Alexander Neville
+
+This repository contains some notes about programming and system configuration.
+
+* Included Documents
+
+1. Setting up a LAMP stack (lamp.org)
