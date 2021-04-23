@@ -1,0 +1,156 @@
+#+TITLE: LAMP Stack Set-up Notes
+#+AUTHOR: Alexander Neville
+
+* Apache
+** Installation
+
+*Ubuntu:*
+
+Install apache and enable it with systemd.
+
+#+begin_src sh
+
+sudo apt install apache2
+sudo systemctl enable --now apache2
+
+#+end_src
+
+*Arch:*
+
+#+begin_src shell
+
+sudo pacman -S apache mariadb php php-apache
+sudo systemctl enable --now httpd
+
+#+end_src
+
+** Firewall Set-up
+
+Configure the firewall if needed, with iptables (ufw may not be installed)
+
+#+begin_src sh
+
+sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
+sudo apt-get install iptables-persistent
+sudo netfilter-persistent save
+
+#+end_src
+
+* PHP
+
+*Ubuntu:*
+
+#+begin_src sh
+
+sudo apt install php
+
+#+end_src
+
+*Optional:*
+
+Create an =info.php= to verify everything is working:
+
+#+begin_src php
+
+<?php
+
+phpinfo();
+
+?>
+
+#+end_src
+
+* Permissions
+
+There are many ways to have permission over the document root and its contents. Oracle reccomends adding yourself to the group the webserver runs as and chowning/chmodding the files as appropriate. On ubuntu, apache runs as =www-data=, although different configs may have a different user.
+
+#+begin_src sh
+
+sudo adduser $USER www-data
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R g+rw /var/www/html
+
+#+end_src
+
+* Database
+** Install
+
+*Ubuntu:*
+
+#+begin_src sh
+
+sudo apt install mysql-server
+sudo systemctl enable --now mysql
+sudo mysql_secure_installation
+
+#+end_src
+
+*Arch*:
+
+#+begin_src shell
+
+sudo pacman -S mariabd
+mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+sudo systemctl enable --now mariadb
+sudo mysql_secure_installation
+
+#+end_src
+
+** Creating Users
+
+Having run the =mysql_secure_installation= script, you will have set a root password.
+If logging in as root is giving you difficulty, log in like this ...
+
+#+begin_src sh
+
+sudo mysql -u root
+
+#+end_src
+
+... and alter the user like this.
+
+#+begin_src sql
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+#+end_src
+
+To create other users:
+
+#+begin_src sql
+
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
+
+-- eg:
+
+CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
+
+#+end_src
+
+** Assigning Roles
+
+#+begin_src sql
+
+GRANT ALL PRIVILEGES ON database.table TO 'newuser'@'localhost';
+GRANT ALL PRIVILEGES ON chatter.* TO 'php'@'localhost';
+GRANT ALL PRIVILEGES ON wordpress_data.* TO 'wordpress'@'localhost';
+
+#+end_src
+
+Make sure to reload the privilege tables:
+
+#+begin_src sql
+
+FLUSH PRIVILEGES;
+
+#+end_src
+
+** Importing and Exporting
+
+#+begin_src sh
+
+mysqldump -u [username] -p [database-you-want-to-dump] > [path-to-place-data-dump]
+mysql -u [username] -p newdatabase < [database name].sql
+
+#+end_src
