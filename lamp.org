@@ -230,7 +230,7 @@ which composer
 
 ** Install Laravel
 
-With Composer installed, we can install Laravel globally:
+With composer installed, we can install laravel globally. This will install the *laravel installer* into some /unkown/ directory.
 
 #+begin_src shell
 
@@ -238,7 +238,7 @@ composer global require laravel/installer
 
 #+end_src
 
-This will install the laravel installer into a certain directory. To use Laravel, this will have to be added to our path. To make this work for all global dependencies we will add the composer bin to our path, rather than putting every dependency in a certain pre-configured directory. To find where composer installed the global dependencies, the directory will be after the =[home]= indicator, when running the this command. (this will likely be =$HOME/.config/composer/vendor/bin=)
+To find where composer installs these global dependencies, run the command shown below. The path to the dependencies will be shown on the line beginning with =[home]=. (this will likely be =$HOME/.config/composer/vendor/bin=) To use laravel (or anything else installed like this), its location will have to be added to our path. It is a good idea to add the composer global install directory to your path so that you can use every dependency you choose to install globally, without the need to type a full path every time.
 
 #+begin_src shell
 
@@ -246,7 +246,7 @@ composer config --list --global
 
 #+end_src
 
-Append the relevant directory to your =$PATH= environment variable. Add this line to the end of your =~/.bashrc=
+Once you have found the install directory, append the relevant directory path to your =$PATH= environment variable. To do this, add this line to the end of your =~/.bashrc=
 
 #+begin_src shell
 
@@ -254,7 +254,7 @@ export PATH=$PATH:$HOME/.config/composer/vendor/bin
 
 #+end_src
 
-Start a new shell for this chage to take effect. Once done, verify Laravel is installed like this:
+Start a new shell for this change to take effect. Once done, verify Laravel is installed like this:
 
 #+begin_src shell
 
@@ -264,7 +264,7 @@ which laravel
 
 ** Create Laravel Project
 
-Having globally installed Laravel, a new app needs to be created / deployed in a directory owned by the webserver. On ubuntu =/var/www/html= is a good place to do this. Use git to clone your project into this directory, or use the =laravel new= command. eg.
+Having globally installed Laravel, a new app needs to be created / deployed in a directory known to the webserver. On ubuntu =/var/www/html= is a good place to do this. Use git to clone an existing project or use the =laravel new= command in this directory. eg.
 
 #+begin_src shell
 
@@ -275,7 +275,7 @@ laravel new <project_name>
 
 ** Setting up Virtual Hosts
 
-Laravel uses the *MVC* layout and so only the contents of the =public= directory should be within the document root. To do this we will create a new virtual host for the project and disable the old one. The changes will have to made within the config directory of the apache webserver.
+Laravel uses the *MVC* layout and so only the contents of the =public= directory should be inside the document root of the webserver. To make sure this is the case create a new virtual host file for the project and disable the old vhost. The changes will have to made within the config directory of the apache webserver.
 
 #+begin_src sh
 
@@ -283,7 +283,7 @@ cd /etc/apache2/sites-available
 
 #+end_src
 
-Within this directory create a new vhost file, ending in =.conf=. Open this file in your prefferd text editor, nano is usually installed.
+Within this directory create a new vhost file, ending in =.conf=. Open this file in your favourite text editor, nano is usually installed.
 
 #+begin_src shell
 
@@ -291,7 +291,7 @@ sudo nano project_name.conf
 
 #+end_src
 
-Add the following lines, changing the relevant names:
+Add the following lines, changing the relevant pieces of information to reflect your set-up
 
 #+begin_src
 
@@ -309,13 +309,12 @@ Add the following lines, changing the relevant names:
 
 #+end_src
 
-Now we need to stop using the default virtual host config and use the new one we just made. Use apache's *dissite* and *ensite* commands, again substitute the name of the file you just made into these commands. The *dissite* command assumes that you were previously using the default vhost config.
+Now we need to stop using the default virtual host config and use the new one we just made. Use apache's *dissite* and *ensite* commands, again substitute the name of the file you just made into these commands. The *dissite* command shown below assumes that you were previously using the default vhost config.
 
 #+begin_src shell
 
 sudo a2dissite 000-default.conf
 sudo a2ensite new_vhost_name.conf
-
 
 #+end_src
 
