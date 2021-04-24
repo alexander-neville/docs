@@ -1,5 +1,14 @@
-#+TITLE: LAMP Stack Set-up Notes
+#+TITLE: LAMP Stack Set-Up Notes
 #+AUTHOR: Alexander Neville
+
+The *LAMP* stack is a common web server stack, standing for:
+
+1. Linux (any distrobution of GNU/Linux)
+2. Apache (a common webserver program)
+3. Mysql (a type of SQL database server)
+4. PHP (a web scripting and programming language)
+
+This guide covers how to set-up each of these pieces of software on a single machine with a view to hosting PHP or static web applications.
 
 * Contents :TOC:
 - [[#apache][Apache]]
@@ -13,6 +22,10 @@
   - [[#assigning-roles][Assigning Roles]]
   - [[#importing-and-exporting][Importing and Exporting]]
 - [[#example-laravel-deployment][Example Laravel Deployment]]
+  - [[#install-composer][Install Composer]]
+  - [[#install-laravel][Install Laravel]]
+  - [[#create-laravel-project][Create Laravel Project]]
+  - [[#setting-up-virtual-hosts][Setting up Virtual Hosts]]
 
 * Apache
 ** Installation
@@ -182,3 +195,143 @@ mysql -u [username] -p newdatabase < [database name].sql
 #+end_src
 
 * Example Laravel Deployment
+
+Laravel is a PHP framework for building modern web applications. To deploy a laravel application, a *LAMP* stack is needed. Luckily we have just set that up!
+
+** Install Composer
+
+Composer is a dependency manager for php, get more info here: https://getcomposer.org/
+Here are the download steps:
+
+#+begin_src sh
+
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+
+#+end_src
+
+This will download =composer.phar= in the current directory. It would be handy to make this available globaly, so put it somewhere in your path. If you have root privileges, try this:
+
+#+begin_src shell
+
+sudo mv ./composer.phar /usr/bin/composer
+
+#+end_src
+
+Verify that this worked, by printing the location of the composer command (where it exists on your path):
+
+#+begin_src shell
+
+which composer
+
+#+end_src
+
+** Install Laravel
+
+With Composer installed, we can install Laravel globally:
+
+#+begin_src shell
+
+composer global require laravel/installer
+
+#+end_src
+
+This will install the laravel installer into a certain directory. To use Laravel, this will have to be added to our path. To make this work for all global dependencies we will add the composer bin to our path, rather than putting every dependency in a certain pre-configured directory. To find where composer installed the global dependencies, the directory will be after the =[home]= indicator, when running the this command. (this will likely be =$HOME/.config/composer/vendor/bin=)
+
+#+begin_src shell
+
+composer config --list --global
+
+#+end_src
+
+Append the relevant directory to your =$PATH= environment variable. Add this line to the end of your =~/.bashrc=
+
+#+begin_src shell
+
+export PATH=$PATH:$HOME/.config/composer/vendor/bin
+
+#+end_src
+
+Start a new shell for this chage to take effect. Once done, verify Laravel is installed like this:
+
+#+begin_src shell
+
+which laravel
+
+#+end_src
+
+** Create Laravel Project
+
+Having globally installed Laravel, a new app needs to be created / deployed in a directory owned by the webserver. On ubuntu =/var/www/html= is a good place to do this. Use git to clone your project into this directory, or use the =laravel new= command. eg.
+
+#+begin_src shell
+
+git clone https://github.com/username/repo.git
+laravel new <project_name>
+
+#+end_src
+
+** Setting up Virtual Hosts
+
+Laravel uses the *MVC* layout and so only the contents of the =public= directory should be within the document root. To do this we will create a new virtual host for the project and disable the old one. The changes will have to made within the config directory of the apache webserver.
+
+#+begin_src sh
+
+cd /etc/apache2/sites-available
+
+#+end_src
+
+Within this directory create a new vhost file, ending in =.conf=. Open this file in your prefferd text editor, nano is usually installed.
+
+#+begin_src shell
+
+sudo nano project_name.conf
+
+#+end_src
+
+Add the following lines, changing the relevant names:
+
+#+begin_src
+
+<VirtualHost *:80>
+   ServerName {{server-ip-address}}
+   ServerAdmin webmaster@thedomain.com
+   DocumentRoot /var/www/html/{{folder_name}}/public
+
+   <Directory /var/www/html/{{folder_name}}
+       AllowOverride All
+   </Directory>
+   ErrorLog ${APACHE_LOG_DIR}/error.log
+   CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+#+end_src
+
+Now we need to stop using the default virtual host config and use the new one we just made. Use apache's *dissite* and *ensite* commands, again substitute the name of the file you just made into these commands. The *dissite* command assumes that you were previously using the default vhost config.
+
+#+begin_src shell
+
+sudo a2dissite 000-default.conf
+sudo a2ensite new_vhost_name.conf
+
+
+#+end_src
+
+Enable the rewrite mod for apache:
+
+#+begin_src shell
+
+sudo a2enmod rewrite
+
+#+end_src
+
+Finally restart the webserver to make those changes take effect.
+
+#+begin_src shell
+
+sudo systemctl restart apache2
+
+#+end_src
+

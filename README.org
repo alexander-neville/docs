@@ -1,11 +1,16 @@
 #+TITLE: My Docs
 #+AUTHOR: Alexander Neville
 
-This repository contains some notes about programming and system configuration.
+This repository contains some notes about programming and system set-up.
 
 * Included Documents
 
 1. Setting up a LAMP stack -> (lamp.org)
 2. Python OOP, modules and package -> (python.org)
-3. NodeJs set-up for web development -> (nodejs.org)
-4. Arch Linux set-up for daily use -> (arch.org)
+3. Pre-Release Program breakdown -> (pre-release_notes.org)
+4. NodeJs set-up for web development -> (nodejs.org)
+5. Arch Linux set-up for daily use -> (arch.org)
+
+* Sample Code
+
+The *sample_code* folder contains all the exmaples documented in *python.org*
