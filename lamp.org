@@ -17,9 +17,11 @@ sudo systemctl enable --now apache2
 
 *Arch:*
 
+Package is called 'apache' in arch repos and service is called 'httpd'.
+
 #+begin_src shell
 
-sudo pacman -S apache mariadb php php-apache
+sudo pacman -S apache php php-apache
 sudo systemctl enable --now httpd
 
 #+end_src
@@ -43,6 +45,14 @@ sudo netfilter-persistent save
 #+begin_src sh
 
 sudo apt install php
+
+#+end_src
+
+*Arch:*
+
+#+begin_src shell
+
+sudo pacman -Syu php php-apache
 
 #+end_src
 
@@ -86,6 +96,8 @@ sudo mysql_secure_installation
 #+end_src
 
 *Arch*:
+
+Mariadb is a drop-in replacement for mysql.
 
 #+begin_src shell
 

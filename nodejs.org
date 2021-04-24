@@ -1,0 +1,390 @@
+#+TITLE: NodeJS Programming Notes
+#+AUTHOR: Alexander Neville
+
+NodeJS is a javascript runtime environment for all platforms, used to run javascript programs outside of a browser. It works similiarly to google chrome's v8 javascript engine. Any javascript program can be run with node, although this code will not have access to the *DOM* or the *BOM*, like frontend javascript code. Web development is a common use case for node and javascript, with the MERN stack being a popular technique.
+
+* Installation
+
+The runtime environment and the package manager need to be installed, this is how they are packaged on Arch:
+
+#+begin_src sh
+
+sudo pacman -S nodejs npm
+
+#+end_src
+
+* Node Modules
+
+The *Node Package Manager* (npm) keeps track of your dependencies in two files: =package.json= and =package-lock.json=. The first is more widely used, specifying which dependencies are used, while the second keeps track of exact versions for the sake of long-gevity.
+
+** Examples
+
+Some common dependencies for NodeJS web development projects are:
+
+1. *Nodemon*, for monitoring and restarting a crashed application when changes are made.
+2. *Express*, an unopinionated web framework for NodeJS.
+3. *Mongodb*, drivers for connecting to a mongodb database.
+4. *Mongoose*, an abstraction layer on top of a mongodb database.
+
+** Installation
+
+To create a new NodeJS project - including a =package.json= - run this command:
+
+#+begin_src shell
+
+npm init
+
+#+end_src
+
+Install a package locally like this:
+
+#+begin_src shell
+
+npm i <module_name>
+
+#+end_src
+
+Mark a package as a dev-dependency like this:
+
+#+begin_src shell
+
+npm i --save-dev nodemon
+
+#+end_src
+
+Install all dependencies included in a given =package.json= by running this command within the same directory:
+
+#+begin_src shell
+
+npm i
+
+#+end_src
+
+* Database Software
+
+Mongodb is a popular database choice for use with javascript web projects. It is a type of *NOSQL* database, storing data in collections (roughly equal to tables) and documents (an entity). Each document resembles a *JSON* object, making the technology very intuitive with javascript developers. This document orientated format circumvents the need to design and implent a database, making a *NOSQL* database easy to deploy.
+
+** Installation
+
+Install mongodb. On arch linux mongodb is packaged in the AUR:
+
+#+begin_src sh
+
+paru -S mongodb-bin mongodb-tools-bin
+
+#+end_src
+
+** Configuration
+
+Start the service (or enable it):
+
+#+begin_src shell
+
+sudo systemctl start mongodb
+sudo systemctl enable --now mongodb
+
+#+end_src
+
+Connect to the database background servive with the mongo client:
+
+#+begin_src shell
+
+mongo
+
+#+end_src
+
+Create a root user for the mongodb installation and exit:
+
+#+begin_src json
+
+use admin
+db.createUser({user: "root", pwd: "1234", roles: ["root"]})
+exit
+
+#+end_src
+
+Append these lines to the mongo config file, located at =/etc/mongo.conf=, to disable anonymous access.
+
+#+begin_src
+
+security:
+  authorization: "enabled"
+
+#+end_src
+
+Restart the database process:
+
+#+begin_src shell
+
+sudo systemctl restart mongodb
+
+#+end_src
+
+Connect to the database with the newly created root account (use password when prompted):
+
+#+begin_src shell
+
+mongo -u root
+
+#+end_src
+
+** Users & Databases
+
+A root user is already set up, but it is good practice to create a user with lower privileges for each project we create.Using the root account that is already set up, login and switch to the admin database. Then create the user, replacing the username, password and database name as required.
+
+#+begin_src json
+
+db.createUser({
+    user: "nodejs",
+    pwd: "1234",
+    roles: [{ role: "readWrite", db: "database_name"}]})
+
+#+end_src
+
+A program can use the corresponding database as a certain user, preventing one project intefering with any other data on the server.
+
+** Database Connection
+
+Using *MongoClient* imported from the mongodb node package. Official documentation is here: https://mongodb.github.io/node-mongodb-native/
+
+#+begin_src javascript
+
+const MongoClient = require('mongodb').MongoClient;
+
+const url = 'mongodb://nodejs:1234@localhost:27017';
+const db = 'database_name';
+
+async function main() {
+
+    const client = new MongoClient(url);
+    await client.connect();
+
+    const admin = client.db(db).admin();
+    //console.log(await admin.serverStatus());
+    console.log(await admin.listDatabases());
+    const result = await admin.createCollection("test");
+    console.log(result);
+
+}
+
+main();
+
+#+end_src
+
+Using *Mongoose*, a popular abstraction layer for using mongodb in nodejs. Official documentation is here: https://mongoosejs.com/
+
+#+begin_src javascript
+
+const mongoose = require('mongoose');
+const URI = "mongodb://nodejs:1234@localhost:27017/database_name"
+
+// Mongodb connection options
+const options = {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  autoIndex: true,
+  keepAlive: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true
+}
+
+// Connect to the database
+mongoose.connect(URI, options).then(() => {
+    console.log("mongo connected");
+}).catch((err) => {
+    console.log(err);
+});
+
+#+end_src
+
+Mongodb lacks strict tables and entity definition. Mongoose can define schemas for interacting with the database more like a SQL database.
+
+#+begin_src javascript
+
+
+const mongoose = require('mongoose');
+
+// A mongoose schema for an api user
+
+const UserSchema = mongoose.Schema({
+
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        index: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+
+    password: {
+        type: String,
+        required: true
+    },
+    salt: {
+        type: Number,
+        required: true
+    }
+
+}, {
+    collection: 'user'
+});
+
+module.exports = mongoose.model('User_db', UserSchema);
+
+#+end_src
+
+Defined models can be used to insert new data, by instantiating an object and using its *save()* method.
+
+#+begin_src javascript
+
+
+const user = new User_db({
+
+    username: req.body.username,
+    name: req.body.name,
+    password: data.hashed_password,
+    salt: data.salt
+
+});
+
+await user.save();
+
+#+end_src
+
+The schema itself can be used to query the database:
+
+#+begin_src javascript
+
+user = await User_db.findOne({ username: req.body.username });
+
+#+end_src
+
+See more examples here: https://github.com/alexander-neville/secure_json_api
+
+* Javascript ASYNC Programming
+
+Javascript code behaves asyncronously: during *IO* bound operations the thread of execution will continue to process instructions, before a response is recieved for the first operation. In order to garuantee sequential execution of code and make sure all the necessary data is available, *callbacks* and *promises* can be used. Of these two techniques, the latter is the more modern, prefered technique.
+
+** Callbacks
+
+In order to run code once a function call has returned, the code that depends on the return value of the first function is passed as an arguement to the long function. Here is an example:
+
+#+begin_src javascript
+
+function one(two){
+
+    two("Done.")
+
+}
+// the arrow function is passed to the function as the parameter 'two'
+one((message) => {
+
+    console.log(message);
+
+});
+
+#+end_src
+
+*Steps:*
+
+1. Define a function which calls a second function, which is passed in as a arguement, after processing is done.
+2.  Call the function from the 'main' thread of execution, passing as an arguement an arrow function.
+3. Once the processing of *function one* is complete, the callback function is called, with the result of the first function being passed to the callback function.
+
+*Drawbacks:*
+
+While this technique garuntees that *function two* has all the data needed, this type of code is difficult to read and debug, when execptions need to be raised, failiure conditions may be handled in the callback of a function that exited successfully, making it hard to recover properly.
+
+** Promises
+
+A promise represents the state of an *ASYNC* operation, which can be any of these:
+
+1. Pending
+2. Fulfilled
+3. Rejected
+
+If a promise is in a *Settled* or *Resolved* state it is not pending. An operation in one of these states could be in state 2 or 3 above. Promises allow a programmer to change the state of an operation within a promise and define behaviour for the success or failiure of a promise.
+
+Here is the same example, written with promises:
+
+#+begin_src javascript
+
+function one(condition) {
+
+    return new Promise((resolve, reject) => {
+        if (condition == true) {
+            resolve("success")
+        } else {
+            reject("failiure")
+        }
+    });
+}
+
+one(true).then((message) => {
+
+    console.log(message);
+    //any code executed on success condition can go here.
+
+}).catch((message) => {
+
+    console.log("there was an error.");
+    console.log(message);
+
+});
+
+#+end_src
+
+A promise takes in =resolve= and =reject=. Upon success the promise will call =resolve= on any return data. We can use this return value with the =.then()= operation at the function call to run code in complete confidence that it exited successfully. Should the function fail, the promise can =reject= with any arguements. This event will trigger the =.catch()= operation defined at the function call, so the program can handle the exception.
+
+** Await
+
+Supposing you want to avoid nested code, the *async await* technique is useful.
+
+#+begin_src javascript
+
+function test(condition) {
+
+    return new Promise((resolve, reject) => {
+
+        if (condition == true) {
+            resolve("success")
+        } else {
+            reject("failiure")
+        }
+
+    });
+}
+
+async function main() {
+
+    try {
+
+        let message = await test(true)
+        console.log("The function returned with a message:")
+        console.log(message);
+
+    } catch (message) {
+
+        console.log("There was an error:")
+        console.log(message)
+
+    } finally {
+
+        console.log("main has run successfully");
+
+    }
+
+}
+
+main();
+
+#+end_src
+
+1. Wrap any code that needs to *await* with the *async* identifier eg. =async function main()=
+2. Use a *try* / *catch* block to mange the outcomes of the promise.
+3. Within the *try* block, call the function with the *await* statement.
+4. If the promise resolves, the assignment can take place and any futher code that depends on the return value can follow.
+5. If the promise rejects, this can be handles in the try block.
