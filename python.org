@@ -1,0 +1,750 @@
+#+TITLE: Python Programming Notes
+#+AUTHOR: Alex
+
+This document covers some useful python concepts.
+
+* Contents                                                              :TOC:
+- [[#object-orientation][Object Orientation]]
+  - [[#classes-as-objects][Classes as Objects]]
+  - [[#access-modifiers][Access Modifiers]]
+  - [[#inheritance-and-polymorphism][Inheritance and Polymorphism]]
+- [[#packages-and-modules][Packages and Modules]]
+  - [[#introduction][Introduction]]
+  - [[#importing-files][Importing Files]]
+  - [[#importing-directories][Importing Directories]]
+  - [[#nicer-import-syntax][Nicer Import Syntax]]
+  - [[#package-initialisation][Package Initialisation]]
+  - [[#demonstration][Demonstration]]
+  - [[#using-__all__][Using =__all__=]]
+- [[#next-sections][Next Sections]]
+  - [[#functions-and-procedural-programming][Functions and Procedural Programming]]
+  - [[#multithreading-and-multiprocessing][Multithreading and Multiprocessing]]
+  - [[#io][I/O]]
+
+* Object Orientation
+
+Python is an object orientated language, so there is lots to say here.
+The basic idea of object orientations is that code and data are grouped together, creating objects.
+Objects are often instantiated from classes, which are also objects.
+Python extends object orientation as far as files and directories, which become *modules*.
+
+** Classes as Objects
+*** Overview
+
+Classes we define inherit from python's inbuilt 'object' superclass.
+This is were the default methods and attributes of a class come from.
+
+Many types have a built-in attribute: =__mro__=, which can be seen with the =mro()= function.
+This attribute shows the derivation of the class, ending in 'object'.
+
+Another useful python function is =dir()=.
+This function shows all the useful attributes and methods of an object.
+
+#+begin_src python :tangle ./sample_code/simple_class.py :results output
+
+class test(object):
+
+    def __init__(self):
+
+        self.name = "test_class"
+
+instance = test()
+print(dir(instance))
+print(test.__mro__)
+print(test.mro())
+
+#+end_src
+
+Below you can see the results.
+Notice that the list of attributes of the class includes the =name= attribute which we added.
+You can also the inheritance from =object= which has taken place.
+
+#+begin_src
+
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'name']
+(<class '__main__.test'>, <class 'object'>)
+[<class '__main__.test'>, <class 'object'>]
+
+#+end_src
+
+*** Class Methods
+
+- In python we often handle instance attributes and methods.
+- In order to manipulate these attributes, the =self= arguement is supplied to our methods.
+
+There also exists the mechanism for manipulating classes themselves.
+
+- Any manipulation of class attributes is reflected across any instances of that class.
+- It is also possible to modify and use class attributes by qualifying the class name, as you would with an instance object.
+
+#+begin_src python :tangle ./sample_code/class_method.py :results output
+
+class Person:
+
+    number = 0
+
+    @classmethod
+    def issue_id(cls):
+
+        cls.number += 1
+        return cls.number
+
+    @classmethod
+    def return_population(cls):
+
+        return cls.number
+
+    def __init__(self, name):
+
+        self._name = name
+        self._id = Person.issue_id()
+
+def main():
+
+    print(f"Current population: {Person.return_population()}")
+    person_1 = Person("Alex")
+    person_2 = Person("John")
+    print(f"person_1 id: {person_1._id}")
+    print(f"person_2 id: {person_2._id}")
+    print(f"Current population: {Person.return_population()}")
+
+if __name__ == "__main__":
+
+    main()
+
+#+end_src
+
+The result of this code is this:
+
+#+begin_src
+
+: Current population: 0
+: person_1 id: 1
+: person_2 id: 2
+: Current population: 2
+
+#+end_src
+
+Notice that changes to the class attribute are reflected by both instances, they are assigned the next id number.
+
+*** Static Methods
+
+- Static methods are associated with a class, however they do not take a class attribute.
+- This technique is useful for grouping functionality under one symbol, without the need for a seperate module.
+- This program groups some mathematical operations under a calculator symbol.
+- No instantiation is needed to use these methods.
+
+In order to create these methods, use the =@staticmethod= decorator.
+Here is some example code:
+
+#+begin_src python :tangle ./sample_code/static_method.py :results output
+
+class calculator:
+
+    @staticmethod
+    def add(x, y):
+
+        return x + y
+
+    @staticmethod
+    def subtract(x, y):
+
+        return x - y
+
+    @staticmethod
+    def multiply(x, y):
+
+        return x * y
+
+    @staticmethod
+    def divide(x, y):
+
+        return x / y
+
+
+def main():
+
+    # Without instantiation
+
+    calculator.add(1, 2)
+    print(calculator.add(1, 2))
+    print(calculator.subtract(2, 1))
+    print(calculator.multiply(2, 3))
+    print(calculator.divide(12, 3))
+
+if __name__ == "__main__":
+
+    main()
+
+#+end_src
+
+Here are the results from the calculator:
+
+#+begin_src
+
+3
+1
+6
+4.0
+
+#+end_src
+
+** Access Modifiers
+
+- Instantiated objects have both attributes and methods.
+- When we use an instance objects methods, the self object is implicitly passed.
+- Therefore all instance methods have the self parameter by default and can modify the object in question.
+
+In order to make our code more readable and maintainable, we try and avoid modifying an instance attribute, without triggering one of the object's behaviours.
+
+#+begin_src python :tangle ./sample_code/access_modifiers.py
+
+class Test_class:
+
+    def __init__(self, name, age, number):
+
+        self.name = name
+        self._age = age
+        self.__number = number
+
+    def return_age(self):
+
+        return self._age
+
+    def return_number(self):
+
+        return self.__number
+
+    def set_number(self, number):
+
+        self.__number = number
+
+#+end_src
+
+We have set up a class with a public, protected and private attribute.
+
+1. No leading undescore is a public attribute.
+2. One leading underscore denotes a protected attribute.
+3. Two leading underscores denote a private attribute.
+
+Import this class into a REPL and we can see how this object behaves:
+
+#+begin_src
+
+>>> from access_modifiers import Test_class
+>>> a = Test_class("alex", 16, 1)
+>>>
+>>> a.name
+'alex'
+>>> a.name = "John"
+>>> a.name
+'John'
+>>>
+>>> a._age
+16
+>>> a._age = 40
+>>> a._age
+40
+>>>
+>>> a.return_number()
+1
+>>> a.__number = 2
+>>> a.return_number()
+1
+>>> a.set_number(100)
+>>> a.return_number()
+100
+>>>
+
+#+end_src
+
+As you can see, changes to the public and protected attributes are reflected in futher use of the object.
+Our attempt to directly modify the private attribute, however, ended in failiure - we were not able to permenantly modify the object.
+
+If we do want to modify this attribute we use a 'setter method', passing in the new value.
+In our class, =set_number()= performs this for us, setting the =self.__number= attribute to the value passed in.
+
+You can see that only the private attribute behaves like this, so what is the purpose of the protected attribute?
+Typically it is the preffered syntax in python, for these reasons:
+
+1. It is visually distinct: when we come across it, we can tell that it is an attribute of an instance.
+2. It maintains flexibility: we are still able to inspect this attribute quickly, even if we technically shouldn't be able to.
+3. Of the tree options, this one can most easily be applied to every situatuion.
+
+In short a single leading underscore denotes an attribute that is typically used by a method, although we can examine it if we really need to.
+
+** Inheritance and Polymorphism
+*** Multi-Level Inheritance
+
+You can use the =abc= package to create truly abstract classes which offer suggested templates for other classes to follow.
+
+#+begin_src python :tangle ./sample_code/polymorphism.py
+
+import abc
+
+class Animal(abc.ABC):
+
+    @abc.abstractmethod
+    def go_swimming(self):
+        pass
+
+    @abc.abstractmethod
+    def go_flying(self):
+        pass
+
+    @abc.abstractmethod
+    def make_noise(self):
+        pass
+
+#+end_src
+
+Then we can create a class wich 'inherits from the 'abstract base class'.
+We program in behaviours for all the abstract methods.
+
+#+begin_src python :tangle ./sample_code/polymorphism.py
+
+class Bird(Animal):
+
+    def go_swimming(self):
+
+        print("usually birds dont't go swimming")
+
+    def go_flying(self):
+
+        print("I am a bird so I can go flying")
+
+    def make_noise(self):
+
+        print(f"I am a bird and my name is {self._name}.")
+
+#+end_src
+
+We are not limited to any number of levels of inheritance.
+These classes inherit from the previously defined =Bird= class.
+While the superclass implemented behaviours for every signature of the abstract class, these classes are only =overloading= some of the inherited behaviour.
+
+Sometimes we might want to maintain and enhance the behaviour of the super class.
+If this is the case, we can make a call to the parent class, passing in the self object. (Even if it isn't needed)
+
+#+begin_src python :tangle ./sample_code/polymorphism.py
+
+class Duck(Bird):
+
+    def __init__(self, name):
+
+        self._name = name
+
+    def go_swimming(self):
+
+        Bird.go_swimming(self)
+        print("But I am a duck and I can go swimming")
+
+class Penguin(Bird):
+
+    def __init__(self, name):
+
+        self._name = name
+
+
+    def go_flying(self):
+
+        Bird.go_flying(self)
+        print("Because I am a penguin I cannot fly.")
+
+#+end_src
+
+This is also a polymorphic technique because a common interface has been built for our various objects.
+In the functions below, a constant method is applied to an object and the result differs depending on the object passed in.
+In this paradigm, the type of the object determines the outcome when the same operation is applied.
+
+#+begin_src python :tangle ./sample_code/polymorphism.py
+
+def test_noise(animal):
+
+    animal.make_noise()
+
+def test_swimming(animal):
+
+    animal.go_swimming()
+
+def test_flying(animal):
+
+    animal.go_flying()
+
+#+end_src
+
+And finally putting it all together.
+
+#+begin_src python :tangle ./sample_code/polymorphism.py
+
+def main():
+
+    penguin_1 = Penguin("john")
+    duck_1 = Duck("alexander")
+
+    test_noise(penguin_1)
+    test_noise(duck_1)
+
+    print("\n")
+    test_swimming(penguin_1)
+    print("\n")
+    test_swimming(duck_1)
+    print("\n")
+    test_flying(penguin_1)
+    print("\n")
+    test_flying(duck_1)
+    print("\n")
+
+if __name__ == "__main__":
+
+    main()
+
+#+end_src
+
+The output of this code is:
+
+#+begin_src
+
+I am a bird and my name is john.
+I am a bird and my name is alexander.
+
+
+usually birds dont't go swimming
+
+
+usually birds dont't go swimming
+But I am a duck and I can go swimming
+
+
+I am a bird so I can go flying
+Because I am a penguin I cannot fly.
+
+
+I am a bird so I can go flying
+
+#+end_src
+
+You can see how the message from the Bird superclass is triggered by certain inherited methods.
+
+*** Multi-Derived Classes
+
+We saw above how you can inherit successively, adding functionality and specificity with each level.
+It is also possible for a class to inherit details from who classes simultaneously.
+
+Here is some code including two base classes:
+
+#+begin_src python :tangle ./sample_code/multiple_inheritance.py :results output
+
+class Base_class_1:
+
+    def message_1(self):
+
+        return "this message is from base class 1"
+
+class Base_class_2:
+
+    def message_2(self):
+
+        return "this message is from base class 2"
+
+class Multi_derived_class(Base_class_1, Base_class_2):
+
+    pass
+
+def main():
+
+    instance = Multi_derived_class()
+
+    print(instance.message_1())
+    print(instance.message_2())
+
+if __name__ == "__main__":
+
+    main()
+
+#+end_src
+
+You can see that our derived class inherits both the =message_1= and =message_2= methods.
+When we run the code we get this output:
+
+#+begin_src
+
+this message is from base class 1
+this message is from base class 2
+
+#+end_src
+
+This proves that our object has inherited from two parent classes.
+* Packages and Modules
+** Introduction
+
+Python extends its high level of abstraction over the filesystem.
+
+- In python a file or folder is seen as a module
+- Packages are modules which may contain other modules.
+- Packages are often seen as directories containing a =__init__.py=  file.
+- The =__init__.py= file is largely not needed in later versions of python, but is widely used and more useful than not.
+  
+This is the directory layout we will be looking at in our example:
+
+#+begin_src 
+ .
+ |--package_1/
+ |  |--__init.py__
+ |  `--module_1.py
+ |
+ |--package_2/
+ |  `--module_2.py
+ |
+ |--test.py
+ |--test1.py
+ |--test2.py
+ |--module.py
+
+#+end_src
+
+=test.py= is the entry point for this project. (The contents of this file are whown at the end)
+=test1.py= is just another file containing driver code.
+=test2.py= is just another file containing driver code.
+=module.py= is a single file module, not nested in a package.
+
+Assume that and demo code is found in =test.py=, or at least at that level, unless stated otherwise.
+
+- Given the file tree shown above, =module_1.py=, =module_2.py= and =test.py= are single-file modules and have the standard attributes of a module as well as anythig else we define in that module.
+- We can view the =__file__=  attribute of objects of type 'module'. This variable will return the path of the file for the imported module if it exists. 
+- If that module is a python file, the =__file__= value will be the full path to that file.
+- If the module is a filesystem directory, the =__file__= attribute will be =__init__.py= if that file exists, else it will be ~None~.
+- If the module is a filesystem directory, it will also have the =__path__= atribute, not found on python file modules.
+
+** Importing Files
+
+If a file, or more acurately a module, is found in the same directory, it can simply be imported as is.
+This is the contents of =module.py= in the same directory as the driver code.
+
+#+begin_src python :tangle ./sample_code/packages_and_modules/module.py
+
+def test_function():
+
+    print("This function comes from module.py")
+
+#+end_src
+
+And this is the contents of =test2.py=:
+
+#+begin_src python :tangle ./sample_code/packages_and_modules/test2.py
+
+import module
+
+print(dir(module))
+module.test_function()
+
+#+end_src
+
+When the file is run:
+
+1. The file is imported.
+2. The attributes of the imported module, called '/module/' are inspected.
+3. A function from the imported module is called using dot syntax.
+
+This is the output of the code:
+
+#+begin_src 
+
+['__builtins__', '__cached__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', 'test_function']
+This function comes from module.py
+
+#+end_src
+
+** Importing Directories
+
+In the abscence of a =__init__.py= file, the directory is imported as a package (module), but it will not have all the attributes we might expect. A quick look at the list of attributes will reveal that it has no custom attributes. Notably, the nested modules are not shown as attributes. So for any module - file or directory - custom attributes are determined in the file specified by: =__file__=. If this file does not exist, or is empty, the module will not have any custom properties.
+
+The following code is found in =test1.py= it demonstrates the use of a package without a =__init__.py= file:
+
+#+begin_src python :tangle ./sample_code/packages_and_modules/test1.py
+
+import package_2
+
+print(("package_2" in locals()))
+
+print(type(package_2))
+print(dir(package_2)) 
+print(package_2.__file__)
+print(package_2.__path__) 
+
+#+end_src
+
+1. This code verifies that =package_2= is bound to a symbol in the current scope.
+2. Then print the type of the package.
+3. Print all the attributes of the package
+4. Print the value of the =__file__= attribute.
+5. Print the value of the =__path__= attribute.
+
+The output of this driver code is:
+
+#+begin_src 
+
+True
+<class 'module'>
+['__doc__', '__file__', '__loader__', '__name__', '__package__', '__path__', '__spec__']
+None
+_NamespacePath(['/home/alex/code/python_examples/sample_code/packages_and_modules/package_2'])
+
+#+end_src
+
+Because the package above has no custom attributes we cannot use dot syntax to access any nested modules. We can, however, use this technique to structure files. In practice we will use the =__init__.py= file to make this process easier, especially valuable for importing nested packages and multiple other modules.
+
+** Nicer Import Syntax
+
+Supposing we want to import =module_2.py= from =test.py=, we can do that without the use of a =__init__.py= using two methods.
+These methods also apply to modules and packages with proper initialisation files.
+
+1. =from= syntax
+
+#+begin_src python
+
+from pprint import pprint
+from package_2 import module_2 
+
+pprint(locals()) # Will show that module_2 is bound to a symbol in current scope.
+
+#+end_src
+
+We can use this syntax to import any nested symbol, whether that be a function, class, object, module or package.
+
+2. 'dot' syntax
+   
+#+begin_src python
+
+from pprint import pprint
+import package_2.module_2 
+
+pprint(locals()) # Will show that only package_2 is bound to a symbol in current scope.
+pprint(dir(package_2)) # This type of import will add the module_2 attribute to the package_2 module in the current scope.
+
+#+end_src
+
+In this example we have used the dot qualifier to bind a module to the package symbol. 
+Notice that we can use this syntax to navigate the file system in the import statement itself.
+This means we can now use dot operations on the imported package to access its member modules.
+
+** Package Initialisation
+
+As discussed above =__init__.py= is a powerful intialisation tool for our packages. 
+With this file, we can effectively 'run code' when a package - or more literally, a directory - gets imported.
+This allows us to start transforming an organisational structure for files into a more interactive python code heirachy.
+
+The obvious problem with =package_2/= is that nested modules are not accesible from the imported symbol.
+We have seen how we can access that code, but it can be cleaner to use a =__init__.py= file to import nested modules for us.
+If we do this, we should be able to use dot qualifiers on our package symbols to get at the modules and code inside, without the need to manually import that code.
+
+Here is some example code we could put inside the =__init__.py= for =package_1=.
+
+#+begin_src python
+
+# This code could be in package_1/__init__.py
+
+import package_1.module_1
+
+#+end_src
+
+Alternatively, we could use a relative import to simplify this code:
+
+#+begin_src python
+
+from . import module_1
+
+#+end_src
+
+This is a very useful file. It means that whenever the outer package is imported, nested modules get bound to the package symbol.
+With this code in place, this code would work in =test.py=:
+
+#+begin_src python
+
+import package_1
+
+print(dir(package_1)) # This will show that the nested module is bound to a symbol under package_1.
+print(dir(package_1.module_1)) # This will print the attributes of the imported module.
+
+# Supposing that there is a function: function_1 in module_1, we caould use it like this:
+
+package_1.module_1.function_1()
+
+#+end_src
+
+So you can see how the use of a =__init__.py= can create a hierachical code structure, navigated by dot qualifier syntax.
+
+** Demonstration
+
+This python code uses all of the techniques documented above to use code nested in other modules.
+
+- I used the =in= operator to check if a string was in an iterable series.
+- In this case we were looking for a symbol in a list of symbols in the current scope.
+- A =True= result means that the symbol was in the local scope.
+
+#+begin_src python :tangle ./sample_code/packages_and_modules/test.py :result output
+
+print("Import package_1. This has a '__init__.py' so additional attributes will be bound to the symbol.")
+import package_1
+print("Here is proof that 'package_1' was imported:")
+print(("package_1" in locals()))
+print("Here is proof that the nested module is now an attribute of package_1: ")
+print(("module_1" in dir(package_1)))
+print("functions within the nested modules can be used: ")
+package_1.module_1.function_1()
+print("\n")
+
+print("Import package_2. This does not have a '__init__.py' so nested modules will not automatically be bound as modules.")
+import package_2
+print("Here is proof that 'package_2' was imported:")
+print(("package_2" in locals()))
+print("Here is proof that the nested module is not an attribute of package_2: ")
+print(("module_2" in dir(package_2)))
+
+print("\n")
+
+print("It is still possible to use the code in module_2.")
+import package_2.module_2
+
+print("Here is proof that the nested module is now an attribute of package_2: ")
+print(("module_2" in dir(package_2)))
+
+print("Now we can use that code: ")
+
+package_2.module_2.function_2()
+
+#+end_src
+
+This is the output of that code:
+
+#+begin_src 
+
+Import package_1. This has a '__init__.py' so additional attributes will be bound to the symbol.
+Here is proof that 'package_1' was imported:
+True
+Here is proof that the nested module is now an attribute of package_1:
+True
+functions within the nested modules can be used:
+This is a function from module_1
+
+
+Import package_2. This does not have a '__init__.py' so nested modules will not automatically be bound as modules.
+Here is proof that 'package_2' was imported:
+True
+Here is proof that the nested module is not an attribute of package_2:
+False
+
+
+It is still possible to use the code in module_2.
+Here is proof that the nested module is now an attribute of package_2:
+True
+Now we can use that code:
+This is a function from module_2
+
+#+end_src
+
+** Using =__all__=
+* Next Sections
+** Functions and Procedural Programming
+** Multithreading and Multiprocessing
+** I/O

@@ -1,6 +1,19 @@
 #+TITLE: LAMP Stack Set-up Notes
 #+AUTHOR: Alexander Neville
 
+* Contents :TOC:
+- [[#apache][Apache]]
+  - [[#installation][Installation]]
+  - [[#firewall-set-up][Firewall Set-up]]
+- [[#php][PHP]]
+- [[#permissions][Permissions]]
+- [[#database][Database]]
+  - [[#install][Install]]
+  - [[#creating-users][Creating Users]]
+  - [[#assigning-roles][Assigning Roles]]
+  - [[#importing-and-exporting][Importing and Exporting]]
+- [[#example-laravel-deployment][Example Laravel Deployment]]
+
 * Apache
 ** Installation
 
@@ -40,11 +53,12 @@ sudo netfilter-persistent save
 
 * PHP
 
-*Ubuntu:*
+*Ubuntu:* (also insttall some common extensions)
 
 #+begin_src sh
 
 sudo apt install php
+sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php-xml php-zip
 
 #+end_src
 
@@ -166,3 +180,5 @@ mysqldump -u [username] -p [database-you-want-to-dump] > [path-to-place-data-dum
 mysql -u [username] -p newdatabase < [database name].sql
 
 #+end_src
+
+* Example Laravel Deployment

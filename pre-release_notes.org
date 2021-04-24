@@ -1,0 +1,655 @@
+#+TITLE: End of Year Computer Science Pre-release
+
+These are some code comments about the as-level pre-release for EOY exam. These notes are organised hierachically, but in the order things will likely get run, not the order they appear in the file. Sorrry abot hte speeling.
+
+* Contents :TOC:
+- [[#module-level][Module Level]]
+- [[#graphics][Graphics()]]
+  - [[#creating-the-grid][Creating the Grid]]
+  - [[#cleargrid][ClearGrid()]]
+  - [[#fileheader][FileHeader()]]
+  - [[#while-loop][While Loop]]
+  - [[#after-the-while-loop][After the While Loop]]
+
+* Module Level
+
+At the beginning of the program, some default 'constants' are set:
+
+#+begin_src python
+
+EMPTY_STRING = ""
+MAX_WIDTH = 100
+MAX_HEIGHT = 100
+
+#+end_src
+
+The definition of =FileHeader= class is also found here, but explained below.
+
+The only other code at module level is a call to the =Graphics= function.
+
+#+begin_src python
+
+if __name__ == "__main__":
+    Graphics()
+
+#+end_src
+
+* Graphics()
+
+This module contains all the driver code for the program and is called at the module level, so the program can be used as a script.
+
+** Creating the Grid
+
+The first part of the function is a list comprehension, generating a 2D array, where each element is an array containing empty strings.
+
+The length of the outer array is the value of =MAX_HEIGHT=, and the length of the nested arrays are equal to =MAX_WIDTH=.
+
+#+begin_src python
+
+Grid = [['' for Column in range(MAX_WIDTH)] for Row in range(MAX_HEIGHT)]
+
+#+end_src
+
+This is just one element, there are 99 more:
+
+#+begin_src
+
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '']
+
+#+end_src
+
+** ClearGrid()
+
+Once the array has been created, the =ClearGrid= function is immediately called on it.
+The return value is assigned to the symbol =Grid=.
+
+Here is the function getting called:
+
+#+begin_src python
+
+Grid = ClearGrid(Grid)
+
+#+end_src
+
+And here is the function itself:
+
+#+begin_src python
+
+def ClearGrid(Grid):
+    for Row in range(MAX_HEIGHT):
+        for Column in range(MAX_WIDTH):
+            Grid[Row][Column] = '.'
+    return Grid
+
+#+end_src
+
+Every element within every array is iterated over and a full stop is assigned to it.
+
+** FileHeader()
+
+Once the grid has been set up, an instance of =FileHeader= is created and assigned to the name =Header=.
+
+
+Here is the class used to define the object:
+
+#+begin_src python
+
+class FileHeader:
+
+    def __init__(self):
+        self.Title = EMPTY_STRING
+        self.Width = MAX_WIDTH
+        self.Height = MAX_HEIGHT
+        self.FileType = EMPTY_STRING
+
+#+end_src
+
+The =__intit__()= method takes no additional parameters and its attibutes are set to hard-coded 'constants'.
+Here is the instantiation of the =Header= object.
+
+#+begin_src python
+
+Header = FileHeader()
+
+#+end_src
+
+** While Loop
+
+Once all the variable assignment has taken place the program enters a while loop.
+The condition for this loop is =not ProgramEnd=.
+A =False= value is assigned to =ProgramEnd= before the loop begins, ensuring it is run at least once.
+
+#+begin_src python
+
+ProgramEnd = False
+
+while not ProgramEnd:
+
+    DisplayMenu()
+    MenuOption = GetMenuOption()
+    if MenuOption == 'L':
+        Grid, Header = LoadFile(Grid, Header)
+    elif MenuOption == 'D':
+        DisplayImage(Grid, Header)
+    elif MenuOption == 'E':
+        Grid = EditImage(Grid, Header)
+    elif MenuOption == 'S':
+        SaveImage(Grid, Header)
+    elif MenuOption == 'X':
+        ProgramEnd = True
+    else:
+        print("You did not choose a valid menu option. Try again")
+
+#+end_src
+
+*** Menu
+
+For every iteration of the program while loop a Menu is displayed and user input is read.
+This is how that looks from within the =Graphics()= funciton:
+
+#+begin_src python
+
+DisplayMenu()
+MenuOption = GetMenuOption()
+
+#+end_src
+
+**** DisplayMenu()
+
+This function has no parameters and it does not return a value.
+It is responsible for printing the options available to the user.
+It is called with every iteration of the main while loop.
+
+#+begin_src python
+
+def DisplayMenu():
+    print()
+    print("Main Menu")
+    print("=========")
+    print("L - Load graphics file")
+    print("D - Display image")
+    print("E - Edit image")
+    print("S - Save image")
+    print("X - Exit program")
+    print()
+
+#+end_src
+
+**** GetMenuOption()
+
+After the menu has been displayed, the =GetMenuOption()= function is responsible for prompting the user to input a selection and pass it back to the main thread of the program as its return value.
+It performs some validation, by making sure the length of the input is only one character long.
+
+#+begin_src python
+
+def GetMenuOption():
+    MenuOption = EMPTY_STRING
+    while len(MenuOption) != 1:
+        MenuOption = input("Enter your choice: ")
+    return MenuOption
+
+#+end_src
+
+*** If Block
+
+Once a string of length one is returned by the =GetMenuOption()=, this if block decides which function to call.
+
+#+begin_src python
+
+if MenuOption == 'L':
+    Grid, Header = LoadFile(Grid, Header)
+elif MenuOption == 'D':
+    DisplayImage(Grid, Header)
+elif MenuOption == 'E':
+    Grid = EditImage(Grid, Header)
+elif MenuOption == 'S':
+    SaveImage(Grid, Header)
+elif MenuOption == 'X':
+    ProgramEnd = True
+else:
+    print("You did not choose a valid menu option. Try again")
+
+#+end_src
+
+**** LoadFile()
+
+This function is used to replace the current grid with the contents of a file.
+The function also takes in the header object to keep track of some of the metadata of the loaded image.
+The return value is the Grid and the Header that are passed as arguements and operated on by the function.
+
+This is the definition of the function:
+
+#+begin_src python
+
+def LoadFile(Grid, Header):
+
+#+end_src
+
+This is the local variable initialisation:
+
+#+begin_src python
+
+    FileFound = False
+    FileTypeOK = False
+    FileName = input("Enter filename to load: ")
+
+#+end_src
+
+The rest of the function is wrapped in a 'try except' block, primarily to catch the possible exception that the file is not found.
+
+Here is the code block:
+
+#+begin_src python
+
+    try:
+        FileIn = open(FileName + ".txt", 'r')
+        FileFound = True
+        HeaderLine = FileIn.readline()
+        Fields = HeaderLine.split(',')
+        Header.Title = Fields[0]
+        Header.Width = int(Fields[1])
+        Header.Height = int(Fields[2])
+        Header.FileType = Fields[3]
+        Header.FileType = Header.FileType[0]
+        if Header.FileType == 'A':
+            Grid = LoadAsciiImage(FileIn, Grid, Header)
+            FileTypeOK = True
+        elif Header.FileType == 'G':
+            Grid = LoadGreyScaleImage(FileIn, Grid, Header)
+            FileTypeOK = True
+        FileIn.close()
+        if not FileTypeOK:
+            DisplayError("Unknown file type")
+        else:
+            DisplayImage(Grid, Header)
+    except:
+        if not FileFound:
+            DisplayError("File not found")
+        else:
+            DisplayError("Unknown error")
+
+#+end_src
+
+If the file specified is found a flag is set, namely =FileFound= is set to true.
+
+*Header:*
+
+- The first line of the file is read into a variable called =HeaderLine=.
+- The =HeaderLine= is split into an array, called =Fields= on commas.
+- The values of each element in =Fields= is assigned to one of the attributes of the =Header= object.
+
+| element | attribute |
+|---------+-----------|
+|       0 | Title     |
+|       1 | Width     |
+|       2 | Height    |
+|       3 | FileType  |
+
+In the case of width and height, the integer value is stored.
+The file type is set to the initial letter of the =Header.FileType= variable.
+
+An if statement follows and depending on the filetype, the file is loaded into the =Grid= with one of two functions.
+Once a function has been called, the file is closed.
+If one of the functions does get called, =FileTypeOK= is set to true. This is used later.
+
+#+begin_src python
+
+        if Header.FileType == 'A':
+            Grid = LoadAsciiImage(FileIn, Grid, Header)
+            FileTypeOK = True
+        elif Header.FileType == 'G':
+            Grid = LoadGreyScaleImage(FileIn, Grid, Header)
+            FileTypeOK = True
+        FileIn.close()
+
+#+end_src
+
+***** LoadAsciiImage()
+
+If the file type is equal to ~A~, the =LoadAsciiImage= function is called, passing in the file object, the =Grid= and the =Header= object.
+The retutn value is assigned to =Grid=, populating it with the contents of the file.
+
+Here is the function itself:
+
+#+begin_src python
+
+def LoadAsciiImage(FileIn, Grid, Header):
+    try:
+        ImageData = FileIn.readline()
+        NextChar = 0
+        for Row in range(Header.Height):
+            for Column in range(Header.Width):
+                Grid[Row][Column] = ImageData[NextChar]
+                NextChar += 1
+    except:
+        DisplayError("Image data error")
+    return Grid
+
+#+end_src
+
+*What is does:*
+
+1. The second line of the file is read into a variable called =ImageData=, which is all the ascii characters needed in the image.
+2. =NextChar=, a counter of the position along the =ImageData= string, is set to 0.
+3. For every row in the image (retrieved from the =Header.Height= variable) iterate over the number of columns (width) of the image. (retrieved from the =Header.Width= variable)
+4. The /'pixlel'/ on the =Grid= at the current coordinates (Row, Column) is set to the character at position =NextChar= along the =ImageData= variable.
+5. =NextChar= is incremented, so that the next coordinate in =Grid= is set to the next character along =ImageData= as iteration over the 2D array continues.
+
+ Provided that a valid line of sufficient length is read into =ImageData=, the modified =Grid= is returned.
+
+***** LoadGreyScaleImage()
+
+If the file type is equal to ~G~, the =LoadGreyScaleImage= function is called, passing in the file object, the =Grid= and the =Header= object.
+The retutn value is assigned to =Grid=, populating it with the contents of the file.
+
+Here is the function itself:
+
+#+begin_src python
+
+def LoadGreyScaleImage(FileIn, Grid, Header):
+    try:
+        for Row in range(Header.Height):
+            for Column in range(Header.Width):
+                NextPixel = FileIn.readline()
+                PixelValue = int(NextPixel)
+                Grid[Row][Column] = ConvertChar(PixelValue)
+    except:
+        DisplayError("Image data error")
+    return Grid
+
+#+end_src
+
+Unlike the Ascii function, in this file, one line in the file represents one character.
+For every position in the relevant part of the 2D array, determined by the header:
+
+1. The line is read into the =NextPixel= variable.
+2. The integer value is assigned to =PixelValue=.
+3. The apropriate ascii character is placed in =Grid= at the current coordinates.
+
+ The right ascii value is determined by the =ConvertChar()= function.
+
+****** ConvertChar()
+
+This function is used to convert a integer value, representing the shade of a pixel into an ascii character.
+
+*Input:* an integer read from a file.
+*Output:* an ascii symbol.
+
+Here is the function, it is very simple:
+
+#+begin_src python
+
+def ConvertChar(PixelValue):
+    if PixelValue <= 32:
+        AsciiChar = '#'
+    elif PixelValue <= 64:
+        AsciiChar = '&'
+    elif PixelValue <= 96:
+        AsciiChar = '+'
+    elif PixelValue <= 128:
+        AsciiChar = ';'
+    elif PixelValue <= 160:
+        AsciiChar = ':'
+    elif PixelValue <= 192:
+        AsciiChar = ','
+    elif PixelValue <= 224:
+        AsciiChar = '.'
+    else:
+        AsciiChar = ' '
+    return AsciiChar
+
+
+#+end_src
+
+It is effectively one large switch statement on =PixelValue=.
+An ascii symbol is assigned to =AsciiChar= depending on the value.
+A blank space is assigned if the value is above 224.
+
+***** After Loading the Image
+
+If the file type is not set to true, that means that a new image has not been read into =Grid=, therefore print a message.
+If this is not the case a call to the =DisplayImage()= function is made to print the new image, this function is explained below.
+
+#+begin_src python
+
+        if not FileTypeOK:
+            DisplayError("Unknown file type")
+        else:
+            DisplayImage(Grid, Header)
+
+#+end_src
+
+If there was an error  within the try block an appropriate message is displayed.
+
+#+begin_src python
+
+    try:
+
+        #...
+
+    except:
+
+        if not FileFound:
+
+            DisplayError("File not found")
+
+        else:
+
+            DisplayError("Unknown error")
+
+#+end_src
+
+The modified =Grid= and =Header= are returned after the try, catch block.
+
+#+begin_src python
+
+    return Grid, Header
+
+#+end_src
+
+**** DisplayImage()
+
+This function can is called at various points in the program and it can be called explicitly by the user from the menu.
+The function takes the =Grid= and =Header= pbject as paramaters, but has no return value.
+
+Here is the function:
+
+#+begin_src python
+
+def DisplayImage(Grid, Header):
+    print()
+    PrintHeading(Header.Title)
+    for ThisRow in range(Header.Height):
+        for ThisColumn in range(Header.Width):
+            print(Grid[ThisRow][ThisColumn], end='')
+        print()
+
+#+end_src
+
+This function uses the limits stored in the =Header= object to iterate over relevant sections of the =Grid=.
+It iterates over every element within nested arrays (rows) and prints the element without inserting a line break.
+A line break is inserted every time one row is iterated over entirely.
+
+***** PrintHeading()
+
+Every time the =DisplayImage()= function is called, there is a call to =PrintHeading()=.
+The only arguement passes is the string stored in =Header.Title=.
+ The function looks like this:
+
+ #+begin_src python
+
+def PrintHeading(Heading):
+   print(Heading)
+   HeadingLength = len(Heading)
+   for Position in range(1, HeadingLength + 1):
+       print('=', end='')
+   print()
+
+ #+end_src
+
+ It prints the string passed in and /'underlines'/ it with === signs.
+
+**** EditImage()
+
+One of the options open to the user is editing the image loaded onto the =Grid=.
+The function parameters are the =Grid= and the =Header= object for the current image.
+
+The function begins with displaying the image followed by setting =Answer= to =EMPTY_STRING=.
+
+#+begin_src python
+
+def EditImage(Grid, Header):
+
+    DisplayImage(Grid, Header)
+    Answer = EMPTY_STRING
+
+    #...
+
+#+end_src
+
+Then a while loop begins, dependent on =Answer= != "N".
+This means that the loop always runs at least once, and up until the user enters "N".'
+
+#+begin_src python
+
+    # ...
+
+    while Answer != "N":
+        Symbol = EMPTY_STRING
+        NewSymbol = EMPTY_STRING
+        while len(Symbol) != 1:
+            Symbol = input("Enter the symbol you want to replace: ")
+        while len(NewSymbol) != 1:
+            NewSymbol = input("Enter the new symbol: ")
+        for ThisRow in range(Header.Height):
+            for ThisColumn in range(Header.Width):
+                if Grid[ThisRow][ThisColumn] == Symbol:
+                    Grid[ThisRow][ThisColumn] = NewSymbol
+
+
+
+#+end_src
+
+1. Some variables are initialised and set to default values.
+2. A nested loop begins, taking user input and assigning it to =Symbol= until an input of 1 character is made.
+3. A second nested loop begins after the first, taking user input and assigning it to =NewSymbol= continously until the input is one character long.
+4. Iterate over relevant parts of the 2D array, determined by the meta-data in =Header=, replacing any character which is equal to =Symbol= with the character the user specified in =NewSymbol=.
+
+Once a successful substitution has been made:
+
+1. The image is displayed.
+2. The user is asked if they want to make another change.
+
+#+begin_src python
+
+        # ...
+
+        DisplayImage(Grid, Header)
+        Answer = input("Do you want to make any further changes? (Y/N) ")
+
+
+#+end_src
+
+If the user enters "N" the loop exits and the modified =Grid= is returned.
+
+#+begin_src python
+
+    # ...
+
+    return Grid
+
+#+end_src
+
+**** SaveImage()
+
+This function allows the user to /'export'/ the image to a text file.
+The image is exported as it is displayed in the program, so it can be viewed.
+If exported in this way, it can not be loaded back into the program.
+The function =SaveFile()=, explained below, is used to do this.
+
+#+begin_src python
+
+def SaveImage(Grid, Header):
+    print("The current title of your image is: " + Header.Title)
+    Answer = input("Do you want to use this as your filename? (Y/N) ")
+    if Answer == "N" or Answer == "n":
+        FileName = input("Enter a new filename: ")
+    else:
+        FileName = Header.Title
+    FileOut = open(FileName + ".txt", 'w')
+    FileOut.write(Header.Title + '\n')
+    for Row in range(Header.Height):
+        for Column in range(Header.Width):
+            FileOut.write(Grid[Row][Column])
+        FileOut.write('\n')
+    FileOut.close()
+
+#+end_src
+
+1. Ask the user if they want to use the current image title as the file name.
+2. Set the =FileName= to the title or a custom user input as requested.
+3. Create a file object =FileOut=.
+4. Write the title to the first line and insert a new line.
+5. iterate over all the relevant parts of the 2D array, printing the value to the file.
+6. At the end of each 'row' in the 2D array, insert a new line.
+7. Close the file after all relevant info is outputted to the file.
+
+**** Error Condition
+
+If the input returned from the menu is not equal to any of the options, a message is displayed and the flow of the program continues, the while loop begins  again.
+
+**** Exiting the Program
+
+If the input is equal to 'X', =ProgramEnd= is set to True and no more iterations will take place, as the condition on the for loop is not met.
+
+#+begin_src python
+
+         # ...
+
+         elif MenuOption == 'X':
+
+            ProgramEnd = True
+
+         # ...
+
+#+end_src
+
+** After the While Loop
+
+Once the user has choosen to exit the program, this is printed on screen.
+The user is also prompted to save the file:
+
+#+begin_src python
+
+print("You have chosen to exit the program")
+Answer = input("Do you want to save the image as a graphics file? (Y/N) ")
+if Answer == "Y" or Answer == "y":
+    SaveFile(Grid, Header)
+
+#+end_src
+
+If the user answered no, the program ends.
+If the user answered yes to the prompt, the =SaveFile()= function is called, passing in the grid and the header.
+
+*** SaveFile()
+
+This function takes in the =Grid= and the =Header= for the currently loaded image and writes it to a file in a format that can be loaded back into the program.
+
+#+begin_src python
+
+ def SaveFile(Grid, Header):
+    FileName = input("Enter filename: ")
+    FileOut = open(FileName + ".txt", 'w')
+    FileOut.write(Header.Title + ',' + str(Header.Width) + ',' + str(Header.Height) + ',' + 'A' + '\n')
+    for Row in range(Header.Height):
+        for Column in range(Header.Width):
+            FileOut.write(Grid[Row][Column])
+    FileOut.close()
+
+#+end_src
+
+1. Read a =FileName= from the user.
+2. Create a file object to write to called =FIleOut=.
+3. On the first line write all the metadata, seperated by commas.
+4. iterate over all the relevant parts of the 2D array and write the characters onto the 2nd line.
+5. Close the file.
