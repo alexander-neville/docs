@@ -6,10 +6,11 @@ This repository contains some notes about programming and system set-up.
 * Included Documents
 
 1. Setting up a LAMP stack -> (lamp.org)
-2. Python OOP, modules and package -> (python.org)
-3. Pre-Release Program breakdown -> (pre-release_notes.org)
+2. Python OOP, modules and packages -> (python.org)
+3. Pre-Release program breakdown -> (pre-release_notes.org)
 4. NodeJs set-up for web development -> (nodejs.org)
 5. Arch Linux set-up for daily use -> (arch.org)
+6. Basic git usage -> (git.org)
 
 * Sample Code
 
