@@ -1,0 +1,201 @@
+#+TITLE: Basic Git usage
+#+AUTHOR: Alexander Neville
+
+Git is a popular /distributed version control system/. It is easy for beginners to use as a back-up tool and powerful enough to help manage code in very large projects.
+
+* Contents :TOC:
+- [[#installation][Installation]]
+- [[#initial-configuration][Initial Configuration]]
+- [[#setting-up-a-repository][Setting Up a Repository]]
+- [[#basic-git-usage][Basic Git Usage]]
+  - [[#the-staging-area][The Staging Area]]
+  - [[#making-a-commit][Making a Commit]]
+- [[#branches][Branches]]
+- [[#merging][Merging]]
+- [[#additional-git-usage][Additional Git Usage]]
+
+* Installation
+
+Git is in most package repositories. Install with these commands on debian and arch respectively:
+
+#+begin_src shell
+
+sudo apt install git
+sudo pacman -S git
+
+#+end_src
+
+Verify succesful installation:
+
+#+begin_src shell
+
+which git
+git --version
+
+#+end_src
+
+* Initial Configuration
+
+Before using git for any project, some global configuration needs to be done. eg. name and email address
+
+#+begin_src shell
+
+git config --global user.email "insert email here"
+git config --global user.name "insert name here"
+
+#+end_src
+
+- (note: write you email address within double quotes)
+- (note: write your name within double quotes)
+
+Make the git utility remember credentials for your remote repositories:
+
+#+begin_src shell
+
+git config --global credential.helper store
+
+#+end_src
+
+* Setting Up a Repository
+
+Git can keep track of your work in a local folder and it can alo be used to sync your work to a remote repository. Github is a website which you can use a to host a repository. Below are two methods for setting up a project. In both cases you will need to go on to github and create a repo.
+
+*Option 1:*
+
+- Create a repo on github.
+- Add *README*, *.gitignore* etc.
+- Clone empty / almost empty repository to your machine
+- Start work.
+
+To /“download”/ the repository and its contents use  the  =git clone= command, along with the https clone url of the repo.
+
+#+begin_src shell
+
+git clone https://github.com/your-username/your-repo.git
+
+#+end_src
+
+This will create a directory with the name of the repository wherever you execute the command. Depending on the visibility of the project you may need to fill in username and password information.
+
+*Option 2:*
+
+- Already started work on a project or using another git provider
+- Create a blank repository on github etc.
+- Initialise git on local machine (if not done so already)
+- Add the remote repo to the local git config
+
+This option is best for putting existing files under version control. Assuming that you do not have git setup within your project directory, use this command to initialise a git project.
+
+#+begin_src shell
+
+git init
+
+#+end_src
+
+Having set up git locally, add the remote repo, calling it /origin/.
+
+#+begin_src shell
+
+git remote add origin https://github.com/your-account/your-repo.git
+
+#+end_src
+
+* Basic Git Usage
+
+The git utility keeps track of commits - moments in time where the progress of a project is saved. It is often up to the user to make these commits. Rather than store the whole project at every commit, git uses /diffs/ to determine how to get from one commit to the next. Using these diffs, git can recreate your project at any commit. More often than not, some parts of a project do not nees to be put under version control. Cache, compiled code and externally installed dependencies are not needed to redeploy your software and so it is wastefull to include these files in a commit. In order to avoid constantly commiting redundant files, commits are snapshots of the *staging area* rather than the directory. If you don't want a commit to feature some files, do not stage them!
+
+** The Staging Area
+
+When creating a commit, all the changes that need to be seen must be staged. This can be done on a file by file basis, for exmaple:
+
+#+begin_src shell
+
+git add name_of_file
+
+#+end_src
+
+Or you can stage all files at once:
+
+#+begin_src shell
+
+git add .
+
+#+end_src
+
+To avoid files being accidentally staged when they are not needed, a *.gitignore* is often used. This file specifies which file and folder type should not be tracked. This type of file is available for most languages.
+
+** Making a Commit
+
+With changes in the staging area, you can make a snapshot of your progress, called a *commit*.
+
+#+begin_src shell
+
+git commit -m “message within double quotes”
+
+#+end_src
+
+This will create the commit locally, to publish your commit, push it to your remote repository:
+
+#+begin_src shell
+
+git push origin branch-name
+
+#+end_src
+
+Substitute the branch name you would like to push to into this command, for now this may be the main or master branch.
+
+* Branches
+
+Git is often used to work collaboratively and a *branch* is useful way of managing this process. To prevent conflicts between many people using the main branch, developers can create new branches. A branch may be created for a developer to work on a specific feature, while the main branch remains unaffected until the feature is finished and ready to be *merged* back into main.
+
+Create a branch:
+
+#+begin_src shell
+
+git branch branch-name
+
+#+end_src
+
+Move onto the branch:
+#+begin_src shell
+
+git checkout branch-name
+
+#+end_src
+
+At any time, you can type *git branch* to find the name of the branch you are working on:
+
+#+begin_src shell
+
+git branch
+
+#+end_src
+
+Now that a branch has been created, you can follow the normal git procedure while you work on the branch. To publish the branch, create a branch on the remote repo and push you commits to that branch:
+
+#+begin_src shell
+
+git push origin branch-name
+
+#+end_src
+
+* Merging
+
+Unlike a fork, branches are designed to merge back into the main branch (or whichever branch they originated from). This procedure can be performed locally, but it is usually done through the git provider. This helps developers co-operate. To merge two branches, a *pull-request* (PR) is created, and the merge is proposed. Contributors can examine the proposed changes and if approved the branch is merged into main.
+
+To obtain the latest changes to main - after a branch is merged - checkout the branch and use *git pull*. If needed, delete the old branch.
+
+#+begin_src shell
+
+git checkout main
+git pull
+git branch -D old-branch-name
+
+#+end_src
+
+* Additional Git Usage
+
+Git is a very advanced tool and this is only an introduction. Here are some more useful commands you might want to use:
+
+- *git status* is a useful command which will tell you about the state of your local staging area
+- *git log* will list all of the recent commits and their code, so you can go back to a previous commit if you need to
