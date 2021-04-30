@@ -22,6 +22,33 @@ pacaur -S --noedit --noconfirm --needed aurpkglist.txt
 
 #+end_src
 
+* Xorg
+
+Install the xorg package group, along with xinit:
+
+#+begin_src sh
+
+sudo pacman -S xorg
+sudo pacman -S xorg-xinit
+
+#+end_src
+
+For intel devices, install these drivers:
+
+#+begin_src shell
+
+sudo pacman -S mesa xf86-video-intel
+
+#+end_src
+
+** Other useful utilities:
+
+1. =hsetroot= (basic cli wallpapersetter)
+2. =nitrogen= (gui wallpaper setter)
+3. =xodotool= (interact with gui windows)
+4. =lxapperaance= (WM agnostic GTK theme setter)
+
+
 * Tidying the System
 
 Remove orphaned packages:
@@ -40,5 +67,61 @@ Install the =networkmanager= package and then enable the =NetworkManager.service
 
 sudo pacman -S networkmanager nm-connection-editor
 sudo systemctl enable --now NetworkManager
+
+#+end_src
+
+* Blacklist pcspkr
+
+The pcspkr kernel module makes irritating noises when input is invalid. To disable it, run as root:
+
+#+begin_src shell
+
+echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.con
+
+#+end_src
+
+* ZSH
+
+Verify current shell:
+
+#+begin_src sh
+
+echo $SHELL
+
+#+end_src
+
+Install /zsh/:
+
+#+begin_src shell
+
+sudo pacman -S zsh zsh-completions
+
+#+end_src
+
+Print all the currently installed shell programs:
+
+#+begin_src shell
+
+chsh -l
+
+#+end_src
+
+Chnage the default shell of the current user to the new shell:
+
+#+begin_src shell
+
+chsh -s /bin/zsh
+
+#+end_src
+
+The first time you enter zsh, you will be taken through a script to set up some defaults.
+
+*Tip:*
+
+Source changes to your config file with this command:
+
+#+begin_src shell
+
+source ~/.zshrc
 
 #+end_src
