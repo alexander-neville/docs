@@ -12,6 +12,3 @@ This repository contains some notes about programming and system set-up.
 5. Arch Linux set-up for daily use -> (arch.org)
 6. Basic git usage -> (git.org)
 
-* Sample Code
-
-The *sample_code* folder contains all the exmaples documented in *python.org*
