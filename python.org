@@ -1,3 +1,4 @@
+
 #+TITLE: Python Programming Notes
 #+AUTHOR: Alex
 
@@ -15,11 +16,9 @@ This document covers some useful python concepts.
   - [[#nicer-import-syntax][Nicer Import Syntax]]
   - [[#package-initialisation][Package Initialisation]]
   - [[#demonstration][Demonstration]]
-  - [[#using-__all__][Using =__all__=]]
-- [[#next-sections][Next Sections]]
-  - [[#functions-and-procedural-programming][Functions and Procedural Programming]]
-  - [[#multithreading-and-multiprocessing][Multithreading and Multiprocessing]]
-  - [[#io][I/O]]
+- [[#multithreading-and-multiprocessing][Multithreading and Multiprocessing]]
+  - [[#multithreading][Multithreading]]
+  - [[#multiprocessing][Multiprocessing]]
 
 * Object Orientation
 
@@ -70,7 +69,7 @@ You can also the inheritance from =object= which has taken place.
 *** Class Methods
 
 - In python we often handle instance attributes and methods.
-- In order to manipulate these attributes, the =self= arguement is supplied to our methods.
+- In order to manipulate these attributes, the =self= argument is supplied to our methods.
 
 There also exists the mechanism for manipulating classes themselves.
 
@@ -130,7 +129,7 @@ Notice that changes to the class attribute are reflected by both instances, they
 *** Static Methods
 
 - Static methods are associated with a class, however they do not take a class attribute.
-- This technique is useful for grouping functionality under one symbol, without the need for a seperate module.
+- This technique is useful for grouping functionality under one symbol, without the need for a separate module.
 - This program groups some mathematical operations under a calculator symbol.
 - No instantiation is needed to use these methods.
 
@@ -223,7 +222,7 @@ class Test_class:
 
 We have set up a class with a public, protected and private attribute.
 
-1. No leading undescore is a public attribute.
+1. No leading underscore is a public attribute.
 2. One leading underscore denotes a protected attribute.
 3. Two leading underscores denote a private attribute.
 
@@ -259,17 +258,17 @@ Import this class into a REPL and we can see how this object behaves:
 #+end_src
 
 As you can see, changes to the public and protected attributes are reflected in futher use of the object.
-Our attempt to directly modify the private attribute, however, ended in failiure - we were not able to permenantly modify the object.
+Our attempt to directly modify the private attribute, however, ended in failure - we were not able to permanently modify the object.
 
 If we do want to modify this attribute we use a 'setter method', passing in the new value.
 In our class, =set_number()= performs this for us, setting the =self.__number= attribute to the value passed in.
 
 You can see that only the private attribute behaves like this, so what is the purpose of the protected attribute?
-Typically it is the preffered syntax in python, for these reasons:
+Typically it is the preferred syntax in python, for these reasons:
 
 1. It is visually distinct: when we come across it, we can tell that it is an attribute of an instance.
 2. It maintains flexibility: we are still able to inspect this attribute quickly, even if we technically shouldn't be able to.
-3. Of the tree options, this one can most easily be applied to every situatuion.
+3. Of the tree options, this one can most easily be applied to every situation.
 
 In short a single leading underscore denotes an attribute that is typically used by a method, although we can examine it if we really need to.
 
@@ -298,7 +297,7 @@ class Animal(abc.ABC):
 
 #+end_src
 
-Then we can create a class wich 'inherits from the 'abstract base class'.
+Then we can create a class which 'inherits from the 'abstract base class'.
 We program in behaviours for all the abstract methods.
 
 #+begin_src python :tangle ./sample_code/polymorphism.py
@@ -475,15 +474,16 @@ this message is from base class 2
 #+end_src
 
 This proves that our object has inherited from two parent classes.
+
 * Packages and Modules
 ** Introduction
 
-Python extends its high level of abstraction over the filesystem.
+Python extends its high level of abstraction over the computer filesystem.
 
 - In python a file or folder is seen as a module
-- Packages are modules which may contain other modules.
-- Packages are often seen as directories containing a =__init__.py=  file.
-- The =__init__.py= file is largely not needed in later versions of python, but is widely used and more useful than not.
+- Packages are modules which may contain other modules
+- Packages are often seen as directories containing a =__init__.py=  file
+- The =__init__.py= file is not needed in later versions of python, but is widely used
   
 This is the directory layout we will be looking at in our example:
 
@@ -503,22 +503,22 @@ This is the directory layout we will be looking at in our example:
 
 #+end_src
 
-=test.py= is the entry point for this project. (The contents of this file are whown at the end)
+=test.py= is the entry point for this project. (The contents of this file are shown at the end)
 =test1.py= is just another file containing driver code.
 =test2.py= is just another file containing driver code.
 =module.py= is a single file module, not nested in a package.
 
 Assume that and demo code is found in =test.py=, or at least at that level, unless stated otherwise.
 
-- Given the file tree shown above, =module_1.py=, =module_2.py= and =test.py= are single-file modules and have the standard attributes of a module as well as anythig else we define in that module.
+- Given the file tree shown above, =module_1.py=, =module_2.py= and =test.py= are single-file modules and have the standard attributes of a module as well as anything else we define in that module.
 - We can view the =__file__=  attribute of objects of type 'module'. This variable will return the path of the file for the imported module if it exists. 
 - If that module is a python file, the =__file__= value will be the full path to that file.
-- If the module is a filesystem directory, the =__file__= attribute will be =__init__.py= if that file exists, else it will be ~None~.
-- If the module is a filesystem directory, it will also have the =__path__= atribute, not found on python file modules.
+- If the module is a filesystem directory, the =__file__= attribute will be =__init__.py= if that file exists, else it will be =None=.
+- If the module is a filesystem directory, it will also have the =__path__= attribute, not found on python file modules.
 
 ** Importing Files
 
-If a file, or more acurately a module, is found in the same directory, it can simply be imported as is.
+If a file, or more accurately a module, is found in the same directory, it can simply be imported as is.
 This is the contents of =module.py= in the same directory as the driver code.
 
 #+begin_src python :tangle ./sample_code/packages_and_modules/module.py
@@ -557,7 +557,7 @@ This function comes from module.py
 
 ** Importing Directories
 
-In the abscence of a =__init__.py= file, the directory is imported as a package (module), but it will not have all the attributes we might expect. A quick look at the list of attributes will reveal that it has no custom attributes. Notably, the nested modules are not shown as attributes. So for any module - file or directory - custom attributes are determined in the file specified by: =__file__=. If this file does not exist, or is empty, the module will not have any custom properties.
+In the absence of a =__init__.py= file, the directory is imported as a package (module), but it will not have all the attributes we might expect. A quick look at the list of attributes will reveal that it has no custom attributes. Notably, the nested modules are not shown as attributes. So for any module - file or directory - custom attributes are determined in the file specified by: =__file__=. If this file does not exist, or is empty, the module will not have any custom properties.
 
 The following code is found in =test1.py= it demonstrates the use of a package without a =__init__.py= file:
 
@@ -630,11 +630,11 @@ This means we can now use dot operations on the imported package to access its m
 
 ** Package Initialisation
 
-As discussed above =__init__.py= is a powerful intialisation tool for our packages. 
+As discussed above =__init__.py= is a powerful initialisation tool for our packages.
 With this file, we can effectively 'run code' when a package - or more literally, a directory - gets imported.
 This allows us to start transforming an organisational structure for files into a more interactive python code heirachy.
 
-The obvious problem with =package_2/= is that nested modules are not accesible from the imported symbol.
+The obvious problem with =package_2/= is that nested modules are not accessible from the imported symbol.
 We have seen how we can access that code, but it can be cleaner to use a =__init__.py= file to import nested modules for us.
 If we do this, we should be able to use dot qualifiers on our package symbols to get at the modules and code inside, without the need to manually import that code.
 
@@ -672,79 +672,164 @@ package_1.module_1.function_1()
 
 #+end_src
 
-So you can see how the use of a =__init__.py= can create a hierachical code structure, navigated by dot qualifier syntax.
+So you can see how the use of a =__init__.py= can create a hierarchical code structure, navigated by dot qualifier syntax.
 
 ** Demonstration
 
 This python code uses all of the techniques documented above to use code nested in other modules.
 
-- I used the =in= operator to check if a string was in an iterable series.
-- In this case we were looking for a symbol in a list of symbols in the current scope.
-- A =True= result means that the symbol was in the local scope.
+- the =in= operator is used to check if the symbols were in the scope / bound to a package
+- a =True= result means that the symbol was found
 
 #+begin_src python :tangle ./sample_code/packages_and_modules/test.py :result output
 
-print("Import package_1. This has a '__init__.py' so additional attributes will be bound to the symbol.")
 import package_1
-print("Here is proof that 'package_1' was imported:")
 print(("package_1" in locals()))
-print("Here is proof that the nested module is now an attribute of package_1: ")
-print(("module_1" in dir(package_1)))
-print("functions within the nested modules can be used: ")
+print(("module_1" in dir(package_1))) # should be true
 package_1.module_1.function_1()
 print("\n")
 
-print("Import package_2. This does not have a '__init__.py' so nested modules will not automatically be bound as modules.")
 import package_2
-print("Here is proof that 'package_2' was imported:")
 print(("package_2" in locals()))
-print("Here is proof that the nested module is not an attribute of package_2: ")
-print(("module_2" in dir(package_2)))
-
+print(("module_2" in dir(package_2))) # will be false
 print("\n")
 
-print("It is still possible to use the code in module_2.")
 import package_2.module_2
 
-print("Here is proof that the nested module is now an attribute of package_2: ")
-print(("module_2" in dir(package_2)))
-
-print("Now we can use that code: ")
-
+print(("module_2" in dir(package_2))) # will be true now
 package_2.module_2.function_2()
 
 #+end_src
 
-This is the output of that code:
+This is the output of that code, proving how code is imported and bound to a symbol.
 
 #+begin_src 
 
-Import package_1. This has a '__init__.py' so additional attributes will be bound to the symbol.
-Here is proof that 'package_1' was imported:
 True
-Here is proof that the nested module is now an attribute of package_1:
 True
-functions within the nested modules can be used:
 This is a function from module_1
 
-
-Import package_2. This does not have a '__init__.py' so nested modules will not automatically be bound as modules.
-Here is proof that 'package_2' was imported:
 True
-Here is proof that the nested module is not an attribute of package_2:
 False
 
-
-It is still possible to use the code in module_2.
-Here is proof that the nested module is now an attribute of package_2:
 True
-Now we can use that code:
 This is a function from module_2
 
 #+end_src
 
-** Using =__all__=
-* Next Sections
-** Functions and Procedural Programming
-** Multithreading and Multiprocessing
-** I/O
+* Multithreading and Multiprocessing
+
+Python code generally follows a single thread of execution. If /IO/ bound operations are taking the majority of time in a program, concurrency can be used as in javascript. In this type of programming, multiple threads which are serviced independently give the illusion of things happening at the same time.
+
+If a program is /CPU/ intensive, multiprocessing should be used. This will side-step the /Global Interpreter Lock/ and allow multiple instances of python to process data over all processor cores.
+
+** Multithreading
+
+Suppose you have a program like this:
+
+#+begin_src python
+
+import time
+
+def delay():
+
+    time.sleep(1)
+    print("process finished")
+
+start = time.time()
+
+for i in range(20):
+
+    delay()
+
+print(time.time() - start)
+
+#+end_src
+
+This function is not computationally heavy, but it takes a long time, about 20 seconds. The sleep function simulates something like an /API/ request that must be waited for. If we want to trigger the function multiple times, it would be a good idea to use =threading= to start these threads in the background and service them with processor time only when required.
+
+#+begin_src python
+
+import time
+from threading import Thread
+
+
+def delay():
+
+    time.sleep(1)
+    print("process finished")
+
+start = time.time()
+threads = []
+
+for i in range(20):
+
+    thread = Thread(target=delay)
+    threads.append(thread)
+    thread.start()
+
+for thread in threads:
+
+    thread.join()
+
+print(time.time() - start)
+
+#+end_src
+
+All 20 function calls are made in about one second, as opposed to 20 seconds it took before. A list is used to keep track of the threads. Each time a new thread is created, it is given a target function and then the =.start()= method is called, beginning its execution. Finally, every thread is looped over and the program waits until the thread is finished. This makes sure the program only continues once everything is wrapped up.
+
+** Multiprocessing
+
+The concept and syntax of this technique is similar to =threading=. This method is designed for an operation which is resource intensive, where the /CPU/ is the bottleneck, as opposed to something else. Here is a situation that could benefit from some multi-core processing:
+
+#+begin_src python
+
+import time
+
+def operation(input):
+
+    print(input * input)
+
+start = time.time()
+data = [3,4,5,6,7,8,9]
+
+for input in data:
+
+    operation(input)
+
+print(time.time() - start)
+
+#+end_src
+
+Rather than waiting for something, the function is performing calculations. We can use multiple cores on our machine to do the processing simultaneously. This is a demonstration of the =multiprocessing= library code:
+
+#+begin_src python
+
+import time
+from multiprocessing import Process, current_process
+
+
+def operation(input):
+
+    print(input * input)
+
+
+start = time.time()
+processes = []
+data = [3,4,5,6,7,8,9]
+
+for input in data:
+
+    process = Process(target=operation, args=(input,))
+    processes.append(process)
+    process.start()
+
+for process in processes:
+
+    process.join()
+
+print(time.time() - start)
+
+#+end_src
+
+Note that with such a simple operation, the time associated with starting processes may outweigh the time saved by multi-processing!
