@@ -1,15 +1,16 @@
+
 #+TITLE: Arch Linux Notes
 #+AUTHOR: Alexander Neville
-#+DESCRIPTION: notes about using arch linux
+#+DESCRIPTION: notes about using arch Linux
 
 * Saving Package List
 
-To save the list of deliberately installed packages from the central repository and the AUR respectively:
+To save the list of deliberately installed packages from the central repository and the /AUR/ respectively:
 
 #+begin_src shell
 
-pacman -Qqen > ~/code/dotfiles/misc/pkglist.txt
-pacman -Qqem > ~/code/dodtfiles/misc/aurpkglist.txt
+pacman -Qqen > ~/path/to/packages.txt
+pacman -Qqem > ~/path/to/aur_packages.txt
 
 #+end_src
 
@@ -17,8 +18,8 @@ To recover all of these packages:
 
 #+begin_src shell
 
-sudo pacman -S --needed $(comm -12 <(pacman -Slq|sort) <(sort pkglist.txt) )
-pacaur -S --noedit --noconfirm --needed aurpkglist.txt
+sudo pacman -S --needed $(cat ~/path/to/packages.txt)
+pacaur -S --noedit --noconfirm --needed aur_packages.txt
 
 #+end_src
 
@@ -47,7 +48,6 @@ sudo pacman -S mesa xf86-video-intel
 2. =nitrogen= (gui wallpaper setter)
 3. =xodotool= (interact with gui windows)
 4. =lxapperaance= (WM agnostic GTK theme setter)
-
 
 * Tidying the System
 
@@ -106,7 +106,7 @@ chsh -l
 
 #+end_src
 
-Chnage the default shell of the current user to the new shell:
+Change the default shell of the current user to the new shell:
 
 #+begin_src shell
 

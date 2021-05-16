@@ -1,0 +1,201 @@
+#+TITLE: Virtualisation
+#+AUTHOR: Alexander Neville
+
+Both containers and virtual machines are packaged and isolated computing environments.
+
+* Hypervised Virtualisation
+
+A hypervisor, sometimes referred to as a virtual machine manager /(VMM)/ is a piece of software used to constantly reallocate system resources in a /pool/ among guest operating systems. There are two main types of hypervisor:
+
+** Type 1
+
+Often described as a bare metal or native hypervisor,  the /VMM/ itself takes the place of host operating system, offering almost all system resources to multiple guest operating systems. This type of hypervisor is most common at the enterprise level and products include: Hyper-v, VMware Vsphere, kvm etc.
+
+** Type 2
+
+More common among personal computer users, a type 2 hypervisor is a software layer running on top of a host operating system. A good example is Oracle VirtualBox.
+
+* Containers
+
+Containers are designed to hold and run microservices and individual applications. A container is preserved in a code based image, which is typically small and easily distributable. As containers have a much smaller footprint, many containers may be used at the same time, as single processes.
+
+* LXC
+** Config
+
+Once installed, start the service and run the quick set up script:
+
+#+begin_src shell
+
+sudo systemctl start lxd
+lxd init
+
+#+end_src
+
+Add yourself to the lxd group:
+
+#+begin_src shell
+
+sudo usermod -a -G lxd username
+
+#+end_src
+
+** Unprivileged Containers
+
+Append line to config file by running the following command:
+
+#+begin_src shell
+sudo bash -c "echo \"session    optional   pam_cgfs.so -c freezer,memory,name=systemd,unified\" >> /etc/pam.d/system-login"
+#+end_src
+
+Fill =/etc/lxc/default.conf= with these lines:
+
+#+begin_src
+
+lxc.idmap = u 0 100000 65536
+lxc.idmap = g 0 100000 65536
+
+#+end_src
+
+Add these lines to =/etc/subgid= and =/etc/subuid= for each user operating lxd.
+
+#+begin_src
+
+root:100000:65536
+alex:100000:65536
+
+#+end_src
+
+** Images & Image Servers
+
+The =lxc image= command is used to manage container images.
+
+Display the contents of the image store like this:
+
+#+begin_src shell
+
+lxc image list
+
+#+end_src
+
+Append the name of an /image server/ to this command to get a full list of available images. The default image servers are:
+
+1. ubuntu
+2. ubuntu-daily
+3. images
+
+e.g.
+
+#+begin_src shell
+
+lxc image list images:
+
+#+end_src
+
+The full list of configured remote image servers can be shown like this:
+
+#+begin_src shell
+
+lxc remote list
+
+#+end_src
+
+** Managing Containers
+
+To create a new container, use an available image from a remote server, also give the container a name:
+
+#+begin_src shell
+
+lxc launch images:debian/11 buster_image
+
+#+end_src
+
+List containers like this:
+
+#+begin_src shell
+
+lxc list
+
+#+end_src
+
+Retrieve details about a container with these commands, replacing /name/ with the container name.
+
+#+begin_src shell
+
+lxc info name
+lxc config show name
+
+#+end_src
+
+Stop and delete an image:
+
+#+begin_src shell
+
+lxc stop name
+lxc delete name
+lxc delete --force name
+
+#+end_src
+
+** Container Resources
+** Working on Containers
+
+Use the =exec= command to interact with a container, replacing /name/ with the name of the container. e.g.
+
+#+begin_src shell
+
+lxc exec name -- command_to_run
+
+#+end_src
+
+** Container Snapshots
+
+Take a snapshot:
+
+#+begin_src shell
+
+lxc snapshot container_name snapshot_name
+
+#+end_src
+
+Restore from a snapshot:
+
+#+begin_src shell
+
+lxc restore container_name snapshot_name
+
+#+end_src
+
+Publish a snapshot as an image, replacing all fields as appropriate.
+
+#+begin_src shell
+
+lxc publish container_name/snapshot_name --alias image_alias
+
+#+end_src
+
+Create a new container from the image as before.
+
+#+begin_src shell
+
+lxc launch image_alias container_name
+
+#+end_src
+
+** Push/Pull Files
+
+To retrieve a file from a container:
+
+#+begin_src shell
+
+lxc file pull container_name/path/to/file /path/to/local/file
+
+#+end_src
+
+To put a file in a container:
+
+#+begin_src shell
+
+lxc file push /path/to/filr container_name/path/to/file
+
+#+end_src
+
