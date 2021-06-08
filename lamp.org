@@ -15,6 +15,9 @@ This guide covers how to set-up each of these pieces of software on a single mac
   - [[#installation][Installation]]
   - [[#firewall-set-up][Firewall Set-up]]
 - [[#php][PHP]]
+  - [[#ubuntu][Ubuntu]]
+  - [[#arch][Arch]]
+  - [[#check-configuration][Check Configuration]]
 - [[#permissions][Permissions]]
 - [[#database][Database]]
   - [[#install][Install]]
@@ -43,7 +46,7 @@ sudo systemctl enable --now apache2
 
 *Arch:*
 
-Package is called 'apache' in arch repos and service is called 'httpd'.
+Package is called 'apache' in arch repos and service is called /httpd/.
 
 #+begin_src shell
 
@@ -65,8 +68,10 @@ sudo netfilter-persistent save
 #+end_src
 
 * PHP
+** Ubuntu
 
-*Ubuntu:* (also insttall some common extensions)
+Install php and some common extensions
+
 
 #+begin_src sh
 
@@ -75,17 +80,54 @@ sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php
 
 #+end_src
 
-*Arch:*
+** Arch
+
+Install common extensions with =php-extension_name=
 
 #+begin_src shell
 
-sudo pacman -Syu php php-apache
+sudo pacman -S php php-apache
 
 #+end_src
 
-*Optional:*
+Uncomment these lines in =/etc/php/php.ini=
 
-Create an =info.php= to verify everything is working:
+#+begin_src
+
+extension=pdo_mysql
+extension=mysqli
+
+#+end_src
+
+Comment and uncomment in =/etc/httpd/conf/httpd.conf= respectively:
+
+#+begin_src
+
+#LoadModule mpm_event_module modules/mod_mpm_event.so
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+
+#+end_src
+
+Append to the end of the /LoadModule/ section of the config file:
+
+#+begin_src
+
+LoadModule php_module modules/libphp.so
+AddHandler php-script .php
+
+#+end_src
+
+Also append to the end of the /Include/ section:
+
+#+begin_src
+
+Include conf/extra/php_module.conf
+
+#+end_src
+
+** Check Configuration
+
+Create an =info.php= in your document root to verify that the installation is working:
 
 #+begin_src php
 

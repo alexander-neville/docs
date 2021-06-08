@@ -1,14 +1,11 @@
-#+TITLE: My Docs
-#+AUTHOR: Alexander Neville
+#+TITLE: My Documents
 
-This repository contains some notes about programming and system set-up.
+This repository contains some of my notes, which may be helpful to others and contain no private information. The files regard:
 
-* Included Documents
-
-1. Setting up a LAMP stack -> (lamp.org)
-2. Python OOP, modules and packages -> (python.org)
-3. Pre-Release program breakdown -> (pre-release_notes.org)
-4. NodeJs set-up for web development -> (nodejs.org)
-5. Arch Linux set-up for daily use -> (arch.org)
-6. Basic git usage -> (git.org)
-
+- some tips on arch linux usage -> =arch.org=
+- my a-level computer science notes -> =com_sci.org=
+- basic git usage -> =git.org=
+- LAMP stack set-up -> =lamp.org=
+- intro to nodejs for web development- > =nodejs.org=
+- oop concepts in python -> =python.org=
+- intro to containers and virtualisation -> =virtualisation.org=
