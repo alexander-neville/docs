@@ -5,7 +5,7 @@
 
 These are my notes on AQA a-level computer science. Note that the section headers do not reflect specification points. I wrote these notes in plain text and all of the typesetting was performed automatically, so I cannot be sure the pdf copy resembles the source file exactly as intended. I may have made some mistakes, so cross-referencing may not be a bad idea if you are unsure.
 
-For variable names I prefer to use all lowercase with _ as space, or follow an agreed upon standard. In some places I have used capitals for the first letter of each word, in keeping with the textbook, although it shouldn't matter. I have italicised some key terms, although there are some inconsistencies.
+For variable names I prefer to use all lowercase with an =_= as space, or follow an agreed upon standard. In some places I have used capitals for the first letter of each word, in keeping with the textbook, although it shouldn't matter. I have italicised some key terms, although there are some inconsistencies.
 
 * Fundamentals of Programming
 
@@ -314,10 +314,10 @@ The typical FSM diagram can also be represented by a /state transition table/, w
 *** Sets of Numbers
 
 - Whole Numbers = /Z/
-- Natural Numbers = /N/ (above 0)
-- Rational Numbers = /Q/
-- Real numbers = /R/ (anything that can be expressed)
-- Ordinal numbers: /first/, /second/, /third/
+- Natural Numbers = /N/ (integers above 0)
+- Rational Numbers = /Q/ (can be expressed precisely as a fraction)
+- Real Numbers = /R/ (anything that can be expressed numerically, includes irrational numbers)
+- Ordinal Numbers: /first/, /second/, /third/
 
 *** Decimal
 
@@ -325,7 +325,7 @@ Decimal (Base 10) is the number system we use on a daily basis. It may originate
 
 *** Binary
 
-Binary is the number system used in computing and understood by a computer processor. It is used because of the ease of distinguishing between just two states: /on/ & /off/. The disadvantage of this system is representing large amounts of complex data. With only two states, many binary bits in sequence are needed to represent real world data. In decimal, 10 values can be represented with one character and the total number of values available with /n/ characters is:
+Binary is the number system used in computing and understood by a computer's processor. It is used because of the relative ease of distinguishing between just two states: /on/ & /off/. The disadvantage of this system is representing large amounts of complex data. With only two states, many binary bits in sequence are needed to represent real world data. In decimal, 10 values can be represented with one character and the total number of values available with /n/ characters is:
 
 - /10^{ n}/
 
@@ -333,7 +333,7 @@ While, with binary, the number of available values when using /n/ bits is:
 
  - /2^{ n}/
 
-So in order to get that same range of values, /n/ must be larger when using binary. This is manageable in a computer and the advantages significantly outweigh the disadvantages, however this is difficult for people to work with and understand. Binary is long and repetitive, making working with binary slow and error prone.
+So in order to get an equivalent range of values, the value /n/ must be larger when using binary. This is manageable in a computer and the advantages significantly outweigh the disadvantages, however this is difficult for people to work with and understand. Binary is long and repetitive, making working with binary slow and error prone.
 
 *** Hexadecimal and Octal
 
@@ -342,7 +342,7 @@ Hexadecimal (Base 16) and Octal (Base 8) are used to make working with computers
 - /16^{ n}/ for hexadecimal
 - /8^{ n}/ for octal
 
-These number systems are used to represent binary values more concisely, while being easier to convert to and from binary than decimal numbers. Both 8 and 16 are powers of 2. This means that /n/ bits of a binary number can be directly represented by one character in the corresponding number system. eg.
+These number systems in particular are used to represent binary values more concisely, while being easier to convert to and from binary than decimal numbers. Both 8 and 16 are powers of 2. This means that /n/ bits of a binary number can be directly represented by one character in the corresponding number system. Eg.
 
 - 3 binary bits -> 1 octal value
 - 4 binary bits -> 1 hexadecimal value
@@ -355,32 +355,32 @@ The same is true of Base 4 and Base 32, but these are less frequently used.
 - MAC Addresses
 - IPv6 Addresses
 - Assembly Language
-- File Permissions (octal)
+- Unix File Permissions (octal)
 
 ** Two's Complement
 
-In Two's complement binary, the most significant bit of a number is signed. (negative sign is applied)
+There are a number of different techniques for handling negative numbers in computer systems. /Two's Complement/ is a common method of doing so, as two's complement numbers can be treated like a regular value during computation.
 
-- /If the number begins with 1, the value will be negative/
-- /If the number begins with 0, the value will be positive/
+In Two's complement binary, the most significant bit of a number is treated as negative, hence:
 
-This example shows how the most significant bit affects the polarity of the value. Even if all other bits are true, their total positive value is less than the negative value of the sign bit. Hence, zero has to be positive!
+- /if a number begins with 1, its value will be negative/
+- /if a number begins with 0, its value will be positive/
 
 *Example:*
 
-Here are some 4 bit, Two's complement binary numbers broken down into their constituent bits:
+This example shows how the most significant bit affects whether the number is negative or positive.
 
 |--------+----+---+---+---+---------------|
 | number | -8 | 4 | 2 | 1 | decimal value |
 |--------+----+---+---+---+---------------|
-|   1111 |  1 | 1 | 1 | 1 |            -1 |
 |   1000 |  1 | 0 | 0 | 0 |            -8 |
+|   1111 |  1 | 1 | 1 | 1 |            -1 |
 |   0000 |  0 | 0 | 0 | 0 |             0 |
 |   0101 |  0 | 1 | 0 | 1 |             5 |
-|   0111 |  0 | 1 | 1 | 1 |             7 |
+|   1011 |  1 | 0 | 1 | 1 |            -5 |
 |--------+----+---+---+---+---------------|
 
-Here is the addition that is happening for each row:
+Here is the process that is happening for each row:
 
 #+begin_src
 
@@ -388,28 +388,34 @@ Here is the addition that is happening for each row:
 1000 = (-8) + 0 + 0 + 0 = -8
 0000 = (-0) + 0 + 0 + 0 = 0
 0101 = (-0) + 4 + 0 + 1 = 5
-0111 = (-0) + 4 + 2 + 1 = 7
+1011 = (-8) + 0 + 2 + 1 = -5
 
 #+end_src
+
+
+*Additional Notes:*
 
 With /n/ bits, the range of values you can represent is:
 
     /- 2^{  (n-1)}  . . .  2^{ (n-1)}  - 1/
 
-Convert negative to positive (vice versa):
+To obtain the two's complement of a number (flip negative to positive or vice versa):
 
-  /Flip all of the bits and one./
+  /flip all of the bits and one/
 
-The benefit of the two's complement system is that it maximises the range of values which can be represented by a /word/ of a certain length, eg. using a designated sign bit, a value for zero and negative zero must be stored, which is not needed.
+The benefit of the two's complement system is that it maximises the range of values which can be represented by a /word/ of a certain length.
+
+Eg. using a designated sign bit, a value for zero and negative zero must be stored, which is not needed and also complicates some calculations.
 
 Computers generally rely on two's complement to perform subtraction, using only the addition circuits at their disposal. In order to subtract one value from another:
     
-- /The number that must be subtracted is converted to two's complement binary and added to the other value./
-- /Therefore 37 - 9 become 37 + (-9)/
+- /the number that must be subtracted is converted to its two's complement/
+- /the two numbers are now added to one another/
+- /therefore 37 - 9 become 37 + (-9)/
 
 ** Fixed Point Binary Numbers
 
-In a fixed point binary value, there are bits before and after the point. The number of bits before and after are determined on a use by use basis. Using such a system, any bits before the point are treated as usual. For every bit after the point, the value is:
+In a fixed point binary value, some bits fall before and after the point. The position of the point is usually determined as needed. Using such a system, any bits before the point are treated as usual. For any bit after the point, its value is:
 
     /2^{-n}/ where /n/ = position from point
 
@@ -444,7 +450,7 @@ This table shows how to convert =01101 011= into a fixed point binary number. Wh
 
 ** Character Encoding
 
-Human readable characters need to be represented numerically for use in computer systems. This value can be expressed in decimal, but binary is always used by computers. Two very common standards are /ASCII/ and /Unicode/. Note that not all data is encoded as you might expect; compiled code and many image formats are /raw binary/ data. This kind of data cannot be read by a human or displayed in a text editor.
+Human readable characters need to be represented numerically for use in computer systems. The given numerical value can be expressed in decimal, but binary is always used by computers. Two very common standards for character encoding are /ASCII/ and /Unicode/. Note that not all data is encoded as you might expect; compiled code and many image formats are /raw binary/ data. This kind of data cannot be read by a human or displayed in a text editor.
 
 *** ASCII
 
@@ -458,63 +464,118 @@ As the internet became pervasive and computers in all parts of the world became 
 
 ** Error Checking and Correction
 
-Bits can be changed during transmission owing to a variety of reasons. Likewise, various methods can be used to try and detect and correct these errors.
+Errors can occur when data is read, inputted or transmitted. There are many ways to identify when an error has occurred and how errors can be corrected.
 
 *** Parity Checking
 
-Parity bits are a common method for protecting against these errors. 7 bit ASCII had the advantage of leaving one bit spare for a parity bit. Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred. This method cannot detect transposition errors.
+Parity bits are a common method for protecting against errors during communication. 7 bit /ASCII/ lends itself towards transmitting a parity bit within each byte.
+
+Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred.
+
+This method cannot detect /transposition errors/ (when the order of bits is changed), nor are they able to identify errors affecting more than one bit.
 
 *** Majority Voting
 
-With majority voting each bit is transmitted three times. Odd number must be used so there is not a tie. Each repetition takes time, so more than three repetitions will further impact the transmission time. If one of the three bits differs from the other two it can be assumed it is the erroneous bit. The popular result is taken to be the true value.
+When majority voting is used, each bit is transmitted repeatedly. An odd number of repetitions must be used so there is not a /tie/.
+
+The received values for each bit are compared and the /popular/ result is taken to be the true value of that bit. Hence, there is a means of correcting potential errors.
+
+Eg. one of three transmissions of a single bit may differ from the two others. It can be concluded that this bit is erroneous and its value discarded.
+
+Transmitting data repeatedly, for the purpose of error detection and correction, significantly increases the time taken to send a certain communication. Majority voting is often infeasible, because of the time it takes.
 
 *** Checksum
 
-A checksum is a more thorough way of error detection. An algorithm is applied to a piece of data before it is sent. The result of this algorithm is the checksum and it is transmitted with the block. The same algorithm is applied to the block at the receiving end to re-calculate the checksum. This checksum is compared against the transmitted checksum and If the two values do not match, an error has occurred.
+A checksum is a thorough method of error detection. An algorithm is applied to a piece of data before it is sent, the result being the checksum. The checksum is transmitted with the block of data. Upon receipt of the block, the same algorithm is applied to the data (which might have been corrupted). The checksum calculated by the receiver is compared with the transmitted checksum.
+
+- if the two values do not match, an error has occurred
+- if the two values do match, it is likely that no error has occurred
+
+*** Check Digits
+
+The role of a /check digit/ is to prevent /transcription/ errors (or other similar I/O errors) of identifiers and other short pieces of data. Check digits are often attached to barcodes, ISBNs and credit card numbers.
+
+A checkdigit is calculated by running a number through an algorithm. The result is usually printed alongside the data, wherever it appears. Devices like barcode readers can calculate the checkdigit based on the obtained number and compare it too the existing checkdigit.
+
+- if the two values do not match, an error has occured
+- if the two values do match, it is likely that the data was read correctly
+
+** Analogue and Digital Data
+
+Analogue data is /continuous/, having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values.
+
+For the sake of digital representation, analogue waveforms and other continuous sets of data are sampled at intervals, or in certain places.
+
+- pixels in a sensor record light intensity at a precise point
+- a microphone and ADC record amplitude at certain points in time
+
+Each of these samples contains data which is quantifiable, so it may be used and stored by a computer. Therefore any digital representation of analogue data is an approximation of some quantity at a certain time and place.
 
 ** Image Representation
 
-Image data can be broadly categorised into two types: /pictures/ and /graphics/. While there is no clear cut definition for either of these terms, a /picture/ is generally a representation of real world data, while a /graphic/ is designed or generated. Pictures are most often stored as /Bitmap/ images, while vector graphic files are more suitable for the latter type.
+Image data can be broadly categorised into two types: /photographs/ and /digital graphics/. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated.
 
-*** Bitmap Basics
+Photographs are most often stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
 
-Bitmap images are composed of /Pixels/. A Picture Element, or a /Pixel/, is the smallest identifiable area of an image and each pixel will contain information about the image at that point. A raster (Bitmap) file itself contains all of the pixel data making up the image and some *Metadata* needed to reconstruct the image. A bitmap file has a /resolution/, which is a number of pixels expressed in terms of /width * height/.
+*** Bitmap Files
 
-Bitmap files store an approximation of real world analogue data and they are ideal for photographs with constantly changing colour gradients and no distinct boundaries.
+Bitmap images are composed of /pixels/. A 'picture element', or a /pixel/, is the smallest identifiable area of an image and each pixel will contain information about the image at that point.
 
-*** Limitations of Bitmaps
+A raster (bitmap) file itself contains all of the pixel data making up the image and some *Metadata* needed to reconstruct the image. A bitmap file has a /size/, which is a number of pixels expressed in terms of /width * height/.
 
-- For a given display size, the file size is proportional to the image's quality.
-- The resolution of an image does not determine its displayed size, only the number of pixels in the image. Should an image need to be displayed in a size that is greater the original size, the quality may appear low.
+The /resolution/ is the number of /dots per inch/ (dpi). An image of greater /size/ will have a higher /resolution/ when displayed in the same space/scale on a screen.
+
+Bitmap files store an approximation of real world analogue data and they are ideal for photographs, which have constantly changing colour gradients and no distinct boundaries.
+
+*** Limitations of Bitmap Files
+
+- The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution is diminished.
+- For a given display area, the file size is proportional to the image's quality.
 - For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
 
 *** Colour Depth
 
-In a bitmap file, each picture element has a colour code. The length of this colour code determines the number of colours which can be represented. A common colour depth is 3 byte (24 bit), where each byte is for one RGB channel. Sometimes 4 bytes are used and the last channel is for transparency.
+In a bitmap file, each picture element has an associated colour code. The length of this value determines the number of colours which can be represented.
+
+A common colour depth is 3 bytes (24 bits), where each byte corresponds to one /RGB/ channel. Each channel has 8 bits and so the number of possible colours (in each channel) is:
+
+    /2^{8} = 256/
+
+As there are three channels, the total number of colours is:
+
+    /256^{3} = 16777216/
+
+A colour depth of 3 bytes offers more colours than the human eye can distinguish between, hence there is little benefit using a greater depth. A larger colour depth increases file size, so it is sometimes advantageous to use a reduced set of colours.
 
 *** Metadata
 
-This is data stored in the header of a bitmap file, containing any information necessary for displaying the image. eg. columns, rows, colour depth etc.
+This is data stored in the header of a bitmap file, containing all the information needed to display the image. Eg. columns, rows, colour depth, etc.
 
 *** Vector Graphics
 
-A vector file will contain a drawing list which records all the shapes that need to be drawn to /construct/ the image. Unlike a bitmap, the shapes listed in a vector file can be constructed proportionally and redrawn to suit any display size. This makes vector graphic's ideal for images which may need to be displayed in lots of places and at many different sizes.
+A vector file consists of a drawing list, containing a list of all the shapes that need to be drawn to /construct/ the image. Unlike a bitmap, the shapes listed in a vector file can be redrawn and the image constructed proportionally to suit any display size. This makes vector graphics ideal for images which may need to be displayed in many places at different sizes.
 
-The file size of the vector graphic will depend on the number of objects which have to be constructed rather than the quality of the image. So this file format works best for storing images with little complexity.
+The file size of a vector graphic will depend on the number of objects which have to be drawn, rather than the size and quality of the image. Photographs cannot be represented easily with vector graphic files, because of the complex shapes and many tones.
 
 ** Audio Representation
 
-Sound is a type of analogue data which is - in nature - a continuous wave. Like in image representation, this data must undergo digital to analogue conversion. In order to represent a continuous sound as digital data, many individual samples must be taken (44100Hz). The more samples taken the more accurate the digital recording will sound. The sample rate is the is the frequency with which you record the amplitude of sound. The greater the sample rate, the closer the discrete digital representation of the audio is to the real analogue data.
+Sound is a type of analogue data, which is - in nature - a continuous wave. This data must undergo analogue to digital conversion.
+
+*** Sample Rate
+
+In order to represent a continuous sound wave as discrete digital data, many quantised /samples/ must be taken at regular intervals. The frequency of the recording, also called the /sample rate/, is the the number of samples per second. The greater the sample rate, the closer the digital representation of the audio is to the original sound.
 
 *** Sample Depth
 
-As well as increasing the number of samples stored, audio quality can be improved by increasing the bit depth. The bit depth is the number of bits used to represent the current amplitude of the sound. The higher the bit depth, the more possible values for amplitude. With more possible values for amplitude, the recorded value of amplitude will be closer to the real value.
+As well as increasing the number of samples stored, audio quality can be improved by increasing the /bit depth/. The bit depth is the number of bits used to store the amplitude of the sound at a given sample. The higher the bit depth, the closer the amplitude to its original value.
 
-/Nb. amplitude is often represented (y. axis) against time (x. axis)/
+/Nb. amplitude is often represented on the Y axis, against time on the X axis/
 
 *** Nyquist's Theorem
 
-Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. Harry Nyquist theorised in 1928, that a recording must be sampled at twice the frequency of the analogue sound to produce an accurate recording. For the human ear, the  frequency range is 20Hz to 20,000Hz. Therefore, audio is frequently sampled at 44,100Hz which is twice the highest frequency audible to humans.
+Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. In 1928, Harry Nyquist theorised that a recording must be sampled at twice the maximum frequency of the analogue sound to produce an accurate recording.
+
+For the human ear, the maximum audible frequency is 20,000Hz. Therefore, audio is often sampled at 44,100Hz, beyond which there is no apparent difference in sound quality to humans.
 
 *** Audio Storage and Files
 
@@ -522,56 +583,50 @@ Audio which is recorded from a live source is stored and can be played back usin
 
 Sound may also be 'stored' as a MIDI file, a set of steps which can be interpreted by software to synthesise new sound. It is primarily a tool for music artists to create new music which can later be recorded. As MIDI files do not try to replicate analogue data with lots of samples, they may be smaller in size to a recording of similar length and quality.
 
-** Analogue and Digital Data
-
-Analogue data is /continuous,/ having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values, which is not feasible in computer systems.
-
-*** Digital Data
-
-In digital data, analogue waves forms, or other continuous data are sampled at intervals, discrete time signals generated by digital modulation. Each of these samples contains data which is quantifiable, so it may be used by a computer.
-
-*** Conversion
-
-This process is most frequently used with sound, although the same is true with other types of data. Because digital data, used in computer systems must be discrete, some of the data belonging to the original analogue waveform will not be stored.
+*** Recording & Playback
 
 *Storing Sound:*
 
-1. A computer peripheral (microphone) is used to convert an analogue signal into an oscillating electrical signal.
+1. A computer peripheral (microphone) is used to convert a sound wave into an oscillating electrical signal.
 2. The electrical signal is suitable for analogue to digital conversion.
-3. An ADC will /sample/ this signal to a given frequency. Data between samples is lost.
-4. The ADC will approximate the magnitude of the sound's properties at each sample. This precision of these measurements is determined by the desired quality.
+3. An ADC will /sample/ this signal to a given frequency. Any data between samples is lost.
+4. The ADC will approximate the amplitude of the sound for each sample.
 5. The output - discrete digital data - can be stored in typical computer storage devices.
 
 *Outputting Sound:*
 
-In order to present the data, it must be converted back to analogue data. A /DAC/ can be used to this effect. The quantities which were recorded for each sample are converted into an electrical signal, used by a peripheral (speaker) to recreate the analogue data.
+In order to present the stored data, it must be converted back to an analogue form. A /DAC/ (digital to analogue converter) can be used to this effect.
+
+1. The recorded amplitudes for all the samples are converted into an electrical signal (a voltage) at the same frequency as the sample rate.
+2. The voltage changes are converted into a sound wave by a speaker.
 
 ** Compression
 
-Image and sound files can be very large and repetitive, meaning high compression ratios are favoured. Generally, a small reduction in quality is tolerated, making these files good candidates for lossy compression, where the quality is somewhat reduced to achieve compression. On the other hand, lossless compression maintains the quality of the input data, but size savings are often smaller. For text files, including programs, it is essential that they can be recreated without any loss in quality.
+Image and sound files can be very large and repetitive. Generally, a small reduction in quality is tolerated, making these files good candidates for lossy compression, where the quality is somewhat reduced to achieve greater compression ratios.
+
+Text files, including programs, are rarely as large as other types of data, however reducing their file size is sometimes needed. It is essential that compressed text files can be recreated without any loss in quality. Lossless compression is a compression method which maintains the exact quality of the uncompressed data, so it can be read exactly as intended after compression and subsequent uncompression. The compression ratios of Lossless compression techniques rarely equal those of lossy compression.
 
 *** Lossless
 
-Lossless compression means the original file can be exactly recreated from the compressed file IE.  the compressed file must convey the *exact* same information in a different way, ideally a more concise method! Lossless compression algorithms reduce repetition within files.
+Lossless compression ensures the original file can be recreated from the compressed file. Therefore the compressed file must convey /exactly/ the same information as the original in a slightly different way. Lossless compression algorithms typically reduce repetition within files as a means of compression.
 
-*Run Length Encoding* is a common technique for lossless compression:
+Most Lossless compression methods are only effective when there is significant repetition. In some cases, when there is not sufficient repetition, negative compression can occur and the size of the compressed file exceeds that of the original file.
 
-- Using REL, file size is reduce by removing runs of similar data
-- Each run of data is replaced with the original data and the length of the run
-- Data which does not have long runs of identical data is not suitable for this type of compression
-- This form of compression can be very useful in sound compression, as a single sound played for a short amount of time will have many identical samples
+*Run Length Encoding:*
+
+Using RLE, file size is reduce by removing runs of identical data. Each run of data is replaced with the original piece data and the length of the run (number of repetitions).
+
+Data which does not have long runs of identical data is not suitable for this type of compression. RLE can be very useful in the compression of sound files, as a single sound played for even a short amount of time may result in many identical samples.
 
 *Dictionary Compression:*
 
-- Dictionary compression is a more flexible type of lossless compression
-- In this type of compression a dictionary containing repeated sequences is added to the compressed file
-- Any occurrences of an indexed sequence are replaced with the index of that sequence in the dictionary
+Dictionary compression is a more flexible type of lossless compression. The compression algorithm creates a /dictionary/ associating frequently repeated pieces of data to an index. Any occurrence of an indexed piece of data are replaced with the corresponding dictionary index.
 
-Both of these methods are only effective when there is a high degree of repetition. In some cases, when there is not sufficient repetition, negative compression can occur.
+Nb. The compressed file must include the dictionary that is used. Dictionary compression works best with larger files, where the size of the dictionary is offset by the amount of repetition removed.
 
 *** Lossy
 
-Unlike lossless compression, lossy compression is irreversible: data is permanently removed from the file. This means that the effectiveness of lossy compression is not dependent on  the repetition within the file. However this method reduces the quality of the file which is compressed, not suitable for text data.
+Unlike lossless compression, lossy compression is irreversible, as data is *permanently* removed from the file. This means that the effectiveness of lossy compression is not dependent on an amount of repetition within the file. However, this method reduces the quality of the file which is compressed, making it unsuitable for text and similar sorts of data.
 
 ** Encryption
 
