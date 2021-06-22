@@ -313,7 +313,7 @@ The typical FSM diagram can also be represented by a /state transition table/, w
 ** Number Systems
 *** Sets of Numbers
 
-- Whole Numbers = /Z/
+- Whole Numbers = /Z/ (negative or positive integers)
 - Natural Numbers = /N/ (integers above 0)
 - Rational Numbers = /Q/ (can be expressed precisely as a fraction)
 - Real Numbers = /R/ (anything that can be expressed numerically, includes irrational numbers)
@@ -437,7 +437,7 @@ Fixed point binary numbers only offer limited precision, unless an extra-ordinar
 
 *** Conversion
 
-This table shows how to convert =01101 011= into a fixed point binary number. When given a floating point number, the point's default position is just after the first bit. The mantissa records how many places to the right the point needs to move. (NB. on the first row, the default position of the point is shown)
+This table shows how to convert =01101 011= into a fixed point binary number. When given a floating point number, the point's default position is just after the first bit (as in scientific notation). The mantissa records how many places to the right the point needs to move. (Nb. on the first row, the default position of the point is shown)
 
 |----------+----------+------------------|
 | mantissa | exponent | exponent decimal |
@@ -450,17 +450,19 @@ This table shows how to convert =01101 011= into a fixed point binary number. Wh
 
 ** Character Encoding
 
-Human readable characters need to be represented numerically for use in computer systems. The given numerical value can be expressed in decimal, but binary is always used by computers. Two very common standards for character encoding are /ASCII/ and /Unicode/. Note that not all data is encoded as you might expect; compiled code and many image formats are /raw binary/ data. This kind of data cannot be read by a human or displayed in a text editor.
+Human readable characters need to be represented numerically for use in computer systems. The given numerical value for a character can be expressed in decimal, but binary is always used by computers. Two very common standards for character encoding are /ASCII/ and /Unicode/. Note that not all data is encoded with these standards; compiled code and many image formats are /raw binary/ data. This kind of data cannot be read by a human or displayed in a text editor.
 
 *** ASCII
 
-The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte. Later on, another bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintains compatibility with the original standard; the first 128 characters are the same. 8 bit *ASCII* is sometimes called *UTF-8*.
+The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte.
+
+Later on, an eighth bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintained compatibility with the original standard; the first 128 characters are the same. 8 bit *ASCII* is sometimes called *UTF-8*.
 
 *** Unicode
 
-As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages. Unicode was developed to solve this problem. It was initially a 16 bit standard, offering 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched 8 bit *ASCII*, so there is some compatibility.
+As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages and their character sets. /Unicode/ was developed to solve this problem. It was initially a 16 bit standard, allowing 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched those of 8 bit *ASCII*, so there is some compatibility.
 
-*UTF-32* now exists, offering over a million different individual characters. The downside of these enhanced standards is the size. *UTF-32* is twice as large as *UTF-16* and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
+*UTF-32* now exists, offering over a million different individual characters. The downside of these enlarged standards is the size. *UTF-32* is twice as large as *UTF-16* and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
 
 ** Error Checking and Correction
 
@@ -515,7 +517,7 @@ Each of these samples contains data which is quantifiable, so it may be used and
 
 Image data can be broadly categorised into two types: /photographs/ and /digital graphics/. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated.
 
-Photographs are most often stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
+Photographs are usually stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
 
 *** Bitmap Files
 
@@ -529,8 +531,7 @@ Bitmap files store an approximation of real world analogue data and they are ide
 
 *** Limitations of Bitmap Files
 
-- The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution is diminished.
-- For a given display area, the file size is proportional to the image's quality.
+- The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution (ppi/dpi) is diminished.
 - For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
 
 *** Colour Depth
@@ -555,7 +556,7 @@ This is data stored in the header of a bitmap file, containing all the informati
 
 A vector file consists of a drawing list, containing a list of all the shapes that need to be drawn to /construct/ the image. Unlike a bitmap, the shapes listed in a vector file can be redrawn and the image constructed proportionally to suit any display size. This makes vector graphics ideal for images which may need to be displayed in many places at different sizes.
 
-The file size of a vector graphic will depend on the number of objects which have to be drawn, rather than the size and quality of the image. Photographs cannot be represented easily with vector graphic files, because of the complex shapes and many tones.
+The file size of a vector graphic will depend on the number of objects which have to be drawn, rather than the size and quality of the image. Photographs cannot be represented with vector graphic files easily, because of the complex shapes and many colour gradient, with few distinct boundaries.
 
 ** Audio Representation
 
@@ -876,7 +877,7 @@ Silicon is a useful material for constructing processors. Silicon has semiconduc
 ** CPU Components
 *** Processor Clock
 
-The system clock generates an oscillating signal with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may take the duration of many clock cycles.
+The system clock generates an oscillating signal, with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may take the duration of many clock cycles.
 
 *** Control Unit
 
@@ -928,7 +929,7 @@ The memory address register will hold an address from which data is to be retrie
 
 ** Motherboard Buses
 
-The /processor/ is connected to other motherboard components by /buses/. A bus is a /parallel/ wire, through which addresses, data and control signals can flow. Motherboard communication is /synchronous/ and the distances are short.
+The /processor/ is connected to other motherboard components by /buses/. A bus is a /parallel/ wire, through which addresses, data and control signals can flow. Motherboard communication is /synchronous/ and the distances involved are short.
 
 There are three main buses on any motherboard, which are collectively referred to as the /system bus/.
 
@@ -938,7 +939,7 @@ The address bus is a uni-directional wire, capable of transferring an address fr
 
 *** Data Bus
 
-This bus is bi-directional and allows data to flow between the processor and main memory in either direction. The bus is also used to share data amongst all components between these two.
+This bus is bi-directional and allows data to flow between the processor and main memory in either direction. The bus is also used to share data amongst all the other components between these two.
 
 *** Control Bus
 
@@ -952,13 +953,15 @@ Control signals are sent between motherboard components along this bus. The cont
 - clock signals
 - reset
 
+Many of these signals may be raised by devices other than the control unit.
+
 ** IO Controllers
 
-An /IO/ controller sits between the processor and a peripheral device. Device controllers are addressable by the processor and receive instructions and data through the /system bus./ The controller is responsible for converting /CPU/ input/output requests to device specific instructions during normal operation.
+An /IO/ controller sits between the processor and a peripheral device. Device controllers are addressable by the processor and receive instructions and data through the /system bus/. The controller is responsible for converting /CPU/ input/output requests to device specific instructions during normal operation.
 
 An /IO/ controller is also responsible for detecting and managing connected devices, raising processor /interrupts/ when action needs to be taken. This means that the processor can dedicate its time to /FDE/ operations rather than device management, significantly improving efficiency.
 
-See also /asynchronous communication./
+See also /asynchronous communication/.
 
 ** Cache
 
@@ -981,11 +984,11 @@ The value of the /PC/ is copied to the /MAR/. This address is sent to the device
 
 *** Decode
 
-The machine code instruction in the /CIR/ is interpreted. The instruction is split into opcode and operand sections. Depending on the addressing mode and requested operation, any additional data that is required is fetched and stored in one of the general purpose registers.
+The machine code instruction in the /CIR/ is interpreted. The instruction is split into opcode and operand sections. Depending on the addressing mode (which is part of the opcode) and the requested operation, any additional data that is required is fetched and stored in one of the general purpose registers.
 
 *** Execute
 
-The specified operation is performed, having been decoded. If the /ALU/ is involved, /status register/ flags are set and the results of the operation are stored in either the /accumulator/, general purpose registers or main memory, depending on the device.
+The specified operation is performed, having been decoded and identified. If the /ALU/ is involved, /status register/ flags are set and the results of the operation are stored in either the /accumulator/, general purpose registers or main memory, depending on the device.
 
 ** Interrupts
 
@@ -1007,11 +1010,11 @@ The word length of a processor is the number of bits that a /CPU/ can operate on
 
 *** Address Size
 
-The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With /n/ bits the number of memory locations available is equal to /2^n/. With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently to make sure that running processes are performant enough. Multi-tasking may be more difficult with less /RAM/. Under certain conditions this will not affect performance at all. *NB.* the length of an address is usually the same as the word length.
+The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With /n/ bits the number of memory locations available is equal to /2^{n}/. With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently, to make sure that running processes are performant enough. Multi-tasking may be more difficult with less /RAM/. Under certain conditions this will not affect performance at all. Nb. the length of an address is usually the same as the word length.
 
 *** Multiple Cores
 
-A processor may have multiple /CPUs/, whether they be physical cores or virtual threads. Each /CPU/ can perform a separate /FDE/ cycle, significantly improving theoretical processing capability, although not all software will be able to make use of these extra /CPUs/, limiting the performance gains in most situations.
+A processor may have multiple CPUs, whether they be physical /cores/ or virtual /threads/. Each CPU can perform a separate /FDE/ cycle, significantly improving theoretical processing capability, although not all software will be able to make use of these extra CPUs, limiting the performance gains in most situations.
 
 ** Instruction Sets
 
@@ -1030,10 +1033,10 @@ A machine code /instruction/ usually has two parts: the /opcode/ and the /operan
 
 ** Addressing Modes
 
-When constructing a machine code instruction, part of the opcode is given to the /addressing mode/. This defines how the arguments ought to be interpreted. There are two main types of addressing mode: immediate and direct.
+When constructing a machine code instruction, part of the opcode is the /addressing mode/. This defines how the arguments ought to be interpreted. There are two main types of addressing mode: /immediate/ and /direct/.
 
-- When immediate addressing is used, the value to be used in an operation is specified in the machine code instruction as a constant
-- In direct addressing, the value to perform an operation on is stored in the address given by the arguments
+- when immediate addressing is used, the value to be used in an operation is specified in the machine code instruction as a constant
+- in direct addressing, the value to perform an operation on is stored in the address given by the arguments (memory or register)
 
 ** Assembly Language
 
@@ -1107,9 +1110,9 @@ Following a /LSR/ and then a /LSL/ the least significant bit is set to zero, irr
 ** IO Devices
 *** Barcodes
 
-A barcode is a reliable way of storing a small amount of information. This makes them suitable for storing some sort of identification number that can be looked up in a database. It is up to retailers to store information about the associated product. *eg.* Two retailers may sell the same product, with the same barcode, although each retailer will store different data about that product, including price /etc./
+A barcode is a reliable way of storing a small amount of information. This makes them suitable for storing some sort of identification number that can be looked up in a database. It is up to retailers to store information about the associated product. Eg. Two retailers may sell the same product, with the same barcode, although each retailer will store different data about that product, including price, etc.
 
-Many different standards are used for encoding data in barcodes. The most common are the European Article Number /(EAN)/, sometimes called /IAN/ and other barcode standards recognised by /GS1/, a not-for-profit standards agency based in Belgium *(not on specification)*. Another common type is /code 128/, which can store characters and is often used in shipping and logistics. It is the standard of the barcode that determines its appearance and how it can store data.
+Many different standards are used for encoding data in barcodes. The most common are the European Article Number /(EAN)/, sometimes called /IAN/, and other barcode standards recognised by /GS1/, a not-for-profit standards agency based in Belgium /(not on specification)/. Another common type is /code 128/, which can store characters and is often used in shipping and logistics. It is the standard of the barcode that determines its appearance and how it can store data.
 
 *Description:*
 
@@ -1157,7 +1160,7 @@ When the shutter is open, light is focused onto the /sensor/ by the camera's len
 
 *Description:*
 
-RFID tags are often attached to inventory items like a barcode. Using a /passive/ system, the RFID tag is brought near to a reader, which is emitting radio waves. When in range, the tag's antenna picks up the radio communication. The transfer of energy to the device activates the tag's /IC/ chip, which modulates and returns an EM signal to the reader.
+RFID /tags/ are often attached to inventory items like a barcode. Using a /passive/ system, the RFID tag is brought near to a reader, which is emitting radio waves. When in range, the tag's antenna picks up the radio communication. The transfer of energy to the device activates the tag's /IC/ chip, which modulates and returns an EM signal to the reader.
 
 The /passive/ system depends on high intensity emission from the reader to be activated, so the /transponder/ (RFID device), must be close to the reader. /Active/ systems have a power source, so they are able to transmit a signal to a receiver that is much futher away.
 
@@ -1175,7 +1178,7 @@ A laser printer is ideal for printing documents in large volumes. As opposed to 
 
 *Description:*
 
-Before a page is printed, the drum is covered in a negative electric charge (excess of electrons). The mirror assembly reflects the beam from the laser light source over the drum, removing the negative charge in certain areas and creating an inverse of the image to be printed. Negatively charged toner adheres to the positive parts of the drum. Paper is rolled across the drum and the toner is transferred to it, creating the image on the page. Finally the paper is passed through the fuser, where it is heated, binding the toner to the page.
+Before a page is printed, the drum is covered in a negative electric charge (excess of electrons). The mirror assembly reflects the beam from the laser light source over the drum, removing the negative charge in certain areas and creating an inverse of the image to be printed. Negatively charged toner adheres to the positive/neutral parts of the drum. Paper is rolled across the drum and the toner is transferred to it, creating the image on the page. Finally the paper is passed through the fuser, where it is heated, binding the toner to the page.
 
 ** Secondary Storage
 
@@ -1424,7 +1427,13 @@ One of the shortcomings of the /CSMA/CA/ standard is the /hidden node/ problem. 
 Once the channel appears idle to a station, a 'request to send' signal is sent to the /WAP/. If the 'clear to send' signal is not received, the station waits a random amount of time before checking the channel status and resending the 'request to send' signal. If the /WAP/ is free, a 'clear to send' signal is returned to the station and the data can be transmitted.
 
 ** Communication & Privacy
+
+/not implemented/
+
 ** Social, Cultural & Legal Issues
+
+/not implemented/
+
 * Data Structures
 
 /not implemented/

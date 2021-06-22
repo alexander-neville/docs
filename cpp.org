@@ -1,0 +1,120 @@
+#+TITLE: C and C++ Programming
+
+* C/C++ Console Application
+
+#+begin_src c++
+
+int main() {
+
+    return 0;
+
+}
+
+#+end_src
+
+* Including Code
+
+/File inclusion/ is needed to use code written by others, including common operations from the /standard library/.
+
+Inclusion is a /preprocessor/ directive, an important step in the compilation process.
+
+The included files are called /header/ files. They typically contain function definitions and preprocessor /macros/ for code and functions that are shared amongst a number of files.
+
+Most programs import some functionality from the c++ standard library. That can be done by including a header file. Including Third-party code libraries can be more involved and may include /linking/.
+
+#+begin_src c++
+
+#include <iostream> // <> means the file come from a pre-determined path
+#include "my_header_file" // "" indicates the current directory
+
+#+end_src
+
+* Streams
+
+A stream is a sequence of bytes flowing in and out of a program.
+
+* Namespaces
+
+A namespace can be declared within an application and defines a scope for subsequent identifiers. Using namespaces, it is possible to prevent name collisions, especially important when using code from many libraries.
+
+Code in the standard library are wrapped in a namespace called =std=.
+
+=::= is called the scope resolution operator.
+
+** Using a Namespace
+
+If the chances of a name collision is low, or a piece of code is used exhaustively, a certain /default/ namespace can be used.
+
+This can induce unexpected side-effects as it is very vague. It is better to manage namespaces on a per symbol basis.
+
+_Example:_
+
+#+begin_src c++
+
+using namespace std; //use the std namespace throughout
+using std::cout; //use the std namespace for cout only
+
+#+end_src
+
+Using a namespace for certain symbols is also indicative of how the application works and which functions/classes are important.
+
+** Defining a Namespace
+* Variables & Types
+
+Variables may be one of a number of different types. Both C and C++ has a /static/ type system, meaning variable /declaration/ must be explicit. Equally the type of parameters, return values and the results of calculations must be known as they are used and assigned between.
+
+A static type system will catch many type errors during compilation, preventing underlying errors in the compiled program.
+
+Some types are /built-in/ or /primitive/ to the language, while others are user defined. User-defined types include those developed by other users and included in libraries.
+
+** Defining a Variable
+
+- Variables are first /declared/. An area of memory of the right size is prepared for the variable.
+- Before /initialisation/, the state of the memory is not altered, hence the value of the variable is random. (whatever filled the memory before)
+- Storing a value in a variable is called /assignment/ this first time this is done is sometimes called /initialisation/.
+
+*** Example:
+
+#+begin_src c++
+
+int var; // variable of type int is declared
+var = 2; // value assigned to variable
+
+int var_2 = 5; // variable of type int is declared and given a value
+
+#+end_src
+
+** Type Safety
+
+When multiple types interact / values are assigned to other types, three situations can occur:
+
+- Promotion: certain conversions are acceptable, eg. int -> float
+- Demotion: data might be lost, eg. float -> int
+- Unsupported: incompatible operation, eg. string * float
+
+*** Common Operations
+
+- When a =float=/=double= is converted to an integer, it is truncated.
+- When dividing two =int= values, the output is a truncated integer.
+- A hard coded decimal number in source code is treated as a =double=.
+
+*** Example
+
+#+begin_src c++
+
+#include <iostream>
+
+int main() {
+
+    float f = 5;
+    std::cout << f << std::endl; // 5
+    f = 4.9;
+    std::cout << f << std::endl; // 4.9
+    f = 5 / f;
+    std::cout << f << std::endl; // 1.02041
+
+    return 0;
+
+}
+
+#+end_src

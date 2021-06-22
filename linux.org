@@ -1,9 +1,10 @@
 
-#+TITLE: Arch Linux Notes
+#+TITLE: Desktop Linux Notes
 #+AUTHOR: Alexander Neville
-#+DESCRIPTION: notes about using arch Linux
+#+DESCRIPTION: notes about using Linux as a desktop operating system.
 
-* Saving Package List
+* Package Management
+** Saving Package List
 
 To save the list of deliberately installed packages from the central repository and the /AUR/ respectively:
 
@@ -23,7 +24,7 @@ pacaur -S --noedit --noconfirm --needed aur_packages.txt
 
 #+end_src
 
-* Xorg
+** Xorg
 
 Install the xorg package group, along with xinit:
 
@@ -42,14 +43,14 @@ sudo pacman -S mesa xf86-video-intel
 
 #+end_src
 
-** Other useful utilities:
+*** Other useful utilities:
 
 1. =hsetroot= (basic cli wallpapersetter)
 2. =nitrogen= (gui wallpaper setter)
 3. =xodotool= (interact with gui windows)
 4. =lxapperaance= (WM agnostic GTK theme setter)
 
-* Tidying the System
+** Tidying the System
 
 Remove orphaned packages:
 
@@ -59,7 +60,7 @@ sudo pacman -Rs $(pacman -Qtdq)
 
 #+end_src
 
-* Networking
+** Networking
 
 Install the =networkmanager= package and then enable the =NetworkManager.service=. This package also provides =nmtui= and =nmcli=. It can also be helpful to install =nm-connection-editor= for managing more complex connections.
 
@@ -80,7 +81,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.con
 
 #+end_src
 
-* ZSH
+* Enable ZSH
 
 Verify current shell:
 
@@ -125,3 +126,5 @@ Source changes to your config file with this command:
 source ~/.zshrc
 
 #+end_src
+
+* Scripting
