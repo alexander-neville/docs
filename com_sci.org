@@ -264,7 +264,7 @@ An algorithm is repeatedly broken down into smaller parts until each can easily 
 A hierarchy chart is a way of visualising how an algorithm is broken down. Each step may be a logical block or a sub-routine that has been programmed. A hierarchy chart does not describe the implementation of a problem, nor the control flow within each module.
 
 #+CAPTION: a hierarchy chart for calculating a gas bill
-[[./heirarchy.png]]
+[[./images/heirarchy.png]]
 
 ** Testing
 
@@ -297,7 +297,7 @@ A state is represented with a circle. States are joined by an arrow (direction i
 The start state is marked by a short arrow, with no connection to another state. The end or /acceptance/ state is a double circle. See the diagram below.
 
 #+CAPTION: an FSM with 3 states
-[[./fsm.png]]
+[[./images/fsm.png]]
 
 The typical FSM diagram can also be represented by a /state transition table/, which lists all of the possible transitions. The table for the diagram above would look like this:
 
@@ -1224,7 +1224,7 @@ Optical disks are a portable way of storing smaller amounts of data. Optical dis
 *Diagram:*
 
 #+CAPTION: the pits and lands of an optical disk
-[[./optical_disk.png]]
+[[./images/optical_disk.png]]
 
 *Description:*
 
@@ -1255,7 +1255,7 @@ A Solid State Drive /(SSD)/ is a modern type of secondary storage, frequently us
 *Diagram:*
 
 #+CAPTION: a nand cell
-[[./nand_flash.png]]
+[[./images/nand_flash.png]]
 
 *Description:*
 
@@ -1658,10 +1658,10 @@ In an entity description, each line represents a table. The first section is the
 /ER/ diagrams are a more visual way of representing a database layout. There are two common types, those which include the table/entity name only and those which show the columns and foreign key relationships. Here are some examples:
 
 #+CAPTION: an abstract ER diagram, showing the relationships between entities
-[[./simple_er.png]]
+[[./images/simple_er.png]]
 
 #+CAPTION: a detailed ER diagram, demonstrating the key constraints in the DB
-[[./advanced_er.png]]
+[[./images/advanced_er.png]]
 
 ** SQL
 
@@ -1998,7 +1998,7 @@ Here are some notes on how to use some of python's OOP features: https://github.
 Since /OOP/ is a paradigm, many languages support similar, although slightly different, programming techniques for working with types and objects. Generally speaking a named instance of a object is a /reference type/, holding a pointer to where the object itself resides in memory.
 
 #+CAPTION: variable reference diagram
-[[./reference.png]]
+[[./images/reference.png]]
 
 There are many different implementations of objects across different languages, from /structs/ in C and /object literals/ in Javascript to /classes/ in python and C++.
 
@@ -2172,7 +2172,7 @@ Each subclass which inherits from the =Animal= parent class will have all the me
 Here is a diagram of inheritance:
 
 #+CAPTION: inheritance from Animal superclass
-[[./inheritance.png]]
+[[./images/inheritance.png]]
 
 *** Demonstration
 
@@ -2264,10 +2264,10 @@ When two objects have a relationship that is not an /"is a"/ relationship, assoc
 There are common diagrams of each type of association:
 
 #+CAPTION:association by aggregation
-[[./aggregation.png]]
+[[./images/aggregation.png]]
 
 #+CAPTION: association by composition
-[[./composition.png]]
+[[./images/composition.png]]
 
 *** Access Modifiers
 
@@ -2284,7 +2284,7 @@ As is the case with DB design, there are a number of different diagrams designed
 A single =-= sign is a private attribute, a =+= is a public attribute/method and =#= is used for protected attributes.
 
 #+CAPTION: A UML diagram for the standard animal example
-[[./uml.png]]
+[[./images/uml.png]]
 
 *** Advantages of OOP
 
