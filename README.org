@@ -1,11 +1,3 @@
 #+TITLE: My Documents
 
-This repository contains some of my notes, which may be helpful to others and contain no private information. The files regard:
-
-- some tips on arch linux usage -> =arch.org=
-- my a-level computer science notes -> =com_sci.org=
-- basic git usage -> =git.org=
-- LAMP stack set-up -> =lamp.org=
-- intro to nodejs for web development- > =nodejs.org=
-- oop concepts in python -> =python.org=
-- intro to containers and virtualisation -> =virtualisation.org=
+This repository hosts some /org-mode/ notes, which may be helpful to others and contain no private information. In the =comsci= subdirectory are my notes on [[file:comsci/index.org][AQA A-Level Computer Science]], while the =misc= subdirectory contains a set of, well ... miscellaneous notes!
