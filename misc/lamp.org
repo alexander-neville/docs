@@ -14,11 +14,13 @@ This guide covers how to set-up each of these pieces of software on a single mac
 - [[#apache][Apache]]
   - [[#installation][Installation]]
   - [[#firewall-set-up][Firewall Set-up]]
+  - [[#permissions][Permissions]]
+  - [[#configuration-overview][Configuration Overview]]
 - [[#php][PHP]]
   - [[#ubuntu][Ubuntu]]
   - [[#arch][Arch]]
   - [[#check-configuration][Check Configuration]]
-- [[#permissions][Permissions]]
+- [[#apache2-config][Apache2 Config]]
 - [[#database][Database]]
   - [[#install][Install]]
   - [[#creating-users][Creating Users]]
@@ -38,10 +40,8 @@ This guide covers how to set-up each of these pieces of software on a single mac
 Install apache and enable it with systemd.
 
 #+begin_src sh
-
 sudo apt install apache2
 sudo systemctl enable --now apache2
-
 #+end_src
 
 *Arch:*
@@ -49,10 +49,8 @@ sudo systemctl enable --now apache2
 Package is called 'apache' in arch repos and service is called /httpd/.
 
 #+begin_src shell
-
 sudo pacman -S apache php php-apache
 sudo systemctl enable --now httpd
-
 #+end_src
 
 ** Firewall Set-up
@@ -60,11 +58,179 @@ sudo systemctl enable --now httpd
 Configure the firewall if needed, with iptables (ufw may not be installed)
 
 #+begin_src sh
-
 sudo iptables -I INPUT 6 -m state --state NEW -p tcp --dport 80 -j ACCEPT
 sudo apt-get install iptables-persistent
 sudo netfilter-persistent save
+#+end_src
 
+** Permissions
+
+There are many ways to have permission over the document root and its contents. Oracle 1 adding yourself to the group the webserver runs as and chowning/chmodding the files as appropriate. On ubuntu, apache runs as =www-data=, although different configs may have a different user.
+
+#+begin_src sh
+sudo adduser $USER www-data
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R g+rw /var/www/html
+#+end_src
+
+** Configuration Overview
+
+If in doubt, the debian/ubuntu default page is a helpful starting point for your server configuration. Here is an illustration of the default configuration layout, lifted directly from that page.
+
+#+begin_src
+/etc/apache2/
+|-- apache2.conf
+|       `--  ports.conf
+|-- mods-enabled
+|       |-- *.load
+|       `-- *.conf
+|-- conf-enabled
+|       `-- *.conf
+|-- sites-enabled
+|       `-- *.conf
+#+end_src
+
+Predictably, the page points the administrator to the =a2enmod=, =a2dismod=, =a2ensite=, =a2dissite= commands, among others, which are used to automatically place symlinks between the ~*-available~ and ~*-enabled~ directories.
+
+Making an SSH connection to the server, this config directory can be examined. It is laid out as advertised.
+
+#+begin_src
+$ ls -la
+total 88
+drwxr-xr-x   8 root root  4096 Dec  8 22:33 .
+drwxr-xr-x 102 root root  4096 Dec  8 22:35 ..
+-rw-r--r--   1 root root  7224 Oct 14 16:24 apache2.conf
+drwxr-xr-x   2 root root  4096 Dec  8 22:33 conf-available
+drwxr-xr-x   2 root root  4096 Dec  8 22:33 conf-enabled
+-rw-r--r--   1 root root  1782 Sep 30  2020 envvars
+-rw-r--r--   1 root root 31063 Sep 30  2020 magic
+drwxr-xr-x   2 root root 12288 Dec  8 22:34 mods-available
+drwxr-xr-x   2 root root  4096 Dec  8 22:34 mods-enabled
+-rw-r--r--   1 root root   320 Sep 30  2020 ports.conf
+drwxr-xr-x   2 root root  4096 Dec  8 22:33 sites-available
+drwxr-xr-x   2 root root  4096 Dec  8 22:33 sites-enabled
+#+end_src
+
+Those directories containing enabled configuration snippets indeed contain symlinks to the appropriate ~.conf~ files. This is the contents of the enabled /vitual host/ directory.
+
+#+begin_src
+$ ls -la sites-enabled/
+total 8
+drwxr-xr-x 2 root root 4096 Dec  8 22:33 .
+drwxr-xr-x 8 root root 4096 Dec  8 22:33 ..
+lrwxrwxrwx 1 root root   35 Dec  8 22:33 000-default.conf -> ../sites-available/000-default.conf
+#+end_src
+
+*** Ports.conf
+
+The ~ports.conf~ file lists the ports to listen on. This is not a /stand-alone/ config option, as the comment indicates. The server's firewall must allow incoming requests on a particular port, and a virtualhost must exist to handle these requests.
+
+#+begin_src
+# If you just change the port or add more ports here, you will likely also
+# have to change the VirtualHost statement in
+# /etc/apache2/sites-enabled/000-default.conf
+
+Listen 80
+
+<IfModule ssl_module>
+        Listen 443
+</IfModule>
+
+<IfModule mod_gnutls.c>
+        Listen 443
+</IfModule>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
+#+end_src
+
+*** Apache2.conf
+
+This config file is hevily commented. These are the options without comments printed. Notably, you can see how enabled config options are included.
+
+#+begin_src
+$ grep ^[^#] apache2.conf
+DefaultRuntimeDir ${APACHE_RUN_DIR}
+PidFile ${APACHE_PID_FILE}
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 100
+KeepAliveTimeout 5
+User ${APACHE_RUN_USER}
+Group ${APACHE_RUN_GROUP}
+HostnameLookups Off
+ErrorLog ${APACHE_LOG_DIR}/error.log
+LogLevel warn
+
+IncludeOptional mods-enabled/*.load
+IncludeOptional mods-enabled/*.conf
+Include ports.conf
+
+<Directory />
+	Options FollowSymLinks
+	AllowOverride None
+	Require all denied
+</Directory>
+<Directory /usr/share>
+	AllowOverride None
+	Require all granted
+</Directory>
+<Directory /var/www/>
+	Options Indexes FollowSymLinks
+	AllowOverride None
+	Require all granted
+</Directory>
+
+AccessFileName .htaccess
+<FilesMatch "^\.ht">
+	Require all denied
+</FilesMatch>
+
+LogFormat "%v:%p %h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" vhost_combined
+LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\"" combined
+LogFormat "%h %l %u %t \"%r\" %>s %O" common
+LogFormat "%{Referer}i -> %U" referer
+LogFormat "%{User-agent}i" agent
+
+IncludeOptional conf-enabled/*.conf
+IncludeOptional sites-enabled/*.conf
+#+end_src
+
+*** Virtualhosts
+
+The default distribution of apache2 on ubuntu ships with one virtual host enabled: ~000-default.conf~. It is a standard =http= host which runs on port 80. The other notable setting is its =DocumentRoot=, from which the application is served.
+
+#+begin_src
+<VirtualHost *:80>
+        # The ServerName directive sets the request scheme, hostname and port that
+        # the server uses to identify itself. This is used when creating
+        # redirection URLs. In the context of virtual hosts, the ServerName
+        # specifies what hostname must appear in the request's Host: header to
+        # match this virtual host. For the default virtual host (this file) this
+        # value is not decisive as it is used as a last resort host regardless.
+        # However, you must set it for any further virtual host explicitly.
+        #ServerName www.example.com
+
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/html
+
+        # Available loglevels: trace8, ..., trace1, debug, info, notice, warn,
+        # error, crit, alert, emerg.
+        # It is also possible to configure the loglevel for particular
+        # modules, e.g.
+        #LogLevel info ssl:warn
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+        # For most configuration files from conf-available/, which are
+        # enabled or disabled at a global level, it is possible to
+        # include a line for only one particular virtual host. For example the
+        # following line enables the CGI configuration for this host only
+        # after it has been globally disabled with "a2disconf".
+        #Include conf-available/serve-cgi-bin.conf
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet
 #+end_src
 
 * PHP
@@ -74,10 +240,8 @@ Install php and some common extensions
 
 
 #+begin_src sh
-
 sudo apt install php
 sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php-xml php-zip
-
 #+end_src
 
 ** Arch
@@ -85,83 +249,58 @@ sudo apt install openssl php-common php-curl php-json php-mbstring php-mysql php
 Install common extensions with =php-extension_name=
 
 #+begin_src shell
-
 sudo pacman -S php php-apache
-
 #+end_src
 
 Uncomment these lines in =/etc/php/php.ini=
 
 #+begin_src
-
 extension=pdo_mysql
 extension=mysqli
-
 #+end_src
 
 Comment and uncomment in =/etc/httpd/conf/httpd.conf= respectively:
 
 #+begin_src
-
 #LoadModule mpm_event_module modules/mod_mpm_event.so
 LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
-
 #+end_src
 
 Append to the end of the /LoadModule/ section of the config file:
 
 #+begin_src
-
 LoadModule php_module modules/libphp.so
 AddHandler php-script .php
-
 #+end_src
 
 Also append to the end of the /Include/ section:
 
 #+begin_src
-
 Include conf/extra/php_module.conf
-
 #+end_src
 
 ** Check Configuration
 
 Create an =info.php= in your document root to verify that the installation is working:
 
-#+begin_src php
-
+#+begin_src html
 <?php
 
 phpinfo();
 
 ?>
-
 #+end_src
 
-* Permissions
-
-There are many ways to have permission over the document root and its contents. Oracle reccomends adding yourself to the group the webserver runs as and chowning/chmodding the files as appropriate. On ubuntu, apache runs as =www-data=, although different configs may have a different user.
-
-#+begin_src sh
-
-sudo adduser $USER www-data
-sudo chown -R www-data:www-data /var/www/html
-sudo chmod -R g+rw /var/www/html
-
-#+end_src
-
+* Apache2 Config
 * Database
 ** Install
 
 *Ubuntu:*
 
 #+begin_src sh
-
 sudo apt install mysql-server
 sudo systemctl enable --now mysql
 sudo mysql_secure_installation
-
 #+end_src
 
 *Arch*:
@@ -169,12 +308,10 @@ sudo mysql_secure_installation
 Mariadb is a drop-in replacement for mysql.
 
 #+begin_src shell
-
 sudo pacman -S mariabd
 mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
 sudo systemctl enable --now mariadb
 sudo mysql_secure_installation
-
 #+end_src
 
 ** Creating Users
@@ -183,57 +320,43 @@ Having run the =mysql_secure_installation= script, you will have set a root pass
 If logging in as root is giving you difficulty, log in like this ...
 
 #+begin_src sh
-
 sudo mysql -u root
-
 #+end_src
 
 ... and alter the user like this.
 
 #+begin_src sql
-
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
-
 #+end_src
 
 To create other users:
 
 #+begin_src sql
-
 CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';
-
 -- eg:
-
 CREATE USER 'root'@'localhost' IDENTIFIED BY 'password';
 CREATE USER 'wordpress'@'localhost' IDENTIFIED BY 'password';
-
 #+end_src
 
 ** Assigning Roles
 
 #+begin_src sql
-
 GRANT ALL PRIVILEGES ON database.table TO 'newuser'@'localhost';
 GRANT ALL PRIVILEGES ON chatter.* TO 'php'@'localhost';
 GRANT ALL PRIVILEGES ON wordpress_data.* TO 'wordpress'@'localhost';
-
 #+end_src
 
 Make sure to reload the privilege tables:
 
 #+begin_src sql
-
 FLUSH PRIVILEGES;
-
 #+end_src
 
 ** Importing and Exporting
 
 #+begin_src sh
-
 mysqldump -u [username] -p [database-you-want-to-dump] > [path-to-place-data-dump]
 mysql -u [username] -p newdatabase < [database name].sql
-
 #+end_src
 
 * Example Laravel Deployment
@@ -246,28 +369,22 @@ Composer is a dependency manager for php, get more info here: https://getcompose
 Here are the download steps:
 
 #+begin_src sh
-
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 php composer-setup.php
 php -r "unlink('composer-setup.php');"
-
 #+end_src
 
 This will download =composer.phar= in the current directory. It would be handy to make this available globaly, so put it somewhere in your path. If you have root privileges, try this:
 
 #+begin_src shell
-
 sudo mv ./composer.phar /usr/bin/composer
-
 #+end_src
 
 Verify that this worked, by printing the location of the composer command (where it exists on your path):
 
 #+begin_src shell
-
 which composer
-
 #+end_src
 
 ** Install Laravel
@@ -275,33 +392,25 @@ which composer
 With composer installed, we can install laravel globally. This will install the *laravel installer* into some /unkown/ directory.
 
 #+begin_src shell
-
 composer global require laravel/installer
-
 #+end_src
 
 To find where composer installs these global dependencies, run the command shown below. The path to the dependencies will be shown on the line beginning with =[home]=. (this will likely be =$HOME/.config/composer/vendor/bin=) To use laravel (or anything else installed like this), its location will have to be added to our path. It is a good idea to add the composer global install directory to your path so that you can use every dependency you choose to install globally, without the need to type a full path every time.
 
 #+begin_src shell
-
 composer config --list --global
-
 #+end_src
 
 Once you have found the install directory, append the relevant directory path to your =$PATH= environment variable. To do this, add this line to the end of your =~/.bashrc=
 
 #+begin_src shell
-
 export PATH=$PATH:$HOME/.config/composer/vendor/bin
-
 #+end_src
 
 Start a new shell for this change to take effect. Once done, verify Laravel is installed like this:
 
 #+begin_src shell
-
 which laravel
-
 #+end_src
 
 ** Create Laravel Project
@@ -309,10 +418,8 @@ which laravel
 Having globally installed Laravel, a new app needs to be created / deployed in a directory known to the webserver. On ubuntu =/var/www/html= is a good place to do this. Use git to clone an existing project or use the =laravel new= command in this directory. eg.
 
 #+begin_src shell
-
 git clone https://github.com/username/repo.git
 laravel new <project_name>
-
 #+end_src
 
 ** Setting up Virtual Hosts
@@ -320,23 +427,18 @@ laravel new <project_name>
 Laravel uses the *MVC* layout and so only the contents of the =public= directory should be inside the document root of the webserver. To make sure this is the case create a new virtual host file for the project and disable the old vhost. The changes will have to made within the config directory of the apache webserver.
 
 #+begin_src sh
-
 cd /etc/apache2/sites-available
-
 #+end_src
 
 Within this directory create a new vhost file, ending in =.conf=. Open this file in your favourite text editor, nano is usually installed.
 
 #+begin_src shell
-
 sudo nano project_name.conf
-
 #+end_src
 
 Add the following lines, changing the relevant pieces of information to reflect your set-up
 
 #+begin_src
-
 <VirtualHost *:80>
    ServerName {{server-ip-address}}
    ServerAdmin webmaster@thedomain.com
@@ -348,31 +450,23 @@ Add the following lines, changing the relevant pieces of information to reflect 
    ErrorLog ${APACHE_LOG_DIR}/error.log
    CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
-
 #+end_src
 
 Now we need to stop using the default virtual host config and use the new one we just made. Use apache's *dissite* and *ensite* commands, again substitute the name of the file you just made into these commands. The *dissite* command shown below assumes that you were previously using the default vhost config.
 
 #+begin_src shell
-
 sudo a2dissite 000-default.conf
 sudo a2ensite new_vhost_name.conf
-
 #+end_src
 
 Enable the rewrite mod for apache:
 
 #+begin_src shell
-
 sudo a2enmod rewrite
-
 #+end_src
 
 Finally restart the webserver to make those changes take effect.
 
 #+begin_src shell
-
 sudo systemctl restart apache2
-
 #+end_src
-
