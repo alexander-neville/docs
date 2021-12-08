@@ -1,0 +1,613 @@
+
+#+TITLE: Hardware, Software & Computer System Architecture
+#+AUTHOR: Alexander Neville
+#+OPTIONS: ^:{}
+
+* Hardware and Software
+
+Hardware is the name given to physical equipment that constitutes a computer. Meanwhile, software is program code stored digitally and used to perform a task.
+
+** Classification of Software
+*** System Software
+
+System software is the collection of software needed to run a computer system, including an operating system. A general purpose operating system will usually ship with additional software to make the computer more functional. There are other types of system software.
+
+**** Operating Systems
+
+An operating system /(OS)/ is a piece of software designed to manage a computer's hardware on behalf of running applications and ultimately the computer user. The operating system interacts directly with the system's resources, exposing available operations to other applications, a good example of a programming /API/. The benefit of an operating system is versatility. With an /OS/ installed there is no need for each application to perform low level operations and the computer will be able to perform many different tasks without reprogramming.
+
+*Common OS tasks:*
+
+- multi-processing and multitasking
+- backing store management
+- device and driver management
+- hardware diagnostics
+- detecting peripherals
+- interrupt handling
+
+**** Utility Software
+
+Utility software is often included with an operating system to help maintain the machine, but the user may choose to install more of these utilities. Typically, the operating system itself will use the installed utility software, although the user may choose to use the software manually.
+
+*Examples include:*
+
+- disk management
+- virus checking
+- file management
+- compression tools
+- software installer/uninstaller
+
+**** Code Libraries
+
+Many programming languages have a library of code that is /built-in/, to simplify common operations. This code can be packaged and implemented in many different ways, but the core functions are usually included with the language and stored on a users computer. Some common library extensions are: *.dll* and *.so*. Should a program need functionality from the libraries, it is /imported/ in the source code.
+
+**** Translators
+
+Translators are required to transform written source code into executable machine code, with various steps along the way. The different types of translators are covered below.
+
+*** Application Software
+
+Application software is designed to work on a certain operating system and perform tasks for the user. This type of software may be shipped along with an operating system, although a user may choose to install or remove this type of software on a regular basis. Application software is developed in different ways for different customers. Here are some common ways software is made and distributed: /General Purpose/, /Specific Purpose/ and /Bespoke/.
+
+**** General Purpose
+
+- Includes mainstream products like office suites or graphics programs
+- A user will install this kind of software to help with whatever specific purpose they have in mind
+- This type of software will be used by many people to achieve different results
+
+**** Special Purpose
+
+- This is also a type of application software, but unlike general purpose software, this type of software serves a more specific audience
+- This type of software is still widely available and its specificity does not reduce its pervasiveness
+- E.g. a python IDE is specific software, but many people will use this software.
+- This type of software does not necessarily match the exact requirements of a person or business, as this type of software is published without a specific customer in mind and it may be disseminated to many people
+
+**** Bespoke Software
+
+A business may choose to have software developed specially for them by some software developers. This is called /bespoke software/.
+
+- This kind of software is generally special purpose, as there is no need to create new general purpose software
+- Bespoke software means it not only serves a specific purpose, it is also created directly for a specific customer
+- The benefits of a bespoke system is ease of use and specificity (no redundant/missing features, because the client told the developer what to include)
+- The downside of this type of software is the time and cost associated with developing the software after the need is identified
+- Additionally, the software may not be stable if it has not been tested extensively by others
+
+** Programming Language Specification
+*** Low-Level Languages
+
+The two main types of low-level language are /machine code/ and /assembly language/.
+
+**** Machine Code
+
+Machine code is written entirely in binary and as a result it can be executed by a computer without the need for translation. At this level, abstraction is limited and a program consists of the set of operations the processor must perform.
+
+Machine code instructions are composed of an /opcode/ and associated /operands/. The available opcodes depend on the processor's /instruction set/ and so machine code is specific to the platform it was designed for, therefore machine code is not /portable/.
+
+Binary is repetitive and lengthy, making mistakes like transcription errors very common. Once a program has been developed, the machine code is difficult to understand and debug.
+
+**** Assembly language
+
+Assembly language was designed to make working with native machine code easier. Opcodes are replaced by mnemonics, while hexadecimal and decimal numbers are often used in place of operands. Assembly language reduces the amount of errors made when inputting code and makes the code easier to read and understand.
+
+Generally speaking, each line of code in an assembly language program corresponds to a single machine code instruction; the extent of assembly language abstraction is limited. This means that assembly language is processor specific, like machine code. In addition, assembly code shares the same detailed approach to programming, as each line of code is a single processor instruction, rather than part of an algorithm.
+
+*** High-Level Languages
+
+As /operating systems/ developed, it became possible to write programs which could be run on many platforms.  The languages used to write these programs became known as /high-level/ languages. A high-level language will need to be converted, or /translated/, into executable code for each platform it is used on.
+
+High-level languages are much easier to read, write and understand, thanks to the /abstraction/ of factors like computer hardware and system resources. Code written in a high-level language more closely models spoken language and uses common symbols like =+= and =-=, along with named variables, comments and indentation to improve ease of use.
+
+High-level languages are much more suitable for designing complex algorithms, as each line describes a single step in the problem, rather than the processor operations needed to make it happen.
+
+A programming /paradigm/ is a way of classifying high-level programming languages. The /Imperative/ programming language paradigm includes both the /procedural/ and /object orientated/ techniques. Meanwhile, the /declarative/ paradigm includes languages like SQL and the /functional/ programming style.
+
+*** Abstraction
+
+High-level languages are more /abstract/ than low-level languages. Each line of python contains far more operations than a line of x86 assembly. Should a process need to be made very efficient, the very minimum level of abstraction should be used. If some process involves specific hardware, it may be useful to use a low-level language to get the best performance from it.
+
+** Programming Language Translation
+
+Besides native machine code, all other types of programming language, including assembly, need to be converted into a format the computer can understand. This process is called /translation/. The two most common methods of translating source code written in a high-level language into object code are /compilation/ and /interpretation/.
+
+*** Assemblers
+
+While assembly is a type of low-level language, it requires translation. The tool used to do this is called an *assembler*. The result of running assembly code through an assembler is object code. Object code may need to be run through a /linker/ program to make executable code (not on specification).
+
+*** Compilers
+
+A compiler is a program that can translate code written in a high-level language into executable code. The compiler program runs over inputted source code, performing a series of checks and identifying how to construct the object code output.
+
+A program written in a compiled language is usually distributed by sharing the compiled object code, which can be run in the absence of the compiler. This means the original code can be kept private or /closed source/.
+
+*Advantages of a Compiler:*
+
+- Errors are detected before translation
+- Compiled code can be run without the need for translation, making execution faster
+- Compiled code can be distributed without compromising the source code
+
+*** Interpreters
+
+An interpreter translates a program into executable machine code instructions at run-time. Sometimes there is an intermediate type of compiled code, called /bytecode/.
+
+A typical interpreter will scan source code in advance for syntax errors, and subsequently translation happens line-by-line. The interpreter will call subroutines within its own source code to handle high-level instructions in the input code.
+
+As the interpreter works line by line, some code may be translated and run before an error is reached.
+
+*Advantages of an Interpreter:*
+
+- No long periods of compilation
+- Identifying errors and debugging the program is easier
+
+*** Bytecode
+
+In order to improve the performance and portability of high-level code, /bytecode compilation/ is sometimes used (usually in interpreted languages). This divides the compilation process into two parts:
+
+1. /bytecode compilation/
+2. /machine code translation/
+
+Implementations of this process vary. Some languages like *java* have a portable /virtual machine/, capable of interpreting bytecode. Once source code has been compiled into bytecode for the java virtual machine, it can be run anywhere the /JVM/ is installed.
+
+In the case of java, bytecode for the /JVM/ is distributable. With the standard python implementation, the bytecode compiler and the interpreter are not separable; bytecode compilation and translation happen at run time. As a result the source code must be shared to distribute the program.
+
+**** Bytecode Disassembly
+
+It is possible to present python bytecode in human readable form. Here is a program that demonstrates this:
+
+#+begin_src
+
+import dis
+
+def hello():
+
+    print("hello")
+
+hello()
+dis.dis(hello)
+
+#+end_src
+
+The output of the script is:
+
+#+begin_src
+
+hello
+  7           0 LOAD_GLOBAL              0 (print)
+              2 LOAD_CONST               1 ('hello')
+              4 CALL_FUNCTION            1
+              6 POP_TOP
+              8 LOAD_CONST               0 (None)
+             10 RETURN_VALUE
+
+#+end_src
+
+** Boolean Logic & Algebra
+
+Due to the relative difficulty of representing mathematical expressions in plain text, this topic is covered in a separate document.
+
+* Computer Organisation and Architecture
+** Harvard & Von Neuman Architecture
+
+Many early computers could only perform one operation. The /Stored Program Concept/ allows a computer to store its instructions in re-programmable memory. This means that a computer could be instructed to perform a new operation without the disassembly of the machine. There are two main types of computer architecture designed with this general purpose computing paradigm in mind.
+
+*Harvard:*
+
+The Harvard architecture separates instructions and data, having a dedicated area of memory for each. The advantage of this setup is the computer's ability to fetch data and instructions simultaneously. In addition, a processor with this architecture can have a custom memory configuration depending on its purpose. This architecture is common among embedded systems.
+
+*Von Neuman:*
+
+The Von Neuman architecture has only one area of memory for both instructions and data. Instructions and data have to be fetched serially, which is often slower. However, this architecture is much more flexible and is used in most general purpose personal computers and mobile devices.
+
+** Motherboard
+
+A Computer's motherboard connects all the components of a computer together. The Central Processing Unit (/CPU)/ is housed on the motherboard. The motherboard also houses the computer's interfaces to external components, including the /RAM/ and /IO/ devices. Processor buses join components on the motherboard, allowing the /CPU/ to control the operation of the whole computer.
+
+** CPU Disambiguation
+
+/CPUs/ are implemented on a Integrated Circuit /IC/ metal-oxide-semiconductor /MOS/ microprocessor chip. Many chips have more than one processor core, these chips are called /multi-core processors/. Each core may have  more than 1 thread, creating /virtual cores/.  A chip with multiple cores - virtual or physical - will appear to the operating system as multiple *CPUs*. The A-level specification looks at the operation of just one /CPU/.
+
+In short, a /processor/ is mounted on a /motherboard/ and may have multiple /CPUs/, whether they be physical cores or virtual threads.
+
+*Manufacturing:*
+
+Silicon is a useful material for constructing processors. Silicon has semiconductor properties which mean it can behave like a switch, becoming conductive under certain conditions. The flow of charge is how processing works and so changing the conductivity of the chip is required.
+
+** CPU Components
+*** Processor Clock
+
+The system clock generates an oscillating signal, with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may take the duration of many clock cycles.
+
+*** Control Unit
+
+All the operations and flow of data around the CPU is governed by the control unit. Once an instruction is received, the control unit will organise its execution, including any required mathematical operations in the /ALU/. The control unit also handles data operations, including accessing main memory and general purpose registers.
+
+*** Arithmetic and Logic Unit
+
+The /ALU/ contains circuits capable of most mathematical operations and services requests from the control unit. The ALU will store some information as flags in the /Status Register/, important when making comparison operations.
+
+*** General Purpose Registers
+
+Modern computer processors have 16 general purpose registers. These are areas of fast, expensive, on-chip storage. In a 64 bit machine, one of these registers is 64 bits in size, although smaller registers are addressable, taking up the least significant bits of their larger counterparts. The data used in /ALU/ operations is read from and stored back into these registers.
+
+*** Dedicated Registers
+
+There are a number of specialised registers within the control unit, necessary for the operation of the computer. Unlike general purpose registers, they are not used to hold the operands and results of ALU operations.
+
+**** Status Register
+
+Following an ALU operation, /flags/ (individual bits) are set in the status register. These Indicate the result of the last operation. Here are some common status register flags (note that the names of the flags are not in the specification):
+
+|--------+-------------------|
+| symbol | purpose           |
+|--------+-------------------|
+| CF     | carry bit         |
+| PF     | parity bit        |
+| ZF     | zero              |
+| SF     | sign bit          |
+| OF     | overflow          |
+| AF     | adjust            |
+| IF     | interrupt enabled |
+|--------+-------------------|
+
+**** Memory Buffer Register
+
+Data that has been copied from main memory is stored here while it awaits an operation. Newly fetched instructions will he copied here initially before they are copied into the /CIR/ and decoded.
+
+**** Current Instruction Register
+
+After an instruction is put in the /MBR/, it is copied into the /CIR/ and decoded ahead of execution.
+
+**** Program Counter
+
+The program counter is responsible for managing the flow of execution. During a fetch, the value of the program counter is copied to the /MAR/ so that the next instruction can be retrieved. During instruction execution, the program counter is able to record the address of the next instruction so that program flow can resume after data is fetched form memory, altering the value in the /MAR/. In normal operation the /PC/ is incremented so that the next instruction is fetched from the next address in memory, although the contents of the /PC/ can be modified to perform a jump and resume operation from elsewhere in the program.
+
+**** Memory Address Register
+
+The memory address register will hold an address from which data is to be retrieved or written to. Instructions are also fetched from the address held by this register during the /FDE/ cycle.
+
+** Motherboard Buses
+
+The /processor/ is connected to other motherboard components by /buses/. A bus is a /parallel/ wire, through which addresses, data and control signals can flow. Motherboard communication is /synchronous/ and the distances involved are short.
+
+There are three main buses on any motherboard, which are collectively referred to as the /system bus/.
+
+*** Address Bus
+
+The address bus is a uni-directional wire, capable of transferring an address from the /MAR/ to main memory. The address bus is also used to identify /IO/ devices during data input and output.
+
+*** Data Bus
+
+This bus is bi-directional and allows data to flow between the processor and main memory in either direction. The bus is also used to share data amongst all the other components between these two.
+
+*** Control Bus
+
+Control signals are sent between motherboard components along this bus. The control bus is bi-directional, meaning these signals can flow either way. Here are some example control signals:
+
+- memory write
+- memory read
+- interrupt request
+- bus request
+- bus grant
+- clock signals
+- reset
+
+Many of these signals may be raised by devices other than the control unit.
+
+** IO Controllers
+
+An /IO/ controller sits between the processor and a peripheral device. Device controllers are addressable by the processor and receive instructions and data through the /system bus/. The controller is responsible for converting /CPU/ input/output requests to device specific instructions during normal operation.
+
+An /IO/ controller is also responsible for detecting and managing connected devices, raising processor /interrupts/ when action needs to be taken. This means that the processor can dedicate its time to /FDE/ operations rather than device management, significantly improving efficiency.
+
+See also /asynchronous communication/.
+
+** Cache
+
+Cache is a small, expensive area of a computer's memory. Cache memory is sometimes located on-chip or at least very nearby.
+
+Different /CPUs/ will have different cache configurations. In a multi-core processor some of the cache may be shared by all of the processor cores.
+
+A computer will often have different levels of cache, for example:
+
+- L1 cache, with a size between 2 and 64 KB
+- L2 cache, with a size between 256 KB and 2 MB
+
+** FDE Cycle
+
+Execution of a machine code instruction can be separated into three distinct phases: /fetch/, /decode/ and /execute/. In a modern computer this happens many times per second.
+
+*** Fetch
+
+The value of the /PC/ is copied to the /MAR/. This address is sent to the device's memory along the /address bus/. The value stored in the specified address is returned to the processor on the /data bus/. This value is temporarily stored in the /MBR/ while the /PC/ is incremented and operation is synchronised with the system clock. The fetch ends as the contents of the /MBR/ are copied to the /CIR/.
+
+*** Decode
+
+The machine code instruction in the /CIR/ is interpreted. The instruction is split into opcode and operand sections. Depending on the addressing mode (which is part of the opcode) and the requested operation, any additional data that is required is fetched and stored in one of the general purpose registers.
+
+*** Execute
+
+The specified operation is performed, having been decoded and identified. If the /ALU/ is involved, /status register/ flags are set and the results of the operation are stored in either the /accumulator/, general purpose registers or main memory, depending on the device.
+
+** Interrupts
+
+During the /FDE/ cycle, the processor will periodically check for /interrupts/. Interrupt signals are carried to the processor via the /control bus/. These signals may originate from /IO/ controllers and hence from hardware devices, or they might be raised by running software.
+
+When an interrupt is received and detected, the operating system determines its urgency and how to safely suspend operation and service it. When it is safe to do so, presently executing instructions and their data are pushed on to the /system stack/ and processor time is given to the /Interrupt Service Routine/. Once the interrupt is dealt with, control returns to the processor's previous task, provided that the situation was recoverable.
+
+** Processor Performance
+
+A number of factors affect the time a computer will take to perform a given operation or set of operations. No measure alone is able to definitively determine the performance of a computer.
+
+*** Clock Frequency
+
+The clock speed of a processor governs all /CPU/ operations, so theoretically a processor with a higher clock frequency can perform processor actions faster. In practice this is not a reliable single measurement of performance, as other factors dictate the amount of processing that can be performed with a certain number of cycles.
+
+*** Word Length
+
+The word length of a processor is the number of bits that a /CPU/ can operate on in a single action. This value tends to be the same as the size of the processor's registers and the width of the computer's data bus. Modern, general-purpose computers tend to use a 64-bit word length. A processor with a smaller word length will have to make successive fetch operations to work on a similar amount of data to a computer with a larger word length. This will increase the number of clock cycles used to process an amount of data.
+
+*** Address Size
+
+The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With /n/ bits the number of memory locations available is equal to /2^{n}/. With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently, to make sure that running processes are performant enough. Multi-tasking may be more difficult with less /RAM/. Under certain conditions this will not affect performance at all. Nb. the length of an address is usually the same as the word length.
+
+*** Multiple Cores
+
+A processor may have multiple CPUs, whether they be physical /cores/ or virtual /threads/. Each CPU can perform a separate /FDE/ cycle, significantly improving theoretical processing capability, although not all software will be able to make use of these extra CPUs, limiting the performance gains in most situations.
+
+** Instruction Sets
+
+Computers have different ways of representing available operations to programmers. An instruction set describes the operations a processor can perform with a binary value. An instruction set is specific to a certain processor architecture. The operations that a processor can perform may be similar to those of another processor, although the instruction set - used to trigger those operations - may be entirely different. The instruction set determines how machine code is interpreted and hence written. Each instruction in the instruction set has a binary value, so machine code - written in binary - can be directly understood by the processor without translation.
+
+*Typical Operations:*
+
+- Data transfer
+- Arithmetic calculations
+- Comparison
+- Logical operations
+- Branch (conditional)
+- Shift (multiplication)
+
+A machine code /instruction/ usually has two parts: the /opcode/ and the /operand(s)/. The opcode corresponds to an instruction and the operand(s) are effectively arguments.
+
+** Addressing Modes
+
+When constructing a machine code instruction, part of the opcode is the /addressing mode/. This defines how the arguments ought to be interpreted. There are two main types of addressing mode: /immediate/ and /direct/.
+
+- when immediate addressing is used, the value to be used in an operation is specified in the machine code instruction as a constant
+- in direct addressing, the value to perform an operation on is stored in the address given by the arguments (memory or register)
+
+** Assembly Language
+
+Here are my x86_64 assembly notes and examples: https://github.com/alexander-neville/assembly. AQA has its own instruction set, found here: https://filestore.aqa.org.uk/resources/computing/AQA-75162-75172-ALI.PDF and there is a simulator capable of running these instructions here: https://peterhigginson.co.uk/AQA/
+
+*** Fibonacci Example
+
+This is a good example of some AQA assembly. The program prints the first 10 Fibonacci numbers, using some basic operations and comparisons.
+
+#+begin_src
+// initialise some variables
+
+    MOV R0, #1 // current number
+    MOV R1, #0 // previous number
+    MOV R3, #0 // counter
+
+LOOP:
+
+    MOV R4, R0 // backup current number
+    ADD R0, R0, R1 // find next number
+    MOV R1, R4 // store previous number
+    OUT R0, 4 // print current number
+    ADD R3, R3, #1 //increment by 1
+    CMP R3, #10
+    BLT LOOP // repeat if not the 10th iteration
+    HALT // end of program
+
+#+end_src
+
+*** Bit-wise Operations
+
+A bitwise operation operates on each bit, irrespective of its value. To determine whether a binary number is odd or even a bitwise and operation can be used. The binary number undergoes /AND/ with /000...1/. This operation is shown bellow (a =-= means any value)
+
+#+begin_src
+
+-------1
+00000001
+=
+00000001 = 1
+
+
+-------0
+00000001
+=
+00000000 = 0
+
+#+end_src
+
+The result is only /1/ if the last bit of the number is /1/. Other digits are always /0/ after this operation. (anything and /0/ is /0/)
+
+To flip all the bits, a logical /NOT/ operation can be used. Additionally a register can undergo an /XOR/ operation with /111...1/ to achieve the same result. Once a number has been inverted, 1 can be added to find the two's complement of the original number.
+
+*** Logical Shifts
+
+During a shift operation, the entire contents of the register can be moved. In a left shift /(LSL)/, the /most significant bit/ is moved out of the register. In a right shift (/LSR)/, the /least significant bit/ is moved out of the register. The bit which is lost from the register is stored in the /carry flag/ in the /status register/. This kind of operation can be used to check whether a number is even or odd:
+
+#+begin_src
+
+01011011
+00101101 ;; carry 1
+01011010 ;; the lsb has been zeroed
+
+01011010
+00101101 ;; carry 0
+01011010 ;; the result is the same
+
+#+end_src
+
+Following a /LSR/ and then a /LSL/ the least significant bit is set to zero, irrespective of its initial zero. The result of this operation can be compared to the initial value. If the two values are not equal, the /LSB/ must have been a one and hence the initial value was odd.
+
+** IO Devices
+*** Barcodes
+
+A barcode is a reliable way of storing a small amount of information. This makes them suitable for storing some sort of identification number that can be looked up in a database. It is up to retailers to store information about the associated product. Eg. Two retailers may sell the same product, with the same barcode, although each retailer will store different data about that product, including price, etc.
+
+Many different standards are used for encoding data in barcodes. The most common are the European Article Number /(EAN)/, sometimes called /IAN/, and other barcode standards recognised by /GS1/, a not-for-profit standards agency based in Belgium /(not on specification)/. Another common type is /code 128/, which can store characters and is often used in shipping and logistics. It is the standard of the barcode that determines its appearance and how it can store data.
+
+*Description:*
+
+A barcode can be described as /one dimensional/. The benefit of such a tall barcode with all the data arranged lengthways is reliability; the barcode can be accurately read even if part of the total height is damaged.
+
+A barcode will typically include a /quiet area/ before the barcode to reduce interference. In addition /guide bars/ are found at the beginning, in the middle and at the end of the barcode /(EAN)/. This helps frame the barcode contents, making it easier to interpret. In order to reduce errors, the second half of a barcode is a copy of the first half, with dark and light areas inverted. A barcode may also contain a check-digit.
+
+*Scanners:*
+
+A barcode reader will emit laser light, which is reflected by a moving mirror over the whole barcode. The black strips on the white background reduce the light reflected from certain (black) parts of the barcode. The amount of laser light returned is detected by a photo-diode or a /CCD/, and is converted to an electrical signal. This undergoes /ADC/ conversion and then the data can be retrieved from the bit pattern.
+
+*** QR codes
+
+A /quick response/ code is a type of /two dimensional/ barcode that can be read by smartphones and other personal devices. /QR/ codes are able to store more information than a barcode, although more processing is needed. This means they are more suitable for storing complex data like /URLs/, rather than id numbers for use in an organisation. /QR/ codes are inherently less reliable and less tolerant to damage than barcodes, because more information is packed into a smaller space, leaving much smaller margins for error.
+
+*Reading QR Codes:*
+
+Computer vision and image processing techniques are used to find the data encoded in a /QR/ code. The photograph to work on is obtained with the device's camera. Bitwise logic can be used to check the areas of the barcode and determine if a pixel is light or dark.
+
+*** Digital Cameras
+
+A camera allows analogue data (light) to be converted to digital data and stored within a computer system. These can be purpose built devices, although it is common for mobile telephones to have a camera assembly.
+
+*Components:*
+
+- shutter
+- lens
+- colour filter
+- sensor
+
+*Description:*
+
+When the shutter is open, light is focused onto the /sensor/ by the camera's lens. The sensor might be a Charge Coupled Device /(CCD)/ or a Complimentary Metal Oxide Semiconductor /(CMOS)/. In either case, the intensity of light reaching the sensor is measured in millions of locations, by photoelectric cells (one for each pixel in image). /Colour Filters/ are used to separate light into three channels ahead of the sensor, so colour can be recorded.
+
+*** RFID
+
+/Radio Frequency Identification/ is a method of storing and transmitting small amounts of information over small distances via radio waves. The RFID system does not need line of sight, nor physical contact to transfer data. Different implementations of the system have ranges from a few cm to hundreds of metres.
+
+*Components:*
+
+- Receiver/Reader
+- Transponder
+- Microchip
+- Antenna
+
+*Description:*
+
+RFID /tags/ are often attached to inventory items like a barcode. Using a /passive/ system, the RFID tag is brought near to a reader, which is emitting radio waves. When in range, the tag's antenna picks up the radio communication. The transfer of energy to the device activates the tag's /IC/ chip, which modulates and returns an EM signal to the reader.
+
+The /passive/ system depends on high intensity emission from the reader to be activated, so the /transponder/ (RFID device), must be close to the reader. /Active/ systems have a power source, so they are able to transmit a signal to a receiver that is much futher away.
+
+*** Laser Printers
+
+A laser printer is ideal for printing documents in large volumes. As opposed to the liquid ink in an /inkjet/ printer, a laser printer uses dry, powdered toner. The up-front cost of a laser printer is high, although the running costs are often lower.
+
+*Components:*
+
+- toner hopper
+- drum
+- laser unit
+- mirror
+- heat fuser
+
+*Description:*
+
+Before a page is printed, the drum is covered in a negative electric charge (excess of electrons). The mirror assembly reflects the beam from the laser light source over the drum, removing the negative charge in certain areas and creating an inverse of the image to be printed. Negatively charged toner adheres to the positive/neutral parts of the drum. Paper is rolled across the drum and the toner is transferred to it, creating the image on the page. Finally the paper is passed through the fuser, where it is heated, binding the toner to the page.
+
+** Secondary Storage
+
+Registers, cache and main memory are all /volatile/ storage media and they depend on electrical power to hold data. In addition, the cost of /RAM/ and other motherboard components per unit of storage is high. The physical space available on the motherboard and the processor chip is also limited.
+
+These factors introduce the need for an alternative, /non-volatile/, mass storage media. The name given to this kind of storage is /secondary storage/. Secondary storage devices can store data without electrical power, so it is possible to store data across multiple boot cycles. Additionally, it is possible to manufacture these devices with large storage capacities at a relatively low price per unit of storage.
+
+Secondary storage is more distant from the processor, so it can take a long time for data to be returned. As a result, the processor will never fetch instructions directly from secondary storage without loading them into memory first.
+
+*** Hard Disk Drives
+
+A /HDD/ is a type of magnetic storage; ferrous iron particles can be polarised to encode data.
+
+*Terminology:*
+
+- disk
+- platter
+- sector
+- read-write head
+- spindle
+
+*Description:*
+
+A /HDD/ has many platters, circular disks with top and bottom sides exposed attached to a central spindle. /Read-write heads/ rest slightly above each surface. If there are four platters, each with a top and bottom side in close contact with a head, a whole byte can be read in parallel. Each surface has concentric rings, split into sectors containing many magnetised 'spots'. As the head is moved over a sector, a change in the magnetisation represents a /1/, while no change is equal to /0/.
+
+*Performance and Reliability:*
+
+To retrieve data from a hard disk drive, the read-write heads must be moved to the sector containing the data to be read. Actuators move the heads to the right ring, while the spindle is rotated quickly to move the sector under the heads. To improve seek time, the speed of the disk can be increased. A fast drive will spin as quickly as 10,000 rpm.
+
+The use of moving parts can make this type of storage less reliable. It is possible that detritus in the drive can cause the disk to be damaged and the data corrupted at any time.
+
+*** Optical Devices
+
+Optical disks are a portable way of storing smaller amounts of data. Optical disks may be read only /(CD-ROM)/, recordable /(CD-R)/ or fully re-writable /(CD-RW)/. Optical disks are cheap to manufacture and distribute. These disks can be removed from one device and moved to another with ease.
+
+*Terminology:*
+
+- pit
+- land
+- spiral track
+- laser
+
+*Diagram:*
+
+#+CAPTION: the pits and lands of an optical disk
+[[./images/optical_disk.png]]
+
+*Description:*
+
+During manufacturing, intense laser light is reflected onto a /CD-ROM/ disk to burn pits along the /track/. During playback, a laser of lower intensity is directed at the track as it spins. At the beginning and end of a depression, light is scattered and not reflected back to the sensor. An area like this represents a /1/. When the laser falls on the middle of a pit or land, light is reflected back towards the sensor and a /0/ is detected.
+
+A recordable disk is covered with a transparent dye. A high intensity laser can alter the reflective properties of the dye. As the CD is read, the changes in the property of the surface affect the amount of light reflected, rather than pits and lands.
+
+Certain types of compact disk can be rewritten. A high powered laser heats and deforms the surface of the disk. A magnet is used in conjunction with the laser to set the state of the spot while it is being heated. Similarly a /DVD-RW/ uses a 'phase change alloy' which changes between /amorphous/ and /crystalline/ states under the power of the laser light.
+
+*Performance:*
+
+A typical /CD-ROM/, the oldest type of optical storage can hold about 650-700 MB of data, while a modern /Blu-Ray/ disk can store upwards of 50 GB of data. As technology has improved, shorter wavelengths of light are used to read the disk. This means the size of pits and lands can be reduced and still read at the same apparent resolution. More pits and lands can fit on the same length of track and the spiral can be packed more closely, increasing the amount of track that can fit on a single disk.
+
+*** Solid State Drives
+
+A Solid State Drive /(SSD)/ is a modern type of secondary storage, frequently used in personal devices. There are two common implementations of /EEPROM/, those which use /NOR/ logic and those which use /NAND/. The latter technology is more widely used in mass storage, as the storage density is higher and the cost per unit of storage is lower.
+
+*Components:*
+
+- Page
+- Block
+- Control Gate
+- Floating Gate
+- Oxide Layer
+- Bitline
+- WordLine
+
+*Diagram:*
+
+#+CAPTION: a nand cell
+[[./images/nand_flash.png]]
+
+*Description:*
+
+In order to retain information, a single nand cell containts two gates separated by /oxide layers/ which electrons cannot usually cross. As the /bitline/ is given a positive charge, electrons are drawn from the /source/ to the drain.
+
+- If the /wordline/ is set to positive, some electrons are drawn up the oxide layers and trapped by the /floating gate/
+- If the power is turned off, any trapped electrons remain in position
+- If the /wordline/ is set to negative, any electrons are forced out of the floating gate, clearing the cell
+
+No charge in the trap is considered a /1/, while any trapped electrons register a /0/.
+
+NAND memory divides storage into /pages/ and /blocks/. It is not possible to overwrite existing pages using NAND technology and so a /block/ must be erased entirely if its constituent pages need to be modified. While it is possible to write data to a single page, it is not possible to /erase/ one page alone and so the whole block must be  backed up and cleared.
+
+*Performance:*
+
+The typical capacity of an /SSD/ is smaller than that of a /HDD/ and the price is generally higher per unit of storage. Solid state devices have the advantage of no moving parts, reducing the electrical power required and the space needed to install an SSD. This makes them useful in small mobile devices like phones and tablets, where space and battery power are limited. In addition, solid state devices are faster to read and write from as no seeking time is required; read-write heads do not have to be moved to a certain location before data can be read or written.
+
+While the longevity of /SSDs/ is a topic of debate, they can be considered generally more reliable. The absence of moving parts reduces of the chance of the device suddenly failing, although the number of read write cycles is limited.

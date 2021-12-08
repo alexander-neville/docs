@@ -1,0 +1,167 @@
+
+#+TITLE: Communication & the Internet
+#+AUTHOR: Alexander Neville
+#+OPTIONS: ^:{}
+
+* The Internet
+
+/not implemented/
+
+* Communication Technology and Consequences
+** Communication Methods
+*** Serial Transmission
+
+During serial data transmission, bits are set one after the other down a single (serial) data channel. A second data wire will be needed for simultaneous bi-directional data transfer. Sometimes an additional /ground/ wire is used to reduce the adverse affects of interference. Additional control wires may also be used in serial data connections.
+
+*** Parallel Transmission
+
+Multiple bits of data are sent simultaneously along a number of parallel data wires.
+
+*** Comparison of Methods
+
+Each of the wires used to transmit individual bits in a parallel connection will differ slightly from the others. This subtle difference will affect the rate at which data can travel along the wire and hence the time taken for a bit to travel a certain distance. This causes bits to arrive at the receiver at different times, a phenomena know as /skew/.
+
+Parallel transmission becomes impractical over larger distances, as /skew/ becomes more pronounced. Parallel transmission is, however, suitable in some environments, for example onboard motherboards and /Integrated Circuits/, where distances are small and the increased speed is valuable.
+
+Serial connections have much smaller interfaces, making them suitable for mass manufacturing, especially in mobile devices and consumer electronics.
+
+/Crosstalk/ between the data channels of a parallel connection can cause interference and corruption. The danger of interference due to crosstalk increases with frequency. As a result, the frequency of serial connections can be safely increased beyond the practical limits of parallel connections, meaning more data can be transmitted in a given amount of time, even if less data is transferred per cycle.
+
+*** Bit and Baud Rate
+
+The two measures are linked with this equation:
+
+    /bit rate = baud rate * number of bits per baud/
+
+In typical serial connections, /1s/ and /0s/ are represented by high and low voltages in a cable, called non-return-to-zero /(NRZ)/ communication, where the signal voltage never returns to /0v/. The /baud rate/ is the number of symbol changes per second - the number of times the signal voltage is changed / the frequency. The bit rate may be the same as the /baud rate/, although - using signal modulation - more than 2 values may be encoded within a single cycle. In such a case, the /bit rate/ (the total number of bits transferred in a second) is equal to the /baud rate/ * the number of bits per /baud/.
+
+Increasing the number of bits per /baud/ means more data can be transferred along a narrower (possibly serial) cable in a certain amount of time.
+
+*** Baseband and Broadband
+
+Broadband is an analogue data transfer method, meaning there are a /continuous/ range of values (voltages) and each symbol change can represent more than two values (as in binary). Broadband connections are often multi-channel and bidirectional. These connections are frequently use in /WANs/.
+
+Baseband is a type of digital data connection, commonly used in /LANs/, where the bit rate is often the same as the baud rate, hence each symbol is either a 0 or 1. Ethernet cables are baseband connections.
+
+*** Latency and Bandwidth
+
+Latency is the time taken for some data to be transmitted a certain distance, ie. from sender to receiver, irrespective of how much data is sent at once. Latency is often measured in seconds /(s)/ or milliseconds /(ms)/.
+
+Bandwidth loosely means how much data can be received at once, irrespective of the speed the signal can travel and hence the latency between sender and receiver. Bandwidth is often measured in bits per second /(bps)/ and has a direct relationship to bit rate.
+
+In data communication and networking, bandwidth is analogous to data transfer rate.
+
+*** Synchronous Communication
+
+During /synchronous transmission/, both sender and receiver share a common clock cycle for coordinating signals. This communication method depends on that clock cycle to govern communication along the wire. This type of communication is best for connections that work in real time, with a constant flow of data, for example within a computer's processor.
+
+*** Asynchronous Communication
+
+There is another common communication method known as /asynchronous transmission/. Neither the sender, nor the receiver share the same clock cycles. Communication is governed by start and stop bits, sent before and after a communique. The stop bit is always the opposite of the start bit. Despite the absence of a common clock, the sender and receiver must use the same baud/bit rate so that the receiver can understand the message once the start bit is received.
+
+** Network Topology
+
+A single computer with no connection to any other devices is described as a /stand-alone/ computer system. When a computer is connected to one or more other computers, the resulting system can be described as a /computer network/. Digital /baseband/ connections are often used inside a /local area network/. Many smaller LANs spread over a large area are often joined to others by /broadband/ connections, creating a /wide area network/.
+
+/Physical/ network topology defines how the devices are physically connected with hardware devices and equipment. /Logical/ network topology is the layout used by devices on a network to communicate using the physical network equipment provided.
+
+*** Physical Bus Topology
+
+The /physical bus topology/ is a simple network configuration, used in many small home networks. Each device is connected to a /backbone/ cable which runs past every device. A /terminator/ is placed at either end of the bus.
+
+*Advantages:*
+
+- A bus network is inexpensive to set up and easy to maintain.
+- Less cable has to be laid/installed.
+- Identifying problems with equipment can be easier.
+
+*Disadvantages:*
+
+- Data intended for one device on the network passes many other computers.
+- The single backbone cable is subject to congestion as many devices need to communicate through the network.
+- Collisions can occur as devices need to send data along on the bus.
+- The single backbone cable is a single point of failure. If it is not functioning, it is impossible for devices on the network to communicate with one another.
+
+*** Physical Star Topology
+
+The /physical star/ network configuration is a more complicated type of network, where each node has its own dedicated connection to the hub or router.
+
+*Advantages:*
+
+- The star network is more secure, as data intended for one computer on the network does not pass by others.
+- Dedicated cables for each device eliminate the risk of collisions between signals sent by different computers.
+- This type of network is more flexible and expandable, as more hubs and devices can be connected to the hub.
+
+*Disadvantages:*
+
+- Star networks can be more difficult and expensive to implement as more cables need to be laid/installed.
+- The central hub is a single point of failure. Should the hub fail, none of the devices on the network will be able to communicate with one another.
+
+*** Logical Topology
+
+Logical topology is the manner in which data is handled on top of a physical network. For example, a hub might use a bus protocol to push data outward onto a star network, similar to how a physical bus network behaves.
+
+*** MAC Addresses
+** Client/Server
+
+A /server/ is a computer which services requests from a number of clients; a response is sent back to the connected client in return. A computer may be both a client and a server simultaneously. A server might be used to process or store data.
+
+Within a LAN, server(s) may be set-up to handle tasks common among all client computers on the network. Internet facing /web-servers/ are used to host websites and content on the internet.
+
+*Advantages:*
+
+A client-server configuration is preferred when central management over the whole network is needed, making this model popular in schools and businesses. Servers might be set up to handle user accounts, store files and manage backups.
+
+*Disadvantages:*
+
+A client-server network requires expensive hardware (the servers themselves) and personnel to maintain the servers. This makes the client-server model impractical on smaller home networks.
+
+** Peer-to-peer
+
+There is less core infrastructure in a decentralised peer-to-peer network. The services that would be provided by servers are shared amongst the clients.
+
+*Advantages:*
+
+No expensive server computers are required. Expertise and maintenance are not required on a peer-to-peer network.
+
+*Disadvantages:*
+
+All clients must be connected and powered-on for the network to function as expected. Peer-to-peer networking may leave a user's files visible to other devices on the network.
+
+** Cloud Computing
+** Wireless Networking
+*** Wi-Fi
+
+/Wi-Fi/, standing for /wireless fidelity/, is a type of wireless network standard designed to be interoperable with /IEEE 802.11/ protocol and work alongside Ethernet at the /Network Access/ layer. Devices using wi-fi can connect to a /wireless access point/ and communicate with any other device on the network.
+
+*** NIC
+
+In order to connect to a wireless network, a device must have a wireless network interface card /(NIC)/, a device will have a similar card for all its other interfaces, eg. Ethernet. The NIC has a hardcoded MAC address.
+
+The combination of an NIC and a computer is called a /station/.
+
+*** SSID
+
+A service set identifier /(SSID)/ is a human readable name for a wireless network. It may be broadcast to devices within range of a /WAP/, or kept private.
+
+*** Security
+
+Any device within range of a /WAP/ could connect to an unprotected wireless network. A network password is often used in wi-fi protected access /(WPA)/ networks. /WPA2/ is also a common standard. A network owner may also choose to set up a MAC whitelist for ultimate control over which devices may connect. In order to connect, the MAC address of a computer's NIC must be added to the whitelist.
+
+*** CSMA/CA
+
+Connected devices share the same channel to transmit data to the /WAP/. In order to prevent multiple computers trying to communicate with the /WAP/ simultaneously, Carrier Sense Multiple Access with Collision Avoidance /(CSMA/CA)/ is used. Before data may be sent to the /WAP/, the station checks if the channel is idle. If another device is communicating over the channel, the station waits a random amount of time before checking the status of the channel again. This process continues until the channel is free and the station is able to send data to the /WAP/.
+
+*** RTS/CTS
+
+One of the shortcomings of the /CSMA/CA/ standard is the /hidden node/ problem. It is possible that the /WAP/ is engaged with a station that cannot be seen or heard by a station that needs to send data. This situation is common on larger networks, where the /WAP/ serves a larger area.
+
+Once the channel appears idle to a station, a 'request to send' signal is sent to the /WAP/. If the 'clear to send' signal is not received, the station waits a random amount of time before checking the channel status and resending the 'request to send' signal. If the /WAP/ is free, a 'clear to send' signal is returned to the station and the data can be transmitted.
+
+** Communication & Privacy
+
+/not implemented/
+
+** Social, Cultural & Legal Issues
+
+/not implemented/

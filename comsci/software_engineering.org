@@ -1,0 +1,853 @@
+
+#+TITLE: Software Development & Engineering
+#+AUTHOR: Alexander Neville
+#+OPTIONS: ^:{}
+
+* Databases and Software Development
+** Introduction to Databases
+
+The purpose of any database is to store data in the most intuitive manner possible, minimising the required disk space and delivering the most performant system. The Relational Database Management System /(RDBMS)/ has become a popular database paradigm, although some others exist (not on specification). A /RDBMS/ is based on entity modelling and the relationships between entities.
+
+** Database Systems Overview
+
+In production, applications like /mysql/ or /mariadb/ are used. These are two examples of a /RDBMS/. A database server tends to run as a service in the background. It is usually possible to connect to a running database server, either locally or remotely, through the database console. Within the /container database/, the individual databases are found. Each database is composed of /tables/ and information can be retrieved from one or many of these tables during a /query/.
+
+In the /RDBMS/ paradigm, each /entity/ within a dataset is represented with a /table/. A table will have pre-defined /columns/, one for each /attribute/ an entity has. Rows in a table are called /records/, where one record represents one instance of an entity within a dataset. Each record has many /fields/, filled with the data corresponding to each /attribute/ of the entity.
+
+Every record in a table must be uniquely identifiable. A selection of columns, used together, will constitute the /primary key/ (all the data needed to select exactly one record from a table). It is possible that a record can be identified with the value of just one column. When the values held by multiple columns are needed, this is described as a /composite key/. On an entity level, the information needed to identify an instance is called the /entity identifier./
+
+** Relationships
+
+Not only do entities have attributes, they also have relationships with other entities. Sometimes these relationships are logical, apparent within the data, while other times they are created to model data within the constraints of a /RDMS/. When such an entity is created it can usually be traced back to some abstract entity like a seat on a flight, a job listing or a sale in a shop.
+
+The three types of relationships are:
+
+- /one-to-one/
+- /one-to-many/
+- /many-to-many/
+
+When one record maps to more than one other record, this is a /one-to-many/ relationship. The term /many-to-one/ is never used as its meaning is similar to /one-to-many/ while relationships expressed like /many-to-one/ rarely make sense in the real world.
+
+A /many-to-many/ relationship can often be problematic, especially in a /RDMS/. in order to reduce repetition within a database, a transaction table is usually built between tables with such a relationship. This reduces the /many-to-many/ into two /one-to-many/ relationships. The resulting transaction table will usually have a composite key, constituted by the foreign keys of the two records that are being linked. Seeing as this is the intended purpose of the table, a separate identifier is not usually required.
+
+** Normalisation
+
+In order to reduce data duplication and make insightful queries easier to construct, there are some rules to follow. These rules dictate which /normal form/ a database is in. /First normal form/ is essential for most Database Management Systems /DBMS/, while third normal form is ideal. The general rule is:
+
+    /The data depends on the key (1nf), the whole key (2nf) and nothing but the key (3nf)/
+
+*** Un-normalised
+
+/There are many companies involved in the production of a modern airliner, this hypothetical dataset joins aircraft to the companies which make the engines (not on specification!)./
+
+This table shows some data which is human-readable, but difficult to query. A major problem with this layout is the duplication of data. In a production database, this would significantly increase the size of the database and adversely affect performance. Data inconsistency is also a problem when the same data is stored more than once. In this table some fields have more than one value, which means the records are not uniquely addressable.
+
+|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
+|  id | name    | price       | engine_id | engine_name                         | engine_quantity | supplier_id | supplier_name                      |
+|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
+| 123 | A320    | 100,000,000 | 1100G, 1A | geared turbofan, high bypass engine | 2, 2            | PW, CFM     | Pratt & Whitney, CFM International |
+| 243 | 737     | 100,000,000 | 1100G, 1B | geared turbofan, high bypass engine | 2, 2            | PW, CFM     | Pratt & Whitney, CFM International |
+| 156 | A380    | 400,000,000 | 900, 7000 | Trent 900, EA GP7000                | 4, 4            | RR, EA      | Rolls Royce, Engine Alliance       |
+| 457 | Typhoon | 110,000,000 | 2000      | EJ2000                              | 2, 2            | RR          | Rolls Royce                        |
+|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
+
+*** First Normal Form
+
+To achieve /first normal form/ each field must have only one /atomic/ value and each record must be unique. Each record also requires a unique key, whether that be composite or individual. In this case, the primary key for each row in the table is =id + component_id=. The table below shows all the data from before in /1nf/.
+
+|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
+|  id | name    | price       | engine_id | engine_name        | engine_quantity | supplier_id | supplier_name     |
+|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
+| 123 | A320    | 100,000,000 | 1100G     | geared turbofan    |               2 | PW          | Pratt & Whitney   |
+| 123 | A320    | 100,000,000 | 1A        | high bypass engine |               2 | CFM         | CFM International |
+| 243 | 737     | 100,000,000 | 1100G     | geared turbofan    |               2 | PW          | Pratt & Whitney   |
+| 243 | 737     | 100,000,000 | 1B        | high bypass engine |               2 | CFM         | CFM International |
+| 156 | A380    | 400,000,000 | 900       | Trent 900          |               4 | RR          | Rolls Royce       |
+| 156 | A380    | 400,000,000 | 7000      | EA GP7000          |               4 | EA          | Engine Alliance   |
+| 457 | Typhoon | 110,000,000 | 2000      | EJ2000             |               2 | RR          | Rolls Royce       |
+|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
+
+*** Second Normal Form
+
+To satisfy /second normal form/ the data must meet  the criteria of /1nf/ and there must be no partial dependencies. A partial dependency can happen when a composite key is used. To make /2nf/ easy to achieve, relationships are often brought in here. To manage this, determine the separate entities in the data and create a table for each of them. By splitting up all the entities it is easier to make useful queries.
+
+Relationships may be /one-to-one/, /one-to-many/ (or vice-versa) or /many-to-many/. Where a /many-to-many/ relationship exists, a transaction table is usually required, otherwise it is difficult to maintain the single field key needed for /2NF/. Unlike regular entities, a transaction table usually represents something abstract, like a sale in a shop, a job listing or a seat on a flight.
+
+*E.g.* In this database, add a transaction table like this:
+
+#+begin_src
+
+aircraft >----< engine
+
+aircraft --< engine_option >-- engine
+
+#+end_src
+
+Here is how the entity tables will look:
+
+*aircraft*
+
+|-----+---------+-------------|
+|  id | name    | price       |
+|-----+---------+-------------|
+| 123 | A320    | 100,000,000 |
+| 243 | 737     | 100,000,000 |
+| 156 | A380    | 400,000,000 |
+| 457 | Typhoon | 110,000,000 |
+|-----+---------+-------------|
+
+*engine*
+
+|-----------+--------------------+-------------+-------------------|
+| id        | name               | supplier_id | supplier_name     |
+|-----------+--------------------+-------------+-------------------|
+| 1100G     | geared turbofan    | PW          | Pratt & Whitney   |
+| 1A        | high bypass engine | CFM         | CFM International |
+| 1B        | high bypass engine | CFM         | CFM International |
+| 900       | Trent 900          | RR          | Rolls Royce       |
+| 7000      | EA GP7000          | EA          | Engine Alliance   |
+| 2000      | EJ2000             | RR          | Rolls Royce       |
+|-----------+--------------------+-------------+-------------------|
+
+*engine_option:*
+
+This is the transaction table between the two tables. This table has a composite key of =aircraft_id + engine_id=. All the data in each record depends on the whole composite key. This table handles the multiple entries for each aircraft and engine, while avoiding partial dependencies.
+
+|-------------+-----------+-----------------|
+| aircraft_id | engine_id | engine_quantity |
+|-------------+-----------+-----------------|
+|         123 | 1100G     |               2 |
+|         123 | 1A        |               2 |
+|         243 | 1100G     |               2 |
+|         243 | 1B        |               2 |
+|         156 | 900       |               4 |
+|         156 | 7000      |               4 |
+|         457 | 2000      |               2 |
+|-------------+-----------+-----------------|
+
+*** Third Normal Form
+
+For data to be in /third normal form/, /1nf/ and /2nf/ need to be satisfied. In addition, data in a record may not have any /non-key/ dependency, sometimes called lateral dependency. /2nf/ already establishes the need to depend on the whole key, but /3nf/ means that a field may not depend on any other attribute in addition to the primary key. In this database, the engine =supplier_name= depends on the engine's =id=, but it also depends on =supplier_id=. These situations are a good indication that another entity can be found and a new table created. This was not a problem in /2nf/, because a =supplier= has a less troublesome /one-to-many/ relationship with the engine's =id=.
+
+Here is the relationship that can be identified:
+
+#+begin_src
+
+supplier ----< engine
+
+#+end_src
+
+With this type of relation, no transaction table is needed, therefore the complete /3nf/ database looks like this:
+
+*aircraft:*
+
+|-----+---------+-------------|
+|  id | name    | price       |
+|-----+---------+-------------|
+| 123 | A320    | 100,000,000 |
+| 243 | 737     | 100,000,000 |
+| 156 | A380    | 400,000,000 |
+| 457 | Typhoon | 110,000,000 |
+|-----+---------+-------------|
+
+*supplier:*
+
+|-------------+-------------------|
+| id          | name              |
+|-------------+-------------------|
+| PW          | Pratt & Whitney   |
+| CFM         | CFM International |
+| CFM         | CFM International |
+| RR          | Rolls Royce       |
+| EA          | Engine Alliance   |
+| RR          | Rolls Royce       |
+|-------------+-------------------|
+
+*engine*
+
+|-------+--------------------+-------------|
+| id    | name               | supplier_id |
+|-------+--------------------+-------------|
+| 1100G | geared turbofan    | PW          |
+| 1A    | high bypass engine | CFM         |
+| 1B    | high bypass engine | CFM         |
+| 900   | Trent 900          | RR          |
+| 7000  | EA GP7000          | EA          |
+| 2000  | EJ2000             | RR          |
+|-------+--------------------+-------------|
+
+*engine_option:*
+
+|-------------+-----------+-----------------|
+| aircraft_id | engine_id | engine_quantity |
+|-------------+-----------+-----------------|
+|         123 | 1100G     |               2 |
+|         123 | 1A        |               2 |
+|         243 | 1100G     |               2 |
+|         243 | 1B        |               2 |
+|         156 | 900       |               4 |
+|         156 | 7000      |               4 |
+|         457 | 2000      |               2 |
+|-------------+-----------+-----------------|
+
+** Diagrams
+
+There are a number of different methods used to design and plan complicated database layouts. Some are visual, while others, like /entity descriptions/, are not.
+
+*** Entity Descriptions
+
+In an entity description, each line represents a table. The first section is the table name and then, within brackets, the attributes being implemented as columns. This vaguely resembles a SQL statement, although the data-types and constraints are missing. The key is underlined and any foreign keys are usually italicised.
+
+*Example from Chat Application:*
+
+- user (_id_, username, password, salt, last_login)
+- chat_user (_user_id, chat_room_id_)
+- chat_room (_id_, name, pin)
+- message (_id_,  text, time_stamp, /owner_id/, /chat_room_id/)
+- attachment (_id_, path, time_stamp, /message_id/)
+
+*** Entity Relation Diagrams
+
+/ER/ diagrams are a more visual way of representing a database layout. There are two common types, those which include the table/entity name only and those which show the columns and foreign key relationships. Here are some examples:
+
+#+CAPTION: an abstract ER diagram, showing the relationships between entities
+[[./images/simple_er.png]]
+
+#+CAPTION: a detailed ER diagram, demonstrating the key constraints in the DB
+[[./images/advanced_er.png]]
+
+** SQL
+
+SQL, standing for /structured query language/, is a declarative, high-level language for manipulating and querying databases. There are a number of SQL compatible database programs, two common ones being MYSQL and Mariadb. Database administration and set-up are not required parts of the a-level specification.
+
+SQL commands are generally shown in uppercase, although in most implementations they are case-insensitive. A command can span multiple lines, white-space rarely matters and commands are finished with a semicolon.
+
+*** Creating Tables
+
+Assuming that a database has been set-up, the first step is to create the tables which will hold the data. As there are some foreign key relationships, it is important that the tables are created in the right order.
+
+This example will use the db design from the normalisation example above, leaving some mistakes to be corrected  later.
+
+#+begin_src
+
+CREATE TABLE aircraft (
+    id INT(255) NOT NULL AUTO_INCREMENT,
+    name VARCHAR(255),
+    price FLOAT(24),
+    PRIMARY KEY (id));
+
+CREATE TABLE supplier (
+    id VARCHAR(3) NOT NULL,
+    name VARCHAR(255),
+    PRIMARY KEY (id));
+
+CREATE TABLE engine (
+    id VARCHAR(10) NOT NULL,
+    name VARCHAR(255),
+    supplier_id VARCHAR(3),
+    PRIMARY KEY (id));
+
+CREATE TABLE engine_option (
+    aircraft_id INT(255) NOT NULL,
+    engine_id VARCHAR(10),
+    FOREIGN KEY (aircraft_id) REFERENCES aircraft (id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (engine_id) REFERENCES engine (id)
+    ON DELETE CASCADE ON UPDATE CASCADE);
+
+#+end_src
+
+Notice that each column has a datatype, the number following each one represents the maximum display width or the precision in the case of =FLOAT=. The best information on these data-types is the official documentation: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
+
+*Extra Info:*
+
+- Features like /not null/ and /auto_increment/ are often used. Generally most columns are filled, although a column marked with /not null/ will cause an error if no value is assigned. The id column of one of the tables is set to /auto_increment/, so a unique id is generated if one is not explicitly provided.
+- Key constraints are used to manage the entity identifier within the database implementation. A /foreign key/ column must have the same datatype as the column being referenced.
+- The only notable data-type not shown in this db is a date/time format. They can be manipulated using the =<= and =>= symbols, making them very flexible. Additionally, /timestamps/ and /datetime/ fields can be updated with the current time automatically by the /RDBMS/.
+
+*Examining Tables:*
+
+The list of tables can be shown and an individual table described with these commands respectively /(not on specification)/:
+
+#+begin_src
+
+show tables;
+describe table_name;
+
+#+end_src
+
+*** Altering Tables
+
+Once created, a table's definition may need to be changed. The =Alter Table= command is used for this.
+
+Adding a constraint to a table is done like this (not on specification):
+
+#+begin_src
+
+ALTER TABLE engine ADD FOREIGN KEY (supplier_id) REFERENCES supplier (id) ON DELETE CASCADE ON UPDATE CASCADE;
+
+#+end_src
+
+Adding a column is also possible:
+
+#+begin_src
+
+ALTER TABLE engine_option ADD engine_quantity INT(1);
+
+#+end_src
+
+Existing columns can be renamed with ease:
+
+#+begin_src
+
+ALTER TABLE engine_option RENAME COLUMN engine_quantity TO engine_number;
+
+#+end_src
+
+The definition of a column can be modified:
+
+#+begin_src
+
+ALTER TABLE engine_option MODIFY COLUMN engine_number INT(255) NOT NULL;
+
+#+end_src
+
+Columns can also be dropped or deleted:
+
+#+begin_src
+
+ALTER TABLE engine_option DROP COLUMN engine_number;
+
+#+end_src
+
+*** Inserting Data
+
+The general syntax for a simple insertion is:
+
+#+begin_src
+
+INSERT INTO table_name (column_name, column_name, ...) VALUES
+    (value, value, ...),
+    ...;
+
+#+end_src
+
+Here are the insert statements for the aircraft demo:
+
+#+begin_src
+
+INSERT INTO supplier (id, name) VALUES
+            ('PW', 'Pratt & Whitney'),
+            ('CFM', 'CFM International'),
+            ('RR', 'Rolls Royce'),
+            ('EA', 'Engine Alliance');
+
+INSERT INTO aircraft (id, name, price) VALUES
+            (123, 'A320', 100000000),
+            (243, '737', 100000000),
+            (156, 'A380', 400000000),
+            (457, 'Typhoon', 110000000);
+
+INSERT INTO engine (id, name, supplier_id) VALUES
+            ('1100G', 'geared turbofan', 'PW'),
+            ('1A', 'high bypass engine', 'CFM'),
+            ('1B', 'high bypass engine', 'CFM'),
+            ('900', 'Trent 900', 'RR'),
+            ('7000', 'EA GP7000', 'EA'),
+            ('2000', 'EJ2000', 'RR');
+
+INSERT INTO engine_option (aircraft_id, engine_id, engine_number) VALUES
+            (123, '1100G', 2),
+            (123, '1A', 2),
+            (243, '1100G', 2),
+            (243, '1B', 2),
+            (156, '900', 4),
+            (156, '7000', 4),
+            (457, '2000', 2);
+
+#+end_src
+
+*** Selecting Data (One Table)
+
+Once there is some data in the database, organised in /3nf/, it is possible to start making some queries to return records, using the =SELECT= statement.
+
+The most simple query returns data from just one table. Here are some examples:
+
+#+begin_src
+
+SELECT * FROM aircraft;
+SELECT name FROM supplier;
+SELECT name, supplier_id FROM engine;
+#+end_src
+
+The first command returns the values from all columns of the =aircraft= table, while the others specify certain, comma-separated columns to display.
+
+*** Selecting Data (Multiple Tables)
+
+There are a number of ways to select data from multiple tables, including /joins/ and /sub-selects/, neither of which are on the a-level specification.
+
+Here are some example queries across multiple tables:
+
+#+begin_src
+
+SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engine.supplier_id;
+
+SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engine.supplier_id AND supplier.id = 'CFM';
+
+#+end_src
+
+Note that the =WHERE= clause provides the condition for the selection. In the second query, =AND= is used to provide a second condition.
+
+*** Ordering Results
+
+The results of a select statement can be ordered in a certain way, using the =ORDER BY= statement. Here is an example:
+
+#+begin_src
+
+SELECT * FROM aircraft ORDER BY id DESC;
+
+#+end_src
+
+This will return all the results in order from highest id to lowest id. If the sort column is a string, the results will be sorted alphabetically.
+
+Multiple Columns can be specified as sort column, for example results might be sorted alphabetically by country and then city.
+
+*** Full Query
+
+For a fully fledged database query, this is the default syntax:
+
+#+begin_src
+
+SELECT column_name, column_name, ...
+FROM table_name, table_name, ...
+WHERE condition AND condition ...
+ORDER BY column_name, ... DESC/ASC;
+
+#+end_src
+
+*** Updating Records
+
+In addition to the table's definition, records can be changed. The =UPDATE= command is used to do this. Here are a few examples:
+
+#+begin_src
+
+UPDATE aircraft
+SET name = 'a320'
+WHERE id = 123;
+
+UPDATE aircraft
+SET price = price+20000000
+WHERE id = 243;
+
+#+end_src
+
+Once again, the =WHERE= clause is used to supply the conditions for the statement.
+
+** Client-Server Databases
+
+Many modern /RDBMS/ support a client-server model, where the database is stored on a central server and many clients can connect across the network. This is useful in retail, for example, where individual stores can access the same information about products, without the need for the data to be stored locally.
+
+Other benefits include the consistency of data, which can be guaranteed by storing it in one place only. In addition, the integrity of the data is upheld, as backups and access rights are managed centrally.
+
+*** Record Locking
+
+If one client needs to modify a record, the encapsulating block of data is copied to the client workstation. Once the data has been modified, the block is submitted back to the central server.
+
+If another client checked out the same block during this period, and resubmitted it after the first client had finished with the data, the second client may find that the block present in the server does not match the block it took out and modified. If the second client continued to submit its changes anyway, the update by the first client will be lost.
+
+To solve this problem, /record locking/ was introduced, whereby a block being modified by a client cannot be accessed until it is returned to the server. This prevents simultaneous access completely, upholding the consistency of the data.
+
+*** Deadlock
+
+The problem with /record locking/ is /dead-lock/. It is possible that two different clients /(1 & 2)/ have taken out different blocks of data /(A & B)/ and now they both want to access the data held by the other client.
+
+- Client 1 is holding /block A/ and waiting for /block B/
+- Client 2 is holding /block B/ and waiting for /block A/
+
+Neither client returns the data and both wait for one another unknowingly. There are a number of techniques used to solve /deadlock/.
+
+*** Serialisation & Timestamp Ordering
+
+In order to prevent concurrent access, each record has two timestamps, /read/ and /write/ which are set whenever a transaction is applied. When a transaction begins it is also given a timestamp.
+
+Whenever transactions need to be applied, the timestamps are checked and the transaction with the first timestamp is applied first. The timestamp of a transaction is compared against the timestamps of the affected records.
+
+Using all of this information, the DB management software can apply transactions in the order they began and keep the data consistent.
+
+*** Commitment Ordering
+
+Commitment Ordering is another /serialisation/ technique, used to manage concurrent access. In addition to the time transactions were initialised, modifications are ordered by the dependencies on one another and the data stored in the DB.
+
+** Approach to Problem Solving
+*** Analysis
+
+Before development begins, the requirements of the client must be established. This includes identifying the shortcomings of existing solutions. Some of the factors to consider include the client's existing data and how it will be handled by the new system.
+
+*** Agile Modelling
+
+A large project is sometimes broken down into smaller parts like implementing a certain feature. During development, certain parts of the project may be developed at different rates.
+
+The analysis of one feature may be concluded after the implementation of another. Developers may need to conduct a feasibility study, proving one requirement can be met, before continuing work on others. (feasibility study is no longer in specification)
+
+Working with a client can be an /iterative process/. The client will provide feedback regularly, as prototypes are built. This allows the program to be /refined/ as it is developed.
+
+*** Design
+
+After the requirements of the project have been finalised between the developers and the client, the developers can decide how the program will be made. Factors to consider include:
+
+- input data
+- data structures
+- algorithms
+- output data
+- UI/UX
+- security
+- hardware requirements
+
+*** Implementation
+
+During the implementation section, the requirements identified in the analysis section are met using the techniques outlined in the design phase. Whilst the features are being implemented, it is important to keep to the /critical path/, the required features must be met before any others.
+
+*** Testing
+
+All inputs are tested with normal, boundary and erroneous data. Other tests include:
+
+- Unit testing
+- Module testing
+- Sub-system testing
+- System testing
+
+Once the system is working, the client performs /acceptance testing/, making sure that the system works with their data and meets their requirements.
+
+Testing is also an /iterative process/. Should the software fail the client's acceptance testing, for example, the developers may make some changes and run the new code through existing tests.
+
+*** Evaluation
+
+Three to six months after the delivery of the software, a post-implementation review may be conducted to determine the final quality and suitability of the system. The project may be judged on /effectiveness/, /usability/ and /maintainability/ by the client. Thw review is a good opportunity to discuss improvements to the software.
+
+* OOP and Functional Programming
+** Imperative Programming
+
+Early high-level languages fell into the /imperative/ category, meaning a program consisted of a series of steps, executed in order, to solve a problem. This paradigm developed naturally, as programs featured explicit steps for a computer to perform, in contrast to /declarative/ languages.
+
+** Procedural Languages
+
+Programs that divided these steps into separate functions and subroutines were called /procedural/ languages. The control flow of a procedural program follows a sequence of subroutine calls. Data in such programs is held separately in primitive types. Each piece of data exists in a certain scope, whether that is /global/ or /local/, and data can be passed to a sub-routine as an argument.
+
+Sub-routines can be divided into two types:
+
+- /procedures/, which may have parameters and return values, but also cause side-effects
+- /functions/, which may have parameters and must have return values, while causing no side-effects
+
+Many modern imperative languages support both types of sub-routine. /Purely functional/ languages are those which only support the latter, the benefits of which are explained in the a-level functional programming section.
+
+** Object Orientation
+
+More modern programming languages associated data with behaviour, creating /objects/. In an object orientated program, both real world data and program code are considered objects.
+
+Here are some notes on how to use some of python's OOP features: https://github.com/alexander-neville/docs/blob/main/python.org
+
+*** Implementations of OOP
+
+Since /OOP/ is a paradigm, many languages support similar, although slightly different, programming techniques for working with types and objects. Generally speaking a named instance of a object is a /reference type/, holding a pointer to where the object itself resides in memory.
+
+#+CAPTION: variable reference diagram
+[[./images/reference.png]]
+
+There are many different implementations of objects across different languages, from /structs/ in C and /object literals/ in Javascript to /classes/ in python and C++.
+
+*** Classes
+
+While it is possible to work in the object orientated style without classes, it is a useful construct pervasive in most OOP languages. A class is a blueprint for an object, defining the data and behaviour of an object.
+
+Within the class for an object, certain attributes may be marked as /private/, preventing the state being modified outside of the /instantiated/ object's own behaviours. So called /information hiding/ is an important improvement over traditional /procedural/ code, as it reduces /mutability/ and unexpected /side-effects/.
+
+This is an example of a class, written in pseudocode:
+
+#+begin_src
+
+item = Class
+
+    Public
+
+        Function GetStockLevel
+        Procedure UpdateStockLevel
+        Procedure SellItem
+        Procedure Describe
+
+    Private
+
+        Id: Integer
+        StockLevel: Integer
+        Name: String
+        Description: String
+
+End
+
+#+end_src
+
+Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes /getter/ and /setter/ methods are used to manipulate the attributes of a method. In this class, =GetStockLevel= and =UpdateStockLevel= perfrom this role.
+
+*** Encapsulation
+
+The association of data with behaviour, especially the use of /getter/ and /setter/ sub-routines, is called /encapsulation/. By including the methods which operate on the data with the data itself, in a single object, access to the data from the program at large is restricted, hiding implantation details and better maintaining state across the program. Additionally, an interface can easily be built around the data, by modelling objects with classes, which makes the organisation of a larger project much simpler.
+
+*** Instantiation
+
+A class may also include a /constructor/, a sub-routine used to create an /instance/ of and object. This sub-routine is run when an object is /instantiated/ from a class. Each instantiated object has all the attributes and methods defined by the class. The precise value of each of these properties is associated with the instance, so it is possible to have many different instances of a single object. In most programming languages an instance is a reference type.
+
+*** Polymorphism
+
+Using a combination of object orientated techniques, a single /interface/ can be shared by a number of different objects (instantiated from different classes). This means that a single /message/ applied to a number of instances will cause a different action depending on the type of object receiving the message. For this technique to work, each object must implement some behaviour for the /message/.
+
+A /message/ is simply a call to an object's methods. For example:
+
+#+begin_src
+
+object1.test_message(inputs)
+object2.test_message(inputs)
+
+#+end_src
+
+If the program is /polymorphic/, the same method (in this case '=test_message=') can be called on both =object1= and =object2=, even if they are instantiated from different classes. The results will depend on the objects implementation of that /message/. Note that the classes for these objects must define this behaviour. Therefore, the name of the methods and the call pattern are identical, but the contents of the method could be very different
+
+There are many constructs, across programming languages, that are used for building an interface over many classes. One example is /inheritance/, which is a object orientanted technique in itself, while another is the use of an /interface/.
+
+*** Interfaces
+
+A programming interface stipulates the messages which a related class must respond to. The interface does not define any behaviour itself and the behaviour of each subclass for the messages does not need to be known.
+
+This is how an interface would look in pseudocode:
+
+#+begin_src
+
+Public interface BankAccount
+
+    Procedure GetAccNum
+    Procedure GetSortCode
+    Function Withdraw (Amount)
+    Function CalcInterest (TimePeriod)
+
+End
+
+#+end_src
+
+The interface might be implemented like this (pseudocode example):
+
+#+begin_src
+
+Class ReputableFirm implements BankAccount
+
+    Public
+
+        Procedure GetAccNum
+        Procedure GetSortCode
+        Function Withdraw (Amount)
+        Function CalcInterest (TimePeriod)
+
+    Private
+
+        AccNum: Integer
+        SortCode: Integer
+        InterestRate: Float
+        Balance: Double
+
+End
+
+LoanShark = Class implementing BankAccount
+
+    Public
+
+        Procedure GetAccNum
+        Procedure GetSortCode
+        Function Withdraw (Amount)
+        Function CalcInterest (TimePeriod)
+
+    Private
+
+        AccNum: Integer
+        SortCode: Integer
+        InterestRate: Double
+        Balance: Float
+
+End
+
+#+end_src
+
+Note that both classes implement the same public functions (same definition and parameters), however some of the attributes of either class differ. For example, an account with a loan shark may have an extortionate amount of interest, hence the rate is stored as a =Double= rather than a =Float=. The subclasses are responsible for implementing the methods specified by the interface, however the details of that implementation are unique to the classes themselves.
+
+*** Inheritance
+
+A plain /interface/ is more suitable for vaguely unrelated objects, whereas /inheritance/ is designed for objects with behaviour in common. If inheritance is a good option, it can be said that the objects have an /"is a"/ relationship. For example a cat /is an/ animal.
+
+An object may /inherit/ from multiple other classes at once, or inherit from a single class which also inherited from another class in turn. A subclass has all the properties and methods of the superclass / parent class. With each level of inheritance, a subclass can do any of these things:
+
+- add another method to those inherited from the parent class(es)
+- /override/ or change the behaviour of a certain inherited method entirely
+- modify inherited behaviour (make a call to parent's implementation of a method)
+
+In some programming languages it is possible to define entirely abstract classes, which /must/ be inherited from ( an abstract class cannot be instantiated on its own). This differs from an /interface/ because the abstract class does implement some base behaviour.
+
+Here is the example of inheritance from the textbook (pg 354):
+
+#+begin_src
+
+Animal = Class
+
+    Public
+
+        Procedure MoveLeft
+        Procedure MoveRight
+
+    Protected
+
+        Position: Integer
+
+End
+
+Cat = SubClass (Animal)
+
+    Public
+
+        Procedure MoveLeft (override)
+        Procedure EatMouse
+
+    Private
+
+        Name: String
+
+End
+
+#+end_src
+
+
+Each subclass which inherits from the =Animal= parent class will have all the methods of the parent class. In the =Cat= subclass, the =MoveLeft= method is /overriden/, but the =MoveRight= method is not changed. This means that a cat object will move right in the same way as a generic animal if that message is sent to the object. The =Cat= object also adds the =EatMouse= method, which is specific to a cat.
+
+Here is a diagram of inheritance:
+
+#+CAPTION: inheritance from Animal superclass
+[[./images/inheritance.png]]
+
+*** Demonstration
+
+This is an example of inheritance and polymorphism written in python, but the theory is applicable to the a-level topic.
+
+The first part of the program is the definition of the base class, in this case it is a model of an animal. This is not marked as abstract, but its role is parent class and its purpose is defining a standard interface and some default behaviour. For the sake of simplicity, the base class (and derived classes) only have one method in this example.
+
+#+begin_src
+
+class Animal(object):
+
+    def __init__(self):
+
+        pass
+
+    def describe(self):
+
+        print("i am a generic animal")
+
+#+end_src
+
+With the base class established, two subclasses are defined, inheriting from the =Animal= class. These two classes model a bird and mammal respectively. They have more specific properties than the parent class and the =describe= method is overriden. The =Bird= class includes a call to the superclass' implementation of the message, as well as adding its own behaviour. In addition, the bird class has an additional property.
+
+#+begin_src
+
+class Bird(Animal):
+
+    def __init__(self):
+
+        self.can_fly = True
+
+    def describe(self):
+
+        Animal.describe(self)
+        print("i am a bird\n")
+
+class Mammal(Animal):
+
+    def __init__(self):
+
+        pass
+
+    def describe(self):
+
+        print("i am a mammal\n")
+
+#+end_src
+
+A sub-routine is declared which can test the polymorphism of the program. An instance is passed to the sub-routine and the =describe= method is called on the reference variable, irrespective of the object passed in. The outcome of the sub-routine will depend on the type of the object passed in, rather than the code in the sub-routine.
+
+#+begin_src
+
+def test_object(animal):
+
+    animal.describe()
+
+#+end_src
+
+The last part of the program is simply some driver code; two objects are instantiated and passed to the =test_object= sub-routine.
+
+#+begin_src
+
+bird = Bird()
+mammal = Mammal()
+
+test_object(bird)
+test_object(mammal)
+
+#+end_src
+
+When run, the output shows the effect of sending the same message to two different classes using a common interface: /polymorphism/
+
+#+begin_src
+
+i am a generic animal
+i am a bird
+
+i am a mammal
+
+#+end_src
+
+*** Association
+
+When two objects have a relationship that is not an /"is a"/ relationship, association by /composition/ or /aggregation/ may be more suitable. Such a relationship is usually a /"has a"/ relationship, for example a house /has a/ kitchen. There is usually some ownership involved, otherwise the objects can exist independently. The difference between the two types of association lies in the /lifecycle dependency/ of the contained classes.
+
+- during /aggregation/ association, the subclasses continue to exist without the container class, eg. people in a sports team or a company still exist if either is disbanded
+- during /composition/ association, the contained classes are destroyed along with the container class, eg. rooms in a building disappear if the building is knocked down
+
+There are common diagrams of each type of association:
+
+#+CAPTION:association by aggregation
+[[./images/aggregation.png]]
+
+#+CAPTION: association by composition
+[[./images/composition.png]]
+
+*** Access Modifiers
+
+In programming languages, /information hiding/ can be enforced, so that program code must use an object's interface to retrieve data. There are generally three main modifiers:
+
+- /public/ properties/methods can be used from anywhere in a codebase
+- /private/ properties/methods can only be accessed or run from within an object's own behaviours
+- /protected/ properties lie somewhere in between, depending on the language.
+
+*** Class Diagrams
+
+As is the case with DB design, there are a number of different diagrams designed to make working in the OOP style easier to plan. One common standard is the UML /(unified moddeling language)/ diagram.
+
+A single =-= sign is a private attribute, a =+= is a public attribute/method and =#= is used for protected attributes.
+
+#+CAPTION: A UML diagram for the standard animal example
+[[./images/uml.png]]
+
+*** Advantages of OOP
+
+OOP is preferred to earlier procedural techniques for a number of reasons:
+
+- planning is more important/worthwhile in the OOP paradigm
+- encapsulation means the implementation of data needs only happen once
+- an old OOP codebase is easily modifiable, by adjusting classes
+- general modularity and ease of debugging/maintenance
+
+** Functional Programming
+
+/not implemented/

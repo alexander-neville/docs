@@ -1,0 +1,663 @@
+
+#+TITLE: Fundamentals & Theory of Computer Science
+#+AUTHOR: Alexander Neville
+#+OPTIONS: ^:{}
+
+* Fundamentals of Programming
+
+An algorithm is a series of steps underlying every process including programs. An abstract view of any program/algorithm is /input -> process -> output/.
+
+** Pseudocode
+
+Rather than try and solve a problem while implementing a program, it can help to try and outline the solution in a abstract manner and then write the code to solve the problem. Pseudocode is a flexible method of planning an algorithm that is easier to read and understand, while keeping in the programming mindset. Pseudocode is written like a program, with data types, flow control, operators etc.
+
+*** Syntax
+
+*Comments:*
+
+Anything following a =#= symbol is a comment.
+
+*Data Types:*
+
+Pseudocode is not strongly typed so there is generally no need to specify the data type on initialisation. Pseudocode variables typically fall into these categories:
+
+- /integer/ (any unbounded whole number)
+- /real/float/ (any number with a fractional part)
+- /boolean/ (a true/false variable)
+- /character/ (a single digit represented in ASCII or similar)
+- /string/ (more than one character in a row)
+
+NB. all data-types will have a constructor eg. /int("2")/ or /str(2)/ for easy conversion.
+NB. all iterable series in pseudocode are 1 based.
+
+*Assignment:*
+
+The === sign is often used. A left arrow =<-= is sometimes used to show the flow of data. Variable names are all lowercase, while constants are defined with uppercase identifiers.
+
+*Operators:*
+
+Like other languages, the symbols =*/-+= are used. In addition these rules tend to apply:
+
+- Assignment operators are rarely used as they tend to obfuscate the step by step approach to problem solving; code is usually broken into /input -> process -> output/ cycle.
+- To raise a number to a certain power, this syntax is used: =x**n=, where /x/ is the base and /n/ in the exponent.
+
+*Keyword Functions:*
+
+Besides the symbolic operators there are a number of functions and statements built into pseudocode. Here are a few:
+
+- /div/ (floor divide operator, returning a whole number)
+- /mod/ (find the remainder of a certain div operation)
+- /length()/ (find the length of a string)
+- /string.substring(index, index)/ (return the string found between inclusive indices)
+- /string.find(substring)/ (return the first index of substring if found, else return -1)
+- /ord("x")/ (find the ASCII value of a character)
+- /chr(97)/ (find the character associated with a number)
+
+*Input and Output:*
+
+Input can be taken by assigning the result of =USERINPUT= to an identifier. The =OUTPUT= statement can print data. =INPUT= is sometimes used when the is not necessarily entered by a person.
+
+#+begin_src
+
+sensor_data <- INPUT
+name <- USERINPUT
+
+OUTPUT name, sensor_data
+
+#+end_src
+
+*** Flow Control
+
+Pseudocode can combine its syntax with flow control mechanisms to build more functional programs.
+
+*Relational Operators:*
+
+Pseudocode uses all the typical relational operators, eg. /<=, >=, <, >/. In addition a single /=/ sign is used as a comparison operator as =<-= is typically used for assignment. The =<>= symbol is used as not equal to operator.
+
+*Boolean Logic:*
+
+=AND=, =OR= and =NOT= can be used to create logical statements.
+
+*Conditional Statements:*
+
+This is how a typical condition is constructed:
+
+#+begin_src
+
+IF (condition) THEN
+
+    ....
+
+ELSE IF (condition) THEN
+
+    ....
+
+ENDIF
+
+#+end_src
+
+*Switch Statements:*
+
+If multiple options are dependent on the value of a single variable, a switch statement can be used.
+
+#+begin_src
+
+CASE variable of
+
+    value:
+
+        ....
+
+    value:
+
+        ....
+
+ENDCASE
+
+#+end_src
+
+*Iteration:*
+
+Predicated /while/ loops are constructed like this:
+
+#+begin_src
+
+WHILE condition
+
+    ....
+
+ENDWHILE
+
+#+end_src
+
+/Do while/ loops are also a possibility, useful if code must run at least once.
+
+#+begin_src
+
+REPEAT
+
+    ....
+
+UNTIL condition
+
+#+end_src
+
+If the number of iterations is know, a /for/ loop can be used
+
+#+begin_src
+
+FOR variable <- value TO value STEP value
+
+    ....
+
+ENDFOR
+
+#+end_src
+
+*** Data structures
+
+Arrays are a collection type which are usually filled with data of one type and unite values under one identifier. Individual values can be accessed with indexing eg. =array[x]= will return the value at position /x/ along /array/. Arrays may be multi-dimensional and values can be addressed like this: =array[x][y]=.
+
+*** Subroutines
+
+A subroutine is a named block of code within a program. A subroutine may perform an operation as in a /procedure/ or return a value to the main program as a /function./ In pseudocode a subroutine can be defined and called like this:
+
+#+begin_src
+
+SUB procedure
+
+    ....
+
+END SUB
+
+SUB function(input)
+
+    ....
+    RETURN output
+
+ENDSUB
+
+procedure
+data <- function(data)
+
+#+end_src
+
+*** Files
+
+To store data permanently, It must be written to a file on disk. A file contains /records/ (rows) with many /fields/. Data can be read from a file like this:
+
+#+begin_src
+
+OPEN file for reading
+FOR line <- 1 TO num_lines
+
+    record = READLINE(file, line)
+    OUTPUT record[1], record[2], ...
+
+ENDFOR
+CLOSE file
+
+#+end_src
+
+*** Exceptions
+
+To define behaviour for an error condition, exception handling can be used.
+
+#+begin_src
+
+TRY
+
+    ....
+
+EXCEPT
+
+    OUTPUT "there was an error"
+
+ELSE
+
+    OUTPUT "end of statement"
+
+ENDEXCEPT
+
+#+end_src
+
+* Problem Solving and Theory of Computation
+** Problem Solving
+
+Besides writing larger programs, computing has many applications involving smaller problems. A /puzzle/ is a problem that is solved by selecting the right inputs. This process can be performed computationally. The problem may be /specific/, having a certain number of inputs (eg. 3), or /general/, having /n/ number of inputs. These values can be used to calculate the efficiency of an algorithm (not in as-level).
+
+** Strategies
+
+There are some common strategies for solving logic/computational problems:
+
+- /exhaustive/, can be described as systematic, is a /brute-force/ technique. The inputs are not selected intelligently, based on higher probability of solving the problem, but rather randomly or in some arbitrary order.
+- /divide-and-conquer/, works best with partially solved puzzles, eg. sorted list. The number of inputs is repeatedly split and the more probable path is taken.
+
+** Structured Programming
+
+In order to ease development and make maintainable programs, an algorithm is divided into smaller parts.
+
+*** Block Structure
+
+In block-structured languages, an algorithm can be broken down into the repeated use of just three structures:
+
+- /sequence/ -  a block of code composed of one instruction after the other (single thread of execution)
+- /selection/ - the use of a conditional statement to execute certain sequences depending on an event
+- /iteration/ - the use of abstract /jumps/ to repeat a sequence of code
+
+Modern programming languages use syntax elements to make these /blocks/ apparent. Curly brackets, ={},= or indentation and significant white space might be used to make code blocks visually distinct.
+
+*** Modularisation
+
+An algorithm is repeatedly broken down into smaller parts until each can easily be implemented in a single /sub-routine/, sometimes called a /module/. This is called /top-down/ design. The advantages of this technique include:
+
+- individual module/unit testing
+- reusable and distributable modules
+- many people can work on a project simultaneously
+
+*** Hierarchy Charts
+
+A hierarchy chart is a way of visualising how an algorithm is broken down. Each step may be a logical block or a sub-routine that has been programmed. A hierarchy chart does not describe the implementation of a problem, nor the control flow within each module.
+
+#+CAPTION: a hierarchy chart for calculating a gas bill
+[[./images/heirarchy.png]]
+
+** Testing
+
+All algorithms should be thouroughly tested to detect problems that could occur under certain conditions. Any inputs should be tested with /normal/, /boundary/ and /erroneous/ data. Before running a program, it may be /dry-run/, using a trace table.
+
+** Abstraction
+
+Abstraction is the process of simplifying something by removing unnecessary details. This is a common technique in programming, as most high-level operations are made irrespective of the hardware and machine operations that need to take place.
+
+Abstraction by /generalisation/ is a technique used to remove context from a problem and equate it to existing problems and scenarios. Therefore, the problem can be worked on in a theoretical manner and once solved, applied to the initial problem. Similar is the idea of /problem abstraction/, where the problem is abstracted and generalised to a point where it matches an existing problem and solution.
+
+/Procedural abstraction/ is often used in computing. Once a problem has been solved and implemented, there is no need for that module to be re-written. This is /information hiding/, as the program calling a module does not need to know its implementation. This kind of abstraction depends on the existing implementation of a problem's solution.
+
+Data can also be subject to abstraction. The behaviour of numbers, when subject to mathematical operations, depends on the number's type, eg. float or integer, rather than the program code.
+
+** Composition
+
+Breaking an algorithm down, via any method, is called /decomposition/. The process of combining existing smaller modules to solve a larger problem is called /composition/.
+
+** Automation
+
+/not implemented/
+
+** Finite State Machines
+
+A /finite state machine/ is an abstract view of some computation. Using /states/ and /transitions/, an FSM demonstrates how a system responds to an event under various conditions (states).
+
+A state is represented with a circle. States are joined by an arrow (direction is important), representing a transition. A transition is usually labelled with a transition /condition/.
+
+The start state is marked by a short arrow, with no connection to another state. The end or /acceptance/ state is a double circle. See the diagram below.
+
+#+CAPTION: an FSM with 3 states
+[[./images/fsm.png]]
+
+The typical FSM diagram can also be represented by a /state transition table/, which lists all of the possible transitions. The table for the diagram above would look like this:
+
+|---------------+-----------+-----------|
+| current state | input = A | input = B |
+|---------------+-----------+-----------|
+| S1            | S2        | S1        |
+| S2            | S3        | S1        |
+| S3            | S1        | S3        |
+|---------------+-----------+-----------|
+
+* Data Representation
+** Number Systems
+*** Sets of Numbers
+
+- Whole Numbers = /Z/ (negative or positive integers)
+- Natural Numbers = /N/ (integers above 0)
+- Rational Numbers = /Q/ (can be expressed precisely as a fraction)
+- Real Numbers = /R/ (anything that can be expressed numerically, includes irrational numbers)
+- Ordinal Numbers: /first/, /second/, /third/
+
+*** Decimal
+
+Decimal (Base 10) is the number system we use on a daily basis. It may originate from the ten fingers and toes humans have. With current technology, it is impossible to use base 10 in computer systems.
+
+*** Binary
+
+Binary is the number system used in computing and understood by a computer's processor. It is used because of the relative ease of distinguishing between just two states: /on/ & /off/. The disadvantage of this system is representing large amounts of complex data. With only two states, many binary bits in sequence are needed to represent real world data. In decimal, 10 values can be represented with one character and the total number of values available with /n/ characters is:
+
+- /10^{ n}/
+
+While, with binary, the number of available values when using /n/ bits is:
+
+ - /2^{ n}/
+
+So in order to get an equivalent range of values, the value /n/ must be larger when using binary. This is manageable in a computer and the advantages significantly outweigh the disadvantages, however this is difficult for people to work with and understand. Binary is long and repetitive, making working with binary slow and error prone.
+
+*** Hexadecimal and Octal
+
+Hexadecimal (Base 16) and Octal (Base 8) are used to make working with computers easier. The range of values that can be represented with /n/ characters is:
+
+- /16^{ n}/ for hexadecimal
+- /8^{ n}/ for octal
+
+These number systems in particular are used to represent binary values more concisely, while being easier to convert to and from binary than decimal numbers. Both 8 and 16 are powers of 2. This means that /n/ bits of a binary number can be directly represented by one character in the corresponding number system. Eg.
+
+- 3 binary bits -> 1 octal value
+- 4 binary bits -> 1 hexadecimal value
+
+The same is true of Base 4 and Base 32, but these are less frequently used.
+
+*Uses of Hexadecimal and Octal:*
+
+- Colour Codes
+- MAC Addresses
+- IPv6 Addresses
+- Assembly Language
+- Unix File Permissions (octal)
+
+** Two's Complement
+
+There are a number of different techniques for handling negative numbers in computer systems. /Two's Complement/ is a common method of doing so, as two's complement numbers can be treated like a regular value during computation.
+
+In Two's complement binary, the most significant bit of a number is treated as negative, hence:
+
+- /if a number begins with 1, its value will be negative/
+- /if a number begins with 0, its value will be positive/
+
+*Example:*
+
+This example shows how the most significant bit affects whether the number is negative or positive.
+
+|--------+----+---+---+---+---------------|
+| number | -8 | 4 | 2 | 1 | decimal value |
+|--------+----+---+---+---+---------------|
+|   1000 |  1 | 0 | 0 | 0 |            -8 |
+|   1111 |  1 | 1 | 1 | 1 |            -1 |
+|   0000 |  0 | 0 | 0 | 0 |             0 |
+|   0101 |  0 | 1 | 0 | 1 |             5 |
+|   1011 |  1 | 0 | 1 | 1 |            -5 |
+|--------+----+---+---+---+---------------|
+
+Here is the process that is happening for each row:
+
+#+begin_src
+
+1111 = (-8) + 4 + 2 + 1 = -1
+1000 = (-8) + 0 + 0 + 0 = -8
+0000 = (-0) + 0 + 0 + 0 = 0
+0101 = (-0) + 4 + 0 + 1 = 5
+1011 = (-8) + 0 + 2 + 1 = -5
+
+#+end_src
+
+
+*Additional Notes:*
+
+With /n/ bits, the range of values you can represent is:
+
+    /- 2^{  (n-1)}  . . .  2^{ (n-1)}  - 1/
+
+To obtain the two's complement of a number (flip negative to positive or vice versa):
+
+  /flip all of the bits and one/
+
+The benefit of the two's complement system is that it maximises the range of values which can be represented by a /word/ of a certain length.
+
+Eg. using a designated sign bit, a value for zero and negative zero must be stored, which is not needed and also complicates some calculations.
+
+Computers generally rely on two's complement to perform subtraction, using only the addition circuits at their disposal. In order to subtract one value from another:
+
+- /the number that must be subtracted is converted to its two's complement/
+- /the two numbers are now added to one another/
+- /therefore 37 - 9 become 37 + (-9)/
+
+** Fixed Point Binary Numbers
+
+In a fixed point binary value, some bits fall before and after the point. The position of the point is usually determined as needed. Using such a system, any bits before the point are treated as usual. For any bit after the point, its value is:
+
+    /2^{-n}/ where /n/ = position from point
+
+Here is a demonstration of this principle:
+
+|---+------------+-------|
+| n | power of 2 | value |
+|---+------------+-------|
+| 1 | 2^{-1}     |   0.5 |
+| 2 | 2^{-2}     |  0.25 |
+| 3 | 2^{-3}     | 0.125 |
+|---+------------+-------|
+
+The position of the decimal point within a fixed point binary value can determine the properties of the number: /range/ vs /precision/
+
+** Floating Point Binary Numbers
+
+Fixed point binary numbers only offer limited precision, unless an extra-ordinary number of bits are used. Many bits are needed to represent very small fractions and many bits are needed to represent very large numbers, even if fixed point binary is not applied. /Floating Point/ binary values work like scientific notation, making them suitable for extremely large or small numbers. In such a number the bit pattern used is split into two parts: the /mantissa/ and the /exponent/.
+
+*** Conversion
+
+This table shows how to convert =01101 011= into a fixed point binary number. When given a floating point number, the point's default position is just after the first bit (as in scientific notation). The mantissa records how many places to the right the point needs to move. (Nb. on the first row, the default position of the point is shown)
+
+|----------+----------+------------------|
+| mantissa | exponent | exponent decimal |
+|----------+----------+------------------|
+|   0.1101 |      011 |                3 |
+|   01.101 |      010 |                2 |
+|   011.01 |      001 |                1 |
+|   0110.1 |      000 |                0 |
+|----------+----------+------------------|
+
+** Character Encoding
+
+Human readable characters need to be represented numerically for use in computer systems. The given numerical value for a character can be expressed in decimal, but binary is always used by computers. Two very common standards for character encoding are /ASCII/ and /Unicode/. Note that not all data is encoded with these standards; compiled code and many image formats are /raw binary/ data. This kind of data cannot be read by a human or displayed in a text editor.
+
+*** ASCII
+
+The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte.
+
+Later on, an eighth bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintained compatibility with the original standard; the first 128 characters are the same. 8 bit *ASCII* is sometimes called *UTF-8*.
+
+*** Unicode
+
+As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages and their character sets. /Unicode/ was developed to solve this problem. It was initially a 16 bit standard, allowing 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched those of 8 bit *ASCII*, so there is some compatibility.
+
+*UTF-32* now exists, offering over a million different individual characters. The downside of these enlarged standards is the size. *UTF-32* is twice as large as *UTF-16* and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
+
+** Error Checking and Correction
+
+Errors can occur when data is read, inputted or transmitted. There are many ways to identify when an error has occurred and how errors can be corrected.
+
+*** Parity Checking
+
+Parity bits are a common method for protecting against errors during communication. 7 bit /ASCII/ lends itself towards transmitting a parity bit within each byte.
+
+Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred.
+
+This method cannot detect /transposition errors/ (when the order of bits is changed), nor are they able to identify errors affecting more than one bit.
+
+*** Majority Voting
+
+When majority voting is used, each bit is transmitted repeatedly. An odd number of repetitions must be used so there is not a /tie/.
+
+The received values for each bit are compared and the /popular/ result is taken to be the true value of that bit. Hence, there is a means of correcting potential errors.
+
+Eg. one of three transmissions of a single bit may differ from the two others. It can be concluded that this bit is erroneous and its value discarded.
+
+Transmitting data repeatedly, for the purpose of error detection and correction, significantly increases the time taken to send a certain communication. Majority voting is often infeasible, because of the time it takes.
+
+*** Checksum
+
+A checksum is a thorough method of error detection. An algorithm is applied to a piece of data before it is sent, the result being the checksum. The checksum is transmitted with the block of data. Upon receipt of the block, the same algorithm is applied to the data (which might have been corrupted). The checksum calculated by the receiver is compared with the transmitted checksum.
+
+- if the two values do not match, an error has occurred
+- if the two values do match, it is likely that no error has occurred
+
+*** Check Digits
+
+The role of a /check digit/ is to prevent /transcription/ errors (or other similar I/O errors) of identifiers and other short pieces of data. Check digits are often attached to barcodes, ISBNs and credit card numbers.
+
+A checkdigit is calculated by running a number through an algorithm. The result is usually printed alongside the data, wherever it appears. Devices like barcode readers can calculate the checkdigit based on the obtained number and compare it too the existing checkdigit.
+
+- if the two values do not match, an error has occured
+- if the two values do match, it is likely that the data was read correctly
+
+** Analogue and Digital Data
+
+Analogue data is /continuous/, having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values.
+
+For the sake of digital representation, analogue waveforms and other continuous sets of data are sampled at intervals, or in certain places.
+
+- pixels in a sensor record light intensity at a precise point
+- a microphone and ADC record amplitude at certain points in time
+
+Each of these samples contains data which is quantifiable, so it may be used and stored by a computer. Therefore any digital representation of analogue data is an approximation of some quantity at a certain time and place.
+
+** Image Representation
+
+Image data can be broadly categorised into two types: /photographs/ and /digital graphics/. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated.
+
+Photographs are usually stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
+
+*** Bitmap Files
+
+Bitmap images are composed of /pixels/. A 'picture element', or a /pixel/, is the smallest identifiable area of an image and each pixel will contain information about the image at that point.
+
+A raster (bitmap) file itself contains all of the pixel data making up the image and some *Metadata* needed to reconstruct the image. A bitmap file has a /size/, which is a number of pixels expressed in terms of /width * height/.
+
+The /resolution/ is the number of /dots per inch/ (dpi). An image of greater /size/ will have a higher /resolution/ when displayed in the same space/scale on a screen.
+
+Bitmap files store an approximation of real world analogue data and they are ideal for photographs, which have constantly changing colour gradients and no distinct boundaries.
+
+*** Limitations of Bitmap Files
+
+- The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution (ppi/dpi) is diminished.
+- For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
+
+*** Colour Depth
+
+In a bitmap file, each picture element has an associated colour code. The length of this value determines the number of colours which can be represented.
+
+A common colour depth is 3 bytes (24 bits), where each byte corresponds to one /RGB/ channel. Each channel has 8 bits and so the number of possible colours (in each channel) is:
+
+    /2^{8} = 256/
+
+As there are three channels, the total number of colours is:
+
+    /256^{3} = 16777216/
+
+A colour depth of 3 bytes offers more colours than the human eye can distinguish between, hence there is little benefit using a greater depth. A larger colour depth increases file size, so it is sometimes advantageous to use a reduced set of colours.
+
+*** Metadata
+
+This is data stored in the header of a bitmap file, containing all the information needed to display the image. Eg. columns, rows, colour depth, etc.
+
+*** Vector Graphics
+
+A vector file consists of a drawing list, containing a list of all the shapes that need to be drawn to /construct/ the image. Unlike a bitmap, the shapes listed in a vector file can be redrawn and the image constructed proportionally to suit any display size. This makes vector graphics ideal for images which may need to be displayed in many places at different sizes.
+
+The file size of a vector graphic will depend on the number of objects which have to be drawn, rather than the size and quality of the image. Photographs cannot be represented with vector graphic files easily, because of the complex shapes and many colour gradient, with few distinct boundaries.
+
+** Audio Representation
+
+Sound is a type of analogue data, which is - in nature - a continuous wave. This data must undergo analogue to digital conversion.
+
+*** Sample Rate
+
+In order to represent a continuous sound wave as discrete digital data, many quantised /samples/ must be taken at regular intervals. The frequency of the recording, also called the /sample rate/, is the the number of samples per second. The greater the sample rate, the closer the digital representation of the audio is to the original sound.
+
+*** Sample Depth
+
+As well as increasing the number of samples stored, audio quality can be improved by increasing the /bit depth/. The bit depth is the number of bits used to store the amplitude of the sound at a given sample. The higher the bit depth, the closer the amplitude to its original value.
+
+/Nb. amplitude is often represented on the Y axis, against time on the X axis/
+
+*** Nyquist's Theorem
+
+Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. In 1928, Harry Nyquist theorised that a recording must be sampled at twice the maximum frequency of the analogue sound to produce an accurate recording.
+
+For the human ear, the maximum audible frequency is 20,000Hz. Therefore, audio is often sampled at 44,100Hz, beyond which there is no apparent difference in sound quality to humans.
+
+*** Audio Storage and Files
+
+Audio which is recorded from a live source is stored and can be played back using a DAC and a speaker. There are many common file formats for sound and video, many of which use compression. Sound files may also contain metadata about the file.
+
+Sound may also be 'stored' as a MIDI file, a set of steps which can be interpreted by software to synthesise new sound. It is primarily a tool for music artists to create new music which can later be recorded. As MIDI files do not try to replicate analogue data with lots of samples, they may be smaller in size to a recording of similar length and quality.
+
+*** Recording & Playback
+
+*Storing Sound:*
+
+1. A computer peripheral (microphone) is used to convert a sound wave into an oscillating electrical signal.
+2. The electrical signal is suitable for analogue to digital conversion.
+3. An ADC will /sample/ this signal to a given frequency. Any data between samples is lost.
+4. The ADC will approximate the amplitude of the sound for each sample.
+5. The output - discrete digital data - can be stored in typical computer storage devices.
+
+*Outputting Sound:*
+
+In order to present the stored data, it must be converted back to an analogue form. A /DAC/ (digital to analogue converter) can be used to this effect.
+
+1. The recorded amplitudes for all the samples are converted into an electrical signal (a voltage) at the same frequency as the sample rate.
+2. The voltage changes are converted into a sound wave by a speaker.
+
+** Compression
+
+Image and sound files can be very large and repetitive. Generally, a small reduction in quality is tolerated, making these files good candidates for lossy compression, where the quality is somewhat reduced to achieve greater compression ratios.
+
+Text files, including programs, are rarely as large as other types of data, however reducing their file size is sometimes needed. It is essential that compressed text files can be recreated without any loss in quality. Lossless compression is a compression method which maintains the exact quality of the uncompressed data, so it can be read exactly as intended after compression and subsequent uncompression. The compression ratios of Lossless compression techniques rarely equal those of lossy compression.
+
+*** Lossless
+
+Lossless compression ensures the original file can be recreated from the compressed file. Therefore the compressed file must convey /exactly/ the same information as the original in a slightly different way. Lossless compression algorithms typically reduce repetition within files as a means of compression.
+
+Most Lossless compression methods are only effective when there is significant repetition. In some cases, when there is not sufficient repetition, negative compression can occur and the size of the compressed file exceeds that of the original file.
+
+*Run Length Encoding:*
+
+Using RLE, file size is reduce by removing runs of identical data. Each run of data is replaced with the original piece data and the length of the run (number of repetitions).
+
+Data which does not have long runs of identical data is not suitable for this type of compression. RLE can be very useful in the compression of sound files, as a single sound played for even a short amount of time may result in many identical samples.
+
+*Dictionary Compression:*
+
+Dictionary compression is a more flexible type of lossless compression. The compression algorithm creates a /dictionary/ associating frequently repeated pieces of data to an index. Any occurrence of an indexed piece of data are replaced with the corresponding dictionary index.
+
+Nb. The compressed file must include the dictionary that is used. Dictionary compression works best with larger files, where the size of the dictionary is offset by the amount of repetition removed.
+
+*** Lossy
+
+Unlike lossless compression, lossy compression is irreversible, as data is *permanently* removed from the file. This means that the effectiveness of lossy compression is not dependent on an amount of repetition within the file. However, this method reduces the quality of the file which is compressed, making it unsuitable for text and similar sorts of data.
+
+** Encryption
+
+Encryption is the process of changing data so that it is only readable to the intended recipient. A cipher is an algorithm which encrypts some data. Decryption of cipher text requires the /key/ used to encrypt the file and the encryption method must be known. The original data is referred to as plain text and the encrypted data is referred to as cipher text.
+
+*** Caesar Ciphers
+
+This is a very old, basic cipher, using character replacement. One character in the cipher text always represents the same plain text character.
+
+A shift can be used to quickly generate a cipher. The ciphertext value of a character is found by moving a certain number of places through the alphabet. In this case, the key is the shift required to move from the plain-text to the ciphertext. This process can be reversed by the recipient to decrypt the data.
+
+A substitution cipher may also be used. With such a cipher, the letters are randomly replaced. This introduces more complexity as there is not a single key that applies to the whole data. To decrypt such a cipher the 'key' for each character must be known to the recipient.
+
+All Caesar ciphers are fairly easy to decipher without the key. In the case of a shift cipher, brute force is possible as there are only 25 possible keys. Frequency of the ciphertext characters can be analysed as every occurrence will refer to a certain plain text character. In English, certain characters and combinations are more frequent so the most common cipher text characters can be found and decrypted.
+
+*** Vernam Ciphers
+
+The Vernam cipher is a more secure algorithm. It requires a key in the form of a one-time pad. /One-time/ means it should only be used once, to ensure its randomness. The key must be as long, or greater than, the plain text to be encrypted.
+
+*Encryption:*
+
+- Plain text is aligned with the beginning of the one-time pad
+- The characters are represented numerically, in binary
+- A logical XOR process is performed on the plain text and one-time pad bit patterns
+- The resulting bit pattern is translated back into a character
+
+*Decryption:*
+
+- To decrypt the cipher text, the same one-time pad must be used
+- The two strings are aligned
+- Both strings are converted to binary
+- The logical XOR operation is carried out
+- The resulting bit pattern is converted back to a character, which should equal the initial plain text character
+
+The one-time pad which is used must be generated randomly, only this can guarantee the randomness of the ciphertext. If the pad is new and random, the ciphertext is completely unbreakable at the point it is encrypted. This cipher is mathematically unbreakable, if all standards are upheld. To make this cipher more efficient, an amount of pad may be exchanged between parties before any messages are sent. Each message sent will use the next unused section of pad as the key.
+
+Vernam ciphers are not always used in computer systems, even though it is mathematically secure. Given current computing power, many other algorithms - which can be cracked - will take long enough that any efforts to crack the encryption will not be viable. This is called computational security.
