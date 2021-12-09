@@ -20,7 +20,6 @@ This guide covers how to set-up each of these pieces of software on a single mac
   - [[#ubuntu][Ubuntu]]
   - [[#arch][Arch]]
   - [[#check-configuration][Check Configuration]]
-- [[#apache2-config][Apache2 Config]]
 - [[#database][Database]]
   - [[#install][Install]]
   - [[#creating-users][Creating Users]]
@@ -291,7 +290,6 @@ phpinfo();
 ?>
 #+end_src
 
-* Apache2 Config
 * Database
 ** Install
 
