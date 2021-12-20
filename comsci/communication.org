@@ -3,10 +3,6 @@
 #+AUTHOR: Alexander Neville
 #+OPTIONS: ^:{}
 
-* The Internet
-
-/not implemented/
-
 * Communication Technology and Consequences
 ** Communication Methods
 *** Serial Transmission
@@ -128,7 +124,6 @@ No expensive server computers are required. Expertise and maintenance are not re
 
 All clients must be connected and powered-on for the network to function as expected. Peer-to-peer networking may leave a user's files visible to other devices on the network.
 
-** Cloud Computing
 ** Wireless Networking
 *** Wi-Fi
 
@@ -165,3 +160,21 @@ Once the channel appears idle to a station, a 'request to send' signal is sent t
 ** Social, Cultural & Legal Issues
 
 /not implemented/
+
+* The Internet
+** OSI
+** IP Addresses
+*** Classfull Addressing
+*** Classless Addressing
+*** Subnetting
+
+#+begin_src
+
+10.0.0.0/8
+
+10.0.0.0
+255.0.0.0
+
+10.0.0.0 - 10.255.255.255
+
+#+end_src

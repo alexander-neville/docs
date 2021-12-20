@@ -1,0 +1,19 @@
+#+TITLE: Maths Notes
+
+* Trigonometry
+** Identites
+
+The identity $\sin^{2}(\theta) + \cos^{2}(\theta) = 1$ is the foundation for two more complex identities.
+
+Dividing by $\cos^{2}(\theta)$:
+
+\[\frac{\sin^{2}(\theta)}{\cos^{2}(\theta)}+ \frac{\cos^{2}(\theta)}{\cos^{2}(\theta)} = \frac{1}{cos^{2}(\theta)}\]
+
+Dividing by $\sin^{2}(\theta)$:
+
+\[\frac{\sin^{2}(\theta)}{\sin^{2}(\theta)}+ \frac{\cos^{2}(\theta)}{\sin^{2}(\theta)} = \frac{1}{sin^{2}(\theta)}\]
+
+The two identities:
+
+- \[\tan^2(\theta) + 1 = \sec^{2}(\theta)\]
+- \[1 + \cot^2(\theta) = \cosec^{2}(\theta)\]
