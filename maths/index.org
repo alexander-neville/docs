@@ -1,19 +1,63 @@
 #+TITLE: Maths Notes
 
 * Trigonometry
-** Identites
+** Identities with Reciprocal Trigonometric Functions
 
 The identity $\sin^{2}(\theta) + \cos^{2}(\theta) = 1$ is the foundation for two more complex identities.
 
 Dividing by $\cos^{2}(\theta)$:
 
-\[\frac{\sin^{2}(\theta)}{\cos^{2}(\theta)}+ \frac{\cos^{2}(\theta)}{\cos^{2}(\theta)} = \frac{1}{cos^{2}(\theta)}\]
+- \[\dfrac{\sin^{2}(\theta)}{\cos^{2}(\theta)}+ \dfrac{\cos^{2}(\theta)}{\cos^{2}(\theta)} = \dfrac{1}{cos^{2}(\theta)}\]
 
 Dividing by $\sin^{2}(\theta)$:
 
-\[\frac{\sin^{2}(\theta)}{\sin^{2}(\theta)}+ \frac{\cos^{2}(\theta)}{\sin^{2}(\theta)} = \frac{1}{sin^{2}(\theta)}\]
+- \[\dfrac{\sin^{2}(\theta)}{\sin^{2}(\theta)}+ \dfrac{\cos^{2}(\theta)}{\sin^{2}(\theta)} = \dfrac{1}{sin^{2}(\theta)}\]
 
 The two identities:
 
-- \[\tan^2(\theta) + 1 = \sec^{2}(\theta)\]
-- \[1 + \cot^2(\theta) = \cosec^{2}(\theta)\]
+1. \[\tan^2(\theta) + 1 = \sec^{2}(\theta)\]
+2. \[1 + \cot^2(\theta) = \cosec^{2}(\theta)\]
+
+** Addition Formula
+*** Sin / Cos
+
+\[\sin(A \pm B) = \sin(A)\cos(B) \pm \cos(A)\sin(B)\]
+
+\[\cos(A \pm B) = \cos(A)\cos(B) \mp \sin(A)\sin(B)\]
+
+*** Tan
+
+The equivalent expression for $\tan(A \pm B)$ is derived by combining these examples:
+
+- \[\tan(A \pm B) = \dfrac{\sin(A \pm B)}{\cos(A \mp B)}\]
+
+- \[\tan(A \pm B) = \dfrac{\sin(A)\cos(B) \pm \cos(A)\sin(B)}{\cos(A)\cos(B) \mp \sin(A)\sin(B)}\]
+
+- \[\tan(A \pm B) = \cfrac{\cfrac{\sin(A)\cos(B)}{\cos(A)\cos(B)} \pm \cfrac{\cos(A)\sin(B)}{\cos(A)\cos(B)}}{\cfrac{\cos(A)\cos(B)}{\cos(A)\cos(B)} \mp \cfrac{\sin(A)\sin(B)}{\cos(A)\cos(B)}}\]
+
+The result is:
+
+\[\tan(A \pm B) = \dfrac{\tan(A) \pm \tan(B)}{\1 \mp \tan(A)\tan(B)}\]
+
+*** Double Angles
+
+Seeing as $2x = x + x$, there is a special case for the trigonometric addition formula.
+
+\[ \begin{aligned} \sin(2x) = \sin(x + x) = \\ \sin(x)\cos(x) + \cos(x)\sin(x) = \\ 2\cos(x)\sin(x)  \text{ } \text{ } \text{ } \end{aligned}\]
+
+\[\begin{aligned} \cos(2x) = \cos(x + x) = \\ \cos(x)\cos(x) - \sin(x)\sin(x) = \\ 1 - 2\sin^2(x) = \\ 2\cos^2(x) - 1   \text{ } \text{ } \text{ } \end{aligned} \]
+
+* Differentiation
+** Exponential and Logs
+** Chain Rule
+** Product Rule
+
+\[ \dfrac{d}{{dx}}\left( {f\left( x \right) \boldsymbol{\cdot} g\left( x \right)} \right) = f\left( x \right)\boldsymbol{\cdot}\dfrac{d}{{dx}}g\left( x \right) + \dfrac{d}{{dx}}f\left( x \right)\boldsymbol{\cdot}g\left( x \right) \]
+
+If $u$ and $v$ are functions of $x$, this expression can also be written:
+
+\[y = uv  \text{ } \text{ } \text{ } \Rightarrow \text{ } \text{ } \text{ } \dfrac{dy}{dx} = u \dfrac{dv}{dx} + v \dfrac{du}{dx}\]
+
+** Quotient Rule
+** Parametrics
+** Connected Rates of Change
