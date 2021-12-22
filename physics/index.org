@@ -1,4 +1,286 @@
+
 #+TITLE: Physics Notes
+#+STARTUP: latexpreview
+#+latex_header: \usepackage{tikz-feynman}
 
+* Nuclear Physics
+** Radiation
 
-These are my typeset notes on A-level physics.
+Three types of radiation:
+
+1. Alpha: $^4_2\alpha$
+2. Beta: $^{ \text{ } \text{ }0}_{-1}\beta^-$ / $^{0}_{1}\beta^+$
+3. Gamma: $\gamma$
+
+*** Alpha Emission
+
+An $\alpha$ particle is composed of two neutrons and two protons. $\alpha$ emission results in a different, smaller nuclide.
+
+\[^A_ZX \rightarrow \text{} ^4_2\alpha + \text{} ^{A-4}_{Z-2}Y\]
+
+*** Beta Minus Decay
+
+A $\beta^-$ particle is an electron. During $\beta^-$ emission, a neutron in a neutron-rich nucleus decays into a proton. The underlying change is the conversion of a /down quark/ into an /up quark/.
+
+\[^A_ZX \rightarrow \text{} ^{ \text{ } \text{ }0}_{-1}\beta + \text{} ^{\text{ } \text{ }A}_{Z+1}Y + \bar{\nu}_e\]
+
+#+begin_export latex
+
+\begin{tikzpicture}[x=30mm, y=30mm]
+\begin{feynman}
+    \vertex (i1) {\(u\)};
+    \vertex[right=.15 of i1] (i2) {\(d\)};
+    \vertex[right=.15 of i2] (i3) {\(d\)};
+    \vertex[below=.3 of i2] (n) {\(n\)};
+
+    \vertex[above=2 of i1] (f1) {\(u\)};
+    \vertex[right=.15 of f1] (f2) {\(d\)};
+    \vertex[right=.15 of f2] (f3) {\(u\)};
+    \vertex[above=.3 of f2] (p) {\(p\)};
+
+    \vertex[above=1 of i3] (a);
+    \vertex[right=.15 of a] (b);
+    \vertex[right=.15 of b] (c);
+
+    \vertex at ($(c) + (1,.25)$) (d);
+    \vertex at ($(d) + (.2, 1)$) (f4) {\(\bar{\nu}_e\)};
+    \vertex at ($(d) + (.9,.5)$) (f5) {\(e^-\)};
+\diagram*{
+    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
+    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
+    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+    (c) -- [boson, edge label'=\(W^-\), momentum, very thick] (d),
+    (d) -- [fermion, very thick] (f5),
+    (d) -- [anti fermion, very thick] (f4),
+};
+
+\draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+\node at (-.4,2.3) {\(t\)};
+\end{feynman}
+\end{tikzpicture}
+
+#+end_export
+
+*** Beta Plus Decay
+
+A $\beta^+$ particle is a positron. During $\beta^+$ emission, a proton in a proton-rich nucleus decays into a neutron. The underlying change is the conversion of an /up quark/ into an /down quark/.
+
+\[^A_ZX \rightarrow \text{} ^{ \text{ } \text{ }0}_{+1}\beta + \text{} ^{\text{ } \text{ }A}_{Z-1}Y + \nu_e\]
+
+#+begin_export latex
+
+\begin{tikzpicture}[x=30mm, y=30mm]
+\begin{feynman}
+    \vertex (i1) {\(u\)};
+    \vertex[right=.15 of i1] (i2) {\(d\)};
+    \vertex[right=.15 of i2] (i3) {\(u\)};
+    \vertex[below=.3 of i2] (n) {\(p\)};
+
+    \vertex[above=2 of i1] (f1) {\(u\)};
+    \vertex[right=.15 of f1] (f2) {\(d\)};
+    \vertex[right=.15 of f2] (f3) {\(d\)};
+    \vertex[above=.3 of f2] (p) {\(n\)};
+
+    \vertex[above=1 of i3] (a);
+    \vertex[right=.15 of a] (b);
+    \vertex[right=.15 of b] (c);
+
+    \vertex at ($(c) + (1,.25)$) (d);
+    \vertex at ($(d) + (.2, 1)$) (f4) {\(\nu_e\)};
+    \vertex at ($(d) + (.9,.5)$) (f5) {\(e^+\)};
+\diagram*{
+    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
+    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
+    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+    (c) -- [boson, edge label'=\(W^+\), momentum, very thick] (d),
+    (d) -- [anti fermion, very thick] (f5),
+    (d) -- [fermion, very thick] (f4),
+};
+
+\draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+\node at (-.4,2.3) {\(t\)};
+\end{feynman}
+\end{tikzpicture}
+
+#+end_export
+
+*** Electron Capture
+
+A proton-rich nucleus could also undergo /electron capture/. In this type of decay a proton changes into a neutron after capturing an inner shell electron.
+
+\[^A_ZX + ^{ \text{ } \text{ }0}_{-1}\beta \rightarrow \text{} ^{\text{ } \text{ }A}_{Z-1}Y + \nu_e\]
+
+#+begin_export latex
+
+\begin{tikzpicture}[x=30mm, y=30mm]
+\begin{feynman}
+    \vertex (i1) {\(u\)};
+    \vertex[right=.15 of i1] (i2) {\(d\)};
+    \vertex[right=.15 of i2] (i3) {\(u\)};
+    \vertex[below=.3 of i2] (n) {\(p\)};
+
+    \vertex[above=2 of i1] (f1) {\(u\)};
+    \vertex[right=.15 of f1] (f2) {\(d\)};
+    \vertex[right=.15 of f2] (f3) {\(d\)};
+    \vertex[above=.3 of f2] (p) {\(n\)};
+
+    \vertex[above=1 of i3] (a);
+    \vertex[right=.15 of a] (b);
+    \vertex[right=.15 of b] (c);
+
+    \vertex at ($(c) + (1,-.2)$) (d);
+    \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
+    \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
+\diagram*{
+    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
+    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
+    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+    (d) -- [boson, edge label'=\(W^-\), momentum, very thick] (c),
+    (d) -- [anti fermion, very thick] (f5),
+    (d) -- [fermion, very thick] (f4),
+};
+
+\draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+\node at (-.4,2.3) {\(t\)};
+\end{feynman}
+\end{tikzpicture}
+
+#+end_export
+
+The nature of the /W boson/ is not significant/distinguishable. The same diagram could be written:
+
+#+begin_export latex
+
+\begin{tikzpicture}[x=30mm, y=30mm]
+\begin{feynman}
+    \vertex (i1) {\(u\)};
+    \vertex[right=.15 of i1] (i2) {\(d\)};
+    \vertex[right=.15 of i2] (i3) {\(u\)};
+    \vertex[below=.3 of i2] (n) {\(p\)};
+
+    \vertex[above=2 of i1] (f1) {\(u\)};
+    \vertex[right=.15 of f1] (f2) {\(d\)};
+    \vertex[right=.15 of f2] (f3) {\(d\)};
+    \vertex[above=.3 of f2] (p) {\(n\)};
+
+    \vertex[above=1 of i3] (a);
+    \vertex[right=.15 of a] (b);
+    \vertex[right=.15 of b] (c);
+
+    \vertex at ($(c) + (1,.2)$) (d);
+    \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
+    \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
+\diagram*{
+    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
+    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
+    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+    (c) -- [boson, edge label'=\(W^+\), momentum, very thick] (d),
+    (d) -- [anti fermion, very thick] (f5),
+    (d) -- [fermion, very thick] (f4),
+};
+
+\draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+\node at (-.4,2.3) {\(t\)};
+\end{feynman}
+\end{tikzpicture}
+
+#+end_export
+
+*** Gamma Emission
+
+There is no change to the number of nucleons in the nucleus when a $\gamma$ photon is emitted. This type of emission usually happens if the nucleus is in an excited state after one of the previous types of emission.
+
+** Inverse Square Law
+
+The intensity $I$ of $\gamma$ radiation is the energy transferred per second per unit area. Assuming a point source emits $n$ $\gamma$ photons per second and each photon has the energy $hf$, the total energy emitted by the source per second is $nhf$. These photons are free to leave the source in any direction, so at distance $r$ from the source all the photons will pass through an area equal to the /S.A./ of a sphere with radius $r$. This equation represents the intensity of radiation from a point source at distance $r$:
+
+\[I = \dfrac{nhf}{4 \pi r^2}\]
+
+** Hazards of Radiation
+
+Ionising radiation is damaging to living cells. It may cause cells to die, mutate or grow uncontrollably. The consequences may be felt by the affected individual, which is described as /somatic effects/, or passed onto future generations /genetically/.
+
+To best mitigate the risks of radiation, sources should be kept in /lead-lined/ containers to reduce any $\gamma$ emission from the source to background level. These sources may be kept in a secure, locked-away location and exposure / use of the source should be recorded.
+
+During use, solid sources should be handled with handling tools, to keep the source at a distance from the body. This reduces the intensity of $\gamma$ radiation incident on the handler and would ideally put their body beyond the range of $\alpha$ or $\beta$ particles. Liquid, gaseous and powdered sources should be kept in sealed containers, so they are not accidentally inhaled, ingested or split.
+
+** Radioactive Decay
+
+If a radioactive isotope of element $X$ undergoes $\alpha$ or $\beta$ emission, it is no longer a nucleus of the same element, due to the change in proton number. If this nucleus was one of many in a sample of a particular isotope, the number of nuclei of this isotope will decrease as individual nuclei decay. The same relationship is true of the mass of the original isotope; the mass will decrease as nuclei decay. There are three important quantities surrounding radioactive decay:
+
+- The /half-life/ $T_{1/2}$ of a radioactive isotope is the time take for the mass (or any other specific property) to decrease to half the initial value.
+
+- The /activity/ $A$ of a radioactive isotope is the number of nuclei disintegrating per second, corresponds to the rate of changes of nuclei of the initial isotope. The unit of activity is the /Becquerel/ (Bq), where 1Bq is one disintegration per second.
+
+- The /decay constant/ $\lambda$ is the probability of an individual nucleus decaying per unit time (usually one second).
+
+The decay of a single nucleus is impossible to predict. Every nucleus of an isotope in a sample has an equal probability of decaying in a given interval. For a large sample of a radioactive isotope $X$, the number of nuclei which disintegrate $\Delta N$ in a given time period $\Delta t$ is related to the initial number of nuclei $N_0$, via the decay constant.
+
+*** Decay Constant
+
+The probability of a single decay is the fraction of the initial number of nuclei of $X$ which decay per second. This is called the /decay constant/, and is represented with the symbol $\lambda$. If reference is made to /decay/ or its decreasing nature, there is no need to include a minus sign.
+
+\[\lambda = \dfrac{\Delta N}{N_0}/\Delta t\]
+
+The change in number of nuclei for a combination of the given factors can be obtained by rearranging the equation above. Note the presence of the minus sign here indicating decrease.
+
+\[ \Delta N = - \lambda N_0 \Delta t\]
+
+*** Activity
+
+The activity of the isotope is the number of nuclei which disintegrate per second and it is proportional to the value of $N_0$. An expression for $A$ can be obtained as follows:
+
+\[ \dfrac{\Delta N}{\Delta t} = - \lambda N_0\]
+
+\[ A = - \lambda N_0\]
+
+Therefore the activity of $N$ nuclei of a particular isotope can also be written simply:
+
+\[ A = \lambda N\]
+
+*** Decay Curves
+
+As the activity, or rate of change of nuclei of $X$, is proportional to the current number of nuclei $N$ of $X$, the relationship between $t$ and $N$ is one of exponential decay. The number of nuclei remaining after a particular time period is proportional to $N_0$.
+
+\[N = N_0 e^{- \lambda t}\]
+
+[[./images/c-14_decay.png]]
+
+Both activity and mass are directly related to the number of nuclei.
+
+\[m = m_0 e^{- \lambda t}\]
+\[A = A_0 e^{- \lambda t}\]
+
+*** Half-life
+
+Half-life can be linked to the decay constant. When $t= T_{1/2}$, the number of nuclei remaining is $N = 0.5N_0$. With these equations, substitutions can be made:
+
+$0.5N_0 = N_0 e^{-\lambda T_{1/2}}$
+
+$0.5 = e^{-\lambda T_{1/2}}$
+
+$\ln (0.5) = -\lambda T_{1/2}$
+
+$-\ln (0.5) = \lambda T_{1/2}$
+
+$\ln (0.5^{-1}) = \lambda T_{1/2}$
+
+$\ln (2) = \lambda T_{1/2}$
+
+$T_{1/2} = \dfrac{\ln(2)}{\lambda}$
+
+[[./images/c-14_t_half.png]]
+
+*** Nuclear Radius
+
+The radius of a nucleus is proportional to the cube root of the nucleon number and the constant $r_0$, which is equal to 1.05fm.
+
+\[R = r_0 A^{1/3}\]
+
+$V = \dfrac{4}{3} \pi R^3 = \dfrac{4}{3} \pi (r_0 A^{1/3})^3 = \dfrac{4}{3} \pi {r_0}^3 A$
+
+Seeing as the mass of a nucleus is equal to $Au$, where $u$ is the atomic mass unit, the density of any nucleus is constant.
+
+$\rho = \dfrac{Au}{4/3 \text{ } \pi {r_0}^3 A} = \dfrac{1u}{4/3 \text{ } \pi {r_0}^3}$
+
+When evaluated, the density of a nucleus of any element is $3.4 \times 10^{17}$.
