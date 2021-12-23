@@ -1,4 +1,4 @@
-% Created 2021-12-23 Thu 00:05
+% Created 2021-12-23 Thu 23:40
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -13,6 +13,9 @@
 \usepackage{capt-of}
 \usepackage{hyperref}
 \usepackage{tikz-feynman}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, decorations.markings}
 \author{Alexander Neville}
 \date{\today}
 \title{Physics Notes}
@@ -29,10 +32,177 @@
 \tableofcontents
 
 
+\section{Particle Physics}
+\label{sec:orgda753a1}
+
+\begin{picture}(150, 150)(-100, -100)
+\put(-25,42){\line(-3,-5){25}}
+\put(-25, 42){\line(1, 0){50}}
+\put(25, 42){\line(3,-5){25}}
+\put(-25, -42){\line(1,0){50}}
+\put(-25, -42){\line(-3, 5){25}}
+\put(25, -42){\line(3, 5){25}}
+\put(-25, 42){\circle*{3}}
+\put(-25, -42){\circle*{3}}
+\put(25, 42){\circle*{3}}
+\put(25, -42){\circle*{3}}
+\put(-50, 0){\circle*{3}}
+\put(50, 0){\circle*{3}}
+\put(0, 0){\circle*{3}}
+\put(-28, 47){$K^{0}$}
+\put(-50, 40){$(d \bar{s})$}
+\put(28, 47){$K^{+}$}
+\put(40, 40){$(u\bar{s})$}
+\put(-28, -55){$K^{-}$}
+\put(-28, -70){$(s\bar{u})$}
+\put(28, -55){$\bar{K}^{0}$}
+\put(28, -70){$(s\bar{d})$}
+\put(55, 0){$\pi^{+}$}
+\put(55, -17){$(u \bar{d})$}
+\put(-65, 0){$\pi^{-}$}
+\put(-67, -17){$(d \bar{u})$}
+\put(0, 10){$\pi^{0}$}
+\put(-17, -17){$(d \bar{d} / u \bar{u})$}
+\end{picture}
+
+\section{Fields and their Consequences}
+\label{sec:org3e8488f}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,2)--(0,0);
+    \draw[postaction={decorate}] (0,-2)--(0,0);
+    \draw[postaction={decorate}] (-2,0)--(0,0);
+    \draw[postaction={decorate}] (2,0)--(0,0);
+    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
+\end{scope}
+\filldraw[blue] (0,0) circle (0.2cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,0)--(0,2);
+    \draw[postaction={decorate}] (0,0)--(0,-2);
+    \draw[postaction={decorate}] (0,0)--(-2,0);
+    \draw[postaction={decorate}] (0,0)--(2,0);
+    \draw[postaction={decorate}] (0,0) -- (1.41,1.41);
+    \draw[postaction={decorate}] (0,0) -- (1.41,-1.41);
+    \draw[postaction={decorate}] (0,0) -- (-1.41,1.41);
+    \draw[postaction={decorate}] (0,0) -- (-1.41,-1.41);
+\end{scope}
+\filldraw[red] (0,0) circle (0.2cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\filldraw[red] (-2, 0) circle (0.1cm);
+\filldraw[blue] (2, 0) circle (0.1cm);
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0)--(-4,0);
+    \draw[postaction={decorate}] (-2,0)--(-2,2);
+    \draw[postaction={decorate}] (-2,0)--(-2,-2);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,1.41);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (4,0) -- (2,0);
+    \draw[postaction={decorate}] (2,2) -- (2,0);
+    \draw[postaction={decorate}] (2,-2) -- (2,0);
+    \draw[postaction={decorate}] (3.41,1.41) -- (2,0);
+    \draw[postaction={decorate}] (3.41,-1.41) -- (2,0);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.53
+with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0) -- (2,0);
+    \draw[postaction={decorate}] (-2,0) .. controls (-0.59, 1.41) and (0.59, 1.41) .. (2,0);
+    \draw[postaction={decorate}] (-2,0) .. controls (-0.59, -1.41) and (0.59, -1.41) .. (2,0);
+\end{scope}
+\filldraw[red] (-2, 0) circle (0.2cm);
+\filldraw[blue] (2, 0) circle (0.2cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0)--(-4,0);
+    \draw[postaction={decorate}] (-2,0)--(-2,2);
+    \draw[postaction={decorate}] (-2,0)--(-2,-2);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,1.41);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (2,0)--(4,0);
+    \draw[postaction={decorate}] (2,0)--(2,2);
+    \draw[postaction={decorate}] (2,0)--(2,-2);
+    \draw[postaction={decorate}] (2,0)--(3.41,1.41);
+    \draw[postaction={decorate}] (2,0)--(3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.53
+with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0) .. controls (-1, 1) .. (-0.8, 2);
+    \draw[postaction={decorate}] (-2,0) .. controls (-1, -1) .. (-0.8, -2);
+    \draw[postaction={decorate}] (2,0) .. controls (1, 1) .. (0.8, 2);
+    \draw[postaction={decorate}] (2,0) .. controls (1, -1) .. (0.8, -2);
+    \draw[gray, dashed] (0,2) -- (0, -2);
+\end{scope}
+\filldraw[red] (-2, 0) circle (0.2cm);
+\filldraw[red] (2, 0) circle (0.2cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,2)--(0,0);
+    \draw[postaction={decorate}] (0,-2)--(0,0);
+    \draw[postaction={decorate}] (-2,0)--(0,0);
+    \draw[postaction={decorate}] (2,0)--(0,0);
+    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.4cm);
+\filldraw[black] (0,0) circle (0.1cm);
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (1cm);
+\draw (0,0) circle (2.2cm);
+\draw (0,0) circle (3.4cm);
+\filldraw[black] (1.55, 1.55) circle (0.12cm);
+\filldraw[black] (2.4, 2.4) circle (0.12cm);
+\draw[-{Latex[length=2mm, width=2mm]}, gray] (1.7, 1.7) -- (2.25, 2.25);
+\node[] at (2.5,0) {$V$};
+\node[] at (4.3,0) {$V+ \Delta V$};
+\node[] at (2.4,1.5) {$\Delta r$};
+\end{tikzpicture}
+
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.55 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[] (-1.5, 3) -- (-1.5, -3);
+    \draw[] (1.5, 3) -- (1.5, -3);
+    \draw[postaction={decorate}, gray] (-1.5,2.5) -- (1.5,2.5);
+    \draw[postaction={decorate}, gray] (-1.5,2.0) -- (1.5,2.0);
+    \draw[postaction={decorate}, gray] (-1.5,1.5) -- (1.5,1.5);
+    \draw[postaction={decorate}, gray] (-1.5,1.0) -- (1.5,1.0);
+    \draw[postaction={decorate}, gray] (-1.5,0.5) -- (1.5,0.5);
+    \draw[postaction={decorate}, gray] (-1.5,0.0) -- (1.5,0.0);
+    \draw[postaction={decorate}, gray] (-1.5,-0.5) -- (1.5,-0.5);
+    \draw[postaction={decorate}, gray] (-1.5,-1.0) -- (1.5,-1.0);
+    \draw[postaction={decorate}, gray] (-1.5,-1.5) -- (1.5,-1.5);
+    \draw[postaction={decorate}, gray] (-1.5,-2.0) -- (1.5,-2.0);
+    \draw[postaction={decorate}, gray] (-1.5,-2.5) -- (1.5,-2.5);
+\end{scope}
+\node[] at (-1.5,-3.5) {$+$};
+\node[] at (1.5,-3.5) {$-$};
+\end{tikzpicture}
+
 \section{Nuclear Physics}
-\label{sec:orgcaf47c3}
+\label{sec:orgdd676d2}
 \subsection{Radiation}
-\label{sec:org5a5b85f}
+\label{sec:org2b92b4a}
 
 Three types of radiation:
 
@@ -43,14 +213,14 @@ Three types of radiation:
 \end{enumerate}
 
 \subsubsection{Alpha Emission}
-\label{sec:org810642c}
+\label{sec:org2f54124}
 
 An \(\alpha\) particle is composed of two neutrons and two protons. \(\alpha\) emission results in a different, smaller nuclide.
 
 \[^A_ZX \rightarrow \text{} ^4_2\alpha + \text{} ^{A-4}_{Z-2}Y\]
 
 \subsubsection{Beta Minus Decay}
-\label{sec:org1655a18}
+\label{sec:org603a2a9}
 
 A \(\beta^-\) particle is an electron. During \(\beta^-\) emission, a neutron in a neutron-rich nucleus decays into a proton. The underlying change is the conversion of a \emph{down quark} into an \emph{up quark}.
 
@@ -91,7 +261,7 @@ A \(\beta^-\) particle is an electron. During \(\beta^-\) emission, a neutron in
 \end{tikzpicture}
 
 \subsubsection{Beta Plus Decay}
-\label{sec:org237a869}
+\label{sec:org4950b7f}
 
 A \(\beta^+\) particle is a positron. During \(\beta^+\) emission, a proton in a proton-rich nucleus decays into a neutron. The underlying change is the conversion of an \emph{up quark} into an \emph{down quark}.
 
@@ -132,7 +302,7 @@ A \(\beta^+\) particle is a positron. During \(\beta^+\) emission, a proton in a
 \end{tikzpicture}
 
 \subsubsection{Electron Capture}
-\label{sec:orge1dd6ba}
+\label{sec:orgbb6e891}
 
 A proton-rich nucleus could also undergo \emph{electron capture}. In this type of decay a proton changes into a neutron after capturing an inner shell electron.
 
@@ -209,19 +379,19 @@ The nature of the \emph{W boson} is not significant/distinguishable. The same di
 \end{tikzpicture}
 
 \subsubsection{Gamma Emission}
-\label{sec:org2fa61e3}
+\label{sec:orgd7e704a}
 
 There is no change to the number of nucleons in the nucleus when a \(\gamma\) photon is emitted. This type of emission usually happens if the nucleus is in an excited state after one of the previous types of emission.
 
 \subsection{Inverse Square Law}
-\label{sec:orgd2615e3}
+\label{sec:org3b61e0e}
 
 The intensity \(I\) of \(\gamma\) radiation is the energy transferred per second per unit area. Assuming a point source emits \(n\) \(\gamma\) photons per second and each photon has the energy \(hf\), the total energy emitted by the source per second is \(nhf\). These photons are free to leave the source in any direction, so at distance \(r\) from the source all the photons will pass through an area equal to the \emph{S.A.} of a sphere with radius \(r\). This equation represents the intensity of radiation from a point source at distance \(r\):
 
 \[I = \dfrac{nhf}{4 \pi r^2}\]
 
 \subsection{Hazards of Radiation}
-\label{sec:org48aff8c}
+\label{sec:org71a1a05}
 
 Ionising radiation is damaging to living cells. It may cause cells to die, mutate or grow uncontrollably. The consequences may be felt by the affected individual, which is described as \emph{somatic effects}, or passed onto future generations \emph{genetically}.
 
@@ -230,7 +400,7 @@ To best mitigate the risks of radiation, sources should be kept in \emph{lead-li
 During use, solid sources should be handled with handling tools, to keep the source at a distance from the body. This reduces the intensity of \(\gamma\) radiation incident on the handler and would ideally put their body beyond the range of \(\alpha\) or \(\beta\) particles. Liquid, gaseous and powdered sources should be kept in sealed containers, so they are not accidentally inhaled, ingested or split.
 
 \subsection{Radioactive Decay}
-\label{sec:org681bbc2}
+\label{sec:org00f1329}
 
 If a radioactive isotope of element \(X\) undergoes \(\alpha\) or \(\beta\) emission, it is no longer a nucleus of the same element, due to the change in proton number. If this nucleus was one of many in a sample of a particular isotope, the number of nuclei of this isotope will decrease as individual nuclei decay. The same relationship is true of the mass of the original isotope; the mass will decrease as nuclei decay. There are three important quantities surrounding radioactive decay:
 
@@ -245,7 +415,7 @@ If a radioactive isotope of element \(X\) undergoes \(\alpha\) or \(\beta\) emis
 The decay of a single nucleus is impossible to predict. Every nucleus of an isotope in a sample has an equal probability of decaying in a given interval. For a large sample of a radioactive isotope \(X\), the number of nuclei which disintegrate \(\Delta N\) in a given time period \(\Delta t\) is related to the initial number of nuclei \(N_0\), via the decay constant.
 
 \subsubsection{Decay Constant}
-\label{sec:org6145ef1}
+\label{sec:org4fa0473}
 
 The probability of a single decay is the fraction of the initial number of nuclei of \(X\) which decay per second. This is called the \emph{decay constant}, and is represented with the symbol \(\lambda\). If reference is made to \emph{decay} or its decreasing nature, there is no need to include a minus sign.
 
@@ -256,7 +426,7 @@ The change in number of nuclei for a combination of the given factors can be obt
 \[ \Delta N = - \lambda N_0 \Delta t\]
 
 \subsubsection{Activity}
-\label{sec:org39d2a6b}
+\label{sec:org8b0cb9e}
 
 The activity of the isotope is the number of nuclei which disintegrate per second and it is proportional to the value of \(N_0\). An expression for \(A\) can be obtained as follows:
 
@@ -269,7 +439,7 @@ Therefore the activity of \(N\) nuclei of a particular isotope can also be writt
 \[ A = \lambda N\]
 
 \subsubsection{Decay Curves}
-\label{sec:orge484216}
+\label{sec:org865d76d}
 
 As the activity, or rate of change of nuclei of \(X\), is proportional to the current number of nuclei \(N\) of \(X\), the relationship between \(t\) and \(N\) is one of exponential decay. The number of nuclei remaining after a particular time period is proportional to \(N_0\).
 
@@ -285,7 +455,7 @@ Both activity and mass are directly related to the number of nuclei.
 \[A = A_0 e^{- \lambda t}\]
 
 \subsubsection{Half-life}
-\label{sec:org90f63dc}
+\label{sec:org4dfbc83}
 
 Half-life can be linked to the decay constant. When \(t= T_{1/2}\), the number of nuclei remaining is \(N = 0.5N_0\). With these equations, substitutions can be made:
 
@@ -308,7 +478,7 @@ Half-life can be linked to the decay constant. When \(t= T_{1/2}\), the number o
 \end{center}
 
 \subsection{Nuclear Radius}
-\label{sec:org812c833}
+\label{sec:orgf2b45f1}
 
 The radius of a nucleus is proportional to the cube root of the nucleon number and the constant \(r_0\), which is equal to 1.05fm.
 
@@ -323,12 +493,12 @@ Seeing as the mass of a nucleus is equal to \(Au\), where \(u\) is the atomic ma
 When evaluated, the density of a nucleus of any element is \(3.4 \times 10^{17}\).
 
 \subsection{Energy and Mass}
-\label{sec:org58fe0c5}
+\label{sec:org67fca75}
 
 The equation \(E = mc^2\) links the energy of an object to the change of its mass and the speed of light in free space. Consequently, the mass of any object changes as it gains or loses energy. This is only significant on the nuclear/sub-nuclear scale. The energy released during a reaction is \(Q = \Delta mc^2\), where \(\Delta m\) is the difference in mass before and after the interaction.
 
 \subsection{Binding Energy}
-\label{sec:org7f9f421}
+\label{sec:orgcf45446}
 
 The binding energy of a nucleus is the work done to separate all of the protons and neutrons from the nucleus. When a nucleus is formed from individual nucleons, energy is released amounting to the binding energy of the nucleus. Due to this release of energy the mass of the nucleus is less than the sum of the masses of constituent nucleons.
 
@@ -345,12 +515,12 @@ Where \(m_p\) and \(m_n\) are the masses of a proton and a neutron respectively 
 \end{itemize}
 
 \subsection{Quantum Tunnelling}
-\label{sec:org15eddf7}
+\label{sec:orgea7476f}
 
 Two protons and two neutrons in a nucleus may bind together to as a cluster, which may be ejected from the nucleus as an \(\alpha\) particle. The \(\alpha\) particle is given a large amount of energy during its formation.
 
 \subsection{Nuclear Stability}
-\label{sec:orgbbf950a}
+\label{sec:orgd22cf02}
 
 Each nucleus has a binding energy and a specific binding energy per nucleon. This is the binding energy divided by the nucleon number of the nucleus. This value is indicative of the stability of the nucleus. More stable nuclei have a larger binding energy per nucleon. The maximum value is approximately 8.7Mev, occurring in the region \(50 \le A \le 60\).
 

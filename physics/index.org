@@ -2,6 +2,190 @@
 #+TITLE: Physics Notes
 #+STARTUP: latexpreview
 #+latex_header: \usepackage{tikz-feynman}
+#+latex_header: \usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usetikzlibrary{arrows.meta, decorations.pathreplacing, decorations.markings}
+
+* Particle Physics
+
+#+begin_export latex
+\begin{picture}(150, 150)(-100, -100)
+\put(-25,42){\line(-3,-5){25}}
+\put(-25, 42){\line(1, 0){50}}
+\put(25, 42){\line(3,-5){25}}
+\put(-25, -42){\line(1,0){50}}
+\put(-25, -42){\line(-3, 5){25}}
+\put(25, -42){\line(3, 5){25}}
+\put(-25, 42){\circle*{3}}
+\put(-25, -42){\circle*{3}}
+\put(25, 42){\circle*{3}}
+\put(25, -42){\circle*{3}}
+\put(-50, 0){\circle*{3}}
+\put(50, 0){\circle*{3}}
+\put(0, 0){\circle*{3}}
+\put(-28, 47){$K^{0}$}
+\put(-50, 40){$(d \bar{s})$}
+\put(28, 47){$K^{+}$}
+\put(40, 40){$(u\bar{s})$}
+\put(-28, -55){$K^{-}$}
+\put(-28, -70){$(s\bar{u})$}
+\put(28, -55){$\bar{K}^{0}$}
+\put(28, -70){$(s\bar{d})$}
+\put(55, 0){$\pi^{+}$}
+\put(55, -17){$(u \bar{d})$}
+\put(-65, 0){$\pi^{-}$}
+\put(-67, -17){$(d \bar{u})$}
+\put(0, 10){$\pi^{0}$}
+\put(-17, -17){$(d \bar{d} / u \bar{u})$}
+\end{picture}
+#+end_export
+
+* Fields and their Consequences
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,2)--(0,0);
+    \draw[postaction={decorate}] (0,-2)--(0,0);
+    \draw[postaction={decorate}] (-2,0)--(0,0);
+    \draw[postaction={decorate}] (2,0)--(0,0);
+    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
+\end{scope}
+\filldraw[blue] (0,0) circle (0.2cm);
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,0)--(0,2);
+    \draw[postaction={decorate}] (0,0)--(0,-2);
+    \draw[postaction={decorate}] (0,0)--(-2,0);
+    \draw[postaction={decorate}] (0,0)--(2,0);
+    \draw[postaction={decorate}] (0,0) -- (1.41,1.41);
+    \draw[postaction={decorate}] (0,0) -- (1.41,-1.41);
+    \draw[postaction={decorate}] (0,0) -- (-1.41,1.41);
+    \draw[postaction={decorate}] (0,0) -- (-1.41,-1.41);
+\end{scope}
+\filldraw[red] (0,0) circle (0.2cm);
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\filldraw[red] (-2, 0) circle (0.1cm);
+\filldraw[blue] (2, 0) circle (0.1cm);
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0)--(-4,0);
+    \draw[postaction={decorate}] (-2,0)--(-2,2);
+    \draw[postaction={decorate}] (-2,0)--(-2,-2);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,1.41);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (4,0) -- (2,0);
+    \draw[postaction={decorate}] (2,2) -- (2,0);
+    \draw[postaction={decorate}] (2,-2) -- (2,0);
+    \draw[postaction={decorate}] (3.41,1.41) -- (2,0);
+    \draw[postaction={decorate}] (3.41,-1.41) -- (2,0);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.53
+with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0) -- (2,0);
+    \draw[postaction={decorate}] (-2,0) .. controls (-0.59, 1.41) and (0.59, 1.41) .. (2,0);
+    \draw[postaction={decorate}] (-2,0) .. controls (-0.59, -1.41) and (0.59, -1.41) .. (2,0);
+\end{scope}
+\filldraw[red] (-2, 0) circle (0.2cm);
+\filldraw[blue] (2, 0) circle (0.2cm);
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0)--(-4,0);
+    \draw[postaction={decorate}] (-2,0)--(-2,2);
+    \draw[postaction={decorate}] (-2,0)--(-2,-2);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,1.41);
+    \draw[postaction={decorate}] (-2,0)--(-3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (2,0)--(4,0);
+    \draw[postaction={decorate}] (2,0)--(2,2);
+    \draw[postaction={decorate}] (2,0)--(2,-2);
+    \draw[postaction={decorate}] (2,0)--(3.41,1.41);
+    \draw[postaction={decorate}] (2,0)--(3.41,-1.41);
+\end{scope}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.53
+with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (-2,0) .. controls (-1, 1) .. (-0.8, 2);
+    \draw[postaction={decorate}] (-2,0) .. controls (-1, -1) .. (-0.8, -2);
+    \draw[postaction={decorate}] (2,0) .. controls (1, 1) .. (0.8, 2);
+    \draw[postaction={decorate}] (2,0) .. controls (1, -1) .. (0.8, -2);
+    \draw[gray, dashed] (0,2) -- (0, -2);
+\end{scope}
+\filldraw[red] (-2, 0) circle (0.2cm);
+\filldraw[red] (2, 0) circle (0.2cm);
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,2)--(0,0);
+    \draw[postaction={decorate}] (0,-2)--(0,0);
+    \draw[postaction={decorate}] (-2,0)--(0,0);
+    \draw[postaction={decorate}] (2,0)--(0,0);
+    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.4cm);
+\filldraw[black] (0,0) circle (0.1cm);
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (1cm);
+\draw (0,0) circle (2.2cm);
+\draw (0,0) circle (3.4cm);
+\filldraw[black] (1.55, 1.55) circle (0.12cm);
+\filldraw[black] (2.4, 2.4) circle (0.12cm);
+\draw[-{Latex[length=2mm, width=2mm]}, gray] (1.7, 1.7) -- (2.25, 2.25);
+\node[] at (2.5,0) {$V$};
+\node[] at (4.3,0) {$V+ \Delta V$};
+\node[] at (2.4,1.5) {$\Delta r$};
+\end{tikzpicture}
+#+end_export
+
+#+begin_export latex
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.55 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[] (-1.5, 3) -- (-1.5, -3);
+    \draw[] (1.5, 3) -- (1.5, -3);
+    \draw[postaction={decorate}, gray] (-1.5,2.5) -- (1.5,2.5);
+    \draw[postaction={decorate}, gray] (-1.5,2.0) -- (1.5,2.0);
+    \draw[postaction={decorate}, gray] (-1.5,1.5) -- (1.5,1.5);
+    \draw[postaction={decorate}, gray] (-1.5,1.0) -- (1.5,1.0);
+    \draw[postaction={decorate}, gray] (-1.5,0.5) -- (1.5,0.5);
+    \draw[postaction={decorate}, gray] (-1.5,0.0) -- (1.5,0.0);
+    \draw[postaction={decorate}, gray] (-1.5,-0.5) -- (1.5,-0.5);
+    \draw[postaction={decorate}, gray] (-1.5,-1.0) -- (1.5,-1.0);
+    \draw[postaction={decorate}, gray] (-1.5,-1.5) -- (1.5,-1.5);
+    \draw[postaction={decorate}, gray] (-1.5,-2.0) -- (1.5,-2.0);
+    \draw[postaction={decorate}, gray] (-1.5,-2.5) -- (1.5,-2.5);
+\end{scope}
+\node[] at (-1.5,-3.5) {$+$};
+\node[] at (1.5,-3.5) {$-$};
+\end{tikzpicture}
+#+end_export
 
 * Nuclear Physics
 ** Radiation
