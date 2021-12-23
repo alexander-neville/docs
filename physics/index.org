@@ -271,7 +271,7 @@ $T_{1/2} = \dfrac{\ln(2)}{\lambda}$
 
 [[./images/c-14_t_half.png]]
 
-*** Nuclear Radius
+** Nuclear Radius
 
 The radius of a nucleus is proportional to the cube root of the nucleon number and the constant $r_0$, which is equal to 1.05fm.
 
@@ -284,3 +284,37 @@ Seeing as the mass of a nucleus is equal to $Au$, where $u$ is the atomic mass u
 $\rho = \dfrac{Au}{4/3 \text{ } \pi {r_0}^3 A} = \dfrac{1u}{4/3 \text{ } \pi {r_0}^3}$
 
 When evaluated, the density of a nucleus of any element is $3.4 \times 10^{17}$.
+
+** Energy and Mass
+
+The equation $E = mc^2$ links the energy of an object to the change of its mass and the speed of light in free space. Consequently, the mass of any object changes as it gains or loses energy. This is only significant on the nuclear/sub-nuclear scale. The energy released during a reaction is $Q = \Delta mc^2$, where $\Delta m$ is the difference in mass before and after the interaction.
+
+** Binding Energy
+
+The binding energy of a nucleus is the work done to separate all of the protons and neutrons from the nucleus. When a nucleus is formed from individual nucleons, energy is released amounting to the binding energy of the nucleus. Due to this release of energy the mass of the nucleus is less than the sum of the masses of constituent nucleons.
+
+The mass defect $\Delta m$ of a nucleus is the difference between the sum of the masses of separated nucleons and the mass of the whole nucleus. The mass defect for a $^A_ZX$ nucleus can be calculated with this equation.
+
+\[\Delta m =  Zm_p + (A-Z)m_n - M_{\text{NUC}} \]
+
+Where $m_p$ and $m_n$ are the masses of a proton and a neutron respectively and $M_{\text{NUC}}$ is the mass of the whole nucleus. The binding energy is equal to: $Q = \Delta mc^2$. The values of $m_p$ and $m_n$ are often quoted in terms of $u$, the atomic mass unit.
+
+- $1u = 1.661 \times 10^{-27}kg= 931.3MeV$
+- $m_p = 1.00728u$
+- $m_n = 1.00867u$
+
+** Quantum Tunnelling
+
+Two protons and two neutrons in a nucleus may bind together to as a cluster, which may be ejected from the nucleus as an $\alpha$ particle. The $\alpha$ particle is given a large amount of energy during its formation.
+
+** Nuclear Stability
+
+Each nucleus has a binding energy and a specific binding energy per nucleon. This is the binding energy divided by the nucleon number of the nucleus. This value is indicative of the stability of the nucleus. More stable nuclei have a larger binding energy per nucleon. The maximum value is approximately 8.7Mev, occurring in the region $50 \le A \le 60$.
+
+[[./images/nuclear_stability.png]]
+
+The orange line in the figure indicates the position of Fe-56, a very stable isotope of Iron. Energy is released in nuclear events under certain conditions:
+
+- Fusion of nuclei to the left of the division. When heavier nuclei are formed energy is released due to the greater binding energy per nucleon of the resulting nuclei.
+
+- Fission of nuclei to the right of the division. When multiple, lighter daughter nuclei are formed energy is released due to the greater binding energy per nucleon of the resulting nuclei.
