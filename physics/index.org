@@ -257,29 +257,52 @@ If an object of mass $m$ is positioned on the surface of a planet with mass $M$ 
 
 \[ v_{esc} = \sqrt{\dfrac{2GM}{r}}\]
 
+\[g = \dfrac{GM}{R^2}\]
+
 \[ v_{esc} = \sqrt{2gR}\]
 
 
+The graph of $V$ against $r$ proves the $1/r$ relationship. At any point the gradient is $\Delta V / \Delta r$, which is equal to $-g$.
+
+[[./images/gravitational_potential.png]]
+
 *** Satelite Motion
+
+According to /Kepler's Third Law/, the time period of a planet orbitting the sun depends on the mean radius of the orbit,  $T^2 \propto r^3$. The gravitational force of attraction between a body and a satelite is the centripetal force acting on the satelite. Therefore, the gravitational field strength is equivalent to centripetal acceleration.
+
+\[\dfrac{v^2}{r} = \dfrac{GM}{r^2}\]
+
+\[v^2 = \dfrac{GM}{r}\]
+
+\[\left (\dfrac{2 \pi r}{T} \right )^2 = \dfrac{GM}{r}\]
+
+\[\dfrac{4 \pi^2 r^2}{T^2} = \dfrac{GM}{r}\]
+
+\[\dfrac{r^3}{T^2} = \dfrac{GM}{4 \pi^2 }\]
+
+Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all planets.
+
+The *KE* and *PE* of an orbiting satelite are as follows:
+
+\[E_k = \dfrac{1}{2} m v^2 = \dfrac{1}{2} m \dfrac{GM}{r} = \dfrac{GMm}{2r}\]
+
+\[E_p = mV = -\dfrac{GMm}{r}\]
+
+\[ E = E_k + E_p\]
+
+\[E = \dfrac{GMm}{2r} -\dfrac{GMm}{r} \]
+
+\[E =-\dfrac{GMm}{2r} \]
+
 ** Electric Fields
 
-#+begin_export latex
-\begin{tikzpicture}
-\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
-    \draw[postaction={decorate}] (0,2)--(0,0);
-    \draw[postaction={decorate}] (0,-2)--(0,0);
-    \draw[postaction={decorate}] (-2,0)--(0,0);
-    \draw[postaction={decorate}] (2,0)--(0,0);
-    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
-    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
-    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
-    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
-\end{scope}
-\filldraw[blue] (0,0) circle (0.2cm);
-\end{tikzpicture}
-#+end_export
+Like masses, charges produce a force-field around themselves. Any two objects with like-charges create equal and opposite forces on one another. If one of these charges is a small test charge in the field of a much larger charge it will follow a path away from the body with the larger charge, along a field line.
+
+Unlike gravitational fields, electric fields may be attractive or repulsive. Electric fields are defined in terms of positive charge and field lines indicate the direction a small positive test charge might take.
 
 #+begin_export latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
     \draw[postaction={decorate}] (0,0)--(0,2);
@@ -293,9 +316,34 @@ If an object of mass $m$ is positioned on the surface of a planet with mass $M$ 
 \end{scope}
 \filldraw[red] (0,0) circle (0.2cm);
 \end{tikzpicture}
+\caption{The field around a positive charge}
+\end{figure}
 #+end_export
 
 #+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+    \draw[postaction={decorate}] (0,2)--(0,0);
+    \draw[postaction={decorate}] (0,-2)--(0,0);
+    \draw[postaction={decorate}] (-2,0)--(0,0);
+    \draw[postaction={decorate}] (2,0)--(0,0);
+    \draw[postaction={decorate}] (1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (1.41,-1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,1.41)--(0,0);
+    \draw[postaction={decorate}] (-1.41,-1.41)--(0,0);
+\end{scope}
+\filldraw[blue] (0,0) circle (0.2cm);
+\end{tikzpicture}
+\caption{The field around a negative charge}
+\end{figure}
+#+end_export
+
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}
 \filldraw[red] (-2, 0) circle (0.1cm);
 \filldraw[blue] (2, 0) circle (0.1cm);
@@ -322,9 +370,13 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \filldraw[red] (-2, 0) circle (0.2cm);
 \filldraw[blue] (2, 0) circle (0.2cm);
 \end{tikzpicture}
+\caption{The field around two opposite charges}
+\end{figure}
 #+end_export
 
 #+begin_export latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
     \draw[postaction={decorate}] (-2,0)--(-4,0);
@@ -351,10 +403,40 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \filldraw[red] (-2, 0) circle (0.2cm);
 \filldraw[red] (2, 0) circle (0.2cm);
 \end{tikzpicture}
+\caption{The field around two like charges}
+\end{figure}
 #+end_export
 
 
+*** Electric Field Strength
+
+The electric field strength $E$ at a point in an electric field is the force per unit charge on a positive test charge placed at that point.
+
+\[E = \dfrac{F}{Q}\]
+
+*** Uniform Electric Fields
+
+The field lines between two parallel oppositely charged plates are parallel to one another and perpendicular to the plates. The field lines are directed from the positive to negative plate. The field lines are evenly spaced throughout the field, therefore $E$ is the same at every point in the field:
+
+\[E = \dfrac{V}{d}\]
+
+The electric field strength is given by the potential difference over the separation of the two plates.
+
+\[F = QE\]
+
+\[W = Fd = QEd\]
+
+\[W = Fd = QEd\]
+
+\[V = \dfrac{W}{Q} = \dfrac{QEd}{Q}\]
+
+\[V = Ed\]
+
+\[E = \frac{V}{d}\]
+
 #+begin_export latex
+\begin{figure}[H]
+\centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.55 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
     \draw[] (-1.5, 3) -- (-1.5, -3);
@@ -374,8 +456,46 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \node[] at (-1.5,-3.5) {$+$};
 \node[] at (1.5,-3.5) {$-$};
 \end{tikzpicture}
+\caption{A uniform electric field}
+\end{figure}
 #+end_export
 
+*** Electric Potential
+
+The electric potential at a point in an electric field is the energy per positive unit charge required to move it from infinity to that point. The potential gradient at a point in an electrical field is the change in potential per unit change of distance in an a given direction. The electric field strength is equal to the negative potential gradient:
+
+\[E = - \dfrac{\Delta V}{ \Delta x}\]
+
+*** Coulomb's Law
+
+Coulomb's law links the magnitude of force existing between two point charges with the distance between them. This is an inverse square relationship.
+
+\[F = \dfrac{kQ_1Q_2}{r^2}\]
+
+\[k = \dfrac{1}{4 \pi \epsilon_0}\]
+
+\[\epsilon_0 = 8.85 \times 10^-12 \]
+
+For a small positive test charge q in an electric field around charge $+Q$:
+
+
+\[F = \dfrac{Qq}{4 \pi \epsilon_0r^2}\]
+
+\[E = \dfrac{F}{q}\]
+
+\[E = \dfrac{Q}{4 \pi \epsilon_0r^2}\]
+
+If $Q$ was a negative charge, the value of $E$ would also be negative, indicating an attractive force on the positive test charge $q$.
+
+The electric potential at distance $r$ from $Q$ is:
+
+\[V = \dfrac{Q}{4 \pi \epsilon_0r}\]
+
+The potential energy is:
+
+\[E_p = \dfrac{Qq}{4 \pi \epsilon_0r}\]
+
+** Capacitors
 * Nuclear Physics
 ** Radiation
 
