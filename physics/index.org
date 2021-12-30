@@ -496,6 +496,25 @@ The potential energy is:
 \[E_p = \dfrac{Qq}{4 \pi \epsilon_0r}\]
 
 ** Capacitors
+
+A capacitor is a component designed to store charge. Two metal plates positioned near one another form a capacitor. When connected across the terminals of a battery, electrons are forces from the negative terminal of the battery onto one of the capacitor plates. A similar number of electrons leave the opposite plate of the capacitor. Each plate gains an equal and opposite charge.
+
+*** Charge Stored in a Capacitor
+
+If the total charge stored on a capacitor is $Q$, the charge on each plate is equal to $\pm Q$. If a capacitor is charged at constant current, the /capacitance/ is said to be the charge stored per volt.
+
+\[C = \dfrac{Q}{V}\]
+
+*** Energy Stored in a Capacitor
+
+The energy stored in a capacitor is the area under a $V/Q$ graph.
+
+\[E = \dfrac{1}{2} QV\]
+
+\[E = \dfrac{1}{2} (CV)V^2\]
+
+\[E = \dfrac{1}{2} CV^2\]
+
 * Nuclear Physics
 ** Radiation
 
