@@ -111,7 +111,7 @@ Besides native machine code, all other types of programming language, including 
 
 *** Assemblers
 
-While assembly is a type of low-level language, it requires translation. The tool used to do this is called an *assembler*. The result of running assembly code through an assembler is object code. Object code may need to be run through a /linker/ program to make executable code (not on specification).
+While assembly is a type of low-level language, it requires translation. The tool used to do this is called an /assembler/. The result of running assembly code through an assembler is object code. Object code may need to be run through a /linker/ program to make executable code (not on specification).
 
 *** Compilers
 
@@ -182,7 +182,7 @@ hello
 
 ** Boolean Logic & Algebra
 
-Due to the relative difficulty of representing mathematical expressions in plain text, this topic is covered in a separate document.
+/not implemented/
 
 * Computer Organisation and Architecture
 ** Harvard & Von Neuman Architecture

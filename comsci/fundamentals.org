@@ -1,7 +1,7 @@
 
 #+TITLE: Fundamentals & Theory of Computer Science
 #+AUTHOR: Alexander Neville
-#+OPTIONS: ^:{}
+// #+OPTIONS: ^:{}
 
 * Fundamentals of Programming
 
@@ -224,7 +224,7 @@ ENDEXCEPT
 * Problem Solving and Theory of Computation
 ** Problem Solving
 
-Besides writing larger programs, computing has many applications involving smaller problems. A /puzzle/ is a problem that is solved by selecting the right inputs. This process can be performed computationally. The problem may be /specific/, having a certain number of inputs (eg. 3), or /general/, having /n/ number of inputs. These values can be used to calculate the efficiency of an algorithm (not in as-level).
+Besides writing larger programs, computing has many applications involving smaller problems. A /puzzle/ is a problem that is solved by selecting the right inputs. This process can be performed computationally. The problem may be /specific/, having a certain number of inputs (eg. 3), or /general/, having /n/ number of inputs. These values can be used to calculate the efficiency of an algorithm.
 
 ** Strategies
 
@@ -323,11 +323,11 @@ Decimal (Base 10) is the number system we use on a daily basis. It may originate
 
 Binary is the number system used in computing and understood by a computer's processor. It is used because of the relative ease of distinguishing between just two states: /on/ & /off/. The disadvantage of this system is representing large amounts of complex data. With only two states, many binary bits in sequence are needed to represent real world data. In decimal, 10 values can be represented with one character and the total number of values available with /n/ characters is:
 
-- /10^{ n}/
+- $10^{n}$
 
 While, with binary, the number of available values when using /n/ bits is:
 
- - /2^{ n}/
+ - $2^{n}$
 
 So in order to get an equivalent range of values, the value /n/ must be larger when using binary. This is manageable in a computer and the advantages significantly outweigh the disadvantages, however this is difficult for people to work with and understand. Binary is long and repetitive, making working with binary slow and error prone.
 
@@ -335,23 +335,23 @@ So in order to get an equivalent range of values, the value /n/ must be larger w
 
 Hexadecimal (Base 16) and Octal (Base 8) are used to make working with computers easier. The range of values that can be represented with /n/ characters is:
 
-- /16^{ n}/ for hexadecimal
-- /8^{ n}/ for octal
+- $16^{n}$ for hexadecimal
+- $8^n$ for octal
 
 These number systems in particular are used to represent binary values more concisely, while being easier to convert to and from binary than decimal numbers. Both 8 and 16 are powers of 2. This means that /n/ bits of a binary number can be directly represented by one character in the corresponding number system. Eg.
 
 - 3 binary bits -> 1 octal value
 - 4 binary bits -> 1 hexadecimal value
 
-The same is true of Base 4 and Base 32, but these are less frequently used.
+The same is true of Base 4 and Base 32, but these are not used nearly as frequently.
 
-*Uses of Hexadecimal and Octal:*
+*Uses of Hexadecimal or Octal number systems:*
 
 - Colour Codes
 - MAC Addresses
 - IPv6 Addresses
 - Assembly Language
-- Unix File Permissions (octal)
+- Unix File Permissions
 
 ** Two's Complement
 
@@ -389,40 +389,32 @@ Here is the process that is happening for each row:
 #+end_src
 
 
-*Additional Notes:*
-
 With /n/ bits, the range of values you can represent is:
 
-    /- 2^{  (n-1)}  . . .  2^{ (n-1)}  - 1/
+\[2^{(n-1)}  \text{ ... } 2^{(n-1)}  - 1\]
 
-To obtain the two's complement of a number (flip negative to positive or vice versa):
+To obtain the two's complement of a number (negative to positive or vice versa), flip all of the bits and one.
 
-  /flip all of the bits and one/
-
-The benefit of the two's complement system is that it maximises the range of values which can be represented by a /word/ of a certain length.
-
-Eg. using a designated sign bit, a value for zero and negative zero must be stored, which is not needed and also complicates some calculations.
+The benefit of the two's complement system is that it maximises the range of values which can be represented by a /word/ of a certain length, eg. using a designated sign bit a value for zero and negative zero must be stored, which is not needed and can complicate some calculations.
 
 Computers generally rely on two's complement to perform subtraction, using only the addition circuits at their disposal. In order to subtract one value from another:
 
-- /the number that must be subtracted is converted to its two's complement/
-- /the two numbers are now added to one another/
-- /therefore 37 - 9 become 37 + (-9)/
+- the number that must be subtracted is converted to its two's complement
+- the two numbers are now added to one another
+- therefore $37 - 9$ becomes $37 + (-9)$
 
 ** Fixed Point Binary Numbers
 
-In a fixed point binary value, some bits fall before and after the point. The position of the point is usually determined as needed. Using such a system, any bits before the point are treated as usual. For any bit after the point, its value is:
-
-    /2^{-n}/ where /n/ = position from point
+In a fixed point binary value, some bits fall before and after the point. The position of the point is usually determined as needed. Using such a system, any bits before the point are treated as usual. For any bit after the point, its value is $2^{-n}$, where $n$ is the position from the decimal point.
 
 Here is a demonstration of this principle:
 
 |---+------------+-------|
 | n | power of 2 | value |
 |---+------------+-------|
-| 1 | 2^{-1}     |   0.5 |
-| 2 | 2^{-2}     |  0.25 |
-| 3 | 2^{-3}     | 0.125 |
+| 1 | $2^{-1}$   |   0.5 |
+| 2 | $2^{-2}$   |  0.25 |
+| 3 | $2^{-3}$   | 0.125 |
 |---+------------+-------|
 
 The position of the decimal point within a fixed point binary value can determine the properties of the number: /range/ vs /precision/
@@ -450,15 +442,11 @@ Human readable characters need to be represented numerically for use in computer
 
 *** ASCII
 
-The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte.
-
-Later on, an eighth bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintained compatibility with the original standard; the first 128 characters are the same. 8 bit *ASCII* is sometimes called *UTF-8*.
+The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte. Later on, an eighth bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintained compatibility with the original standard; the first 128 characters are the same. 8 bit *ASCII* is sometimes called *UTF-8*.
 
 *** Unicode
 
-As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages and their character sets. /Unicode/ was developed to solve this problem. It was initially a 16 bit standard, allowing 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched those of 8 bit *ASCII*, so there is some compatibility.
-
-*UTF-32* now exists, offering over a million different individual characters. The downside of these enlarged standards is the size. *UTF-32* is twice as large as *UTF-16* and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
+As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages and their character sets. /Unicode/ was developed to solve this problem. It was initially a 16 bit standard, allowing 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched those of 8 bit *ASCII*, so there is some compatibility. *UTF-32* now exists, offering over a million different individual characters. The downside of these enlarged standards is the size. *UTF-32* is twice as large as *UTF-16* and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
 
 ** Error Checking and Correction
 
@@ -466,54 +454,28 @@ Errors can occur when data is read, inputted or transmitted. There are many ways
 
 *** Parity Checking
 
-Parity bits are a common method for protecting against errors during communication. 7 bit /ASCII/ lends itself towards transmitting a parity bit within each byte.
-
-Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred.
-
-This method cannot detect /transposition errors/ (when the order of bits is changed), nor are they able to identify errors affecting more than one bit.
+Parity bits are a common method for protecting against errors during communication. 7 bit /ASCII/ lends itself towards transmitting a parity bit within each byte. Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred. This method cannot detect /transposition errors/ (when the order of bits is changed), nor are they able to identify errors affecting more than one bit.
 
 *** Majority Voting
 
-When majority voting is used, each bit is transmitted repeatedly. An odd number of repetitions must be used so there is not a /tie/.
-
-The received values for each bit are compared and the /popular/ result is taken to be the true value of that bit. Hence, there is a means of correcting potential errors.
-
-Eg. one of three transmissions of a single bit may differ from the two others. It can be concluded that this bit is erroneous and its value discarded.
-
-Transmitting data repeatedly, for the purpose of error detection and correction, significantly increases the time taken to send a certain communication. Majority voting is often infeasible, because of the time it takes.
+When majority voting is used, each bit is transmitted repeatedly. An odd number of repetitions must be used so there is not a /tie/. The received values for each bit are compared and the /popular/ result is taken to be the true value of that bit. Hence, there is a means of correcting potential errors. Eg. one of three transmissions of a single bit may differ from the two others. It can be concluded that this bit is erroneous and its value discarded. Transmitting data repeatedly, for the purpose of error detection and correction, significantly increases the time taken to send a certain communication. Majority voting is often infeasible, because of the time it takes.
 
 *** Checksum
 
-A checksum is a thorough method of error detection. An algorithm is applied to a piece of data before it is sent, the result being the checksum. The checksum is transmitted with the block of data. Upon receipt of the block, the same algorithm is applied to the data (which might have been corrupted). The checksum calculated by the receiver is compared with the transmitted checksum.
-
-- if the two values do not match, an error has occurred
-- if the two values do match, it is likely that no error has occurred
+A checksum is a thorough method of error detection. An algorithm is applied to a piece of data before it is sent, the result being the checksum. The checksum is transmitted with the block of data. Upon receipt of the block, the same algorithm is applied to the data (which might have been corrupted). The checksum calculated by the receiver is compared with the transmitted checksum. If the two values do not match, an error has occurred. If the two values do match, it is likely that no error has occurred.
 
 *** Check Digits
 
 The role of a /check digit/ is to prevent /transcription/ errors (or other similar I/O errors) of identifiers and other short pieces of data. Check digits are often attached to barcodes, ISBNs and credit card numbers.
-
-A checkdigit is calculated by running a number through an algorithm. The result is usually printed alongside the data, wherever it appears. Devices like barcode readers can calculate the checkdigit based on the obtained number and compare it too the existing checkdigit.
-
-- if the two values do not match, an error has occured
-- if the two values do match, it is likely that the data was read correctly
+A checkdigit is calculated by running a number through an algorithm. The result is usually printed alongside the data, wherever it appears. Devices like barcode readers can calculate the checkdigit based on the obtained number and compare it too the existing checkdigit. If the two values do not match, an error has occurred. If the two values do match, it is likely that no error has occurred.
 
 ** Analogue and Digital Data
 
-Analogue data is /continuous/, having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values.
-
-For the sake of digital representation, analogue waveforms and other continuous sets of data are sampled at intervals, or in certain places.
-
-- pixels in a sensor record light intensity at a precise point
-- a microphone and ADC record amplitude at certain points in time
-
-Each of these samples contains data which is quantifiable, so it may be used and stored by a computer. Therefore any digital representation of analogue data is an approximation of some quantity at a certain time and place.
+Analogue data is /continuous/, having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values. For the sake of digital representation, analogue waveforms and other continuous sets of data are sampled at intervals, or in certain places. Each of these samples contains data which is quantifiable, so it may be used and stored by a computer. Therefore any digital representation of analogue data is an approximation of some quantity at a certain time and place.
 
 ** Image Representation
 
-Image data can be broadly categorised into two types: /photographs/ and /digital graphics/. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated.
-
-Photographs are usually stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
+Image data can be broadly categorised into two types: /photographs/ and /digital graphics/. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated. Photographs are usually stored as /bitmap/ images, while /vector/ graphic files are more suitable for computerised images.
 
 *** Bitmap Files
 
@@ -527,8 +489,7 @@ Bitmap files store an approximation of real world analogue data and they are ide
 
 *** Limitations of Bitmap Files
 
-- The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution (ppi/dpi) is diminished.
-- For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
+The /size/ of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution (ppi/dpi) is diminished. For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
 
 *** Colour Depth
 
@@ -560,19 +521,15 @@ Sound is a type of analogue data, which is - in nature - a continuous wave. This
 
 *** Sample Rate
 
-In order to represent a continuous sound wave as discrete digital data, many quantised /samples/ must be taken at regular intervals. The frequency of the recording, also called the /sample rate/, is the the number of samples per second. The greater the sample rate, the closer the digital representation of the audio is to the original sound.
+In order to represent a continuous sound wave as discrete digital data, many quantised /samples/ must be taken at regular intervals. The frequency of the recording, also called the /sample rate/, is the number of samples per second. The greater the sample rate, the closer the digital representation of the audio is to the original sound.
 
 *** Sample Depth
 
-As well as increasing the number of samples stored, audio quality can be improved by increasing the /bit depth/. The bit depth is the number of bits used to store the amplitude of the sound at a given sample. The higher the bit depth, the closer the amplitude to its original value.
-
-/Nb. amplitude is often represented on the Y axis, against time on the X axis/
+As well as increasing the number of samples stored, audio quality can be improved by increasing the /bit depth/. The bit depth is the number of bits used to store the amplitude of the sound at a given sample. The higher the bit depth, the closer the amplitude to its original value. /Nb. amplitude is often represented on the Y axis, against time on the X axis/
 
 *** Nyquist's Theorem
 
-Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. In 1928, Harry Nyquist theorised that a recording must be sampled at twice the maximum frequency of the analogue sound to produce an accurate recording.
-
-For the human ear, the maximum audible frequency is 20,000Hz. Therefore, audio is often sampled at 44,100Hz, beyond which there is no apparent difference in sound quality to humans.
+Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. In 1928, Harry Nyquist theorised that a recording must be sampled at twice the maximum frequency of the analogue sound to produce an accurate recording. For the human ear, the maximum audible frequency is 20,000Hz. Therefore, audio is often sampled at 44,100Hz, beyond which there is no apparent difference in sound quality to humans.
 
 *** Audio Storage and Files
 
@@ -580,9 +537,7 @@ Audio which is recorded from a live source is stored and can be played back usin
 
 Sound may also be 'stored' as a MIDI file, a set of steps which can be interpreted by software to synthesise new sound. It is primarily a tool for music artists to create new music which can later be recorded. As MIDI files do not try to replicate analogue data with lots of samples, they may be smaller in size to a recording of similar length and quality.
 
-*** Recording & Playback
-
-*Storing Sound:*
+*** Recording
 
 1. A computer peripheral (microphone) is used to convert a sound wave into an oscillating electrical signal.
 2. The electrical signal is suitable for analogue to digital conversion.
@@ -590,12 +545,11 @@ Sound may also be 'stored' as a MIDI file, a set of steps which can be interpret
 4. The ADC will approximate the amplitude of the sound for each sample.
 5. The output - discrete digital data - can be stored in typical computer storage devices.
 
-*Outputting Sound:*
+*** Playback
 
-In order to present the stored data, it must be converted back to an analogue form. A /DAC/ (digital to analogue converter) can be used to this effect.
-
-1. The recorded amplitudes for all the samples are converted into an electrical signal (a voltage) at the same frequency as the sample rate.
-2. The voltage changes are converted into a sound wave by a speaker.
+1. In order to present the stored data, it must be converted back to an analogue form. A /DAC/ (digital to analogue converter) can be used to this effect.
+2. The recorded amplitudes for all the samples are converted into an electrical signal (a voltage) at the same frequency as the sample rate.
+3. The voltage changes are converted into a sound wave by a speaker.
 
 ** Compression
 
