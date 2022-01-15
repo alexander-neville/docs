@@ -1,0 +1,54 @@
+\contentsline {section}{\numberline {1}Particle Physics}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Atoms \& Nuclei}{4}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Isotopes}{4}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Specific Charge}{4}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Strong Nuclear Force}{4}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Force Carriers}{4}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Weak Interaction}{5}{subsubsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.2}Radioactive Decay}{5}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Alpha Emission}{5}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Beta Minus Decay}{5}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Beta Plus Decay}{6}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Electron Capture}{7}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Gamma Emission}{8}{subsubsection.1.2.5}%
+\contentsline {subsubsection}{\numberline {1.2.6}Neutrino Interactions}{8}{subsubsection.1.2.6}%
+\contentsline {subsection}{\numberline {1.3}Particles \& Antiparticles}{8}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Hadrons}{9}{subsubsection.1.3.1}%
+\contentsline {paragraph}{\numberline {1.3.1.1}Quarks}{10}{paragraph.1.3.1.1}%
+\contentsline {paragraph}{\numberline {1.3.1.2}Baryons}{10}{paragraph.1.3.1.2}%
+\contentsline {paragraph}{\numberline {1.3.1.3}Mesons}{10}{paragraph.1.3.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.2}Leptons}{10}{subsubsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.4}Photons \& Energy}{11}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Annihilation}{11}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Pair Production}{12}{subsubsection.1.4.2}%
+\contentsline {section}{\numberline {2}Fields and their Consequences}{12}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Gravitational Fields}{12}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Gravitational Field Strength}{12}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}Radial and Uniform Fields}{12}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}Gravitational Potential}{13}{subsubsection.2.1.3}%
+\contentsline {subsubsection}{\numberline {2.1.4}Potential Gradients}{14}{subsubsection.2.1.4}%
+\contentsline {subsubsection}{\numberline {2.1.5}Law of Gravitation}{16}{subsubsection.2.1.5}%
+\contentsline {subsubsection}{\numberline {2.1.6}Planetary Fields}{16}{subsubsection.2.1.6}%
+\contentsline {subsubsection}{\numberline {2.1.7}Satellite Motion}{19}{subsubsection.2.1.7}%
+\contentsline {subsection}{\numberline {2.2}Electric Fields}{20}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}Electric Field Strength}{21}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Uniform Electric Fields}{21}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Electric Potential}{22}{subsubsection.2.2.3}%
+\contentsline {subsubsection}{\numberline {2.2.4}Coulomb's Law}{23}{subsubsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.3}Capacitors}{23}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Charge Stored in a Capacitor}{23}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Energy Stored in a Capacitor}{24}{subsubsection.2.3.2}%
+\contentsline {section}{\numberline {3}Nuclear Physics}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Radiation}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Inverse Square Law}{24}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Hazards of Radiation}{24}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Radioactive Decay}{24}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Decay Constant}{25}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Activity}{25}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Decay Curves}{25}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Half-life}{26}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Nuclear Radius}{27}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Energy and Mass}{28}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Binding Energy}{28}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Quantum Tunnelling}{28}{subsection.3.8}%
+\contentsline {subsection}{\numberline {3.9}Nuclear Stability}{29}{subsection.3.9}%

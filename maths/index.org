@@ -1,7 +1,7 @@
 #+TITLE: Maths Notes
 
 * Trigonometry
-** Identities with Reciprocal Trigonometric Functions
+** Reciprocal Trigonometric Functions
 
 The identity $\sin^{2}(\theta) + \cos^{2}(\theta) = 1$ is the foundation for two more complex identities.
 
@@ -16,7 +16,7 @@ Dividing by $\sin^{2}(\theta)$:
 The two identities:
 
 1. \[\tan^2(\theta) + 1 = \sec^{2}(\theta)\]
-2. \[1 + \cot^2(\theta) = \cosec^{2}(\theta)\]
+2. \[1 + \cot^2(\theta) = \text{cosec}^{2}(\theta)\]
 
 ** Addition Formula
 *** Sin / Cos
@@ -37,7 +37,7 @@ The equivalent expression for $\tan(A \pm B)$ is derived by combining these exam
 
 The result is:
 
-\[\tan(A \pm B) = \dfrac{\tan(A) \pm \tan(B)}{\1 \mp \tan(A)\tan(B)}\]
+\[\tan(A \pm B) = \dfrac{\tan(A) \pm \tan(B)}{1 \mp \tan(A)\tan(B)}\]
 
 *** Double Angles
 

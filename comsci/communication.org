@@ -131,9 +131,7 @@ All clients must be connected and powered-on for the network to function as expe
 
 *** NIC
 
-In order to connect to a wireless network, a device must have a wireless network interface card /(NIC)/, a device will have a similar card for all its other interfaces, eg. Ethernet. The NIC has a hardcoded MAC address.
-
-The combination of an NIC and a computer is called a /station/.
+In order to connect to a wireless network, a device must have a wireless network interface card /(NIC)/, a device will have a similar card for all its other interfaces, eg. Ethernet. The NIC has a hardcoded MAC address. The combination of an NIC and a computer is called a /station/.
 
 *** SSID
 
@@ -162,19 +160,5 @@ Once the channel appears idle to a station, a 'request to send' signal is sent t
 /not implemented/
 
 * The Internet
-** OSI
-** IP Addresses
-*** Classfull Addressing
-*** Classless Addressing
-*** Subnetting
 
-#+begin_src
-
-10.0.0.0/8
-
-10.0.0.0
-255.0.0.0
-
-10.0.0.0 - 10.255.255.255
-
-#+end_src
+/not implemented/

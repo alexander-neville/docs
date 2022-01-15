@@ -1,12 +1,10 @@
-
 #+TITLE: Software Development & Engineering
 #+AUTHOR: Alexander Neville
-#+OPTIONS: ^:{}
 
 * Databases and Software Development
 ** Introduction to Databases
 
-The purpose of any database is to store data in the most intuitive manner possible, minimising the required disk space and delivering the most performant system. The Relational Database Management System /(RDBMS)/ has become a popular database paradigm, although some others exist (not on specification). A /RDBMS/ is based on entity modelling and the relationships between entities.
+The purpose of any database is to store data in the most intuitive manner possible, minimising the required disk space and delivering the most performant system. The Relational Database Management System /(RDBMS)/ has become a popular database paradigm, although some others exist. A /RDBMS/ is based on entity modelling and the relationships between entities.
 
 ** Database Systems Overview
 
@@ -218,7 +216,7 @@ In an entity description, each line represents a table. The first section is the
 
 ** SQL
 
-SQL, standing for /structured query language/, is a declarative, high-level language for manipulating and querying databases. There are a number of SQL compatible database programs, two common ones being MYSQL and Mariadb. Database administration and set-up are not required parts of the a-level specification.
+SQL, standing for /structured query language/, is a declarative, high-level language for manipulating and querying databases. There are a number of SQL compatible database programs, two common ones being MYSQL and Mariadb. Database administration and set-up are not required parts of the A-Level specification.
 
 SQL commands are generally shown in uppercase, although in most implementations they are case-insensitive. A command can span multiple lines, white-space rarely matters and commands are finished with a semicolon.
 
@@ -226,9 +224,9 @@ SQL commands are generally shown in uppercase, although in most implementations 
 
 Assuming that a database has been set-up, the first step is to create the tables which will hold the data. As there are some foreign key relationships, it is important that the tables are created in the right order.
 
-This example will use the db design from the normalisation example above, leaving some mistakes to be corrected  later.
+This example will use the db design from the normalisation example above, leaving some mistakes to be corrected later.
 
-#+begin_src
+#+begin_src sql
 
 CREATE TABLE aircraft (
     id INT(255) NOT NULL AUTO_INCREMENT,
@@ -282,7 +280,7 @@ Once created, a table's definition may need to be changed. The =Alter Table= com
 
 Adding a constraint to a table is done like this (not on specification):
 
-#+begin_src
+#+begin_src sql
 
 ALTER TABLE engine ADD FOREIGN KEY (supplier_id) REFERENCES supplier (id) ON DELETE CASCADE ON UPDATE CASCADE;
 
@@ -290,7 +288,7 @@ ALTER TABLE engine ADD FOREIGN KEY (supplier_id) REFERENCES supplier (id) ON DEL
 
 Adding a column is also possible:
 
-#+begin_src
+#+begin_src sql
 
 ALTER TABLE engine_option ADD engine_quantity INT(1);
 
@@ -298,7 +296,7 @@ ALTER TABLE engine_option ADD engine_quantity INT(1);
 
 Existing columns can be renamed with ease:
 
-#+begin_src
+#+begin_src sql
 
 ALTER TABLE engine_option RENAME COLUMN engine_quantity TO engine_number;
 
@@ -306,7 +304,7 @@ ALTER TABLE engine_option RENAME COLUMN engine_quantity TO engine_number;
 
 The definition of a column can be modified:
 
-#+begin_src
+#+begin_src sql
 
 ALTER TABLE engine_option MODIFY COLUMN engine_number INT(255) NOT NULL;
 
@@ -314,7 +312,7 @@ ALTER TABLE engine_option MODIFY COLUMN engine_number INT(255) NOT NULL;
 
 Columns can also be dropped or deleted:
 
-#+begin_src
+#+begin_src sql
 
 ALTER TABLE engine_option DROP COLUMN engine_number;
 
@@ -334,7 +332,7 @@ INSERT INTO table_name (column_name, column_name, ...) VALUES
 
 Here are the insert statements for the aircraft demo:
 
-#+begin_src
+#+begin_src sql
 
 INSERT INTO supplier (id, name) VALUES
             ('PW', 'Pratt & Whitney'),
@@ -373,7 +371,7 @@ Once there is some data in the database, organised in /3nf/, it is possible to s
 
 The most simple query returns data from just one table. Here are some examples:
 
-#+begin_src
+#+begin_src sql
 
 SELECT * FROM aircraft;
 SELECT name FROM supplier;
@@ -388,7 +386,7 @@ There are a number of ways to select data from multiple tables, including /joins
 
 Here are some example queries across multiple tables:
 
-#+begin_src
+#+begin_src sql
 
 SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engine.supplier_id;
 
@@ -402,15 +400,13 @@ Note that the =WHERE= clause provides the condition for the selection. In the se
 
 The results of a select statement can be ordered in a certain way, using the =ORDER BY= statement. Here is an example:
 
-#+begin_src
+#+begin_src sql
 
 SELECT * FROM aircraft ORDER BY id DESC;
 
 #+end_src
 
-This will return all the results in order from highest id to lowest id. If the sort column is a string, the results will be sorted alphabetically.
-
-Multiple Columns can be specified as sort column, for example results might be sorted alphabetically by country and then city.
+This will return all the results in order from highest id to lowest id. If the sort column is a string, the results will be sorted alphabetically. Multiple Columns can be specified as sort column, for example results might be sorted alphabetically by country and then city.
 
 *** Full Query
 
@@ -445,9 +441,7 @@ Once again, the =WHERE= clause is used to supply the conditions for the statemen
 
 ** Client-Server Databases
 
-Many modern /RDBMS/ support a client-server model, where the database is stored on a central server and many clients can connect across the network. This is useful in retail, for example, where individual stores can access the same information about products, without the need for the data to be stored locally.
-
-Other benefits include the consistency of data, which can be guaranteed by storing it in one place only. In addition, the integrity of the data is upheld, as backups and access rights are managed centrally.
+Many modern /RDBMS/ support a client-server model, where the database is stored on a central server and many clients can connect across the network. This is useful in retail, for example, where individual stores can access the same information about products, without the need for the data to be stored locally. Other benefits include the consistency of data, which can be guaranteed by storing it in one place only. In addition, the integrity of the data is upheld, as backups and access rights are managed centrally.
 
 *** Record Locking
 
@@ -538,7 +532,7 @@ Sub-routines can be divided into two types:
 - /procedures/, which may have parameters and return values, but also cause side-effects
 - /functions/, which may have parameters and must have return values, while causing no side-effects
 
-Many modern imperative languages support both types of sub-routine. /Purely functional/ languages are those which only support the latter, the benefits of which are explained in the a-level functional programming section.
+Many modern imperative languages support both types of sub-routine. /Purely functional/ languages are those which only support the latter, the benefits of which are explained in the functional programming section.
 
 ** Object Orientation
 

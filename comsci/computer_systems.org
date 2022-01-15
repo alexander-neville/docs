@@ -189,13 +189,9 @@ hello
 
 Many early computers could only perform one operation. The /Stored Program Concept/ allows a computer to store its instructions in re-programmable memory. This means that a computer could be instructed to perform a new operation without the disassembly of the machine. There are two main types of computer architecture designed with this general purpose computing paradigm in mind.
 
-*Harvard:*
+The /Harvard/ architecture separates instructions and data, having a dedicated area of memory for each. The advantage of this setup is the computer's ability to fetch data and instructions simultaneously. In addition, a processor with this architecture can have a custom memory configuration depending on its purpose. This architecture is common among embedded systems.
 
-The Harvard architecture separates instructions and data, having a dedicated area of memory for each. The advantage of this setup is the computer's ability to fetch data and instructions simultaneously. In addition, a processor with this architecture can have a custom memory configuration depending on its purpose. This architecture is common among embedded systems.
-
-*Von Neuman:*
-
-The Von Neuman architecture has only one area of memory for both instructions and data. Instructions and data have to be fetched serially, which is often slower. However, this architecture is much more flexible and is used in most general purpose personal computers and mobile devices.
+The /Von Neuman/ architecture has only one area of memory for both instructions and data. Instructions and data have to be fetched serially, which is often slower. However, this architecture is much more flexible and is used in most general purpose personal computers and mobile devices.
 
 ** Motherboard
 
@@ -203,18 +199,16 @@ A Computer's motherboard connects all the components of a computer together. The
 
 ** CPU Disambiguation
 
-/CPUs/ are implemented on a Integrated Circuit /IC/ metal-oxide-semiconductor /MOS/ microprocessor chip. Many chips have more than one processor core, these chips are called /multi-core processors/. Each core may have  more than 1 thread, creating /virtual cores/.  A chip with multiple cores - virtual or physical - will appear to the operating system as multiple *CPUs*. The A-level specification looks at the operation of just one /CPU/.
+/CPUs/ are implemented on a Integrated Circuit /IC/ metal-oxide-semiconductor /MOS/ microprocessor chip. Many chips have more than one processor core, these chips are called /multi-core processors/. Each core may have more than 1 thread, creating /virtual cores/. A chip with multiple cores, virtual or physical, will appear to the operating system as multiple *CPUs*. The A-Level specification describes the operation of a single /CPU/.
 
 In short, a /processor/ is mounted on a /motherboard/ and may have multiple /CPUs/, whether they be physical cores or virtual threads.
-
-*Manufacturing:*
 
 Silicon is a useful material for constructing processors. Silicon has semiconductor properties which mean it can behave like a switch, becoming conductive under certain conditions. The flow of charge is how processing works and so changing the conductivity of the chip is required.
 
 ** CPU Components
 *** Processor Clock
 
-The system clock generates an oscillating signal, with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may take the duration of many clock cycles.
+The system clock generates an oscillating signal, with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may span many clock cycles.
 
 *** Control Unit
 
@@ -234,7 +228,7 @@ There are a number of specialised registers within the control unit, necessary f
 
 **** Status Register
 
-Following an ALU operation, /flags/ (individual bits) are set in the status register. These Indicate the result of the last operation. Here are some common status register flags (note that the names of the flags are not in the specification):
+Following an ALU operation, /flags/ (individual bits) are set in the status register. These Indicate the result of the last operation. Here are some common status register flags:
 
 |--------+-------------------|
 | symbol | purpose           |
@@ -266,9 +260,7 @@ The memory address register will hold an address from which data is to be retrie
 
 ** Motherboard Buses
 
-The /processor/ is connected to other motherboard components by /buses/. A bus is a /parallel/ wire, through which addresses, data and control signals can flow. Motherboard communication is /synchronous/ and the distances involved are short.
-
-There are three main buses on any motherboard, which are collectively referred to as the /system bus/.
+The /processor/ is connected to other motherboard components by /buses/. A bus is a /parallel/ wire, through which addresses, data and control signals can flow. Motherboard communication is /synchronous/ and the distances involved are short. There are three main buses on any motherboard, which are collectively referred to as the /system bus/.
 
 *** Address Bus
 
@@ -298,13 +290,9 @@ An /IO/ controller sits between the processor and a peripheral device. Device co
 
 An /IO/ controller is also responsible for detecting and managing connected devices, raising processor /interrupts/ when action needs to be taken. This means that the processor can dedicate its time to /FDE/ operations rather than device management, significantly improving efficiency.
 
-See also /asynchronous communication/.
-
 ** Cache
 
-Cache is a small, expensive area of a computer's memory. Cache memory is sometimes located on-chip or at least very nearby.
-
-Different /CPUs/ will have different cache configurations. In a multi-core processor some of the cache may be shared by all of the processor cores.
+Cache is a small, expensive area of a computer's memory. Cache memory is sometimes located on-chip or at least very nearby. Different /CPUs/ will have different cache configurations. In a multi-core processor some of the cache may be shared by all of the processor cores.
 
 A computer will often have different levels of cache, for example:
 
@@ -347,7 +335,7 @@ The word length of a processor is the number of bits that a /CPU/ can operate on
 
 *** Address Size
 
-The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With /n/ bits the number of memory locations available is equal to /2^{n}/. With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently, to make sure that running processes are performant enough. Multi-tasking may be more difficult with less /RAM/. Under certain conditions this will not affect performance at all. Nb. the length of an address is usually the same as the word length.
+The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With /n/ bits the number of memory locations available is equal to $2^{n}$. With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently, to make sure that running processes are performant enough. Multi-tasking may be more difficult with less /RAM/. Under certain conditions this will not affect performance at all. Nb. the length of an address is usually the same as the word length.
 
 *** Multiple Cores
 
@@ -355,7 +343,7 @@ A processor may have multiple CPUs, whether they be physical /cores/ or virtual 
 
 ** Instruction Sets
 
-Computers have different ways of representing available operations to programmers. An instruction set describes the operations a processor can perform with a binary value. An instruction set is specific to a certain processor architecture. The operations that a processor can perform may be similar to those of another processor, although the instruction set - used to trigger those operations - may be entirely different. The instruction set determines how machine code is interpreted and hence written. Each instruction in the instruction set has a binary value, so machine code - written in binary - can be directly understood by the processor without translation.
+Computers have different ways of representing available operations to programmers. An instruction set describes the operations a processor can perform with a binary value. An instruction set is specific to a certain processor architecture. The operations that a processor can perform may be similar to those of another processor, although the instruction set, used to trigger those operations, may be entirely different. The instruction set determines how machine code is interpreted and hence written. Each instruction in the instruction set has a binary value, so machine code, which is written in binary, can be directly understood by the processor without translation.
 
 *Typical Operations:*
 
@@ -449,7 +437,7 @@ Following a /LSR/ and then a /LSL/ the least significant bit is set to zero, irr
 
 A barcode is a reliable way of storing a small amount of information. This makes them suitable for storing some sort of identification number that can be looked up in a database. It is up to retailers to store information about the associated product. Eg. Two retailers may sell the same product, with the same barcode, although each retailer will store different data about that product, including price, etc.
 
-Many different standards are used for encoding data in barcodes. The most common are the European Article Number /(EAN)/, sometimes called /IAN/, and other barcode standards recognised by /GS1/, a not-for-profit standards agency based in Belgium /(not on specification)/. Another common type is /code 128/, which can store characters and is often used in shipping and logistics. It is the standard of the barcode that determines its appearance and how it can store data.
+Many different standards are used for encoding data in barcodes. The most common are the European Article Number /(EAN)/, sometimes called /IAN/, and other barcode standards recognised by /GS1/, a not-for-profit standards agency based in Belgium. Another common type is /code 128/, which can store characters and is often used in shipping and logistics. It is the standard of the barcode that determines its appearance and how it can store data.
 
 *Description:*
 
@@ -499,7 +487,7 @@ When the shutter is open, light is focused onto the /sensor/ by the camera's len
 
 RFID /tags/ are often attached to inventory items like a barcode. Using a /passive/ system, the RFID tag is brought near to a reader, which is emitting radio waves. When in range, the tag's antenna picks up the radio communication. The transfer of energy to the device activates the tag's /IC/ chip, which modulates and returns an EM signal to the reader.
 
-The /passive/ system depends on high intensity emission from the reader to be activated, so the /transponder/ (RFID device), must be close to the reader. /Active/ systems have a power source, so they are able to transmit a signal to a receiver that is much futher away.
+The /passive/ system depends on high intensity emission from the reader to be activated, so the /transponder/ (RFID device), must be close to the reader. /Active/ systems have a power source, so they are able to transmit a signal to a receiver that is much further away.
 
 *** Laser Printers
 
@@ -565,7 +553,7 @@ Optical disks are a portable way of storing smaller amounts of data. Optical dis
 
 *Description:*
 
-During manufacturing, intense laser light is reflected onto a /CD-ROM/ disk to burn pits along the /track/. During playback, a laser of lower intensity is directed at the track as it spins. At the beginning and end of a depression, light is scattered and not reflected back to the sensor. An area like this represents a /1/. When the laser falls on the middle of a pit or land, light is reflected back towards the sensor and a /0/ is detected.
+During manufacturing, intense laser light is reflected onto a /CD-ROM/ disk to burn pits along the /track/. During playback, a laser of lower intensity is directed at the track as it spins. At the beginning or end of a depression, light is scattered and not reflected back to the sensor. An area like this represents a /1/. When the laser falls on the middle of a pit or land, light is reflected back towards the sensor and a /0/ is detected.
 
 A recordable disk is covered with a transparent dye. A high intensity laser can alter the reflective properties of the dye. As the CD is read, the changes in the property of the surface affect the amount of light reflected, rather than pits and lands.
 
@@ -596,7 +584,7 @@ A Solid State Drive /(SSD)/ is a modern type of secondary storage, frequently us
 
 *Description:*
 
-In order to retain information, a single nand cell containts two gates separated by /oxide layers/ which electrons cannot usually cross. As the /bitline/ is given a positive charge, electrons are drawn from the /source/ to the drain.
+In order to retain information, a single nand cell contains two gates separated by /oxide layers/ which electrons cannot usually cross. As the /bitline/ is given a positive charge, electrons are drawn from the /source/ to the drain.
 
 - If the /wordline/ is set to positive, some electrons are drawn up the oxide layers and trapped by the /floating gate/
 - If the power is turned off, any trapped electrons remain in position
