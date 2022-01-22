@@ -1,0 +1,50 @@
+//#+latex_header: \usepackage{fancyhdr}
+//#+latex_header: \pagestyle{fancy}
+//#+latex_header: \fancyhf{}
+//#+latex_header: \rhead{\emph{Alexander Neville}}
+//#+latex_header: \lhead{Physics}
+//#+latex_header: \rfoot{\thepage}
+//#+latex_header: \lfoot{\leftmark}
+//#+latex_header: \renewcommand{\headrulewidth}{1pt}
+//#+latex_header: \renewcommand{\footrulewidth}{1pt}
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\pagestyle{fancy}
+\rhead{\emph{A.F.N}}
+\lhead{Physics}
+\rfoot{\thepage}
+\lfoot{\leftmark}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+\setlength{\headheight}{15.2pt}
+
+
+\begin{figure}[H]
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=black,
+size=normal,
+boxrule=0.2mm,
+]
+
+\begin{multicols}{2}
+\noindent
+\[F = QE\]
+
+\[W = Fd = QEd\]
+
+\[W = Fd = QEd\]
+\columnbreak
+\[V = \dfrac{W}{Q} = \dfrac{QEd}{Q}\]
+
+\[V = Ed\]
+
+\[E = V/d\]
+\end{multicols}
+\end{tcolorbox}
+\end{figure}

@@ -2,49 +2,19 @@
 #+TITLE: Physics Notes
 #+OPTIONS: toc:nil
 #+OPTIONS: H:12
-
 #+latex_class_options: [12pt]
-#+latex_header: \usepackage{titlesec}
-#+latex_header: \setcounter{secnumdepth}{12}
-#+latex_header: \titleformat{\paragraph}
-#+latex_header: {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-#+latex_header: \titlespacing*{\paragraph}
-#+latex_header: {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
-#+latex_header: \usepackage{indentfirst}
-#+latex_header: \setlength{\parindent}{0pt}
 #+latex_header: \usepackage{amsmath}
-#+latex_header: \usepackage{graphicx}
-#+latex_header: \usepackage[export]{adjustbox}
-#+latex_header: \usepackage{tikz-feynman}
-#+latex_header: \usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
-#+latex_header: \usepackage{tikz}
-#+latex_header: \usetikzlibrary{arrows.meta, decorations.pathreplacing, decorations.markings}
-#+latex_header: \raggedbottom
-#+latex_header: \usepackage{float}
-#+latex_header: \clearpage
-#+latex_header: \usepackage{longtable}
-#+latex_header: \usepackage{array}
-#+latex_header: \usepackage{multirow}
-#+latex_header: \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
-#+latex_header: \usepackage{fancyhdr}
-#+latex_header: \pagestyle{fancy}
-#+latex_header: \fancyhf{}
-#+latex_header: \rhead{\emph{Alexander}}
-#+latex_header: \lhead{Physics}
-#+latex_header: \rfoot{\thepage}
-#+latex_header: \lfoot{\leftmark}
-#+latex_header: \renewcommand{\headrulewidth}{1pt}
-#+latex_header: \renewcommand{\footrulewidth}{1pt}
-#+latex_header: \setlength{\parindent}{0pt}
+
+#+INCLUDE: "./options.org"
 
 #+begin_export latex
 \thispagestyle{empty}
 \begin{figure}[H]
 \centering
-% \includegraphics[width=0.8\textwidth,keepaspectratio,frame]{./images/}
+% \includegraphics[width=0.9\textwidth,keepaspectratio,frame]{./images/}
 \end{figure}
 \newpage
-\tableofcontents
+% \tableofcontents
 \newpage
 #+end_export
 
@@ -224,149 +194,71 @@ A $\beta^+$ particle is a positron. During $\beta^+$ emission, a proton in a pro
 
 *** Electron Capture
 
-A proton-rich nucleus could also undergo /electron capture/. In this type of decay a proton changes into a neutron after capturing an inner shell electron.
+A proton-rich nucleus could also undergo /electron capture/. In this type of decay a proton changes into a neutron after capturing an inner shell electron. The nature of the /W boson/ is not significant/distinguishable.
 
 \[^A_ZX + ^{ \text{ } \text{ }0}_{-1}\beta \rightarrow \text{} ^{\text{ } \text{ }A}_{Z-1}Y + \nu_e\]
 
 #+begin_export latex
-
-
 \begin{figure}[H]
 \centering
-\begin{tikzpicture}[x=30mm, y=30mm]
-\begin{feynman}
-    \vertex (i1) {\(u\)};
-    \vertex[right=.15 of i1] (i2) {\(d\)};
-    \vertex[right=.15 of i2] (i3) {\(u\)};
-    \vertex[below=.3 of i2] (n) {\(p\)};
-    \vertex[above=2 of i1] (f1) {\(u\)};
-    \vertex[right=.15 of f1] (f2) {\(d\)};
-    \vertex[right=.15 of f2] (f3) {\(d\)};
-    \vertex[above=.3 of f2] (p) {\(n\)};
-    \vertex[above=1 of i3] (a);
-    \vertex[right=.15 of a] (b);
-    \vertex[right=.15 of b] (c);
-    \vertex at ($(c) + (1,-.2)$) (d);
-    \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
-    \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
-\diagram*{
-    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
-    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
-    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
-    (d) -- [boson, edge label'=\(W^-\), momentum, very thick] (c),
-    (d) -- [anti fermion, very thick] (f5),
-    (d) -- [fermion, very thick] (f4),
-};
-% \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
-% \node at (-.4,2.3) {\(t\)};
-\end{feynman}
-\end{tikzpicture}
-\caption{Electron capture $W-$ boson}
-\end{figure}
+\begin{minipage}{.45\textwidth}
+    \centering
+    \begin{tikzpicture}[x=30mm, y=30mm]
+    \begin{feynman}
+        \vertex (i1) {};
+        \vertex[right=.3 of i1] (i3) {\(p\)};
+        \vertex[above=2 of i1] (f1) {};
+        \vertex[right=.3 of f1] (f3) {\(n\)};
+        \vertex[above=1 of i3] (a);
+        \vertex[right=.15 of a] (b);
+        \vertex[right=.15 of b] (c);
+        \vertex at ($(c) + (1,.2)$) (d);
+        \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
+        \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
+    \diagram*{
+        (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+        (c) -- [boson, edge label'=\(W^+ \), momentum, very thick] (d),
+        (d) -- [anti fermion, very thick] (f5),
+        (d) -- [fermion, very thick] (f4),
+    };
+    % \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+    % \node at (-.4,2.3) {\(t\)};
+    \end{feynman}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+  \centering
+  \begin{tikzpicture}[x=30mm, y=30mm]
+    \begin{feynman}
+        \vertex (i1) {};
+        \vertex[right=.3 of i1] (i3) {\(p\)};
+        \vertex[above=2 of i1] (f1) {};
+        \vertex[right=.3 of f1] (f3) {\(n\)};
+        \vertex[above=1 of i3] (a);
+        \vertex[right=.15 of a] (b);
+        \vertex[right=.15 of b] (c);
+        \vertex at ($(c) + (1,-.2)$) (d);
+        \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
+        \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
+    \diagram*{
+        (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+        (d) -- [boson, edge label'=\(W^- \), momentum, very thick] (c),
+        (d) -- [anti fermion, very thick] (f5),
+        (d) -- [fermion, very thick] (f4),
+    };
+    % \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+    % \node at (-.4,2.3) {\(t\)};
+    \end{feynman}
+    \end{tikzpicture}
+\end{minipage}
 
-#+end_export
-
-The nature of the /W boson/ is not significant/distinguishable. The same diagram could be written:
-
-#+begin_export latex
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[x=30mm, y=30mm]
-\begin{feynman}
-    \vertex (i1) {\(u\)};
-    \vertex[right=.15 of i1] (i2) {\(d\)};
-    \vertex[right=.15 of i2] (i3) {\(u\)};
-    \vertex[below=.3 of i2] (n) {\(p\)};
-    \vertex[above=2 of i1] (f1) {\(u\)};
-    \vertex[right=.15 of f1] (f2) {\(d\)};
-    \vertex[right=.15 of f2] (f3) {\(d\)};
-    \vertex[above=.3 of f2] (p) {\(n\)};
-    \vertex[above=1 of i3] (a);
-    \vertex[right=.15 of a] (b);
-    \vertex[right=.15 of b] (c);
-    \vertex at ($(c) + (1,.2)$) (d);
-    \vertex at ($(d) + (.3, 1)$) (f4) {\(\nu_e\)};
-    \vertex at ($(d) + (.3,-1)$) (f5) {\(e^-\)};
-\diagram*{
-    (i1) -- [fermion, opacity=0.5] (a) -- [fermion, opacity=0.5] (f1),
-    (i2) -- [fermion, opacity=0.5] (b) -- [fermion, opacity=0.5] (f2),
-    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
-    (c) -- [boson, edge label'=\(W^+\), momentum, very thick] (d),
-    (d) -- [anti fermion, very thick] (f5),
-    (d) -- [fermion, very thick] (f4),
-};
-% \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
-% \node at (-.4,2.3) {\(t\)};
-\end{feynman}
-\end{tikzpicture}
-\caption{Electron capture $W+$ boson}
+\caption{Electron capture}
 \end{figure}
 #+end_export
 
 *** Gamma Emission
 
 Gamma radiation is emitted by an unstable nucleus. This type of emission is pure energy with no mass and no charge. There is no change to the number of nucleons in the nucleus when a $\gamma$ photon is emitted. This type of emission usually happens if the nucleus is in an excited state after one of the previous types of emission.
-
-*** Neutrino Interactions
-
-#+begin_export latex
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[x=30mm, y=30mm]
-\begin{feynman}
-    \vertex (i1) {};
-    \vertex[right=.3 of i1] (i3) {\(n\)};
-    \vertex[above=2 of i1] (f1) {};
-    \vertex[right=.3 of f1] (f3) {\(p\)};
-    \vertex[above=1 of i3] (a);
-    \vertex[right=.15 of a] (b);
-    \vertex[right=.15 of b] (c);
-    \vertex at ($(c) + (1,.2)$) (d);
-    \vertex at ($(d) + (.3, 1)$) (f4) {\(\beta^-\)};
-    \vertex at ($(d) + (.3,-1)$) (f5) {\(v\)};
-\diagram*{
-    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
-    (c) -- [boson, edge label'=\(W^- \), very thick] (d),
-    (d) -- [anti fermion, very thick] (f5),
-    (d) -- [fermion, very thick] (f4),
-};
-% \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
-% \node at (-.4,2.3) {\(t\)};
-\end{feynman}
-\end{tikzpicture}
-\caption{A neutron-neutrino interaction}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\begin{tikzpicture}[x=30mm, y=30mm]
-\begin{feynman}
-    \vertex (i1) {};
-    \vertex[right=.3 of i1] (i3) {\(p\)};
-    \vertex[above=2 of i1] (f1) {};
-    \vertex[right=.3 of f1] (f3) {\(n\)};
-    \vertex[above=1 of i3] (a);
-    \vertex[right=.15 of a] (b);
-    \vertex[right=.15 of b] (c);
-    \vertex at ($(c) + (1,.2)$) (d);
-    \vertex at ($(d) + (.3, 1)$) (f4) {\(\beta^+\)};
-    \vertex at ($(d) + (.3,-1)$) (f5) {\(\bar{v}\)};
-\diagram*{
-    (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
-    (c) -- [boson, edge label'=\(W^+ \), very thick] (d),
-    (d) -- [anti fermion, very thick] (f5),
-    (d) -- [fermion, very thick] (f4),
-};
-% \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
-% \node at (-.4,2.3) {\(t\)};
-\end{feynman}
-\end{tikzpicture}
-\caption{A proton-antineutrino interaction}
-\end{figure}
-
-#+end_export
 
 ** Particles & Antiparticles
 
@@ -382,7 +274,7 @@ Hadrons are /non-fundamental/ particles subject to all basic interactions: stron
 \begin{longtable}{ |C{0.2\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}|C{0.2\textwidth}| }
 \hline
 &&&\\*
-\textbf{Particle} & \textbf{Baryon Number} & \textbf{Strangeness} & \textbf{Charge} \\*
+\textbf{Particle} & \textbf{B. Number} & \textbf{Strangeness} & \textbf{Charge} \\*
 &&&\\*
 \hline
 \endhead
@@ -437,6 +329,8 @@ $K^-$&$0$&$-1$&$-1$\\*
 
 **** Quarks
 
+As non-fundamental particles, the properties of hadrons can be determined by their /quark-composition/. The /charge/, /rest mass/ and /strangeness/ of a particle are determined by its combination of quarks. The three main types of quark are the /up/, /down/ and /strange/ quarks, each having a /baryon number/ of $+1/3$. For each of these quarks, there is a corresponding /antiquark/, with the opposite properties.
+
 #+begin_export latex
 \begin{figure}[H]
 \small
@@ -469,7 +363,18 @@ baryon number $B$ &$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$-\dfrac{1}{3
 #+end_export
 
 **** Baryons
+
+The baryons are a group of hadrons which are most commonly composed of three quarks. They have a baryon number of $1$ or $-1$ in the case of an /antibaryon/. These particles make up the nuclei of most atoms and constitute most of the mass in the universe. All baryons eventually decay into protons, the only stable baryon.
+
+**** Strangeness
+
+The strangeness of a particle is another property determined by quark configuration. Strange particles contain a non-zero strangeness. Strange particles are always produced in pairs during the strong interaction, a consequence of the conservation of strangeness.
+
+Strange particles take a long time to decay through the weak interaction. Strangeness does not need to be conserved in the weak interaction and the total strangeness before and after may vary by $0$, $-1$ or $1$. /Kaons/ are the lightest strange particle and they are mesonic. They decay into pions. Other baryonic strange particles are characterised by a rest mass much larger than a proton and decay into pions and protons.
+
 **** Mesons
+
+Mesons are hadrons composed of a quark/antiquark pair. Their baron number is always 0. As hadrons, mesons are bound by the strong force and have meaningful size. Their diameter is roughly $1.0fm$, about two thirds of the diameter of a neutron or proton. Mesons are unstable particles which decay into lighter mesons and then stable leptons, but not protons as baryons do. Mesons exist outside of the nucleus as the product of high energy baryonic collisions. They participate in the weak and strong interactions.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -503,7 +408,7 @@ baryon number $B$ &$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$-\dfrac{1}{3
 \put(0, 10){$\pi^{0}$}
 \put(-17, -17){$(d \bar{d} / u \bar{u})$}
 \end{picture}
-\caption{Mesons}
+\caption{Meson quark composition}
 \end{figure}
 #+end_export
 
@@ -538,19 +443,19 @@ $u^+$&$0$&$-1$&$+1$\\*
 &&&\\*
 \hline
 &&&\\*
-$v_e$&$+1$&$0$&$0$\\*
+$\nu_e$&$+1$&$0$&$0$\\*
 &&&\\*
 \hline
 &&&\\*
-$\bar{v}_e$&$-1$&$0$&$0$\\*
+$\bar{\nu}_e$&$-1$&$0$&$0$\\*
 &&&\\*
 \hline
 &&&\\*
-$v_u$&$0$&$+1$&$0$\\*
+$\nu_u$&$0$&$+1$&$0$\\*
 &&&\\*
 \hline
 &&&\\*
-$\bar{v}_u$&$0$&$-1$&$0$\\*
+$\bar{\nu}_u$&$0$&$-1$&$0$\\*
 &&&\\*
 \hline
 \end{longtable}
@@ -558,10 +463,74 @@ $\bar{v}_u$&$0$&$-1$&$0$\\*
 \end{figure}
 #+end_export
 
+**** Muon Decay
+
 Muons eventually decay into electrons and neutrinos, which are required to maintain the muon and electron lepton numbers.
 
-\[u^- \rightarrow e^- + \bar{v}_e + v_u\]
-\[u^+ \rightarrow e^+ + v_e + \bar{v}_u\]
+\[u^- \rightarrow e^- + \bar{\nu}_e + \nu_u\]
+\[u^+ \rightarrow e^+ + \nu_e + \bar{\nu}_u\]
+
+**** Neutrino Interactions
+
+Leptons can interact with certain hadrons. The corresponding charged lepton is created.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
+    \centering
+    \begin{tikzpicture}[x=30mm, y=30mm]
+    \begin{feynman}
+        \vertex (i1) {};
+        \vertex[right=.3 of i1] (i3) {\(n\)};
+        \vertex[above=2 of i1] (f1) {};
+        \vertex[right=.3 of f1] (f3) {\(p\)};
+        \vertex[above=1 of i3] (a);
+        \vertex[right=.15 of a] (b);
+        \vertex[right=.15 of b] (c);
+        \vertex at ($(c) + (1,.2)$) (d);
+        \vertex at ($(d) + (.3, 1)$) (f4) {\(\beta^-\)};
+        \vertex at ($(d) + (.3,-1)$) (f5) {\(\nu\)};
+    \diagram*{
+        (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+        (c) -- [boson, edge label'=\(W^- \), momentum, very thick] (d),
+        (d) -- [anti fermion, very thick] (f5),
+        (d) -- [fermion, very thick] (f4),
+    };
+    % \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+    % \node at (-.4,2.3) {\(t\)};
+    \end{feynman}
+    \end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+  \centering
+  \begin{tikzpicture}[x=30mm, y=30mm]
+    \begin{feynman}
+        \vertex (i1) {};
+        \vertex[right=.3 of i1] (i3) {\(p\)};
+        \vertex[above=2 of i1] (f1) {};
+        \vertex[right=.3 of f1] (f3) {\(n\)};
+        \vertex[above=1 of i3] (a);
+        \vertex[right=.15 of a] (b);
+        \vertex[right=.15 of b] (c);
+        \vertex at ($(c) + (1,.2)$) (d);
+        \vertex at ($(d) + (.3, 1)$) (f4) {\(\beta^+\)};
+        \vertex at ($(d) + (.3,-1)$) (f5) {\(\bar{\nu}\)};
+    \diagram*{
+        (i3) -- [fermion, very thick] (c) -- [fermion, very thick] (f3),
+        (c) -- [boson, edge label'=\(W^+ \), momentum, very thick] (d),
+        (d) -- [anti fermion, very thick] (f5),
+        (d) -- [fermion, very thick] (f4),
+    };
+    % \draw[-stealth] (-.4,-.4) -- (-.4,2.2);
+    % \node at (-.4,2.3) {\(t\)};
+    \end{feynman}
+    \end{tikzpicture}
+\end{minipage}
+
+\caption{The interaction between a lepton and hadron}
+\end{figure}
+#+end_export
 
 ** Photons & Energy
 
@@ -573,19 +542,303 @@ When charged particles undergo some change in energy, electromagnetic waves are 
 
 The energy gained by a particle is linked to its increase in mass via $E = mc^2$. Given that an object at rest has mass, it has a corresponding /rest energy/, equal to $m_0c^2$. This energy is stored permanently as mass, although it is still subject to the laws of conservation of energy.
 
-Where matter meets antimatter, specifically the correct /antiparticle/, rest energy can be released in a process called /annihilation/. The total rest mass of the two particles combined is converted into photon energy. Two photons are always produced to endure that the total difference in momentum is $0$. During annihilation, the total rest mass of the particle/antiparticle pair is $2E_0$ and two photons are produced, so:
+Where matter meets antimatter, specifically the correct /antiparticle/, rest energy can be released in a process called /annihilation/. The total rest mass of the two particles combined is converted into photon energy. Two photons are always produced to endure that the total difference in momentum is $0$.
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (-4,0) -- (0,0);
+\draw[-{Latex[length=2mm, width=2mm]}] (0,0) -- (2.83,2.83);
+\draw[-{Latex[length=2mm, width=2mm]}] (0,0) -- (2.83,-2.83);
+\filldraw[fill=red!40!white, draw=black] (1.415,1.415) circle (0.3cm);
+\filldraw[fill=blue!40!white, draw=black] (1.415,-1.415) circle (0.3cm);
+\end{tikzpicture}
+\caption{Pair production}
+\end{figure}
+
+#+end_export
+
+During annihilation, the total rest mass of the particle/antiparticle pair is $2E_0$ and two photons are produced. Therefore the minimum energy of each photon produced is equal to the rest energy of one of the particles.
 
 \[2E_0 = 2hf_{min}\]
-
-For each photon produced, the minimum energy is therefore equal to:
 
 \[hf_{min} = E_0\]
 
 *** Pair Production
 
-A high energy photon is capable of producing a particle/antiparticle pair. The energy of a photon must be equal to twice the rest mass of the particle in question.
+A high energy photon is capable of producing a particle/antiparticle pair. The energy of a photon must be equal to twice the rest mass of the particle in question, as only one photon is involved in the event.
 
 \[hf_{min} = 2E_0\]
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (0,0) -- (0,4);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (0,0) -- (0,-4);
+\draw[-{Latex[length=2mm, width=2mm]}] (-4,0) -- (0,0);
+\draw[-{Latex[length=2mm, width=2mm]}] (4,0) -- (0,0);
+\filldraw[fill=red!40!white, draw=black] (-2,0) circle (0.3cm);
+\filldraw[fill=blue!40!white, draw=black] (2,0) circle (0.3cm);
+\end{tikzpicture}
+\caption{Annihilation}
+\end{figure}
+
+#+end_export
+
+** Quantum Phenomena
+
+The word /quantum/ refers to a measurable, discrete quantity of something. It was theorised that energy and EM waves, along with particles, are quantised.
+
+*** Photoelectric Effect
+
+The emission of electrons from the surface of a material which some electromagnetic radiation is incident on is described as the /photoelectric effect/. Any electrons removed from the surface of this material are called /photoelectrons/.
+
+Traditional understanding of electromagnetism would suggest that electrons would be liberated from atoms in the material once they have absorbed enough energy from incident radiation. If this were true, photoelectrons would be emitted from a material regardless of the frequency of the incident EM wave. Greater intensity would theoretically increase the rate at which photoelectrons were emitted.
+
+*** Work Function & Threshold Frequency
+
+Later evidence proved that photoelectrons were only emitted from a material when the frequency of incident radiation is greater than a certain threshold. Further increasing the frequency of incident radiation caused photoelectrons to be emitted with greater kinetic energy, indicating the presence of a constant threshold for the material. This constant was named the /work function/, denoted with the symbol: $\phi$. Therefore the final kinetic energy of an emitted photoelectron is the photon energy less the work function of the material.
+
+\[E_{\text{Kmax}} = hf - \phi \text{ \emph{where} } E_{\text{Kmax}} > 0\]
+
+\[f_\text{min} = \dfrac{\phi}{h}\]
+
+Photoelectrons are only emitted from a material when $E_{\text{Kmax}}$ exceeds $0$. The threshold frequency, or $f_\text{min}$, is the frequency of incident radiation required to satisfy this condition.
+
+*** Stopping Potential
+
+If the threshold frequency is met or exceeded, the photoelectrons that are removed from atoms can be prevented from leaving the material's surface under certain conditions. The minimum electric potential required to prevent photoelectric emission is called the /stopping potential/, labelled $V_s$. At this potential, the $E_{\text{Kmax}}$ of each electron bearing the charge $e$ is equal to the potential energy of the particle.
+
+\[E_{\text{Kmax}} = eV_s\]
+
+The electrons initial kinetic energy is reduced to 0 as work is done against the potential of the charge. Therefore the photoelectron is prevented from escaping.
+
+*** Vacuum Photocell
+
+The photoelectric effect is demonstrated in the /vacuum photocell/ experiment. The photocell is a glass container housing a metal plate, called the /photocathode/, when *EM* radiation is incident on this plate, electrons are liberated and move the /anode/ on the opposite side of the photocell. The magnitude of the current in the circuit is proportional to the number of electrons reaching the anode, and hence the intensity of the light incident of the cathode.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{./images/photoelectric_effect_circuit.png}
+\caption{Vacuum photocell experiment}
+\end{figure}
+#+end_export
+
+The $E_{\text{Kmax}}$ of the emitted photoelectrons can be measured by raising the potential of the circuit to stopping potential, at which point the photoelectrons emitted from the photocathode do not have sufficient initial kinetic energy to overcome the potential in the photocell. As a consequence, the charge in the circuit drops to zero. The $E_{\text{Kmax}}$ is the product of the applied potential and the magnitude of charge of an electron. Using the substitution of $E_{\text{Kmax}} = eV_s$, the relationship formed by figure \ref{img:photoelectric_graph} is shown.
+
+\[V_s = \dfrac{h}{e}(f - f_{min}) = \dfrac{h}{e}f - \dfrac{\phi}{e}\]
+
+\[E_{Kmax} = hf - \phi\]
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/photoelectron_energy.png}
+\caption{Kinetic energy of emitted photoelctrons}
+\label{img:photoelectric_graph}
+\end{figure}
+#+end_export
+
+*** Ionisation
+
+An ion is a charged atom. Positive ions are produced by removing electrons from the atom. Negative ions are produced by adding electrons to the shells around an atom. /Ionisation/ is the process of producing ions.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.3cm);
+\draw[dashed, gray] (0,0) circle (1.2cm);
+\draw (-3,-1.045) -- (0.63,-1.045);
+\draw (0.63,-1.045) -- (3,1);
+\draw[-{Latex[length=2mm, width=2mm]}] (3,1) -- (3.5,1.45);
+\draw (0.63,-1.045) -- (1.85,-2.45);
+\draw[-{Latex[length=2mm, width=2mm]}] (1.85,-2.45) -- (2.3, -3);
+\filldraw[fill=white, draw=black] (0.63,-1.045) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (1.85,-2.45) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (-0.63,1.045) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (3,1) circle (0.12cm);
+\end{tikzpicture}
+\caption{Ionisation by collision}
+\end{figure}
+#+end_export
+
+*** Excitation
+
+During the /excitation/ of an electron, it is moved to a more energetic orbit, further from the atom. Unlike ionisation, electrons are not removed from the atom. Excitation may occur due to the collision of a fast moving electron with an orbitting electron, as shown on the left of figure \ref{img:electron_excitation}, or by the absorption of a photon, shown on the right of the same figure.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.3cm);
+\draw[dashed, gray] (0,0) circle (1.2cm);
+\draw[dashed, gray] (0,0) circle (2.4cm);
+\draw (-3,-1.045) -- (0.63,-1.045);
+\draw (0.63,-1.045) -- (3,1);
+\draw[-{Latex[length=2mm, width=2mm]}] (3,1) -- (3.5,1.45);
+\draw[-{Latex[length=2mm, width=2mm]}] (0.76,-1.3) -- (1.07,-1.78);
+\filldraw[fill=white, draw=black] (0.63,-1.045) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (1.25,-2.05) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (-0.63,1.045) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (3,1) circle (0.12cm);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.3cm);
+\draw[dashed, gray] (0,0) circle (1.2cm);
+\draw[dashed, gray] (0,0) circle (2.4cm);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (-3,-1.045) -- (0.56,-1.045);
+\draw[-{Latex[length=2mm, width=2mm]}] (0.76,-1.3) -- (1.07,-1.78);
+\filldraw[fill=white, draw=black] (0.63,-1.045) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (1.25,-2.05) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (-0.63,1.045) circle (0.12cm);
+\end{tikzpicture}
+\end{minipage}
+\caption{Electron excitation}
+\label{img:electron_excitation}
+\end{figure}
+#+end_export
+
+*** Energy Levels
+
+Electrons are bound to an atom by the electrostatic force of attraction to the positively charged nucleus. Electrons may only orbit in specific positions or shells. The energy of electrons in these shells is fixed and movement between them requires exact, /discrete/ amounts of energy. The energy required for an electron to move between shells must be delivered or emitted in a single burst.
+
+During excitation, an electron is moved to a higher orbit, either due to collision from another electron or the absorption of a photon. This change places the atom in a heightened /energy level/. Eventually the electron will move back down to its original orbit, releasing a photon of predictable energy in a process known as /de-excitation/.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\filldraw[fill=blue!40!white, draw=black] (0,0) circle (0.3cm);
+\draw[dashed, gray] (0,0) circle (1.2cm);
+\draw[dashed, gray] (0,0) circle (2.4cm);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (0.65,-1.045) -- (3.5,-1.045);
+\draw[-{Latex[length=2mm, width=2mm]}] (1.07,-1.78) -- (0.76,-1.3);
+\filldraw[fill=red!40!white, draw=black] (0.63,-1.045) circle (0.12cm);
+\filldraw[fill=white, draw=black] (1.25,-2.05) circle (0.12cm);
+\filldraw[fill=red!40!white, draw=black] (-0.63,1.045) circle (0.12cm);
+\end{tikzpicture}
+\caption{De-excitation by emission of a photon}
+\label{img:energy_levels}
+\end{figure}
+#+end_export
+
+The diagram in figure \ref{img:energy_levels}, illustrates the /energy levels/ of a hypothetical atom. Each energy level, labelled on the right, is a different electronic configuration. The /ionisation level/ is the zero reference point and the lowest energy state of the atom is called the /ground state/. As energy is /required/ to move the atom into a higher energy state, energy levels are negative and increase towards the ionisation level. For a change to occur, an amount of energy equal to the difference between the current energy level and any other must be absorbed or emitted.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\draw[thick] (-2,0) -- (2,0);
+\draw[white] (-2,9) -- (2,9);
+\draw[thick] (-2,8) -- (2,8);
+\draw[thick] (-2,6) -- (2,6);
+\draw[thick] (-2,5) -- (2,5);
+\draw[very thick, red] (-2,9) -- (2,9);
+\node[] at (0, 9.5) {IONISATION};
+\node[] at (2.5,0) {$0$};
+\node[] at (2.5,5) {$1$};
+\node[] at (2.5,6) {$2$};
+\node[] at (2.5,8) {$3$};
+\node[] at (-2.5,0) {$-9eV$};
+\node[] at (-2.5,5) {$-4eV$};
+\node[] at (-2.5,6) {$-3eV$};
+\node[] at (-2.5,8) {$-1eV$};
+\node[] at (-2.5,9) {0};
+\node[] at (-4.5, 4) {$8eV$};
+\node[] at (4.5, 7) {$2eV$};
+\node[] at (4.5, 5.5) {$1eV$};
+\node[] at (4.5, 2.5) {$5eV$};
+\draw[-{Latex[length=2mm, width=2mm]},  gray] (-1.5, 0) -- (-1.5, 8);
+\draw[-{Latex[length=2mm, width=2mm]},  gray] (-0.5, 8) -- (-0.5, 6);
+\draw[-{Latex[length=2mm, width=2mm]},  gray] (0.5, 6) -- (0.5, 5);
+\draw[-{Latex[length=2mm, width=2mm]},  gray] (1.5, 5) -- (1.5, 0);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (-4,4) -- (-1.5,4);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (-0.5,7) -- (4,7);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (0.5,5.5) -- (4,5.5);
+\draw[draw=red, -{Latex[length=2mm, width=2mm]}, snake it] (1.5,2.5) -- (4,2.5);
+\end{tikzpicture}
+\caption{Atomic energy levels}
+\label{img:energy_levels}
+\end{figure}
+#+end_export
+
+Following excitation by a photon of $8eV$, the atom in figure \ref{img:energy_levels}, de-excites by the emission of three less energetic photons, gradually descending through the energy levels. This phenomena is the basis of /fluorescence/, where high energy *UV* photons are absorbed by fluorescent materials and the energy is released in stages as less energetic visible light photons.
+
+*** Wave-Particle Duality
+
+#+begin_export latex
+% TODO fact check this
+#+end_export
+
+The diffraction of light and the photoelectric effect demonstrate light's dual particle and wave-like nature. Some particles behave the same way and have wave-like properties. The /de Broglie/ hypothesis states that the wave-like nature of a matter particle is characterised by its wavelength.
+
+\[ \lambda  = \dfrac{h}{p} = \dfrac{h}{mv}\]
+
+Evidence for the wave-like nature of matter particles comes from the diffraction of a beam of electrons. If a concentrated beam of electrons is directed through a thin metal foil, electrons are diffracted by the arrangement of positive ions. The electrons however are diffracted in particular directions.
+
+The amount of diffraction observed can be adjusted by altering the speed of the electrons in the beam, causing a change in the /de Broglie/ wavelength of the beam. The beam is produced by attracting electrons from a source to a positively charged plate with a small hole in it. The speed of the electrons is therefore determined by the potential difference between these components and hence their acceleration due to the electric field in place.
+
+Figure \ref{img:electron_diffraction} shows the diffraction of a beam of electrons through a thin metal foil, from two points of view. The image on the left, depicts a horizontal elevation of the diffraction experiment. On the right is the diffraction pattern as observed on a screen. It resembles the diffraction pattern of light directed through a single slit, rotated through \(360 \textdegree\) about its centre.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\draw[green!70!black] (-3,0) -- (-2,0);
+\draw[very thick] (-2,-0.5) -- (-2,0.5);
+\draw[thick] (2,-2) -- (2,2);
+\draw[green!70!black] (-2,0) -- (2, 0);
+\draw[green!70!black] (-2,0) -- (2, 0.4);
+\draw[green!70!black] (-2,0) -- (2, -0.4);
+\draw[green!70!black] (-2,0) -- (2, 0.9);
+\draw[green!70!black] (-2,0) -- (2, -0.9);
+\draw[green!70!black] (-2,0) -- (2, 1.8);
+\draw[green!70!black] (-2,0) -- (2, -1.8);
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\fill[green!70!black] (0,0) circle (0.15cm);
+\draw[green!70!black] (0,0) circle (0.6cm);
+\draw[green!70!black] (0,0) circle (1.2cm);
+\draw[green!70!black] (0,0) circle (2.4cm);
+\end{tikzpicture}
+\end{minipage}
+\caption{The diffraction of a beam of electrons}
+\label{img:electron_diffraction}
+\end{figure}
+#+end_export
 
 * Fields and their Consequences
 ** Gravitational Fields
@@ -631,11 +884,9 @@ If the same object is observed much more closely, radial field lines may appear 
 \begin{figure}[H]
 \centering
 \begin{tikzpicture}
-\fill[blue!40!white] (-2,3) rectangle (-1.5, -3);
+\fill[blue!40!white] (-2,2) rectangle (-1.5, -2);
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.55 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
-    \draw[] (-1.5, 3) -- (-1.5, -3);
-    \draw[postaction={decorate}]  (1.5,2.5) -- (-1.5,2.5);
-    \draw[postaction={decorate}]  (1.5,2.0) -- (-1.5,2.0);
+    \draw[] (-1.5, 2) -- (-1.5, -2);
     \draw[postaction={decorate}]  (1.5,1.5) -- (-1.5,1.5);
     \draw[postaction={decorate}]  (1.5,1.0) -- (-1.5,1.0);
     \draw[postaction={decorate}]  (1.5,0.5) -- (-1.5,0.5);
@@ -643,11 +894,9 @@ If the same object is observed much more closely, radial field lines may appear 
     \draw[postaction={decorate}]  (1.5,-0.5) -- (-1.5,-0.5);
     \draw[postaction={decorate}]  (1.5,-1.0) -- (-1.5,-1.0);
     \draw[postaction={decorate}]  (1.5,-1.5) -- (-1.5,-1.5);
-    \draw[postaction={decorate}]  (1.5,-2.0) -- (-1.5,-2.0);
-    \draw[postaction={decorate}]  (1.5,-2.5) -- (-1.5,-2.5);
 \end{scope}
 \end{tikzpicture}
-\caption{A "uniform" graviatational field}
+\caption{A uniform graviatational field}
 \end{figure}
 #+end_export
 
@@ -778,7 +1027,7 @@ This final form of the equation is only valid when $r < R$. This equation demons
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,keepaspectratio]{./images/gravitational_field_strength.png}
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/gravitational_field_strength.png}
 \caption{Field strength within and beyond R}
 \end{figure}
 #+end_export
@@ -817,7 +1066,7 @@ The graph of $V$ against $r$ proves the $1/r$ relationship. At any point the gra
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,keepaspectratio]{./images/gravitational_potential.png}
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/gravitational_potential.png}
 \caption{Increase in potential with radius}
 \end{figure}
 #+end_export
@@ -836,9 +1085,7 @@ According to /Kepler's Third Law/, the time period of a planet orbiting the sun 
 
 \[\dfrac{r^3}{T^2} = \dfrac{GM}{4 \pi^2 }\]
 
-Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all planets.
-
-The *KE* and *PE* of an orbiting satelite are as follows:
+Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all planets. The *KE* and *PE* of an orbiting satellite are as follows:
 
 \[E_k = \dfrac{1}{2} m v^2 = \dfrac{1}{2} m \dfrac{GM}{r} = \dfrac{GMm}{2r}\]
 
@@ -1052,7 +1299,7 @@ The potential energy is:
 
 ** Capacitors
 
-A capacitor is a component designed to store charge. Two metal plates positioned near one another form a capacitor. When connected across the terminals of a battery, electrons are forces from the negative terminal of the battery onto one of the capacitor plates. A similar number of electrons leave the opposite plate of the capacitor. Each plate gains an equal and opposite charge.
+A capacitor is a component designed to store charge. Two metal plates positioned near one another form a capacitor. When connected across the terminals of a battery, electrons are forced from the negative terminal of the battery onto one of the capacitor plates. A similar number of electrons leave the opposite plate of the capacitor. Each plate gains an equal and opposite charge.
 
 *** Charge Stored in a Capacitor
 
@@ -1060,18 +1307,61 @@ If the total charge stored on a capacitor is $Q$, the charge on each plate is eq
 
 \[C = \dfrac{Q}{V}\]
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_charge_constant_current.png}
+\caption{Charge stored in a capacitor}
+\end{figure}
+#+end_export
+
 *** Energy Stored in a Capacitor
 
 The energy stored in a capacitor is the area under a $V/Q$ graph.
 
 \[E = \dfrac{1}{2} QV\]
 
-\[E = \dfrac{1}{2} (CV)V^2\]
+\[E = \dfrac{1}{2} (CV)V\]
 
 \[E = \dfrac{1}{2} CV^2\]
 
+*** Discharging Through a Fixed Resistor
+
+\[V = V_0 e^{-t/RC}\]
+
+\[Q = Q_0 e^{-t/RC}\]
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_exp_discharge.png}
+\caption{The P.d. across a discharging capacitor}
+\end{figure}
+#+end_export
+
+*** Charging Through a Fixed Resistor
+
+\[V = V_0 \left ( 1 - e^{-t/RC} \right )\]
+
+\[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
+
+\[I_0 = \dfrac{V_0}{R}\]
+
+\[I = I_0 e^{-t/RC}\]
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_exp_charge.png}
+\caption{Quantities observed during capacitor charge}
+\end{figure}
+#+end_export
+
 * Nuclear Physics
 ** Radiation
+
+Atoms which are not considered stable emit /radiation/. Radiation is the emission of energy and is often /electromagnetic/ or as particles. Radiation is sometimes considered frightening or alarming among the general population, although it has many industrial and medical uses.
+
 ** Inverse Square Law
 
 The intensity $I$ of $\gamma$ radiation is the energy transferred per second per unit area. Assuming a point source emits $n$ $\gamma$ photons per second and each photon has the energy $hf$, the total energy emitted by the source per second is $nhf$. These photons are free to leave the source in any direction, so at distance $r$ from the source all the photons will pass through an area equal to the /S.A./ of a sphere with radius $r$. This equation represents the intensity of radiation from a point source at distance $r$:
@@ -1129,7 +1419,7 @@ As the activity, or rate of change of nuclei of $X$, is proportional to the curr
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,keepaspectratio]{./images/c-14_decay.png}
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/c-14_decay.png}
 \caption{Decay curve of C-14}
 \end{figure}
 #+end_export
@@ -1160,7 +1450,7 @@ Half-life can be linked to the decay constant. When $t= T_{1/2}$, the number of 
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,keepaspectratio]{./images/c-14_t_half.png}
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/c-14_t_half.png}
 \caption{Various half-lives of C-14}
 \end{figure}
 #+end_export
@@ -1208,7 +1498,7 @@ Each nucleus has a binding energy and a specific binding energy per nucleon. Thi
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth,keepaspectratio]{./images/nuclear_stability.png}
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/nuclear_stability.png}
 \caption{A graph of nuclear stability}
 \end{figure}
 #+end_export

@@ -1,0 +1,53 @@
+#+latex_header:  \usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm, headsep=1cm, footskip=1cm]{geometry}
+#+latex_header: \usepackage{titlesec}
+#+latex_header: \setcounter{secnumdepth}{12}
+#+latex_header: \titleformat{\paragraph}
+#+latex_header: {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+#+latex_header: \titlespacing*{\paragraph}
+#+latex_header: {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+#+latex_header: \usepackage{indentfirst}
+#+latex_header: \setlength{\parindent}{1em}
+#+latex_header: \setlength{\parskip}{1em}
+#+latex_header: \usepackage[export]{adjustbox}
+#+latex_header: \raggedbottom
+#+latex_header: \usepackage{float}
+#+latex_header: \clearpage
+#+latex_header: \usepackage{longtable}
+#+latex_header: \usepackage{array}
+#+latex_header: \usepackage{multirow}
+#+latex_header: \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+#+latex_header: \usepackage{gensymb}
+#+latex_header: \usepackage{graphicx}
+#+latex_header: \usepackage{tikz}
+#+latex_header: \usepackage{tikz-feynman}
+#+latex_header: \usetikzlibrary{arrows.meta, decorations.pathreplacing, decorations.markings, decorations.pathmorphing}
+#+latex_header: \tikzset{snake it/.style={decorate, decoration=snake}}
+#+latex_header: \usepackage{multicol}
+#+latex_header: \usepackage{tcolorbox}
+#+latex_header: \setlength{\columnsep}{1cm}
+#+latex_header: \setlength{\columnseprule}{1pt}
+#+latex_header: \def\columnseprulecolor{\color{lightgray}}
+#+latex_header: \renewcommand\fbox{\fcolorbox{lightgray}{white}}
+#+latex_header: \usepackage{framed}
+#+latex_header: \usepackage{xcolor}
+#+latex_header: \usepackage{xpatch}
+#+latex_header: \usepackage{fancyhdr}
+#+latex_header: \pagestyle{fancy}
+#+latex_header: \fancyhf{}
+#+latex_header: \pagestyle{fancy}
+#+latex_header: \rhead{\emph{A.F.N}}
+#+latex_header: \lhead{Physics}
+#+latex_header: \rfoot{\thepage}
+#+latex_header: \lfoot{\leftmark}
+#+latex_header: \renewcommand{\headrulewidth}{1pt}
+#+latex_header: \renewcommand{\footrulewidth}{1pt}
+#+latex_header: \xpretocmd\headrule{\color{lightgray}}{}{\PatchFailed}
+#+latex_header: % \xpretocmd\footrule{\color{lightgray}}{}{\PatchFailed}
+#+latex_header: \usepackage{etoolbox}
+#+latex_header: \makeatletter
+#+latex_header: \patchcmd{\footrule}
+#+latex_header:   {\if@fancyplain}
+#+latex_header:   {\color{lightgray}\if@fancyplain}
+#+latex_header:   {}
+#+latex_header:   {}
+#+latex_header: \makeatother
