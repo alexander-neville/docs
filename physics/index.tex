@@ -1,9 +1,10 @@
-% Created 2022-01-22 Sat 22:49
+% Created 2022-01-30 Sun 23:16
 % Intended LaTeX compiler: pdflatex
 \documentclass[12pt]{article}
 \usepackage[hidelinks]{hyperref}
 \usepackage{amsmath}
-\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm, headsep=1cm, footskip=1cm]{geometry}
+\usepackage{amssymb}
+\usepackage[margin=3cm]{geometry}
 \usepackage{titlesec}
 \setcounter{secnumdepth}{12}
 \titleformat{\paragraph}
@@ -29,9 +30,9 @@
 \tikzset{snake it/.style={decorate, decoration=snake}}
 \usepackage{multicol}
 \usepackage{tcolorbox}
-\setlength{\columnsep}{1cm}
-\setlength{\columnseprule}{1pt}
-\def\columnseprulecolor{\color{lightgray}}
+\setlength{\columnsep}{0.1cm}
+\setlength{\columnseprule}{0.5pt}
+\def\columnseprulecolor{\color{white}}
 \renewcommand\fbox{\fcolorbox{lightgray}{white}}
 \usepackage{framed}
 \usepackage{xcolor}
@@ -40,8 +41,8 @@
 \pagestyle{fancy}
 \fancyhf{}
 \pagestyle{fancy}
-\rhead{\emph{A.F.N}}
-\lhead{Physics}
+\rhead{\emph{Alexander F. Neville}}
+\lhead{AQA A-Level Physics}
 \rfoot{\thepage}
 \lfoot{\leftmark}
 \renewcommand{\headrulewidth}{1pt}
@@ -56,6 +57,7 @@
 {}
 {}
 \makeatother
+\addtolength{\abovecaptionskip}{5mm}
 \author{Alexander Neville}
 \date{\today}
 \title{Physics Notes}
@@ -79,9 +81,9 @@
 \newpage
 
 \section{Particle Physics}
-\label{sec:org4108046}
+\label{sec:org8a91efc}
 \subsection{Atoms \& Nuclei}
-\label{sec:orgc046101}
+\label{sec:org61b6a9a}
 
 An atom is composed of a positively charged, centrally located mass called the \emph{nucleus}, surrounded by negatively charged \emph{electrons}. These electrons are held in the atom by the \emph{electrostatic force of attraction} from the positive nucleus. The ratio of electron mass to nucleon mass is about \(0.0005\). Therefore the majority of an atoms mass is contained in the nucleus. The ratio of the diameter of a nucleus to the typical diameter of an atom is about \(0.000001\).
 
@@ -89,17 +91,17 @@ An atom is composed of a positively charged, centrally located mass called the \
 % insert table about p, n and e
 
 \subsubsection{Isotopes}
-\label{sec:org829dbe7}
+\label{sec:org1cb9852}
 
 Every atom of a particular element has the same number of protons as the next. The proton number, also called the atomic number and denoted with the letter \(Z\), identifies particular atoms. Atoms of a certain element can have \textbf{different} neutron totals. These atoms share the same proton number so they are of the same element and are \emph{isotopes} of that element. The total number of nucleons (neutrons and protons) is denoted with the letter \(A\) and sometimes called the mass number. The number of neutrons in a nucleus is equal to \(A - Z\). An unspecified element may be represented with the notation \(^{A}_{Z}X\) where the mass number is displayed above the proton number. Each type of a nucleus of element \(X\) is called a \emph{nuclide}.
 
 \subsubsection{Specific Charge}
-\label{sec:org23a4224}
+\label{sec:orga42553e}
 
 The specific charge of a charged particle is the total charge over its mass. The specific charge for a nucleus, nucleon, electron, ion or other particle can all be calculated.
 
 \subsubsection{Strong Nuclear Force}
-\label{sec:org4551527}
+\label{sec:org845b4ac}
 
 Protons in a nucleus experience repulsion from one another due to their like charge. A separate force is required to oppose the electrostatic force between protons and prevent the disintegration of nuclei. This force is known as the \emph{Strong Nuclear Force}.
 
@@ -115,7 +117,7 @@ Protons in a nucleus experience repulsion from one another due to their like cha
 % graph of force against seperation
 
 \subsubsection{Force Carriers}
-\label{sec:org0009511}
+\label{sec:org00e3822}
 
 Forces acting on objects cause a change in momentum according to \(F = mv/t\). This is observed when two charged particles approach one another. For example, the electromagnetic force between particles is due to an exchange particle, in this case a \emph{virtual photon}.
 
@@ -148,12 +150,12 @@ Forces acting on objects cause a change in momentum according to \(F = mv/t\). T
 \end{figure}
 
 \subsubsection{Weak Interaction}
-\label{sec:orgcb303a1}
+\label{sec:org6cdb928}
 
 The \emph{Weak Nuclear Force} causes some nuclear changes, such as beta emission. It is so called as its strength is less than the strong nuclear force, preventing the disintegration of stable nuclei. The exchange particle of the \emph{weak interaction} is the \emph{W boson}. These are charged particles with a very short range and non-zero rest mass.
 
 \subsection{Radioactive Decay}
-\label{sec:org9ddc2cb}
+\label{sec:orgb6fc5fa}
 
 Naturally occurring radioactive isotopes emit three types of radiation:
 
@@ -164,14 +166,14 @@ Naturally occurring radioactive isotopes emit three types of radiation:
 \end{enumerate}
 
 \subsubsection{Alpha Emission}
-\label{sec:org3be7119}
+\label{sec:org36c305c}
 
 An \(\alpha\) particle is composed of two neutrons and two protons. The product nucleus \(Y\), after \(\alpha\) emission has taken place, is a of a different, lighter element.
 
 \[^A_ZX \rightarrow \text{} ^4_2\alpha + \text{} ^{A-4}_{Z-2}Y\]
 
 \subsubsection{Beta Minus Decay}
-\label{sec:org744df2b}
+\label{sec:orgfcc8a5e}
 
 A \(\beta^-\) particle is an electron. During \(\beta^-\) emission, a neutron in a neutron-rich nucleus decays into a proton. The underlying change is the conversion of a \emph{down quark} into an \emph{up quark}. Along with a fast-moving electron, an \emph{electron antineutrino} is produced.
 
@@ -212,7 +214,7 @@ A \(\beta^-\) particle is an electron. During \(\beta^-\) emission, a neutron in
 \end{figure}
 
 \subsubsection{Beta Plus Decay}
-\label{sec:org11706dd}
+\label{sec:org233953b}
 
 A \(\beta^+\) particle is a positron. During \(\beta^+\) emission, a proton in a proton-rich nucleus decays into a neutron. The underlying change is the conversion of an \emph{up quark} into an \emph{down quark}. Along with a fast-moving positron, an \emph{electron neutrino} is produced.
 
@@ -253,7 +255,7 @@ A \(\beta^+\) particle is a positron. During \(\beta^+\) emission, a proton in a
 \end{figure}
 
 \subsubsection{Electron Capture}
-\label{sec:orgda05afb}
+\label{sec:orgbd37c81}
 
 A proton-rich nucleus could also undergo \emph{electron capture}. In this type of decay a proton changes into a neutron after capturing an inner shell electron. The nature of the \emph{W boson} is not significant/distinguishable.
 
@@ -316,17 +318,17 @@ A proton-rich nucleus could also undergo \emph{electron capture}. In this type o
 \end{figure}
 
 \subsubsection{Gamma Emission}
-\label{sec:org2d47e6c}
+\label{sec:org65e158c}
 
 Gamma radiation is emitted by an unstable nucleus. This type of emission is pure energy with no mass and no charge. There is no change to the number of nucleons in the nucleus when a \(\gamma\) photon is emitted. This type of emission usually happens if the nucleus is in an excited state after one of the previous types of emission.
 
 \subsection{Particles \& Antiparticles}
-\label{sec:org673d287}
+\label{sec:org422fcc0}
 
 For each type of particle, there is a corresponding \emph{antiparticle} which, in a collision event, can release the rest energy of the two particles combined. For any particle, its antiparticle will have the same rest mass and opposite charge if the particle has a charge.
 
 \subsubsection{Hadrons}
-\label{sec:org1d6ee6d}
+\label{sec:orgd0d09ee}
 
 Hadrons are \emph{non-fundamental} particles subject to all basic interactions: strong, weak, gravitational and electromagnetic. All Hadrons are composed of \emph{quarks.} Hadrons can be divided into two categories: \emph{baryons} and \emph{mesons}.
 
@@ -388,7 +390,7 @@ $K^-$&$0$&$-1$&$-1$\\*
 \end{figure}
 
 \paragraph{Quarks}
-\label{sec:orgd409556}
+\label{sec:orgf57f369}
 
 As non-fundamental particles, the properties of hadrons can be determined by their \emph{quark-composition}. The \emph{charge}, \emph{rest mass} and \emph{strangeness} of a particle are determined by its combination of quarks. The three main types of quark are the \emph{up}, \emph{down} and \emph{strange} quarks, each having a \emph{baryon number} of \(+1/3\). For each of these quarks, there is a corresponding \emph{antiquark}, with the opposite properties.
 
@@ -422,19 +424,19 @@ baryon number $B$ &$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$+\dfrac{1}{3}$&$-\dfrac{1}{3
 \end{figure}
 
 \paragraph{Baryons}
-\label{sec:orgfd34844}
+\label{sec:org2ac537c}
 
 The baryons are a group of hadrons which are most commonly composed of three quarks. They have a baryon number of \(1\) or \(-1\) in the case of an \emph{antibaryon}. These particles make up the nuclei of most atoms and constitute most of the mass in the universe. All baryons eventually decay into protons, the only stable baryon.
 
 \paragraph{Strangeness}
-\label{sec:org647b1a9}
+\label{sec:orge86bb7f}
 
 The strangeness of a particle is another property determined by quark configuration. Strange particles contain a non-zero strangeness. Strange particles are always produced in pairs during the strong interaction, a consequence of the conservation of strangeness.
 
 Strange particles take a long time to decay through the weak interaction. Strangeness does not need to be conserved in the weak interaction and the total strangeness before and after may vary by \(0\), \(-1\) or \(1\). \emph{Kaons} are the lightest strange particle and they are mesonic. They decay into pions. Other baryonic strange particles are characterised by a rest mass much larger than a proton and decay into pions and protons.
 
 \paragraph{Mesons}
-\label{sec:org1b00ee0}
+\label{sec:org66ab198}
 
 Mesons are hadrons composed of a quark/antiquark pair. Their baron number is always 0. As hadrons, mesons are bound by the strong force and have meaningful size. Their diameter is roughly \(1.0fm\), about two thirds of the diameter of a neutron or proton. Mesons are unstable particles which decay into lighter mesons and then stable leptons, but not protons as baryons do. Mesons exist outside of the nucleus as the product of high energy baryonic collisions. They participate in the weak and strong interactions.
 
@@ -473,7 +475,7 @@ Mesons are hadrons composed of a quark/antiquark pair. Their baron number is alw
 \end{figure}
 
 \subsubsection{Leptons}
-\label{sec:org9a6a106}
+\label{sec:orgd951459}
 
 Leptons are \emph{fundamental} particles: they are indivisible. There are two types of lepton: the \emph{electron} and the \emph{muon}. There are specific neutrinos for each lepton type. During interactions the muon lepton number and the electron number are conserved. Leptons do not interact due to the strong force.
 
@@ -523,7 +525,7 @@ $\bar{\nu}_u$&$0$&$-1$&$0$\\*
 \end{figure}
 
 \paragraph{Muon Decay}
-\label{sec:orgb2995ba}
+\label{sec:org2c68adb}
 
 Muons eventually decay into electrons and neutrinos, which are required to maintain the muon and electron lepton numbers.
 
@@ -531,7 +533,7 @@ Muons eventually decay into electrons and neutrinos, which are required to maint
 \[u^+ \rightarrow e^+ + \nu_e + \bar{\nu}_u\]
 
 \paragraph{Neutrino Interactions}
-\label{sec:org257e209}
+\label{sec:orgfae9f98}
 
 Leptons can interact with certain hadrons. The corresponding charged lepton is created.
 
@@ -592,14 +594,14 @@ Leptons can interact with certain hadrons. The corresponding charged lepton is c
 \end{figure}
 
 \subsection{Photons \& Energy}
-\label{sec:org403853d}
+\label{sec:orgf9c41d6}
 
 When charged particles undergo some change in energy, electromagnetic waves are created. These exist in \emph{discrete} packets called \emph{photons}. The energy of a photon is tied to the frequency of the wave it represents in the form:
 
 \[E = hf\]
 
 \subsubsection{Annihilation}
-\label{sec:org235af82}
+\label{sec:orga9e213a}
 
 The energy gained by a particle is linked to its increase in mass via \(E = mc^2\). Given that an object at rest has mass, it has a corresponding \emph{rest energy}, equal to \(m_0c^2\). This energy is stored permanently as mass, although it is still subject to the laws of conservation of energy.
 
@@ -627,7 +629,7 @@ During annihilation, the total rest mass of the particle/antiparticle pair is \(
 \[hf_{min} = E_0\]
 
 \subsubsection{Pair Production}
-\label{sec:org17263b8}
+\label{sec:org1d5d367}
 
 A high energy photon is capable of producing a particle/antiparticle pair. The energy of a photon must be equal to twice the rest mass of the particle in question, as only one photon is involved in the event.
 
@@ -650,19 +652,19 @@ A high energy photon is capable of producing a particle/antiparticle pair. The e
 \end{figure}
 
 \subsection{Quantum Phenomena}
-\label{sec:org65fd024}
+\label{sec:orga55e671}
 
 The word \emph{quantum} refers to a measurable, discrete quantity of something. It was theorised that energy and EM waves, along with particles, are quantised.
 
 \subsubsection{Photoelectric Effect}
-\label{sec:org271328c}
+\label{sec:org3cf5894}
 
 The emission of electrons from the surface of a material which some electromagnetic radiation is incident on is described as the \emph{photoelectric effect}. Any electrons removed from the surface of this material are called \emph{photoelectrons}.
 
 Traditional understanding of electromagnetism would suggest that electrons would be liberated from atoms in the material once they have absorbed enough energy from incident radiation. If this were true, photoelectrons would be emitted from a material regardless of the frequency of the incident EM wave. Greater intensity would theoretically increase the rate at which photoelectrons were emitted.
 
 \subsubsection{Work Function \& Threshold Frequency}
-\label{sec:org02a073c}
+\label{sec:org8ec5ab0}
 
 Later evidence proved that photoelectrons were only emitted from a material when the frequency of incident radiation is greater than a certain threshold. Further increasing the frequency of incident radiation caused photoelectrons to be emitted with greater kinetic energy, indicating the presence of a constant threshold for the material. This constant was named the \emph{work function}, denoted with the symbol: \(\phi\). Therefore the final kinetic energy of an emitted photoelectron is the photon energy less the work function of the material.
 
@@ -673,7 +675,7 @@ Later evidence proved that photoelectrons were only emitted from a material when
 Photoelectrons are only emitted from a material when \(E_{\text{Kmax}}\) exceeds \(0\). The threshold frequency, or \(f_\text{min}\), is the frequency of incident radiation required to satisfy this condition.
 
 \subsubsection{Stopping Potential}
-\label{sec:org8115ed6}
+\label{sec:org614563c}
 
 If the threshold frequency is met or exceeded, the photoelectrons that are removed from atoms can be prevented from leaving the material's surface under certain conditions. The minimum electric potential required to prevent photoelectric emission is called the \emph{stopping potential}, labelled \(V_s\). At this potential, the \(E_{\text{Kmax}}\) of each electron bearing the charge \(e\) is equal to the potential energy of the particle.
 
@@ -682,7 +684,7 @@ If the threshold frequency is met or exceeded, the photoelectrons that are remov
 The electrons initial kinetic energy is reduced to 0 as work is done against the potential of the charge. Therefore the photoelectron is prevented from escaping.
 
 \subsubsection{Vacuum Photocell}
-\label{sec:org4e89e83}
+\label{sec:org077499d}
 
 The photoelectric effect is demonstrated in the \emph{vacuum photocell} experiment. The photocell is a glass container housing a metal plate, called the \emph{photocathode}, when \textbf{EM} radiation is incident on this plate, electrons are liberated and move the \emph{anode} on the opposite side of the photocell. The magnitude of the current in the circuit is proportional to the number of electrons reaching the anode, and hence the intensity of the light incident of the cathode.
 
@@ -706,7 +708,7 @@ The \(E_{\text{Kmax}}\) of the emitted photoelectrons can be measured by raising
 \end{figure}
 
 \subsubsection{Ionisation}
-\label{sec:org7be05b1}
+\label{sec:org96a13d0}
 
 An ion is a charged atom. Positive ions are produced by removing electrons from the atom. Negative ions are produced by adding electrons to the shells around an atom. \emph{Ionisation} is the process of producing ions.
 
@@ -731,11 +733,12 @@ An ion is a charged atom. Positive ions are produced by removing electrons from 
 \end{figure}
 
 \subsubsection{Excitation}
-\label{sec:orga456a5e}
+\label{sec:org94ed075}
 
 During the \emph{excitation} of an electron, it is moved to a more energetic orbit, further from the atom. Unlike ionisation, electrons are not removed from the atom. Excitation may occur due to the collision of a fast moving electron with an orbitting electron, as shown on the left of figure \ref{img:electron_excitation}, or by the absorption of a photon, shown on the right of the same figure.
 
 \begin{figure}[H]
+\vspace{5mm}
 \centering
 \begin{minipage}{.45\textwidth}
 \begin{tikzpicture}
@@ -774,13 +777,14 @@ During the \emph{excitation} of an electron, it is moved to a more energetic orb
 \end{figure}
 
 \subsubsection{Energy Levels}
-\label{sec:orgecbf601}
+\label{sec:orga218f14}
 
 Electrons are bound to an atom by the electrostatic force of attraction to the positively charged nucleus. Electrons may only orbit in specific positions or shells. The energy of electrons in these shells is fixed and movement between them requires exact, \emph{discrete} amounts of energy. The energy required for an electron to move between shells must be delivered or emitted in a single burst.
 
 During excitation, an electron is moved to a higher orbit, either due to collision from another electron or the absorption of a photon. This change places the atom in a heightened \emph{energy level}. Eventually the electron will move back down to its original orbit, releasing a photon of predictable energy in a process known as \emph{de-excitation}.
 
 \begin{figure}[H]
+\vspace{5mm}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -841,7 +845,7 @@ The diagram in figure \ref{img:energy_levels}, illustrates the \emph{energy leve
 Following excitation by a photon of \(8eV\), the atom in figure \ref{img:energy_levels}, de-excites by the emission of three less energetic photons, gradually descending through the energy levels. This phenomena is the basis of \emph{fluorescence}, where high energy \textbf{UV} photons are absorbed by fluorescent materials and the energy is released in stages as less energetic visible light photons.
 
 \subsubsection{Wave-Particle Duality}
-\label{sec:org078d8c3}
+\label{sec:org2ea2476}
 
 % TODO fact check this
 
@@ -890,23 +894,21 @@ Figure \ref{img:electron_diffraction} shows the diffraction of a beam of electro
 \end{figure}
 
 \section{Fields and their Consequences}
-\label{sec:org7a19de0}
+\label{sec:org4b77efb}
 \subsection{Gravitational Fields}
-\label{sec:orgb1160eb}
+\label{sec:orgf1605ac}
 
 Any object with mass creates a \emph{gravitational field} around itself. Any other mass placed within this field experiences an attractive force and exerts an equal attractive force on the first object.
 
 \subsubsection{Gravitational Field Strength}
-\label{sec:orge840721}
+\label{sec:org2b7c9e1}
 
 If a small test mass is placed inside the gravitational field of a much larger mass, the force of gravitation experienced by both objects will cause a much greater acceleration to the small test mass, according to \(F = ma\). The gravitational field strength \(g\), is the force per unit mass (\(Nkg^{-1}\)) experienced by a small test mass positioned in a gravitational field. There is a direct relationship between \(g\) and the acceleration \(a\) of a small test mass.
 
-\[g = \dfrac{F}{m}\]
-
-\[a = \dfrac{F}{m}\]
+\[g = \dfrac{F}{m} = a = \dfrac{F}{m}\]
 
 \subsubsection{Radial and Uniform Fields}
-\label{sec:org1850f96}
+\label{sec:orgbbaf409}
 
 The direction of the forces surrounding a mass are shown in \emph{field-diagrams}, these represent the path taken by a small test mass in a gravitational field. The density of field lines and their proximity to one another indicate the magnitude of \(g\) at that point. The field around a planet or other spherical object is \emph{radial}. Each field line is directed towards the centre of the mass. The density of field lines decreases with distance from the mass, showing that \(g\) decreases away from a mass.
 
@@ -945,11 +947,11 @@ If the same object is observed much more closely, radial field lines may appear 
     \draw[postaction={decorate}]  (1.5,-1.5) -- (-1.5,-1.5);
 \end{scope}
 \end{tikzpicture}
-\caption{A "uniform" graviatational field}
+\caption{A uniform graviatational field}
 \end{figure}
 
 \subsubsection{Gravitational Potential}
-\label{sec:org1e2a75b}
+\label{sec:orgf9df40e}
 
 The \emph{gravitational potential} at a point in a gravitational field is the \emph{gravitational potential energy} per unit mass of a small test mass. It can also be described as the work done per unit mass to move an object from infinite distance to that point.
 
@@ -976,20 +978,20 @@ Points in a gravitational field which are the same distance from the centre of t
 \filldraw[fill=blue!40!white, draw=black] (0,0) circle (1cm);
 \draw (0,0) circle (2.2cm);
 \draw (0,0) circle (3.4cm);
-\draw (0,0) circle (5.2cm);
+\draw (0,0) circle (4.6cm);
 \node[] at (0,1.25) {$-100$};
 \node[] at (0,2.45) {$-80$};
-\node[] at (0,3.6) {$-60$};
-\node[] at (0,5.5) {$-40$};
+\node[] at (0,3.6) {$-70$};
+\node[] at (0,4.8) {$-65$};
 \node[] at (5,5) {$MJkg^{-1}$};
 \end{tikzpicture}
 \caption{Equipotentials around a spherical body (not to scale)}
 \end{figure}
 
 \subsubsection{Potential Gradients}
-\label{sec:org12b15cd}
+\label{sec:org47da66d}
 
-The \emph{potential gradient} at a point in a gravitational field is the change in potentail per metre at that point. As \(g\) decreases with distance from a given mass, the change in \(V\) per metre at greater distances from the centre of the field decreases. The potential gradient = \(\Delta V / \Delta r\), these values are labelled in the figure.
+The \emph{potential gradient} at a point in a gravitational field is the change in potentail per metre at that point. As \(g\) decreases with distance from a given mass, the change in \(V\) per metre at greater distances from the centre of the field decreases. The potential gradient = \(\Delta V / \Delta r\), these values are labelled in figure \ref{img:potential_step}.
 
 \begin{figure}[H]
 \centering
@@ -1008,9 +1010,24 @@ The \emph{potential gradient} at a point in a gravitational field is the change 
 \node[] at (2.4,1.5) {$\Delta r$};
 \end{tikzpicture}
 \caption{Potential gradient}
+\label{img:potential_step}
 \end{figure}
 
 If the test mass \(m\) is moved a distance \(\Delta r\) away from the planet, its \textbf{GPE} will increase as it moves to a point of higher potential. A force must be applied to the object, which is equal and opposite to the force due to gravity, acting through \(\Delta r\).
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
 
 \[\Delta W = F \Delta r\]
 
@@ -1020,6 +1037,13 @@ If the test mass \(m\) is moved a distance \(\Delta r\) away from the planet, it
 
 \[F = \dfrac{m \Delta V}{\Delta r}\]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{270}{$\Rsh$}}\]
+
 \[F_{grav} = -F\]
 
 \[F_{grav} = - \dfrac{m \Delta V}{\Delta r}\]
@@ -1028,19 +1052,26 @@ If the test mass \(m\) is moved a distance \(\Delta r\) away from the planet, it
 
 \[g = - \dfrac{\Delta V}{\Delta r}\]
 
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+
+
+
+
 This proves that the gravitational field strength is the negative of the potential gradient at any point, therefore it acts in the opposite direction (towards the planet).
 
 \subsubsection{Law of Gravitation}
-\label{sec:orgc7d7097}
+\label{sec:org947ec71}
 
-Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points.
+Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points. The constant of proportionality \(G\) is called the \emph{universal constant of gravitation}. Its value is \(6.67 \times 10^{-11} \text{} Nm^2kg^{-2}\).
 
 \[F = \dfrac{Gm_1m_2}{r^2}\]
 
-The constant of proportionality \(G\) is called the \emph{universal constant of gravitation}. Its value is \(6.67 \times 10^{-11} \text{} Nm^2kg^{-2}\).
 
 \subsubsection{Planetary Fields}
-\label{sec:org7f46114}
+\label{sec:orgd65b4bd}
 
 The field of a large spherical body such as a planet is the same as if its mass were concentrated at a single central point. For a large point mass \(M\), the force exerted on a small test mass \(m\), where \(m < M\), at distance \(r\) is determined with Newton's law of gravitation.
 
@@ -1052,25 +1083,79 @@ The gravitational field strength \(g = F / m\) is equal to:
 
 These equations are true if \(r > R\), where \(R\) is the radius of the planetary body; At or beyond the radius of the planet, the value of \(M\) is constant and the proportionality is accurate. The surface gravitational field strength is a special form of the equation:
 
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[g_s = \dfrac{GM}{R^2}\]
 
 \[GM = R^2g_s \]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\\
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{270}{$\Rsh$}}\]
+
 \[g = \dfrac{GM}{r^2}\]
 
 \[g = \dfrac{R^2g_s}{r^2}\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 Values of \(r\) that are smaller than \(R\) indicate positions within the planet itself. At these positions, only the mass located in the hypothetical sphere with radius of the original centre of the planet to the current position \(r\). Within the planet, \(g\) decreases along with \(r\) to 0 at the centre, as the mass at the exact centre is 0.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
 
 \[g = \dfrac{GM}{r^2}\]
 
 \[V = \dfrac{4}{3} \pi r^3\]
 
-\[M = \rho V = \dfrac{4}{3} \rho \pi r^3\]
+\[M = \rho V\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
+
+\[M = \dfrac{4}{3} \rho \pi r^3\]
 
 \[g = \dfrac{G \dfrac{4}{3} \rho \pi r^3}{r^2}\]
 
 \[g = \dfrac{4}{3} G \rho \pi r\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 This final form of the equation is only valid when \(r < R\). This equation demonstrates a different type of relationship between \(g\) and \(r\) to the initial equation for \(g\). When \(g\) is plotted against \(r\), the relationship is linear and positive between \(0\) and \(R\). Beyond \(R\), the relationship is one of the form \(k/r^2\).
 
@@ -1098,16 +1183,41 @@ In this example the change in potential is equal to the magnitude of the potenti
 
 If an object of mass \(m\) is positioned on the surface of a planet with mass \(M\) and radius \(R\) the \emph{escape velocity} is the velocity it must be given to escape the gravitational field of the planet. Scientifically speaking, \emph{escape velocity} is the speed at which the sum of an object's kinetic energy and its gravitational potential energy is equal to zero. A rocket propelled by its own engines can escape a field without ever reaching escape velocity, as work done by its engines will add kinetic energy. Algebraically:
 
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
+
 \[\dfrac{1}{2} m v^2 \ge \Delta W\]
 
 \[\dfrac{1}{2} m v^2 \ge \dfrac{GMm}{r}\]
 
 \[ v_{esc} = \sqrt{\dfrac{2GM}{r}}\]
 
+\[\textbf{\ldots}\]
+\columnbreak
+
+
+\[\textbf{\ldots}\]
+
 \[g = \dfrac{GM}{R^2}\]
 
 \[ v_{esc} = \sqrt{2gR}\]
+\\
 
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 The graph of \(V\) against \(r\) proves the \(1/r\) relationship. At any point the gradient is \(\Delta V / \Delta r\), which is equal to \(-g\).
 
@@ -1118,19 +1228,45 @@ The graph of \(V\) against \(r\) proves the \(1/r\) relationship. At any point t
 \end{figure}
 
 \subsubsection{Satellite Motion}
-\label{sec:org7c46f6a}
+\label{sec:orgb160cc9}
 
 According to \emph{Kepler's Third Law}, the time period of a planet orbiting the sun depends on the mean radius of the orbit,  \(T^2 \propto r^3\). The gravitational force of attraction between a body and a satellite is the centripetal force acting on the satellite. Therefore, the gravitational field strength is equivalent to centripetal acceleration.
 
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[\dfrac{v^2}{r} = \dfrac{GM}{r^2}\]
 
 \[v^2 = \dfrac{GM}{r}\]
 
 \[\left (\dfrac{2 \pi r}{T} \right )^2 = \dfrac{GM}{r}\]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
+
 \[\dfrac{4 \pi^2 r^2}{T^2} = \dfrac{GM}{r}\]
 
 \[\dfrac{r^3}{T^2} = \dfrac{GM}{4 \pi^2 }\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 Seeing as \textbf{RHS} is a constant, the value of \(r^3/T^2\) is also constant for all planets. The \textbf{KE} and \textbf{PE} of an orbiting satellite are as follows:
 
@@ -1145,13 +1281,15 @@ Seeing as \textbf{RHS} is a constant, the value of \(r^3/T^2\) is also constant 
 \[E =-\dfrac{GMm}{2r} \]
 
 \subsection{Electric Fields}
-\label{sec:orgacdffbd}
+\label{sec:org11ee3e6}
 
 Like masses, charges produce a force-field around themselves. Any two objects with like-charges create equal and opposite forces on one another. If one of these charges is a small test charge in the field of a much larger charge it will follow a path away from the body with the larger charge, along a field line.
 
-Unlike gravitational fields, electric fields may be attractive or repulsive. Electric fields are defined in terms of positive charge and field lines indicate the direction a small positive test charge might take.
+Unlike gravitational fields, electric fields may be attractive or repulsive. Electric fields are defined in terms of positive charge and field lines indicate the direction a small positive test charge might take. Figure \ref{img:isolated_charges} shows the field lines around an isolated positive charge on the left and the equivalent field around a negative charge on the right.
 
 \begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -1166,10 +1304,8 @@ Unlike gravitational fields, electric fields may be attractive or repulsive. Ele
 \end{scope}
 \filldraw[red] (0,0) circle (0.2cm);
 \end{tikzpicture}
-\caption{The field around a positive charge}
-\end{figure}
-
-\begin{figure}[H]
+\end{minipage}
+\begin{minipage}{.45\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -1184,7 +1320,9 @@ Unlike gravitational fields, electric fields may be attractive or repulsive. Ele
 \end{scope}
 \filldraw[blue] (0,0) circle (0.2cm);
 \end{tikzpicture}
-\caption{The field around a negative charge}
+\end{minipage}
+\caption{The field around isolated charges}
+\label{img:isolated_charges}
 \end{figure}
 
 
@@ -1251,32 +1389,51 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \end{figure}
 
 \subsubsection{Electric Field Strength}
-\label{sec:org87da03e}
+\label{sec:orga485ad7}
 
 The electric field strength \(E\) at a point in an electric field is the force per unit charge on a positive test charge placed at that point.
 
 \[E = \dfrac{F}{Q}\]
 
 \subsubsection{Uniform Electric Fields}
-\label{sec:org9ad3c59}
+\label{sec:org8129299}
 
-The field lines between two parallel oppositely charged plates are parallel to one another and perpendicular to the plates. The field lines are directed from the positive to negative plate. The field lines are evenly spaced throughout the field, therefore \(E\) is the same at every point in the field:
+The field lines between two parallel oppositely charged plates are parallel to one another and perpendicular to the plates. The field lines are directed from the positive to negative plate. The field lines are evenly spaced throughout the field, therefore \(E\) is the same at every point in the field. The electric field strength is given by the potential difference over the separation of the two plates.
 
-\[E = \dfrac{V}{d}\]
-
-The electric field strength is given by the potential difference over the separation of the two plates.
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right = 10mm,
+]
+\begin{multicols}{2}
 
 \[F = QE\]
 
 \[W = Fd = QEd\]
 
-\[W = Fd = QEd\]
-
 \[V = \dfrac{W}{Q} = \dfrac{QEd}{Q}\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
 
 \[V = Ed\]
 
 \[E = \frac{V}{d}\]
+\\
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 \begin{figure}[H]
 \centering
@@ -1303,73 +1460,115 @@ The electric field strength is given by the potential difference over the separa
 \end{figure}
 
 \subsubsection{Electric Potential}
-\label{sec:orgd6cbf29}
+\label{sec:org8bc4715}
 
 The electric potential at a point in an electric field is the energy per positive unit charge required to move it from infinity to that point. The potential gradient at a point in an electrical field is the change in potential per unit change of distance in an a given direction. The electric field strength is equal to the negative potential gradient:
 
 \[E = - \dfrac{\Delta V}{ \Delta x}\]
 
 \subsubsection{Coulomb's Law}
-\label{sec:org537b476}
+\label{sec:org29278f0}
 
-Coulomb's law links the magnitude of force existing between two point charges with the distance between them. This is an inverse square relationship.
+Coulomb's law links the magnitude of force existing between two point charges with the distance between them. This is an inverse square relationship. The constant of proportionality \(k\) incorporates \(\epsilon_0\), the permittivity of free space, its value is \(8.85 \times 10^{-12}\).
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
 
 \[F = \dfrac{kQ_1Q_2}{r^2}\]
+\columnbreak
 
 \[k = \dfrac{1}{4 \pi \epsilon_0}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
-\[\epsilon_0 = 8.85 \times 10^-12 \]
+Fields are often defined in terms of a small \emph{positive} test charge \(q\) in an electric field around the more significant charge \(+Q\). If \(Q\) was a negative charge, the value of \(E\) would also be negative, indicating an attractive force on the positive test charge \(q\). The various properties of such a field are defined in the set of equations below.
 
-For a small positive test charge q in an electric field around charge \(+Q\):
-
-
+\begin{figure}[H]
+\vspace{5mm}
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
 \[F = \dfrac{Qq}{4 \pi \epsilon_0r^2}\]
 
-\[E = \dfrac{F}{q}\]
+\[E = F/q\]
 
 \[E = \dfrac{Q}{4 \pi \epsilon_0r^2}\]
 
-If \(Q\) was a negative charge, the value of \(E\) would also be negative, indicating an attractive force on the positive test charge \(q\).
-
-The electric potential at distance \(r\) from \(Q\) is:
+\[\textbf{\ldots}\]
+\columnbreak
+\[\textbf{\ldots}\]
 
 \[V = \dfrac{Q}{4 \pi \epsilon_0r}\]
 
-The potential energy is:
-
 \[E_p = \dfrac{Qq}{4 \pi \epsilon_0r}\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\label{equ:e_field}
+\end{figure}
 
 \subsection{Capacitors}
-\label{sec:org0dc5bf5}
+\label{sec:org4d06d2b}
 
 A capacitor is a component designed to store charge. Two metal plates positioned near one another form a capacitor. When connected across the terminals of a battery, electrons are forced from the negative terminal of the battery onto one of the capacitor plates. A similar number of electrons leave the opposite plate of the capacitor. Each plate gains an equal and opposite charge.
 
 \subsubsection{Charge Stored in a Capacitor}
-\label{sec:org18dbd47}
+\label{sec:org91a4584}
 
 If the total charge stored on a capacitor is \(Q\), the charge on each plate is equal to \(\pm Q\). If a capacitor is charged at constant current, the \emph{capacitance} is said to be the charge stored per volt.
 
 \[C = \dfrac{Q}{V}\]
 
+As a capacitor is charged, the potential difference across it increases, until it is equal to the source potential difference in an ideal circuit. In order to deliver a constant charging current, a variable resistor is required to adjust the current flowing in the circuit, shown in figure \ref{img:capacitor_charge_circuit}.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{./images/capacitor_charge_circuit.png}
+\caption{Capacitor charging circuit}
+\label{img:capacitor_charge_circuit}
+\end{figure}
+
+Assuming the current is kept constant for the duration of the charge cycle, the amount of charge on the plates after a certain time is \(Q = It\). If the potential difference is recorded at intervals of \(t\), the charge stored at that point can be calculated. When these two series are plotted against each other, the gradient is a constant equal to the capacitance \(C\), a relationship shown in figure \ref{img:capacitor_charge_constant_current_diagram}.
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_charge_constant_current.png}
 \caption{Charge stored in a capacitor}
+\label{img:capacitor_charge_constant_current_diagram}
 \end{figure}
 
 \subsubsection{Energy Stored in a Capacitor}
-\label{sec:org95a2830}
+\label{sec:org5987afb}
 
 The energy stored in a capacitor is the area under a \(V/Q\) graph.
 
 \[E = \dfrac{1}{2} QV\]
 
-\[E = \dfrac{1}{2} (CV)V\]
-
-\[E = \dfrac{1}{2} CV^2\]
-
 \subsubsection{Discharging Through a Fixed Resistor}
-\label{sec:orgc862d5a}
+\label{sec:org41a52d3}
 
 \[V = V_0 e^{-t/RC}\]
 
@@ -1382,15 +1581,37 @@ The energy stored in a capacitor is the area under a \(V/Q\) graph.
 \end{figure}
 
 \subsubsection{Charging Through a Fixed Resistor}
-\label{sec:org039ee54}
+\label{sec:org4ddcc77}
 
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=lightgray,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[V = V_0 \left ( 1 - e^{-t/RC} \right )\]
-
+\\
 \[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
-
+\\
+\columnbreak
+\\
+\\
 \[I_0 = \dfrac{V_0}{R}\]
-
+\\
 \[I = I_0 e^{-t/RC}\]
+\\
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 \begin{figure}[H]
 \centering
@@ -1399,21 +1620,21 @@ The energy stored in a capacitor is the area under a \(V/Q\) graph.
 \end{figure}
 
 \section{Nuclear Physics}
-\label{sec:orgddf0733}
+\label{sec:org843603d}
 \subsection{Radiation}
-\label{sec:orgf74dd5b}
+\label{sec:orgdf32fac}
 
 Atoms which are not considered stable emit \emph{radiation}. Radiation is the emission of energy and is often \emph{electromagnetic} or as particles. Radiation is sometimes considered frightening or alarming among the general population, although it has many industrial and medical uses.
 
 \subsection{Inverse Square Law}
-\label{sec:org39da0e7}
+\label{sec:org08a3887}
 
 The intensity \(I\) of \(\gamma\) radiation is the energy transferred per second per unit area. Assuming a point source emits \(n\) \(\gamma\) photons per second and each photon has the energy \(hf\), the total energy emitted by the source per second is \(nhf\). These photons are free to leave the source in any direction, so at distance \(r\) from the source all the photons will pass through an area equal to the \emph{S.A.} of a sphere with radius \(r\). This equation represents the intensity of radiation from a point source at distance \(r\):
 
 \[I = \dfrac{nhf}{4 \pi r^2}\]
 
 \subsection{Hazards of Radiation}
-\label{sec:orgdd8fd54}
+\label{sec:org5f7ba88}
 
 Ionising radiation is damaging to living cells. It may cause cells to die, mutate or grow uncontrollably. The consequences may be felt by the affected individual, which is described as \emph{somatic effects}, or passed onto future generations \emph{genetically}.
 
@@ -1422,7 +1643,7 @@ To best mitigate the risks of radiation, sources should be kept in \emph{lead-li
 During use, solid sources should be handled with handling tools, to keep the source at a distance from the body. This reduces the intensity of \(\gamma\) radiation incident on the handler and would ideally put their body beyond the range of \(\alpha\) or \(\beta\) particles. Liquid, gaseous and powdered sources should be kept in sealed containers, so they are not accidentally inhaled, ingested or split.
 
 \subsection{Radioactive Decay}
-\label{sec:orgbbb178f}
+\label{sec:org1d75ee8}
 
 If a radioactive isotope of element \(X\) undergoes \(\alpha\) or \(\beta\) emission, it is no longer a nucleus of the same element, due to the change in proton number. If this nucleus was one of many in a sample of a particular isotope, the number of nuclei of this isotope will decrease as individual nuclei decay. The same relationship is true of the mass of the original isotope; the mass will decrease as nuclei decay. There are three important quantities surrounding radioactive decay:
 
@@ -1437,7 +1658,7 @@ If a radioactive isotope of element \(X\) undergoes \(\alpha\) or \(\beta\) emis
 The decay of a single nucleus is impossible to predict. Every nucleus of an isotope in a sample has an equal probability of decaying in a given interval. For a large sample of a radioactive isotope \(X\), the number of nuclei which disintegrate \(\Delta N\) in a given time period \(\Delta t\) is related to the initial number of nuclei \(N_0\), via the decay constant.
 
 \subsubsection{Decay Constant}
-\label{sec:orge098437}
+\label{sec:orgdb25eff}
 
 The probability of a single decay is the fraction of the initial number of nuclei of \(X\) which decay per second. This is called the \emph{decay constant}, and is represented with the symbol \(\lambda\). If reference is made to \emph{decay} or its decreasing nature, there is no need to include a minus sign.
 
@@ -1448,7 +1669,7 @@ The change in number of nuclei for a combination of the given factors can be obt
 \[ \Delta N = - \lambda N_0 \Delta t\]
 
 \subsubsection{Activity}
-\label{sec:org20e20eb}
+\label{sec:org9d2750a}
 
 The activity of the isotope is the number of nuclei which disintegrate per second and it is proportional to the value of \(N_0\). An expression for \(A\) can be obtained as follows:
 
@@ -1461,7 +1682,7 @@ Therefore the activity of \(N\) nuclei of a particular isotope can also be writt
 \[ A = \lambda N\]
 
 \subsubsection{Decay Curves}
-\label{sec:orgdaf49ff}
+\label{sec:org1af9ffa}
 
 As the activity, or rate of change of nuclei of \(X\), is proportional to the current number of nuclei \(N\) of \(X\), the relationship between \(t\) and \(N\) is one of exponential decay. The number of nuclei remaining after a particular time period is proportional to \(N_0\).
 
@@ -1479,10 +1700,25 @@ Both activity and mass are directly related to the number of nuclei.
 \[A = A_0 e^{- \lambda t}\]
 
 \subsubsection{Half-life}
-\label{sec:orgdecc185}
+\label{sec:org94d8073}
 
 Half-life can be linked to the decay constant. When \(t= T_{1/2}\), the number of nuclei remaining is \(N = 0.5N_0\). With these equations, substitutions can be made:
 
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[0.5N_0 = N_0 e^{-\lambda T_{1/2}}\]
 
 \[0.5 = e^{-\lambda T_{1/2}}\]
@@ -1491,11 +1727,22 @@ Half-life can be linked to the decay constant. When \(t= T_{1/2}\), the number o
 
 \[-\ln (0.5) = \lambda T_{1/2}\]
 
+\[\textbf{\ldots}\]
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+
 \[\ln (0.5^{-1}) = \lambda T_{1/2}\]
 
 \[\ln (2) = \lambda T_{1/2}\]
 
 \[T_{1/2} = \dfrac{\ln(2)}{\lambda}\]
+\\
+\\
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
 
 \begin{figure}[H]
 \centering
@@ -1504,7 +1751,7 @@ Half-life can be linked to the decay constant. When \(t= T_{1/2}\), the number o
 \end{figure}
 
 \subsection{Nuclear Radius}
-\label{sec:org75c81ad}
+\label{sec:orgc1e9c11}
 
 The radius of a nucleus is proportional to the cube root of the nucleon number and the constant \(r_0\), which is equal to \(1.05fm\).
 
@@ -1519,12 +1766,12 @@ Seeing as the mass of a nucleus is equal to \(Au\), where \(u\) is the atomic ma
 When evaluated, the density of a nucleus of any element is \(3.4 \times 10^{17}\).
 
 \subsection{Energy and Mass}
-\label{sec:org294332f}
+\label{sec:org5c2fd22}
 
 The equation \(E = mc^2\) links the energy of an object to the change of its mass and the speed of light in free space. Consequently, the mass of any object changes as it gains or loses energy. This is only significant on the nuclear/sub-nuclear scale. The energy released during a reaction is \(Q = \Delta mc^2\), where \(\Delta m\) is the difference in mass before and after the interaction.
 
 \subsection{Binding Energy}
-\label{sec:org344ec7d}
+\label{sec:org9c0af8c}
 
 The binding energy of a nucleus is the work done to separate all of the protons and neutrons from the nucleus. When a nucleus is formed from individual nucleons, energy is released amounting to the binding energy of the nucleus. Due to this release of energy the mass of the nucleus is less than the sum of the masses of constituent nucleons.
 
@@ -1541,12 +1788,12 @@ Where \(m_p\) and \(m_n\) are the masses of a proton and a neutron respectively 
 \end{itemize}
 
 \subsection{Quantum Tunnelling}
-\label{sec:org2b42eb3}
+\label{sec:org2437333}
 
 Two protons and two neutrons in a nucleus may bind together to as a cluster, which may be ejected from the nucleus as an \(\alpha\) particle. The \(\alpha\) particle is given a large amount of energy during its formation.
 
 \subsection{Nuclear Stability}
-\label{sec:orgea5c069}
+\label{sec:org2bffd50}
 
 Each nucleus has a binding energy and a specific binding energy per nucleon. This is the binding energy divided by the nucleon number of the nucleus. This value is indicative of the stability of the nucleus. More stable nuclei have a larger binding energy per nucleon. The maximum value is approximately \(8.7Mev\), occurring in the region \(50 \le A \le 60\).
 

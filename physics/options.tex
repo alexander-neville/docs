@@ -1,0 +1,72 @@
+% Created 2022-01-29 Sat 18:55
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=3cm]{geometry}
+\usepackage{titlesec}
+\setcounter{secnumdepth}{12}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\usepackage{indentfirst}
+\setlength{\parindent}{1em}
+\setlength{\parskip}{1em}
+\usepackage[export]{adjustbox}
+\raggedbottom
+\usepackage{float}
+\clearpage
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-feynman}
+\usetikzlibrary{arrows.meta, decorations.pathreplacing, decorations.markings, decorations.pathmorphing}
+\tikzset{snake it/.style={decorate, decoration=snake}}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\setlength{\columnsep}{0.1cm}
+\setlength{\columnseprule}{0.5pt}
+\def\columnseprulecolor{\color{white}}
+\renewcommand\fbox{\fcolorbox{lightgray}{white}}
+\usepackage{framed}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\pagestyle{fancy}
+\rhead{\emph{A.F.N}}
+\lhead{Physics}
+\rfoot{\thepage}
+\lfoot{\leftmark}
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+\xpretocmd\headrule{\color{lightgray}}{}{\PatchFailed}
+% \xpretocmd\footrule{\color{lightgray}}{}{\PatchFailed}
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\footrule}
+{\if@fancyplain}
+{\color{lightgray}\if@fancyplain}
+{}
+{}
+\makeatother
+\author{Alexander Neville}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Alexander Neville},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.2 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\end{document}

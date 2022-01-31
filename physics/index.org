@@ -4,7 +4,7 @@
 #+OPTIONS: H:12
 #+latex_class_options: [12pt]
 #+latex_header: \usepackage{amsmath}
-
+#+latex_header: \usepackage{amssymb}
 #+INCLUDE: "./options.org"
 
 #+begin_export latex
@@ -680,6 +680,7 @@ During the /excitation/ of an electron, it is moved to a more energetic orbit, f
 
 #+begin_export latex
 \begin{figure}[H]
+\vspace{5mm}
 \centering
 \begin{minipage}{.45\textwidth}
 \begin{tikzpicture}
@@ -726,6 +727,7 @@ During excitation, an electron is moved to a higher orbit, either due to collisi
 
 #+begin_export latex
 \begin{figure}[H]
+\vspace{5mm}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -849,9 +851,7 @@ Any object with mass creates a /gravitational field/ around itself. Any other ma
 
 If a small test mass is placed inside the gravitational field of a much larger mass, the force of gravitation experienced by both objects will cause a much greater acceleration to the small test mass, according to $F = ma$. The gravitational field strength $g$, is the force per unit mass ($Nkg^{-1}$) experienced by a small test mass positioned in a gravitational field. There is a direct relationship between $g$ and the acceleration $a$ of a small test mass.
 
-\[g = \dfrac{F}{m}\]
-
-\[a = \dfrac{F}{m}\]
+\[g = \dfrac{F}{m} = a = \dfrac{F}{m}\]
 
 *** Radial and Uniform Fields
 
@@ -926,11 +926,11 @@ Points in a gravitational field which are the same distance from the centre of t
 \filldraw[fill=blue!40!white, draw=black] (0,0) circle (1cm);
 \draw (0,0) circle (2.2cm);
 \draw (0,0) circle (3.4cm);
-\draw (0,0) circle (5.2cm);
+\draw (0,0) circle (4.6cm);
 \node[] at (0,1.25) {$-100$};
 \node[] at (0,2.45) {$-80$};
-\node[] at (0,3.6) {$-60$};
-\node[] at (0,5.5) {$-40$};
+\node[] at (0,3.6) {$-70$};
+\node[] at (0,4.8) {$-65$};
 \node[] at (5,5) {$MJkg^{-1}$};
 \end{tikzpicture}
 \caption{Equipotentials around a spherical body (not to scale)}
@@ -939,7 +939,7 @@ Points in a gravitational field which are the same distance from the centre of t
 
 *** Potential Gradients
 
-The /potential gradient/ at a point in a gravitational field is the change in potentail per metre at that point. As $g$ decreases with distance from a given mass, the change in $V$ per metre at greater distances from the centre of the field decreases. The potential gradient = $\Delta V / \Delta r$, these values are labelled in the figure.
+The /potential gradient/ at a point in a gravitational field is the change in potentail per metre at that point. As $g$ decreases with distance from a given mass, the change in $V$ per metre at greater distances from the centre of the field decreases. The potential gradient = $\Delta V / \Delta r$, these values are labelled in figure \ref{img:potential_step}.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -959,10 +959,26 @@ The /potential gradient/ at a point in a gravitational field is the change in po
 \node[] at (2.4,1.5) {$\Delta r$};
 \end{tikzpicture}
 \caption{Potential gradient}
+\label{img:potential_step}
 \end{figure}
 #+end_export
 
 If the test mass $m$ is moved a distance $\Delta r$ away from the planet, its *GPE* will increase as it moves to a point of higher potential. A force must be applied to the object, which is equal and opposite to the force due to gravity, acting through $\Delta r$.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
 
 \[\Delta W = F \Delta r\]
 
@@ -972,6 +988,13 @@ If the test mass $m$ is moved a distance $\Delta r$ away from the planet, its *G
 
 \[F = \dfrac{m \Delta V}{\Delta r}\]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{270}{$\Rsh$}}\]
+
 \[F_{grav} = -F\]
 
 \[F_{grav} = - \dfrac{m \Delta V}{\Delta r}\]
@@ -980,15 +1003,23 @@ If the test mass $m$ is moved a distance $\Delta r$ away from the planet, its *G
 
 \[g = - \dfrac{\Delta V}{\Delta r}\]
 
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+
+
+
 This proves that the gravitational field strength is the negative of the potential gradient at any point, therefore it acts in the opposite direction (towards the planet).
 
 *** Law of Gravitation
 
-Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points.
+Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points. The constant of proportionality $G$ is called the /universal constant of gravitation/. Its value is $6.67 \times 10^{-11} \text{} Nm^2kg^{-2}$.
 
 \[F = \dfrac{Gm_1m_2}{r^2}\]
 
-The constant of proportionality $G$ is called the /universal constant of gravitation/. Its value is $6.67 \times 10^{-11} \text{} Nm^2kg^{-2}$.
 
 *** Planetary Fields
 
@@ -1002,25 +1033,83 @@ The gravitational field strength $g = F / m$ is equal to:
 
 These equations are true if $r > R$, where $R$ is the radius of the planetary body; At or beyond the radius of the planet, the value of $M$ is constant and the proportionality is accurate. The surface gravitational field strength is a special form of the equation:
 
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[g_s = \dfrac{GM}{R^2}\]
 
 \[GM = R^2g_s \]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\\
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{270}{$\Rsh$}}\]
+
 \[g = \dfrac{GM}{r^2}\]
 
 \[g = \dfrac{R^2g_s}{r^2}\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 Values of $r$ that are smaller than $R$ indicate positions within the planet itself. At these positions, only the mass located in the hypothetical sphere with radius of the original centre of the planet to the current position $r$. Within the planet, $g$ decreases along with $r$ to 0 at the centre, as the mass at the exact centre is 0.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
 
 \[g = \dfrac{GM}{r^2}\]
 
 \[V = \dfrac{4}{3} \pi r^3\]
 
-\[M = \rho V = \dfrac{4}{3} \rho \pi r^3\]
+\[M = \rho V\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
+
+\[M = \dfrac{4}{3} \rho \pi r^3\]
 
 \[g = \dfrac{G \dfrac{4}{3} \rho \pi r^3}{r^2}\]
 
 \[g = \dfrac{4}{3} G \rho \pi r\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 This final form of the equation is only valid when $r < R$. This equation demonstrates a different type of relationship between $g$ and $r$ to the initial equation for $g$. When $g$ is plotted against $r$, the relationship is linear and positive between $0$ and $R$. Beyond $R$, the relationship is one of the form $k/r^2$.
 
@@ -1050,16 +1139,43 @@ In this example the change in potential is equal to the magnitude of the potenti
 
 If an object of mass $m$ is positioned on the surface of a planet with mass $M$ and radius $R$ the /escape velocity/ is the velocity it must be given to escape the gravitational field of the planet. Scientifically speaking, /escape velocity/ is the speed at which the sum of an object's kinetic energy and its gravitational potential energy is equal to zero. A rocket propelled by its own engines can escape a field without ever reaching escape velocity, as work done by its engines will add kinetic energy. Algebraically:
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\noindent
+
 \[\dfrac{1}{2} m v^2 \ge \Delta W\]
 
 \[\dfrac{1}{2} m v^2 \ge \dfrac{GMm}{r}\]
 
 \[ v_{esc} = \sqrt{\dfrac{2GM}{r}}\]
 
+\[\textbf{\ldots}\]
+\columnbreak
+
+
+\[\textbf{\ldots}\]
+
 \[g = \dfrac{GM}{R^2}\]
 
 \[ v_{esc} = \sqrt{2gR}\]
+\\
 
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 The graph of $V$ against $r$ proves the $1/r$ relationship. At any point the gradient is $\Delta V / \Delta r$, which is equal to $-g$.
 
@@ -1075,15 +1191,43 @@ The graph of $V$ against $r$ proves the $1/r$ relationship. At any point the gra
 
 According to /Kepler's Third Law/, the time period of a planet orbiting the sun depends on the mean radius of the orbit,  $T^2 \propto r^3$. The gravitational force of attraction between a body and a satellite is the centripetal force acting on the satellite. Therefore, the gravitational field strength is equivalent to centripetal acceleration.
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[\dfrac{v^2}{r} = \dfrac{GM}{r^2}\]
 
 \[v^2 = \dfrac{GM}{r}\]
 
 \[\left (\dfrac{2 \pi r}{T} \right )^2 = \dfrac{GM}{r}\]
 
+\[\textbf{\ldots}\]
+% \[\scalebox{1.5}{\rotatebox[origin=c]{180}{$\Lsh$}}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
+
 \[\dfrac{4 \pi^2 r^2}{T^2} = \dfrac{GM}{r}\]
 
 \[\dfrac{r^3}{T^2} = \dfrac{GM}{4 \pi^2 }\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all planets. The *KE* and *PE* of an orbiting satellite are as follows:
 
@@ -1101,10 +1245,12 @@ Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all p
 
 Like masses, charges produce a force-field around themselves. Any two objects with like-charges create equal and opposite forces on one another. If one of these charges is a small test charge in the field of a much larger charge it will follow a path away from the body with the larger charge, along a field line.
 
-Unlike gravitational fields, electric fields may be attractive or repulsive. Electric fields are defined in terms of positive charge and field lines indicate the direction a small positive test charge might take.
+Unlike gravitational fields, electric fields may be attractive or repulsive. Electric fields are defined in terms of positive charge and field lines indicate the direction a small positive test charge might take. Figure \ref{img:isolated_charges} shows the field lines around an isolated positive charge on the left and the equivalent field around a negative charge on the right.
 
 #+begin_export latex
 \begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.6 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -1119,12 +1265,8 @@ Unlike gravitational fields, electric fields may be attractive or repulsive. Ele
 \end{scope}
 \filldraw[red] (0,0) circle (0.2cm);
 \end{tikzpicture}
-\caption{The field around a positive charge}
-\end{figure}
-#+end_export
-
-#+begin_export latex
-\begin{figure}[H]
+\end{minipage}
+\begin{minipage}{.45\textwidth}
 \centering
 \begin{tikzpicture}
 \begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
@@ -1139,7 +1281,9 @@ Unlike gravitational fields, electric fields may be attractive or repulsive. Ele
 \end{scope}
 \filldraw[blue] (0,0) circle (0.2cm);
 \end{tikzpicture}
-\caption{The field around a negative charge}
+\end{minipage}
+\caption{The field around isolated charges}
+\label{img:isolated_charges}
 \end{figure}
 #+end_export
 
@@ -1218,23 +1362,44 @@ The electric field strength $E$ at a point in an electric field is the force per
 
 *** Uniform Electric Fields
 
-The field lines between two parallel oppositely charged plates are parallel to one another and perpendicular to the plates. The field lines are directed from the positive to negative plate. The field lines are evenly spaced throughout the field, therefore $E$ is the same at every point in the field:
+The field lines between two parallel oppositely charged plates are parallel to one another and perpendicular to the plates. The field lines are directed from the positive to negative plate. The field lines are evenly spaced throughout the field, therefore $E$ is the same at every point in the field. The electric field strength is given by the potential difference over the separation of the two plates.
 
-\[E = \dfrac{V}{d}\]
-
-The electric field strength is given by the potential difference over the separation of the two plates.
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right = 10mm,
+]
+\begin{multicols}{2}
 
 \[F = QE\]
 
 \[W = Fd = QEd\]
 
-\[W = Fd = QEd\]
-
 \[V = \dfrac{W}{Q} = \dfrac{QEd}{Q}\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+
+\[\textbf{\ldots}\]
 
 \[V = Ed\]
 
 \[E = \frac{V}{d}\]
+\\
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1270,32 +1435,70 @@ The electric potential at a point in an electric field is the energy per positiv
 
 *** Coulomb's Law
 
-Coulomb's law links the magnitude of force existing between two point charges with the distance between them. This is an inverse square relationship.
+Coulomb's law links the magnitude of force existing between two point charges with the distance between them. This is an inverse square relationship. The constant of proportionality $k$ incorporates $\epsilon_0$, the permittivity of free space, its value is $8.85 \times 10^{-12}$.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
 
 \[F = \dfrac{kQ_1Q_2}{r^2}\]
+\columnbreak
 
 \[k = \dfrac{1}{4 \pi \epsilon_0}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
-\[\epsilon_0 = 8.85 \times 10^-12 \]
+Fields are often defined in terms of a small /positive/ test charge $q$ in an electric field around the more significant charge $+Q$. If $Q$ was a negative charge, the value of $E$ would also be negative, indicating an attractive force on the positive test charge $q$. The various properties of such a field are defined in the set of equations below.
 
-For a small positive test charge q in an electric field around charge $+Q$:
-
-
+#+begin_export latex
+\begin{figure}[H]
+\vspace{5mm}
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
 \[F = \dfrac{Qq}{4 \pi \epsilon_0r^2}\]
 
-\[E = \dfrac{F}{q}\]
+\[E = F/q\]
 
 \[E = \dfrac{Q}{4 \pi \epsilon_0r^2}\]
 
-If $Q$ was a negative charge, the value of $E$ would also be negative, indicating an attractive force on the positive test charge $q$.
-
-The electric potential at distance $r$ from $Q$ is:
+\[\textbf{\ldots}\]
+\columnbreak
+\[\textbf{\ldots}\]
 
 \[V = \dfrac{Q}{4 \pi \epsilon_0r}\]
 
-The potential energy is:
-
 \[E_p = \dfrac{Qq}{4 \pi \epsilon_0r}\]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\label{equ:e_field}
+\end{figure}
+#+end_export
 
 ** Capacitors
 
@@ -1307,11 +1510,25 @@ If the total charge stored on a capacitor is $Q$, the charge on each plate is eq
 
 \[C = \dfrac{Q}{V}\]
 
+As a capacitor is charged, the potential difference across it increases, until it is equal to the source potential difference in an ideal circuit. In order to deliver a constant charging current, a variable resistor is required to adjust the current flowing in the circuit, shown in figure \ref{img:capacitor_charge_circuit}.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio]{./images/capacitor_charge_circuit.png}
+\caption{Capacitor charging circuit}
+\label{img:capacitor_charge_circuit}
+\end{figure}
+#+end_export
+
+Assuming the current is kept constant for the duration of the charge cycle, the amount of charge on the plates after a certain time is $Q = It$. If the potential difference is recorded at intervals of $t$, the charge stored at that point can be calculated. When these two series are plotted against each other, the gradient is a constant equal to the capacitance $C$, a relationship shown in figure \ref{img:capacitor_charge_constant_current_diagram}.
+
 #+begin_export latex
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_charge_constant_current.png}
 \caption{Charge stored in a capacitor}
+\label{img:capacitor_charge_constant_current_diagram}
 \end{figure}
 #+end_export
 
@@ -1320,10 +1537,6 @@ If the total charge stored on a capacitor is $Q$, the charge on each plate is eq
 The energy stored in a capacitor is the area under a $V/Q$ graph.
 
 \[E = \dfrac{1}{2} QV\]
-
-\[E = \dfrac{1}{2} (CV)V\]
-
-\[E = \dfrac{1}{2} CV^2\]
 
 *** Discharging Through a Fixed Resistor
 
@@ -1341,13 +1554,37 @@ The energy stored in a capacitor is the area under a $V/Q$ graph.
 
 *** Charging Through a Fixed Resistor
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=lightgray,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[V = V_0 \left ( 1 - e^{-t/RC} \right )\]
-
+\\
 \[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
-
+\\
+\columnbreak
+\\
+\\
 \[I_0 = \dfrac{V_0}{R}\]
-
+\\
 \[I = I_0 e^{-t/RC}\]
+\\
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1433,6 +1670,22 @@ Both activity and mass are directly related to the number of nuclei.
 
 Half-life can be linked to the decay constant. When $t= T_{1/2}$, the number of nuclei remaining is $N = 0.5N_0$. With these equations, substitutions can be made:
 
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\\
 \[0.5N_0 = N_0 e^{-\lambda T_{1/2}}\]
 
 \[0.5 = e^{-\lambda T_{1/2}}\]
@@ -1441,11 +1694,23 @@ Half-life can be linked to the decay constant. When $t= T_{1/2}$, the number of 
 
 \[-\ln (0.5) = \lambda T_{1/2}\]
 
+\[\textbf{\ldots}\]
+\columnbreak
+\\
+\[\textbf{\ldots}\]
+
 \[\ln (0.5^{-1}) = \lambda T_{1/2}\]
 
 \[\ln (2) = \lambda T_{1/2}\]
 
 \[T_{1/2} = \dfrac{\ln(2)}{\lambda}\]
+\\
+\\
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 #+begin_export latex
 \begin{figure}[H]

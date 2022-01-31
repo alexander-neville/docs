@@ -1,4 +1,4 @@
-#+latex_header:  \usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm, headsep=1cm, footskip=1cm]{geometry}
+#+latex_header:  \usepackage[margin=3cm]{geometry}
 #+latex_header: \usepackage{titlesec}
 #+latex_header: \setcounter{secnumdepth}{12}
 #+latex_header: \titleformat{\paragraph}
@@ -24,19 +24,21 @@
 #+latex_header: \tikzset{snake it/.style={decorate, decoration=snake}}
 #+latex_header: \usepackage{multicol}
 #+latex_header: \usepackage{tcolorbox}
-#+latex_header: \setlength{\columnsep}{1cm}
-#+latex_header: \setlength{\columnseprule}{1pt}
-#+latex_header: \def\columnseprulecolor{\color{lightgray}}
+#+latex_header: \setlength{\columnsep}{0.1cm}
+#+latex_header: \setlength{\columnseprule}{0.5pt}
+#+latex_header: \def\columnseprulecolor{\color{white}}
 #+latex_header: \renewcommand\fbox{\fcolorbox{lightgray}{white}}
 #+latex_header: \usepackage{framed}
 #+latex_header: \usepackage{xcolor}
 #+latex_header: \usepackage{xpatch}
+# #+latex_header: \setlength{\headheight}{14.49998pt}
+# #+latex_header: \addtolength{\topmargin}{-2.49998pt}
 #+latex_header: \usepackage{fancyhdr}
 #+latex_header: \pagestyle{fancy}
 #+latex_header: \fancyhf{}
 #+latex_header: \pagestyle{fancy}
-#+latex_header: \rhead{\emph{A.F.N}}
-#+latex_header: \lhead{Physics}
+#+latex_header: \rhead{\emph{Alexander F. Neville}}
+#+latex_header: \lhead{AQA A-Level Physics}
 #+latex_header: \rfoot{\thepage}
 #+latex_header: \lfoot{\leftmark}
 #+latex_header: \renewcommand{\headrulewidth}{1pt}
@@ -51,3 +53,4 @@
 #+latex_header:   {}
 #+latex_header:   {}
 #+latex_header: \makeatother
+#+latex_header: \addtolength{\abovecaptionskip}{5mm}
