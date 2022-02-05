@@ -7,17 +7,6 @@
 #+latex_header: \usepackage{amssymb}
 #+INCLUDE: "./options.org"
 
-#+begin_export latex
-\thispagestyle{empty}
-\begin{figure}[H]
-\centering
-% \includegraphics[width=0.9\textwidth,keepaspectratio,frame]{./images/}
-\end{figure}
-\newpage
-% \tableofcontents
-\newpage
-#+end_export
-
 * Particle Physics
 ** Atoms & Nuclei
 
@@ -910,12 +899,33 @@ The /gravitational potential/ at a point in a gravitational field is the /gravit
 
 - For any object in a gravitational field, its *GPE* is least when it is close to the centre of the field and larger at greater distances from the centre of the field. *GPE* is $0$ at the infinity position. Consequently, values of *GPE* closer to the centre of the field are negative.
 
-The unit of gravitational potential is the $Jkg^{-1}$ and like *GPE*, values are always negative. *GP* is expressed algebraically like this:
+The unit of gravitational potential is the $Jkg^{-1}$ and like *GPE*, values are always negative. Gravitational potential can be expressed in terms of $r$ from a point mass or by the work done by positioning a mass at a point in a field.
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
 \[V = \dfrac{W}{M}\]
 
-Points in a gravitational field which are the same distance from the centre of the field will share the same value of $V$. These loci of points are called /equipotentials/ and no work is done against the gravitational field when an object moves along an equipotential.
+\columnbreak
 
+\[V = -\dfrac{GM}{r}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+Points in a gravitational field which are the same distance from the centre of the field will share the same value of $V$. These loci of points are called /equipotentials/ and no work is done against the gravitational field when an object moves along an equipotential.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -939,7 +949,7 @@ Points in a gravitational field which are the same distance from the centre of t
 
 *** Potential Gradients
 
-The /potential gradient/ at a point in a gravitational field is the change in potentail per metre at that point. As $g$ decreases with distance from a given mass, the change in $V$ per metre at greater distances from the centre of the field decreases. The potential gradient = $\Delta V / \Delta r$, these values are labelled in figure \ref{img:potential_step}.
+The /potential gradient/ at a point in a gravitational field is the change in potential per metre at that point. As $g$ decreases with distance from a given mass, the change in $V$ per metre at greater distances from the centre of the field decreases. The potential gradient = $\Delta V / \Delta r$, these values are labelled in figure \ref{img:potential_step}.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1019,7 +1029,6 @@ This proves that the gravitational field strength is the negative of the potenti
 Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points. The constant of proportionality $G$ is called the /universal constant of gravitation/. Its value is $6.67 \times 10^{-11} \text{} Nm^2kg^{-2}$.
 
 \[F = \dfrac{Gm_1m_2}{r^2}\]
-
 
 *** Planetary Fields
 
@@ -1129,7 +1138,7 @@ Therefore, the energy required to move an object from that point to infinity is:
 
 \[\Delta W = m \Delta V\]
 
-\[\Delta W = \dfrac{GMm}{r} \]
+\[\Delta W = - \dfrac{GMm}{r} \]
 
 In this example the change in potential is equal to the magnitude of the potential at the point as the potential is defined by the energy require to move a mass from a given point to /infinity/. The work done to move a mass $m$ a small distance $r$ in a gravitational field can also be calculated by measuring the area under a $g/r$ graph.
 
@@ -1450,8 +1459,8 @@ boxrule=0.2mm,
 left=10mm, right=10mm
 ]
 \begin{multicols}{2}
-
 \[F = \dfrac{kQ_1Q_2}{r^2}\]
+
 \columnbreak
 
 \[k = \dfrac{1}{4 \pi \epsilon_0}\]
@@ -1504,7 +1513,10 @@ left=10mm, right=10mm,
 
 A capacitor is a component designed to store charge. Two metal plates positioned near one another form a capacitor. When connected across the terminals of a battery, electrons are forced from the negative terminal of the battery onto one of the capacitor plates. A similar number of electrons leave the opposite plate of the capacitor. Each plate gains an equal and opposite charge.
 
-*** Charge Stored in a Capacitor
+*** Charge & Energy Stored in a Capacitor
+#+begin_export latex
+\label{pos:constant_current_charge}
+#+end_export
 
 If the total charge stored on a capacitor is $Q$, the charge on each plate is equal to $\pm Q$. If a capacitor is charged at constant current, the /capacitance/ is said to be the charge stored per volt.
 
@@ -1532,27 +1544,32 @@ Assuming the current is kept constant for the duration of the charge cycle, the 
 \end{figure}
 #+end_export
 
-*** Energy Stored in a Capacitor
-
 The energy stored in a capacitor is the area under a $V/Q$ graph.
 
 \[E = \dfrac{1}{2} QV\]
 
 *** Discharging Through a Fixed Resistor
 
-\[V = V_0 e^{-t/RC}\]
+If a capacitor is discharged through a fixed resistor, the discharge current decreases with time, as the charge on the plates decreases. This is a form of exponential decay, the shape of which is illustrated in figure \ref{img:capacitor_exp_discharge_graph}. The quantities current, potential difference and charge may all be used interchangeably in the equation below.
 
-\[Q = Q_0 e^{-t/RC}\]
+\[X = X_0 e^{-t/RC}\]
+
+This relationship can be used to calculate a quantity $t$ seconds after the discharge began. The value $X_0$ is the initial quantity.
 
 #+begin_export latex
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.9\textwidth,keepaspectratio]{./images/capacitor_exp_discharge.png}
 \caption{The P.d. across a discharging capacitor}
+\label{img:capacitor_exp_discharge_graph}
 \end{figure}
 #+end_export
 
+An important quantity in the discharge or charge of a capacitor is the /Time Constant/, $\tau$. Its value is the product of $R$, the resistance of the fixed resistor, and $C$, the capacitance of the capacitor, according to $\tau = RC$. When the time $t$ equals $\tau$, any observed quantity of the discharging capacitor arrangement will have fallen to $e^{-1} \approx 0.37$ its initial value.
+
 *** Charging Through a Fixed Resistor
+
+In section \textbf{\ref{pos:constant_current_charge}}, the capacitor was charged under constant current. A variable resistor was adjusted to do this. If a capacitor is charged through a system with *fixed* resistance, the same type of relationship seen during discharge is observed.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1561,25 +1578,45 @@ The energy stored in a capacitor is the area under a $V/Q$ graph.
 \begin{tcolorbox}[
 sharp corners=all,
 colback=white,
-colframe=lightgray,
+colframe=white,
 size=tight,
 boxrule=0.2mm,
 left=10mm, right=10mm,
 ]
 \begin{multicols}{2}
 \noindent
-\\
+
 \[V = V_0 \left ( 1 - e^{-t/RC} \right )\]
-\\
-\[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
-\\
+
 \columnbreak
-\\
-\\
+\[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+
 \[I_0 = \dfrac{V_0}{R}\]
-\\
+
+\columnbreak
 \[I = I_0 e^{-t/RC}\]
-\\
+
 \end{multicols}
 \end{tcolorbox}
 \end{minipage}

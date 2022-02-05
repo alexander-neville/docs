@@ -54,3 +54,13 @@
 #+latex_header:   {}
 #+latex_header: \makeatother
 #+latex_header: \addtolength{\abovecaptionskip}{5mm}
+
+#+begin_export latex
+\thispagestyle{empty}
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.9\textwidth,keepaspectratio,frame]{./images/}
+\end{figure}
+\newpage
+% \tableofcontents
+#+end_export
