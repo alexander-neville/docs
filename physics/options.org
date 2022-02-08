@@ -1,4 +1,4 @@
-#+latex_header:  \usepackage[margin=3cm]{geometry}
+#+latex_header:  \usepackage[left=3cm, right=3cm, top=2cm, bottom=2cm]{geometry}
 #+latex_header: \usepackage{titlesec}
 #+latex_header: \setcounter{secnumdepth}{12}
 #+latex_header: \titleformat{\paragraph}
@@ -53,7 +53,7 @@
 #+latex_header:   {}
 #+latex_header:   {}
 #+latex_header: \makeatother
-#+latex_header: \addtolength{\abovecaptionskip}{5mm}
+# #+latex_header: \addtolength{\abovecaptionskip}{5mm}
 
 #+begin_export latex
 \thispagestyle{empty}

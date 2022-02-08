@@ -831,6 +831,8 @@ Figure \ref{img:electron_diffraction} shows the diffraction of a beam of electro
 \end{figure}
 #+end_export
 
+* Further Mechanics
+* Thermal Physics
 * Fields and their Consequences
 ** Gravitational Fields
 
@@ -840,7 +842,7 @@ Any object with mass creates a /gravitational field/ around itself. Any other ma
 
 If a small test mass is placed inside the gravitational field of a much larger mass, the force of gravitation experienced by both objects will cause a much greater acceleration to the small test mass, according to $F = ma$. The gravitational field strength $g$, is the force per unit mass ($Nkg^{-1}$) experienced by a small test mass positioned in a gravitational field. There is a direct relationship between $g$ and the acceleration $a$ of a small test mass.
 
-\[g = \dfrac{F}{m} = a = \dfrac{F}{m}\]
+\[g = a = \dfrac{F}{m}\]
 
 *** Radial and Uniform Fields
 
@@ -914,7 +916,7 @@ boxrule=0.2mm,
 left=10mm, right=10mm
 ]
 \begin{multicols}{2}
-\[V = \dfrac{W}{M}\]
+\[V = \dfrac{W}{m}\]
 
 \columnbreak
 
@@ -1032,13 +1034,31 @@ Newton's law of gravitation describes an attractive force between any two point 
 
 *** Planetary Fields
 
-The field of a large spherical body such as a planet is the same as if its mass were concentrated at a single central point. For a large point mass $M$, the force exerted on a small test mass $m$, where $m < M$, at distance $r$ is determined with Newton's law of gravitation.
+The field of a large spherical body such as a planet is the same as if its mass were concentrated at a single central point. For a large point mass $M$, the force exerted on a small test mass $m$, where $m < M$, at distance $r$ is determined with Newton's law of gravitation. The gravitational field strength is $g = F / m$.
 
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
 \[F = \dfrac{GMm}{r^2}\]
 
-The gravitational field strength $g = F / m$ is equal to:
+\columnbreak
 
 \[g = \dfrac{GM}{r^2}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 These equations are true if $r > R$, where $R$ is the radius of the planetary body; At or beyond the radius of the planet, the value of $M$ is constant and the proportionality is accurate. The surface gravitational field strength is a special form of the equation:
 
@@ -1240,15 +1260,45 @@ left=10mm, right=10mm,
 
 Seeing as *RHS* is a constant, the value of $r^3/T^2$ is also constant for all planets. The *KE* and *PE* of an orbiting satellite are as follows:
 
-\[E_k = \dfrac{1}{2} m v^2 = \dfrac{1}{2} m \dfrac{GM}{r} = \dfrac{GMm}{2r}\]
+#+begin_export latex
+\vspace{5mm}
+\begin{figure}[H]
+\centering
+\begin{minipage}{.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[v^2 = \dfrac{GM}{r}\]
 
-\[E_p = mV = -\dfrac{GMm}{r}\]
+\[E_k = \dfrac{1}{2} m v^2\]
+
+\[E_k = \dfrac{GMm}{2r}\]
+
+\[E_p = -\dfrac{GMm}{r}\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+\[\textbf{\ldots}\]
 
 \[ E = E_k + E_p\]
 
 \[E = \dfrac{GMm}{2r} -\dfrac{GMm}{r} \]
 
 \[E =-\dfrac{GMm}{2r} \]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
 
 ** Electric Fields
 
@@ -1296,6 +1346,7 @@ Unlike gravitational fields, electric fields may be attractive or repulsive. Ele
 \end{figure}
 #+end_export
 
+Placing two opposite charges near each other produces the field pattern seen in figure \ref{img:opposite_charges}. A positive charge would be repelled from the positive charge and drawn towards the negative charge.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1326,9 +1377,12 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \filldraw[red] (-2, 0) circle (0.2cm);
 \filldraw[blue] (2, 0) circle (0.2cm);
 \end{tikzpicture}
+\label{img:opposite_charges}
 \caption{The field around two opposite charges}
 \end{figure}
 #+end_export
+
+If two like charges are placed near each other a repulsive force is felt by each. The asymptote in the centre of figure \ref{img:like_charges} is for illustrative purposes only. Ideally, field lines would never appear to reach this line.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1359,6 +1413,7 @@ with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
 \filldraw[red] (-2, 0) circle (0.2cm);
 \filldraw[red] (2, 0) circle (0.2cm);
 \end{tikzpicture}
+\label{img:like_charges}
 \caption{The field around two like charges}
 \end{figure}
 #+end_export
@@ -1569,12 +1624,14 @@ An important quantity in the discharge or charge of a capacitor is the /Time Con
 
 *** Charging Through a Fixed Resistor
 
-In section \textbf{\ref{pos:constant_current_charge}}, the capacitor was charged under constant current. A variable resistor was adjusted to do this. If a capacitor is charged through a system with *fixed* resistance, the same type of relationship seen during discharge is observed.
+In section $\ref{pos:constant_current_charge}$, the capacitor was charged under constant current. A variable resistor was adjusted constantly to achieve this. If a capacitor is charged through a system with *fixed* resistance, the same type of relationship seen during discharge is observed. The potential difference across the capacitor will increase to the *PD* of the circuit's source of *EMF*. The charge stored on the capacitor will increase during this time, at a rate which decreases with time. Charging current, on the other hand, will decrease gradually as the potential difference of the capacitor grows.
+
+The charging curve for potential difference and charge are asymptotic to the initial circuit value and are the reflection of the exponential decay curve in this line. In the equations below, $V_0$ and $CV_0$ have been factorised from the terms on the *RHS*. The time constant is of similar significance in these relationships, where $\tau$ is equal to the point where the charge or potential difference is $0.63$, or $1 - 0.37$, its final value.
 
 #+begin_export latex
 \begin{figure}[H]
 \centering
-\begin{minipage}{0.8\textwidth}
+\begin{minipage}{0.95\textwidth}
 \begin{tcolorbox}[
 sharp corners=all,
 colback=white,
@@ -1584,18 +1641,18 @@ boxrule=0.2mm,
 left=10mm, right=10mm,
 ]
 \begin{multicols}{2}
-\noindent
-
 \[V = V_0 \left ( 1 - e^{-t/RC} \right )\]
 
 \columnbreak
-\[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
 
+\[Q = CV_0 \left ( 1 - e^{-t/RC} \right )\]
 \end{multicols}
 \end{tcolorbox}
 \end{minipage}
 \end{figure}
 #+end_export
+
+As the charging process takes place, the current in the circuit falls. Initially, the resistance of the capacitor is zero, so the current in the circuit is related to the resistance of the fixed resistor and the source of *EMF* alone. The charging curve for current resembles the discharging curve, it is exponential decay.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1630,6 +1687,42 @@ left=10mm, right=10mm,
 \caption{Quantities observed during capacitor charge}
 \end{figure}
 #+end_export
+
+*** Dielectrics
+
+A dielectric is an insulator which is prone to polarisation when placed in an electric field. This causes the positive charges or molecules to be displaced slightly in the direction of the field and the negative charges to be moved in the opposite direction. The effect of a dielectric is to increase the charge stored between the plates of a capacitor, for a constant potential difference across its terminals. This would be an /increase/ in the capacitance of the capacitor.
+
+For a capacitor at constant potential difference, more charge is stored when the plates are separated by a dielectric than a vacuum or empty space. The ratio of charge stored in the presence of a dielectric to charge stored without is know as the /relative permittivity/, $\epsilon_r$ of the dielectric material. Sometimes this quantity is know as the /dielectric constant/ of the material.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm
+]
+\begin{multicols}{2}
+\[{\epsilon}_r = \dfrac{Q}{Q_0}\]
+
+\columnbreak
+
+\[{\epsilon}_r = \dfrac{C}{C_0}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+Relative permittivity is measured against the permittivity of free space $\epsilon_0$. The precise permittivity of a material is the product of its dielectric constant and the permittivity of free space. For a parallel plate capacitor, its capacitance is increased by filling the space between the plates with a dielectric.
+
+\[C = \dfrac{A {\epsilon}_r {\epsilon}_0}{d}\]
+
+The capacitance of a capacitor is proportional to the area of one of the plates and inversely proportional to the distance between them. Inserting a dielectric material with a high relative permittivity between the plates will increase the capacitance in accordance with the expression.
 
 * Nuclear Physics
 ** Radiation

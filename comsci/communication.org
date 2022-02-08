@@ -161,4 +161,17 @@ Once the channel appears idle to a station, a 'request to send' signal is sent t
 
 * The Internet
 
-/not implemented/
+
+The /Internet Protocol Suite/, often referred to as the /TCP/IP/ stack, is a collection of communication protocols adopted on the public internet and other similar computer networks. The whole protocol suite governs end-to-end communication between devices including stipulations about the way data is split into packets, addressed transmitted and routed. (last sentence from wikipedia)
+
+Much like the /Open Systems Interconnection/, these conceptual network models arrange communication protocols into abstract layers.
+
+** Quick notes
+
+1. Physical (bit, symbol) = Link
+2. Data link (frame) = Link
+3. Network (packet) = Internet
+4. Transport (segment, datagram) = Transport
+5. Session = Application
+6. Presentation = Application
+7. Application = Application
