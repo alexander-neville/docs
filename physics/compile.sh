@@ -9,9 +9,10 @@ do
    ATIME=`stat -c %Z $1`
 
    if [[ "$ATIME" != "$LTIME" ]]
-   then    
+   then
        echo "RECOMPILING ..."
-       pdflatex index.tex
+       pdflatex $1
+       pdflatex $1
        LTIME=$ATIME
    fi
    sleep 5

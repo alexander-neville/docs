@@ -831,6 +831,9 @@ Figure \ref{img:electron_diffraction} shows the diffraction of a beam of electro
 \end{figure}
 #+end_export
 
+* Waves and Optics
+* Mechanics
+* Electricity
 * Further Mechanics
 * Thermal Physics
 * Fields and their Consequences
@@ -840,7 +843,7 @@ Any object with mass creates a /gravitational field/ around itself. Any other ma
 
 *** Gravitational Field Strength
 
-If a small test mass is placed inside the gravitational field of a much larger mass, the force of gravitation experienced by both objects will cause a much greater acceleration to the small test mass, according to $F = ma$. The gravitational field strength $g$, is the force per unit mass ($Nkg^{-1}$) experienced by a small test mass positioned in a gravitational field. There is a direct relationship between $g$ and the acceleration $a$ of a small test mass.
+If a small test mass is placed inside the gravitational field of a much larger mass, the identical force of gravitation experienced by both objects will cause a much greater acceleration to the small test mass, according to $F = ma$. The gravitational field strength $g$, is the force per unit mass ($Nkg^{-1}$) experienced by a small test mass positioned in a gravitational field. There is a direct relationship between $g$ and the acceleration $a$ of a small test mass.
 
 \[g = a = \dfrac{F}{m}\]
 
@@ -891,9 +894,9 @@ If the same object is observed much more closely, radial field lines may appear 
 \end{figure}
 #+end_export
 
-*** Gravitational Potential
+*** Gravitational Potential & GPE
 
-The /gravitational potential/ at a point in a gravitational field is the /gravitational potential energy/ per unit mass of a small test mass. It can also be described as the work done per unit mass to move an object from infinite distance to that point.
+The /gravitational potential energy/ is the energy of an object due to its position in a gravitational field. The /gravitational potential/ at a point in a gravitational field is the /gravitational potential energy/ per unit mass of a small test mass. It can also be described as the work done per unit mass to move an object from infinite distance to that point. Some more points:
 
 - The gravitational field around an object extends to /infinity/. The strength of this field diminishes with distance from the centre of the object.
 
@@ -901,7 +904,7 @@ The /gravitational potential/ at a point in a gravitational field is the /gravit
 
 - For any object in a gravitational field, its *GPE* is least when it is close to the centre of the field and larger at greater distances from the centre of the field. *GPE* is $0$ at the infinity position. Consequently, values of *GPE* closer to the centre of the field are negative.
 
-The unit of gravitational potential is the $Jkg^{-1}$ and like *GPE*, values are always negative. Gravitational potential can be expressed in terms of $r$ from a point mass or by the work done by positioning a mass at a point in a field.
+The unit of gravitational potential is the $Jkg^{-1}$ and like *GPE*, values are always negative. Gravitational potential is defined as the work done per unit mass, as shown on the left. It can also be expressed in terms of $r$ from a point mass, as is the case on the right.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -927,6 +930,19 @@ left=10mm, right=10mm
 \end{figure}
 #+end_export
 
+Therefore, at any point, the energy required to move an object from infinity to that point is:
+
+\[\text{W} = - \dfrac{GMm}{r} \]
+
+The work done to move a mass $m$ a small distance $\Delta r$ in a gravitational field can also be calculated by measuring the area under a $g/r$ graph. More about this in section
+\ref{sec:pot_grad}.
+
+\[\Delta W = F \Delta r  = gm \Delta r \]
+
+\[ \Delta W = \dfrac{GMm}{r^2} \Delta r \]
+
+*** Equipotentials
+
 Points in a gravitational field which are the same distance from the centre of the field will share the same value of $V$. These loci of points are called /equipotentials/ and no work is done against the gravitational field when an object moves along an equipotential.
 
 #+begin_export latex
@@ -950,7 +966,7 @@ Points in a gravitational field which are the same distance from the centre of t
 #+end_export
 
 *** Potential Gradients
-
+\label{sec:pot_grad}
 The /potential gradient/ at a point in a gravitational field is the change in potential per metre at that point. As $g$ decreases with distance from a given mass, the change in $V$ per metre at greater distances from the centre of the field decreases. The potential gradient = $\Delta V / \Delta r$, these values are labelled in figure \ref{img:potential_step}.
 
 #+begin_export latex
@@ -979,6 +995,7 @@ If the test mass $m$ is moved a distance $\Delta r$ away from the planet, its *G
 
 #+begin_export latex
 \begin{figure}[H]
+\vspace{5mm}
 \centering
 \begin{minipage}{.8\textwidth}
 \begin{tcolorbox}[
@@ -991,7 +1008,6 @@ left=10mm, right=10mm
 ]
 \begin{multicols}{2}
 \noindent
-
 \[\Delta W = F \Delta r\]
 
 \[\Delta V = \dfrac{\Delta W}{m}\]
@@ -1014,27 +1030,24 @@ left=10mm, right=10mm
 \[g = \dfrac{F_{grav}}{m}\]
 
 \[g = - \dfrac{\Delta V}{\Delta r}\]
+\\
 
 \end{multicols}
 \end{tcolorbox}
 \end{minipage}
 \end{figure}
 #+end_export
-
-
-
-
 This proves that the gravitational field strength is the negative of the potential gradient at any point, therefore it acts in the opposite direction (towards the planet).
 
 *** Law of Gravitation
 
-Newton's law of gravitation describes an attractive force between any two point objects. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points. The constant of proportionality $G$ is called the /universal constant of gravitation/. Its value is $6.67 \times 10^{-11} \text{} Nm^2kg^{-2}$.
+Newton's law of gravitation describes an attractive force between any two point objects. If this force is explicitly labelled an attractive force, the negative sign may be omitted. It is directly proportional to the product of the masses of the two objects and inversely proportional to the square of the separation between the two points. The constant of proportionality $G$ is called the /universal constant of gravitation/. Its value is $6.67 \times 10^{-11} \text{} Nm^2kg^{-2}$.
 
 \[F = \dfrac{Gm_1m_2}{r^2}\]
 
 *** Planetary Fields
 
-The field of a large spherical body such as a planet is the same as if its mass were concentrated at a single central point. For a large point mass $M$, the force exerted on a small test mass $m$, where $m < M$, at distance $r$ is determined with Newton's law of gravitation. The gravitational field strength is $g = F / m$.
+The field of a large spherical body such as a planet is the same as if its mass were concentrated at a single central point. For a large point mass $M$, the force exerted on a small test mass $m$, where $m < M$, at distance $r$ is determined with Newton's law of gravitation. The gravitational field strength at any point in the field is $g = F / m$.
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1061,7 +1074,6 @@ left=10mm, right=10mm
 #+end_export
 
 These equations are true if $r > R$, where $R$ is the radius of the planetary body; At or beyond the radius of the planet, the value of $M$ is constant and the proportionality is accurate. The surface gravitational field strength is a special form of the equation:
-
 
 #+begin_export latex
 \begin{figure}[H]
@@ -1150,21 +1162,7 @@ This final form of the equation is only valid when $r < R$. This equation demons
 \end{figure}
 #+end_export
 
-The gravitational potential at distance $r$ from a point mass is given by:
-
-\[V = - \dfrac{GM}{r}\]
-
-Therefore, the energy required to move an object from that point to infinity is:
-
-\[\Delta W = m \Delta V\]
-
-\[\Delta W = - \dfrac{GMm}{r} \]
-
-In this example the change in potential is equal to the magnitude of the potential at the point as the potential is defined by the energy require to move a mass from a given point to /infinity/. The work done to move a mass $m$ a small distance $r$ in a gravitational field can also be calculated by measuring the area under a $g/r$ graph.
-
-\[\Delta W = gm \Delta r = F \Delta r  \]
-
-\[ \Delta W = \dfrac{GMm}{r^2} \Delta r \]
+*** Escape Velocity
 
 If an object of mass $m$ is positioned on the surface of a planet with mass $M$ and radius $R$ the /escape velocity/ is the velocity it must be given to escape the gravitational field of the planet. Scientifically speaking, /escape velocity/ is the speed at which the sum of an object's kinetic energy and its gravitational potential energy is equal to zero. A rocket propelled by its own engines can escape a field without ever reaching escape velocity, as work done by its engines will add kinetic energy. Algebraically:
 
@@ -1724,6 +1722,345 @@ Relative permittivity is measured against the permittivity of free space $\epsil
 
 The capacitance of a capacitor is proportional to the area of one of the plates and inversely proportional to the distance between them. Inserting a dielectric material with a high relative permittivity between the plates will increase the capacitance in accordance with the expression.
 
+** Magnetic Fields
+
+A magnetic field surrounds any magnet or current carrying-wire, acting on another magnet or current-carrying wire. The magnetic field around a bar magnet is strongest at the poles. These poles may be /north-seeking/ or /south-seeking/, depending on the way they align themselves with earths magnetic field. Field lines in a magnetic field illustrate the direction a north pole would move.
+
+*** Motor Effect
+
+A wire carrying an electric current is placed at a non-zero angle to the field lines of an external magnetic field will experience a force due to its position in the field. This is known as the /Motor Effect/. This force is greatest when the direction of travel of the current is perpendicular to the lines of force. The magnitude of this force will decrease to zero if the angle is reduced to zero. The magnitude of the force experienced is related to three factors: /magnetic flux density/; the current in the wire and the length of wire in the field, according to:
+
+\[F = BIL\]
+
+This relationship demonstrates the greatest possible force given the parameters and is true when the wire is perpendicular to the field. For a piece of wire at angle $\theta$ to the field lines, the force is:
+
+\[F = BIL \sin (\theta )\]
+
+Elsewhere the force may be determined in terms of $\theta$ between the normal to the flow of current and the field lines, in which case $\cos$ is used in place of $\sin$.
+
+If a single wire is placed such in a magnetic field, the force produced will move the wire out of the field. If a rectangular /coil/, free to rotate in the plane parallel to the magnetic field lines, is placed in the same field, a /couple/ of forces are produced, which will cause rotation about this axis.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\draw[color=red, postaction={decorate}] (-2, 1) -- (2, 1);
+\draw[color=red, postaction={decorate}] (-2, 0) -- (2, 0);
+\draw[color=red, postaction={decorate}] (-2, -1) -- (2, -1);
+
+\draw[color=blue, postaction={decorate}] (-1, 1.5) -- (-1, -1.5);
+\draw[color=blue, postaction={decorate}] (1, -1.5) -- (1, 1.5);
+\draw[color=blue] (1, -1.5) -- (-1, -1.5);
+\draw[color=blue] (1, 1.5) -- (-1, 1.5);
+\draw[color=blue] (0, 1.5) -- (0, 2);
+\draw[color=blue] (0, -1.5) -- (0, -2);
+
+\filldraw[fill=red!40!white, draw=black] (-2,-2) rectangle (-4, 2);
+\filldraw[fill=blue!40!white, draw=black] (2,2) rectangle (4, -2);
+
+\filldraw[fill=purple!40!white, draw=purple] (-1.5,0.5) circle (0.12cm);
+\draw[purple] (1.35,-0.35) -- (1.65,-0.65);
+\draw[purple] (1.35,-0.65) -- (1.65, -0.35);
+\end{scope}
+\end{tikzpicture}
+\caption{Current-carrying coil in a magnetic field}
+\label{diag:motor_side_view}
+\end{figure}
+#+end_export
+
+The side profile of an electric motor in figure \ref{diag:motor_side_view} demonstrates the couple of forces produced when this arrangement is placed in a magnetic field. This diagram, when viewed from above, shows the angle created between the plain of the coil and the field, labelled $\alpha$.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\draw[color=red, postaction={decorate}] (-2, 1) -- (2, 1);
+\draw[color=red] (-2, 0) -- (2, 0);
+\draw[color=red, postaction={decorate}] (-2, -1) -- (2, -1);
+\filldraw[fill=gray!40!white, draw=gray] (-0.8, -0.05) rectangle (0.8, 0.05);
+\draw[-{Latex[length=2mm, width=2mm]}, purple] (0.8, 0.2) -- (0.8, 1.5);
+\draw[-{Latex[length=2mm, width=2mm]}, purple] (-0.8, -0.2) -- (-0.8, -1.5);
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\draw[color=red, postaction={decorate}] (-2, 1) -- (2, 1);
+\draw[color=red] (-2, 0) -- (2, 0);
+\draw[color=red, postaction={decorate}] (-2, -1) -- (2, -1);
+\draw[dashed, blue] (0.8,0) arc (0:45:0.8);
+\node at (1.1,0.45) {\(\alpha\)};
+\filldraw[fill=gray!40!white, draw=gray, rotate around={45:(0,0)}] (-0.8, -0.05) rectangle (0.8, 0.05);
+\draw[-{Latex[length=2mm, width=2mm]}, purple] (0.55, 0.8) -- (0.55, 1.5);
+\draw[-{Latex[length=2mm, width=2mm]}, purple] (-0.55, -0.8) -- (-0.55, -1.5);
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\caption{Current-carrying coil in a magnetic field (above)}
+\end{figure}
+#+end_export
+
+At any point during the rotation, the torque of the couple is given by the expression $BIAn \cos (\alpha )$, where $A$ is the area of the coil and $\alpha$ is the angle between the plain of the coil and the field.
+
+*** Charges in Magnetic Fields
+
+Magnetic fields influence the passage of charged particles. A current-carrying wire experiences a force, as the paths of electrons in it are changed. Confined to the wire the  electrons cause the whole wire to experience a force.
+
+The force on a moving charged particle is comparable to that experienced by a current-carrying wire. The passage of a current $Q$ at speed $v$ through a field in time $t$ is equivalent to a current of $Q/t$ over a length of $vt$. The force on a particle travelling at an angle $\theta$ to the field can also be calculated.
+
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[F = BQv\]
+\columnbreak
+\[F = BQv \sin (\theta )\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+*** Flux and Flux Linkage
+
+The magnetic flux of a field is the product of flux density, $B$, and the given perpendicular area. Magnetic flux linkage is the product of magnetic flux and the number of turns in a coil. The unit of magnetic flux is the *weber* $(Wb)$.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[\phi = BA\]
+\columnbreak
+\[ N \phi = BAN\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+*** Electromagnetic induction
+
+Moving a wire, which is part of a circuit, through a magnetic field causes a small current to pass through the circuit. This is due to the electormotive force experienced by the wire, a consequence of electromagnetic induction. The effect occurs when a wire crosses the field lines of a magnetic field. Electromagnetic induction was discovered by Michael Farady in 1831 at the Royal Institution, London. A magnetic compass was proven to deflect from a wire when it is placed in a magnetic field. The induced voltage was labelled /electromotive force/.
+
+When a charged particle is moving through a magnetic field it feels a force, and hence an acceleration in the direction perpendicular to both the magnetic field and its motion. If a wire is moved in the same way (sweeping across magnetic field lines), electrons in the wire move along the wire, creating an *EMF* in the wire. If the wire forms part of a complete circuit, current flows as a consequence of the *EMF*.
+
+There are two laws which govern electromagnetic induction: /Lenz's law/ and /Faraday's law/. The former is very simple: the direction of the induced current in a circuit opposes the motion which causes it. This is a consequence of conservation of energy, it is impossible that motion in one direction could create a current which would create a force in the same direction. Faraday's law states that the magnitude of the induced *EMF* is equal to the rate of change of flux linkage. Combining the two laws, the magnitude and direction of the *EMF* can be calculated. The minus sign in the equation below indicates that the *EMF* opposes the motion that induced it, according to Lenz's law.
+
+\[\epsilon =  - N \dfrac{\Delta \phi}{\Delta t}\]
+
+The diagrams in figure \ref{diag:induction} illustrate electromagnetic induction. In the first (left) case, a charged particle moving to the right will experience a downward force. In the second example the charges are confined to a wire. Electrons will move downward and so conventional current flows upwards as the conductor is moved to the right. In either case, the magnetic field acts into the page.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\filldraw[fill=orange!10!white, draw=orange] (0,0) circle (1.5cm);
+\draw[orange, rotate around={45:(0,0)}] (-1.5, 0) -- (1.5, 0);
+\draw[orange, rotate around={45:(0,0)}] (0, 1.5) -- (0, -1.5);
+\draw[color=blue, postaction={decorate}] (-3, 0) -- (-1, 0);
+\draw[color=red, -{Latex[length=2mm, width=2mm]}] (-1, 0) -- (2, 0);
+\draw[color=purple, -{Latex[length=2mm, width=2mm]}] (-1, 0) -- (-1, -2);
+\node at (-1.5,-1.85) {\(F\)};
+\draw[color=blue, rotate around={-90:(-1,0)}, -{Latex[length=2mm, width=2mm]}] (-1,0) arc (0:-30:-6);
+\filldraw[fill=green!40!white, draw=black] (-1,0) circle (0.15cm);
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\begin{minipage}{.45\textwidth}
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\filldraw[fill=orange!10!white, draw=orange] (0,0) circle (1.5cm);
+\draw[orange, rotate around={45:(0,0)}] (-1.5, 0) -- (1.5, 0);
+\draw[orange, rotate around={45:(0,0)}] (0, 1.5) -- (0, -1.5);
+\draw[color=blue, postaction={decorate}] (-3, 0) -- (-1, 0);
+\draw[color=red, -{Latex[length=2mm, width=2mm]}] (-1, 0) -- (2, 0);
+\draw[color=red, -{Latex[length=2mm, width=2mm]}] (-1, 1.8) -- (2, 1.8);
+\draw[color=red, -{Latex[length=2mm, width=2mm]}] (-1, -1.8) -- (2, -1.8);
+\filldraw[fill=gray!10!white, draw=gray] (-1.25, -2.25) rectangle (-0.75, 2.25);
+\draw[color=purple, -{Latex[length=2mm, width=2mm]}] (-1, 0) -- (-1, -2);
+\node at (-1.5,-1.85) {\(F\)};
+\draw[color=blue, rotate around={-90:(-1,0)}, -{Latex[length=2mm, width=2mm]}] (-1,0) arc (0:-30:-6);
+\filldraw[fill=green!40!white, draw=black] (-1,0) circle (0.15cm);
+\end{scope}
+\end{tikzpicture}
+\end{minipage}
+\label{diag:induction}
+\caption{Electromagnetic Induction}
+\end{figure}
+#+end_export
+
+There are numerous specific examples of electromagnetic induction. For the most part, it is simply applying $BA/\Delta t$ to calculate the *EMF*. For example the *EMF* due to a conductor (wire) moving through a field is $Bl \Delta s / \Delta t$, which can be simplified to $Blv$. For a rectangular coil with $N$ turns undergoing the same motion, its EMF is $BNlv$. For a fixed coil in a changing magnetic field, the induced force is $AN \Delta B/ \Delta t$.
+
+When a coil rotates at a constant frequency in a magnetic field, the emf induced can be calculated using a formula derived by finding the derivative of the formula for magnetic flux linkage with respect to time, as induced emf is equal to the rate of change of flux linkage. In this case $\theta$, the angle between the normal to the plain of the coil and the direction of the field, is equal to $2 \pi f t$ or $\omega t$, where $t$ is the number of secnods since $\theta = 0$. The various equation involved are given below.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[N \phi = BAN \cos (\omega t) \]
+\[ \epsilon = BAN \omega \sin (\omega t) \]
+\columnbreak
+\[\epsilon _0 = BAN \omega\]
+
+\[ \epsilon = \epsilon _0 \sin (\omega t) \]
+\\
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+*** Solenoids and Coils
+
+When current is passed through a coil arrangement, a magnetic field is produced. This can be verified with a plotting compass. For a large coil or /solenoid/ arrangement, this field resembles the field seen around a bar magnet. For illustrative purposes, current appears to flow *anticlockwise around the "north pole" of the solenoid* when viewed from outside.
+
+*** Alternating Current
+
+Induced *EMF* is alternating, so it changes in direction periodically. As seen above *EMF* is modelled with a $\sin$ function, therefore the graph of *EMF* against time is a sinusoidal curve. In a single cycle, the current or *EMF* is seen to move one way and then the other. The frequency of an alternating current is the number of these cycles per second.
+
+When displayed on an oscilloscope, various measurements of an alternating current *EMF* can be measured. The /peak voltage/ is the displacement from equilibrium to the highest or lowest measured voltage, labelled $V_0$. The /peak-to-peak/ voltage is effectively double $V_0$, the difference between the highest measured voltage and the corresponding minimum.
+
+The /root mean square/ voltage is the average of the squares of all possible voltages. This can be calculated from $V_0$. The root mean square current is also measured in the same way.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[V_{rms} = \dfrac{V_0}{\sqrt{2}}\]
+\columnbreak
+\[I_{rms} = \dfrac{I_0}{\sqrt{2}}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+The power lost in a conductor carrying a direct current is equal to $I^2V$. For an alternating current the power radiated from a conductor varies with time, shown by figure \ref{img:ac_power}. At peak current the power radiated is ${I_0}^2R$, while the power is 0 when the current is 0. Due to the sinusoidal nature of the current, the average power is half of the peak power, or $0.5 {I_0}^2 R$. This can also be written $(I_{rms})^2R$. Generally speaking, the root mean square value of an alternating current or potential difference is $1/\sqrt{2}$ the peak value.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio]{./images/ac_power.png}
+\caption{Power and AC quantities}
+\label{img:ac_power}
+\end{figure}
+#+end_export
+
+*** Transformers
+
+A transformer is a device which is able to change the peak voltage of an alternating current. The device has two coils surrounding an ferrous iron core. The first or /primary/ coil is connected to the input voltage. The changing current in the wire causes an alternating magnetic field in the core. An *EMF* is induced in the secondary coil, due to the changing magnetic flux, according to $\epsilon = AN \Delta B/\Delta t$.
+
+\[\dfrac{N_s}{N_p} = \dfrac{V_s}{V_p}\]
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[global scale/.style={scale=1.0}, rotate=-5, xslant=-0.1, thick, every
+    node/.style={transform shape, scale=0.8}, decoration={markings, mark=at position 0.5 with {\arrow{latex}}}]
+\begin{scope}[even odd rule]
+\filldraw[rounded corners=2pt, fill=gray, rotate=-0, opacity=1.0] (\dx,
+\dy) rectangle ++(5,5) (\lx+\dx,\ly+\dy) rectangle ++(\a, \a);
+\fill [rounded corners=2pt, fill=gray] (\b, 0) --++ (0, \dy+\dr+0.02) --++(\dx, 0) --cycle;
+\fill [rounded corners=2pt, fill=gray] (0, \b) --++ (\dx+\dr+0.02, 0) --++(0, \dy)--cycle;
+\filldraw[rounded corners=2pt, fill=gray!50, rotate=-0] (0,0) rectangle
+++(\b, \b) (\lx,\ly) rectangle ++(\a, \a);
+\draw (\b-\dr,\dr) --++(\dx, \dy);
+\draw (\b-\dr,\b-\dr) --++(\dx, \dy);
+\draw (\dr,\b-\dr) --++(\dx, \dy);
+\draw [blue, thick, postaction={decorate}] (0, \ly) --++(-1.5,0);
+\foreach \z in {0,.24,.48,...,2.5}
+    {
+    \draw [rounded corners=2pt,blue, thick]
+    (-0.0,\ly+\z+0.08)--(-0.09,\ly+\z) -- (\lx, \ly+\z)--++(0.89,0.5)
+    --++(-0.08, 0.05);
+}
+\draw [rounded corners=2pt,blue, thick, postaction={decorate}] (-1.5,
+\ly+2.8) --++(1.5,0) node[black, above, pos=0.4] {$I_p$};
+\draw[latex-latex] (-\lx, \ly) --++(0, 2.8) node[midway, left] {$V_p$};
+
+\draw [rounded corners=2pt,red, thick] (\a+\lx-2*\dr,
+\ly+2*\dr)--++(-\dr, -\dr)--++(\lx+\dx+2*\dr, 0);
+\draw [red, postaction={decorate}] (\b+\dx-\dr, \ly+\dr)--++(\a/2, 0);
+\draw [rounded corners=2pt, red, thick, postaction={decorate}]
+(\a+3*\lx-0.2, \ly+3.1) --++(\a/2, 0) node[black, midway, above] {$I_s$};
+\foreach \z in {.125,.25,.375,...,2.5}
+    {
+    \draw [rounded corners=2pt, red, thick] (\a+\lx,\ly+\z+0.1)--
+    (\a+\lx-0.07,\ly+\z) -- (\a+2*\lx, \ly+\z)--++(0.87,0.5)--++(-0.06,
+    0.06);
+    }
+\draw[latex-latex] (2*\a+\lx, \ly) --++(0, 3.1) node[midway, left] {$V_s$};
+\end{scope}
+\end{tikzpicture}
+\caption{An AC transformer}
+\label{img:ac_transformer}
+\end{figure}
+
+#+end_export
+
+Energy may be lost in a transformer due to any one of a number of reasons. The efficiency of a transformer can be calculated as follows:
+
+\[ \text{efficiency} = \dfrac{I_sV_s}{I_pV_p}\]
+
+Energy may be lost due to /eddy currents/, induced by the alternating current of the primary core. The direction of current is so as to oppose the field due to the primary coil, which reduces the magnetic flux in the core. Eddy currents produce heat, which wastes energy. The amplitude of eddy currents are reduced by using either a high-resistivity metal for the core, a laminated core, consisting of layers of conductor separated by insulating material.
+
+The heating effect in the coils may cause energy to be lost. This is mitigated by the use of thicker wires in the coils. Soft iron cores are preferred as they promote easy magnetisation and demagnetisation, improving the efficiency of the transformer.
+
+*** The Grid System
+
+In the United Kingdom, electricity is generated at 50Hz, 25kV. For long distance transmission the voltage is increased to 275kV or 400kV by step-up transformers. These high voltages are stepped down in stages, first to 132kV and then to 33kV which is supplied to heavy industry. Light industry receives electricity at 11kV and homes receive electricity at 230V. The frequency of generated electricity remains at 50Hz, regardless of the voltage.
 * Nuclear Physics
 ** Radiation
 
@@ -1903,3 +2240,295 @@ The orange line in the figure indicates the position of Fe-56, a very stable iso
 - Fusion of nuclei to the left of the division. When heavier nuclei are formed energy is released due to the greater binding energy per nucleon of the resulting nuclei.
 
 - Fission of nuclei to the right of the division. When multiple, lighter daughter nuclei are formed energy is released due to the greater binding energy per nucleon of the resulting nuclei.
+
+* Turning Points
+** Discovery of the Electron
+
+If a large potential difference is applied across two terminals in an evacuated discharge tube, it is seen glowing in several places. Illustrated in blue in figure \ref{img:cathode_ray} is negative glow, seen when free electrons recombine with positive ions near the negative cathode, causing visible light photons to be released. In the same diagram, the green area represents the glow of the glass container, as cathode rays excite the atoms in the surface which de-excite emitting photons. Between the two terminals, cathode rays may collide with gas atoms, causing excitation and subsequent de-excitation via photon emission.
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.4 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\end{scope}
+\fill[blue!40!white] (3,-1) rectangle (2,1);
+\fill[green!40!white] (-3,-1) rectangle (-2,1);
+\draw (-3,1) -- (3,1) -- (3,-1) -- (-3,-1) -- (-3,1);
+
+\draw (-2.75,0.25) -- (-2.75,-0.25);
+\draw (2.75,0.25) -- (2.75,-0.25);
+
+\draw (2.75,0) -- (5,0);
+\draw (-2.75,0) -- (-5,0);
+
+\draw (2.75,0) -- (5,0);
+\draw (-2.75,0) -- (-5,0);
+
+\draw (-5,0) -- (-5,-3);
+\draw (5,0) -- (5,-3);
+
+\node at (-2.75,1.5) {\(+\)};
+\node at (2.75,1.5) {\(-\)};
+
+\draw (-5,-3) -- (-1,-3);
+\draw (5,-3) -- (1,-3);
+
+\filldraw[fill=white, draw=black] (1,-3) circle (0.25cm);
+\filldraw[fill=white, draw=black] (-1,-3) circle (0.25cm);
+
+\end{tikzpicture}
+\caption{A glow is seen at the anode due to "cathode rays"}
+\label{img:cathode_ray}
+\end{figure}
+
+#+end_export
+
+*** Electron Guns
+
+An electron gun is a particle accelerator which transfers energy to the kinetic energy store of electrons by moving them across a potential difference. The electrons are released from the surface of a source, usually wire filament, by thermionic emission.
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\draw (0.125, -0.5) -- (0.125, 0.5);
+\draw (-0.125, -0.25) -- (-0.125, 0.25);
+\draw (0.125, 0) -- (2, 0);
+\draw (-0.125, 0) -- (-2, 0);
+\draw (2, 0) -- (2, 1);
+\draw (-2, 0) -- (-2, 1);
+\draw (2, 1) -- (1,1);
+\draw (-2, 1) -- (-1,1);
+\draw (-1, 0.5) -- (-1,1.75);
+\draw (1, 0.5) -- (1,1.75);
+\draw (-1, 2) -- (-1,3.25);
+\draw (1, 2) -- (1,3.25);
+\draw[-{Latex[length=2mm, width=2mm]}, gray] (0, 1.875) -- (2, 1.875);
+\filldraw[draw=black, fill=white] (0, 1.875) circle (0.1cm);
+\draw[red] (-1.25, 1.55) -- (-1.25, 2.2);
+\draw[red] (-1.25, 1.55) -- (-1.75, 1.55);
+\draw[red] (-1.25, 2.2) -- (-1.75, 2.2);
+\end{scope}
+\end{tikzpicture}
+\caption{Electron Gun}
+\end{figure}
+
+#+end_export
+
+The kinetic energy of the emitted electrons is equal to the potential difference (energy per charge) multiplied by the electronic charge. The velocity can also be calculated from the kinetic energy, knowing the electronic mass.
+
+#+begin_export latex
+\begin{figure}[H]
+\vspace{5mm}
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[\dfrac{1}{2}m_ev^2=eV\]
+\columnbreak
+\[v=\left ( \dfrac{2eV}{m_e} \right ) ^{1/2}\]
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+*** Fine Beam Tube
+
+Using an electron gun, electrons enter a magnetic field at speed. Electrons move in a circular motion as the force due to the field acts at a perpendicular angle to the direction of the beam, providing a centripetal force.
+
+\[F = \dfrac{mv^2}{r} = Bqv\]
+
+\[\dfrac{m_ev^2}{r} = Bev\]
+
+\[\dfrac{m_ev}{r} = Be\]
+
+As the electrons leave the electron gun, their total energy is the product of the potential difference between the anode and cathode and the electronic charge. This value can be used to determine the linear speed of the electrons.
+
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[\dfrac{1}{2}m_ev^2=eV\]
+
+\[v=\left ( \dfrac{2eV}{m_e} \right ) ^{1/2}\]
+
+\[\dfrac{m_e\left ( \dfrac{2eV}{m_e} \right )^{1/2}}{r} = Be\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+\[\textbf{\ldots}\]
+
+\[\dfrac{m_e2V}{r^2} = B^2e\]
+
+\[\dfrac{e}{m_e} = \dfrac{2V}{r^2  B^2}\]
+\\
+\\
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+*** Thomson's Crossed Fields
+
+A magnetic field is arranged perpendicular to an electric field, so that its force acting on a moving beam of electrons is directly opposing the force on the same beam due to the electric field. The strength of each of these fields are adjusted until the beam of electrons passes through the two fields undeflected; until the two forces are equal and opposite.
+
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.8\textwidth}
+\begin{tcolorbox}[
+sharp corners=all,
+colback=white,
+colframe=white,
+size=tight,
+boxrule=0.2mm,
+left=10mm, right=10mm,
+]
+\begin{multicols}{2}
+\noindent
+\[F = Eq = Bqv\]
+
+\[E = V/d\]
+
+\[\dfrac{Ve}{d} = Bev\]
+
+\[\textbf{\ldots}\]
+\columnbreak
+\[\textbf{\ldots}\]
+
+\[v = \dfrac{Ve}{Bd}\]
+
+\[\dfrac{1}{2}m_ev^2=eV_a\]
+
+\[\dfrac{e}{m_e} = \dfrac{V^2}{2B^2d^2V_a}\]
+
+\end{multicols}
+\end{tcolorbox}
+\end{minipage}
+\end{figure}
+#+end_export
+
+This particular method is significant as it demonstrates that the properties of the electrons are the same no matter which gas they emitted from, therefore it can be concluded that all atoms contain electrons. The specific charge of electrons is about 1800 times higher than that of a proton.
+
+** Wave Particle Duality
+** Discovery of EM Waves
+
+Maxwell theorised that EM waves travelled at speed $c$ in a vacuum, without any experimental evidence.
+
+\[c = \dfrac{1}{({\mu}_0 {\epsilon}_0)^{1/2}}\]
+
+** Special Relativity
+*** Interferometer
+
+Scientists Michelson and Morley designed an interferometer, a device used to measure the speed of the earth through the ether. Using a partially reflective half-silvered mirror, a light source is split into two arms, which are perpendicular to each other. One of these beams may be sent through a compensating glass block, so that both beams travel through the same amount of material. Each of those light beams is reflected back toward the mirror, where they are superposed on one another.  The resulting interference pattern is directed towards a detector.
+
+
+#+begin_export latex
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{scope}[very thick,decoration={ markings, mark=at position 0.5 with {\arrow[]{Latex[length=2mm, width=2mm]}}}]
+\draw[color=red, postaction={decorate}] (-4, 0) -- ( 0, 0);
+\draw[color=red, postaction={decorate}] (-0.1, 0.05) -- (-0.1, 2);
+\draw[color=red, postaction={decorate}] (-0.2, 4) -- (-0.2, 2);
+\draw[color=red, postaction={decorate}] (0, -0.1) -- (2, -0.1);
+\draw[color=red, postaction={decorate}] (4, -0.1) -- (2, -0.1);
+\draw[color=red, postaction={decorate}] (-0.05, -0.1) -- (-0.05, -4);
+\draw (-0.75, 4) -- (0.25, 4);
+\draw (4, 0.25) -- (4, -0.75);
+\draw (-0.25, -4) -- (0.75, -4);
+\filldraw[fill=black, draw=black] (-4,0) circle (0.1cm);
+\filldraw[fill=black!20!white,  draw=black, rotate around={45:(0,0)}] (-0.75,-0.1) rectangle (0.75,0.1);
+\filldraw[fill=black!20!white,  draw=black, rotate around={45:(0,2)}] (-0.75,1.9) rectangle (0.75,2.1);
+
+\draw[color=red] (-0.1, 0) -- (0.1, -0.1);
+\draw[color=red] (-0.1, 1.75) -- (-0.2, 2.05);
+\draw[color=red] (-0.05, -0.2) -- (-0.1, 0);
+
+\end{scope}
+\end{tikzpicture}
+\caption{The Michelson-Morley interferometer}
+\end{figure}
+
+#+end_export
+
+It was believed that the light travelling parallel in the direction of earth would be affected and hence take longer to travel. This would not affect the path of the light beam perpendicular to the earth's motion. When the apparatus was rotated through 90 degrees no change in the interference pattern was observed. This proved that the rotation of the system did not affect the speed that light travelled.
+
+These observations disproved the existing understanding of absolute motion. Either the ether did not exist, or moved with the earth, or the speed of light in free space is invariant.
+
+*** Black Body
+
+A black body is an idealised system which absorbs all incident electromagnetic radiation, regardless of its frequency or angle of incidence. Black bodies are often modelled as a sealed insulated container, with sides impermeable to radiation and a small whole, through which incident radiation is absorbed. After some time all energy absorbed by a black body is emitted as black body radiation.
+
+In order to remain in thermal equilibrium, they system will radiate energy characteristic of this system, not necessarily the type of radiation incident on it. The radiated energy can be considered to be produced by standing wave or resonant modes of the cavity which is radiating. The density of modes, the number of modes per unit frequency per unit volume, is expressed as:
+
+\[\dfrac{8 \pi f^2}{c^3}\]
+
+A classical interpretation of wave theory, devised by Rayleigh and Jeans, linked the intensity of radiation at a given frequency and temperature to $f^2$. This expression would suggest that the intensity of radiation would rise dramatically at high frequencies, leading to a situation described as the /ultraviolet catastrophe/.
+
+\[ u(f, T) = \dfrac{8 \pi f^2}{c^3}kT\]
+
+The quantised theory of EM waves addressed this issue, with an expression that applied to all frequencies of radiation.
+
+\[ u(f, T) = \dfrac{8 \pi f^2}{c^3} \dfrac{hf}{e^{hf/kT} - 1}\]
+
+*** Einstein's Theory of Special Relativity
+
+An inertial frame of reference is not undergoing acceleration, it is at constant velocity. Einstein's theory of special relativity applies to these frames of reference with certain assumptions, called /postulates/. The first postulate is that the speed of light in free space is invariant. The second is that the laws of physics are the same in all inertial frames of reference.
+
+*** Time Dilation
+
+A consequence of special relativity, time dilation is the difference in elapsed time between a stationary and external observer to a frame of reference. The frame of reference is reference appears in motion to an external observer.
+
+The time measured to have passed by the stationary observer is the proper time, $t_0$. The time measured by an external observer, $t$, is always larger than proper time and is calculated:
+
+\[t = \dfrac{t_0}{\sqrt{1 - \dfrac{v^2}{c^2}}}\]
+
+*** Length Contraction
+
+A consequence of special relativity, length contraction applies to inertial frames of reference and causes the lengths of objects at speed to appear shorter. The length of an object as seen bu an observer
+
+
+\[l = l_0\sqrt{1 - \dfrac{v^2}{c^2}}\]
+
+*** Mass & Energy
+
+Mass and Energy are proven to be interchangeable, according to $E=mc^2$. Supplying more energy to an object will increase its mass, therefore the mass of an object increases at speed. Resulting values of mass are the /relativistic mass/, $m$.
+
+
+\[m = \dfrac{m_0}{\sqrt{1 - \dfrac{v^2}{c^2}}}\]
+
+When a mass moves at relativistic speeds (over a tenth of the speed of light), its mass will increase significantly and hence $1/2mv^2$ is no longer a suitable expression for kinetic energy. The kinetic energy of a mass in relativistic motion is the total energy less the rest mass of the object, $m_0$.
+
+\[E_T = E_K + E_0\]
+
+\[E = \dfrac{m_0c^2}{\sqrt{1 - \dfrac{v^2}{c^2}}}\]
+
+\[E_K = \dfrac{m_0c^2}{\sqrt{1 - \dfrac{v^2}{c^2}}} - m_0c^2\]
