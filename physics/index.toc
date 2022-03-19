@@ -1,0 +1,97 @@
+\contentsline {section}{\numberline {1}Particle Physics}{6}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Atoms \& Nuclei}{6}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}Isotopes}{6}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}Specific Charge}{6}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Strong Nuclear Force}{6}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Force Carriers}{7}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Weak Interaction}{7}{subsubsection.1.1.5}%
+\contentsline {subsection}{\numberline {1.2}Radioactive Decay}{7}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}Alpha Emission}{8}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}Beta Minus Decay}{8}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Beta Plus Decay}{8}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Electron Capture}{9}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Gamma Emission}{10}{subsubsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.3}Particles \& Antiparticles}{10}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Hadrons}{10}{subsubsection.1.3.1}%
+\contentsline {paragraph}{\numberline {1.3.1.1}Quarks}{11}{paragraph.1.3.1.1}%
+\contentsline {paragraph}{\numberline {1.3.1.2}Baryons}{12}{paragraph.1.3.1.2}%
+\contentsline {paragraph}{\numberline {1.3.1.3}Strangeness}{12}{paragraph.1.3.1.3}%
+\contentsline {paragraph}{\numberline {1.3.1.4}Mesons}{12}{paragraph.1.3.1.4}%
+\contentsline {subsubsection}{\numberline {1.3.2}Leptons}{13}{subsubsection.1.3.2}%
+\contentsline {paragraph}{\numberline {1.3.2.1}Muon Decay}{14}{paragraph.1.3.2.1}%
+\contentsline {paragraph}{\numberline {1.3.2.2}Neutrino Interactions}{14}{paragraph.1.3.2.2}%
+\contentsline {subsection}{\numberline {1.4}Photons \& Energy}{15}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Annihilation}{15}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Pair Production}{16}{subsubsection.1.4.2}%
+\contentsline {subsection}{\numberline {1.5}Quantum Phenomena}{17}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}Photoelectric Effect}{17}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}Work Function \& Threshold Frequency}{17}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}Stopping Potential}{18}{subsubsection.1.5.3}%
+\contentsline {subsubsection}{\numberline {1.5.4}Vacuum Photocell}{18}{subsubsection.1.5.4}%
+\contentsline {subsubsection}{\numberline {1.5.5}Ionisation}{20}{subsubsection.1.5.5}%
+\contentsline {subsubsection}{\numberline {1.5.6}Excitation}{21}{subsubsection.1.5.6}%
+\contentsline {subsubsection}{\numberline {1.5.7}Energy Levels}{21}{subsubsection.1.5.7}%
+\contentsline {subsubsection}{\numberline {1.5.8}Wave-Particle Duality}{23}{subsubsection.1.5.8}%
+\contentsline {section}{\numberline {2}Waves and Optics}{24}{section.2}%
+\contentsline {section}{\numberline {3}Mechanics}{25}{section.3}%
+\contentsline {section}{\numberline {4}Electricity}{26}{section.4}%
+\contentsline {section}{\numberline {5}Further Mechanics}{27}{section.5}%
+\contentsline {section}{\numberline {6}Thermal Physics}{28}{section.6}%
+\contentsline {section}{\numberline {7}Fields and their Consequences}{29}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Gravitational Fields}{29}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}Gravitational Field Strength}{29}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}Radial and Uniform Fields}{29}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}Gravitational Potential \& GPE}{30}{subsubsection.7.1.3}%
+\contentsline {subsubsection}{\numberline {7.1.4}Equipotentials}{31}{subsubsection.7.1.4}%
+\contentsline {subsubsection}{\numberline {7.1.5}Potential Gradients}{31}{subsubsection.7.1.5}%
+\contentsline {subsubsection}{\numberline {7.1.6}Law of Gravitation}{33}{subsubsection.7.1.6}%
+\contentsline {subsubsection}{\numberline {7.1.7}Planetary Fields}{33}{subsubsection.7.1.7}%
+\contentsline {subsubsection}{\numberline {7.1.8}Escape Velocity}{35}{subsubsection.7.1.8}%
+\contentsline {subsubsection}{\numberline {7.1.9}Satellite Motion}{36}{subsubsection.7.1.9}%
+\contentsline {subsection}{\numberline {7.2}Electric Fields}{37}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Electric Field Strength}{38}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Uniform Electric Fields}{39}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Electric Potential}{39}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Coulomb's Law}{40}{subsubsection.7.2.4}%
+\contentsline {subsection}{\numberline {7.3}Capacitors}{40}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}Charge \& Energy Stored in a Capacitor}{41}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}Discharging Through a Fixed Resistor}{42}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}Charging Through a Fixed Resistor}{43}{subsubsection.7.3.3}%
+\contentsline {subsubsection}{\numberline {7.3.4}Dielectrics}{45}{subsubsection.7.3.4}%
+\contentsline {subsection}{\numberline {7.4}Magnetic Fields}{46}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}Motor Effect}{46}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2}Charges in Magnetic Fields}{47}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.3}Flux and Flux Linkage}{48}{subsubsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7.4.4}Electromagnetic induction}{48}{subsubsection.7.4.4}%
+\contentsline {subsubsection}{\numberline {7.4.5}Solenoids and Coils}{49}{subsubsection.7.4.5}%
+\contentsline {subsubsection}{\numberline {7.4.6}Alternating Current}{50}{subsubsection.7.4.6}%
+\contentsline {subsubsection}{\numberline {7.4.7}Transformers}{51}{subsubsection.7.4.7}%
+\contentsline {subsubsection}{\numberline {7.4.8}The Grid System}{52}{subsubsection.7.4.8}%
+\contentsline {section}{\numberline {8}Nuclear Physics}{53}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Radiation}{53}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Inverse Square Law}{53}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Hazards of Radiation}{53}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Radioactive Decay}{54}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Decay Constant}{54}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Activity}{55}{subsubsection.8.4.2}%
+\contentsline {subsubsection}{\numberline {8.4.3}Decay Curves}{55}{subsubsection.8.4.3}%
+\contentsline {subsubsection}{\numberline {8.4.4}Half-life}{56}{subsubsection.8.4.4}%
+\contentsline {subsection}{\numberline {8.5}Nuclear Radius}{58}{subsection.8.5}%
+\contentsline {subsection}{\numberline {8.6}Energy and Mass}{58}{subsection.8.6}%
+\contentsline {subsection}{\numberline {8.7}Binding Energy}{58}{subsection.8.7}%
+\contentsline {subsection}{\numberline {8.8}Quantum Tunnelling}{59}{subsection.8.8}%
+\contentsline {subsection}{\numberline {8.9}Nuclear Stability}{59}{subsection.8.9}%
+\contentsline {section}{\numberline {9}Turning Points}{61}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Discovery of the Electron}{61}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Electron Guns}{61}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Fine Beam Tube}{62}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.3}Thomson's Crossed Fields}{62}{subsubsection.9.1.3}%
+\contentsline {subsection}{\numberline {9.2}Wave Particle Duality}{63}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Discovery of EM Waves}{63}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Special Relativity}{63}{subsection.9.4}%
+\contentsline {subsubsection}{\numberline {9.4.1}Interferometer}{63}{subsubsection.9.4.1}%
+\contentsline {subsubsection}{\numberline {9.4.2}Black Body}{64}{subsubsection.9.4.2}%
+\contentsline {subsubsection}{\numberline {9.4.3}Einstein's Theory of Special Relativity}{65}{subsubsection.9.4.3}%
+\contentsline {subsubsection}{\numberline {9.4.4}Time Dilation}{65}{subsubsection.9.4.4}%
+\contentsline {subsubsection}{\numberline {9.4.5}Length Contraction}{65}{subsubsection.9.4.5}%
+\contentsline {subsubsection}{\numberline {9.4.6}Mass \& Energy}{66}{subsubsection.9.4.6}%

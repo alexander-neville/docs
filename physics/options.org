@@ -76,5 +76,5 @@
 \def\ly{1.0}
 % round corner correction
 \def\dr{0.02}
-% \tableofcontents
+\tableofcontents
 #+end_export
