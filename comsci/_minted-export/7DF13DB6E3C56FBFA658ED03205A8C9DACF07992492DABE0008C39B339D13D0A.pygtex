@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n}{bird} \PYG{o}{=} \PYG{n}{Bird}\PYG{p}{()}
+\PYG{n}{mammal} \PYG{o}{=} \PYG{n}{Mammal}\PYG{p}{()}
+
+\PYG{n}{test\PYGZus{}object}\PYG{p}{(}\PYG{n}{bird}\PYG{p}{)}
+\PYG{n}{test\PYGZus{}object}\PYG{p}{(}\PYG{n}{mammal}\PYG{p}{)}
+\end{Verbatim}

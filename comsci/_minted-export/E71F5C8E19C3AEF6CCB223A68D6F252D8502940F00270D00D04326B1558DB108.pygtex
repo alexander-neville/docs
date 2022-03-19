@@ -1,0 +1,27 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Class ReputableFirm implements BankAccount
+    Public
+        Procedure GetAccNum
+        Procedure GetSortCode
+        Function Withdraw (Amount)
+        Function CalcInterest (TimePeriod)
+    Private
+        AccNum: Integer
+        SortCode: Integer
+        InterestRate: Float
+        Balance: Double
+End
+
+LoanShark = Class implementing BankAccount
+    Public
+        Procedure GetAccNum
+        Procedure GetSortCode
+        Function Withdraw (Amount)
+        Function CalcInterest (TimePeriod)
+    Private
+        AccNum: Integer
+        SortCode: Integer
+        InterestRate: Double
+        Balance: Float
+End
+\end{Verbatim}

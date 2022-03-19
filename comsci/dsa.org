@@ -1,6 +1,4 @@
-#+TITLE: Data Structures & Algorithms
-#+AUTHOR: Alexander Neville
-#+OPTIONS: ^:{}
+#+latex_header: \usepackage{amsmath}
 
 * Data Structures
 

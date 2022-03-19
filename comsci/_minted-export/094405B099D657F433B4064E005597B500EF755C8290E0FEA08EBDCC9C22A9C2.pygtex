@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{o}{*}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{aircraft}\PYG{p}{;}
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{name}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{supplier}\PYG{p}{;}
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{supplier\PYGZus{}id}\PYG{+w}{ }\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{engine}\PYG{p}{;}
+\end{Verbatim}

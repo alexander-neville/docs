@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT}\PYG{+w}{ }\PYG{n}{first\PYGZus{}column\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{second\PYGZus{}column\PYGZus{}name}
+\PYG{k}{FROM}\PYG{+w}{ }\PYG{n}{first\PYGZus{}table\PYGZus{}name}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{second\PYGZus{}table\PYGZus{}name}
+\PYG{k}{WHERE}\PYG{+w}{ }\PYG{n}{first\PYGZus{}condition}\PYG{+w}{ }\PYG{k}{AND}\PYG{+w}{ }\PYG{n}{second\PYGZus{}condition}
+\PYG{k}{ORDER}\PYG{+w}{ }\PYG{k}{BY}\PYG{+w}{ }\PYG{k}{column\PYGZus{}name}\PYG{+w}{ }\PYG{k}{DESC}\PYG{o}{/}\PYG{k}{ASC}\PYG{p}{;}
+\end{Verbatim}

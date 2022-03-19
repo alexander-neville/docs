@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Public interface BankAccount
+    Procedure GetAccNum
+    Procedure GetSortCode
+    Function Withdraw (Amount)
+    Function CalcInterest (TimePeriod)
+End
+\end{Verbatim}

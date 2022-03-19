@@ -1,5 +1,4 @@
-#+TITLE: Software Development & Engineering
-#+AUTHOR: Alexander Neville
+#+latex_header: \usepackage{amsmath}
 
 * Databases and Software Development
 ** Introduction to Databases
@@ -40,30 +39,85 @@ In order to reduce data duplication and make insightful queries easier to constr
 
 This table shows some data which is human-readable, but difficult to query. A major problem with this layout is the duplication of data. In a production database, this would significantly increase the size of the database and adversely affect performance. Data inconsistency is also a problem when the same data is stored more than once. In this table some fields have more than one value, which means the records are not uniquely addressable.
 
-|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
-|  id | name    | price       | engine_id | engine_name                         | engine_quantity | supplier_id | supplier_name                      |
-|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
-| 123 | A320    | 100,000,000 | 1100G, 1A | geared turbofan, high bypass engine | 2, 2            | PW, CFM     | Pratt & Whitney, CFM International |
-| 243 | 737     | 100,000,000 | 1100G, 1B | geared turbofan, high bypass engine | 2, 2            | PW, CFM     | Pratt & Whitney, CFM International |
-| 156 | A380    | 400,000,000 | 900, 7000 | Trent 900, EA GP7000                | 4, 4            | RR, EA      | Rolls Royce, Engine Alliance       |
-| 457 | Typhoon | 110,000,000 | 2000      | EJ2000                              | 2, 2            | RR          | Rolls Royce                        |
-|-----+---------+-------------+-----------+-------------------------------------+-----------------+-------------+------------------------------------|
+
+#+begin_export latex
+\begin{figure}[H]
+\begin{center}
+% \begin{longtable}{rlllllll}
+\begin{longtable}{ |C{0.05\textwidth}|C{0.08\textwidth}|C{0.105\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.07\textwidth}|C{0.1\textwidth}| }
+
+\hline
+&&&&&&&\\
+\textbf{id} & \textbf{name} & \textbf{price} & \textbf{engine \_id} & \textbf{engine \_name} & \textbf{engine\_ quantity} & \textbf{supplier \_id} & \textbf{supplier \_name}\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+123 & A320 & 100,000,000 & 1100G, 1A & geared turbofan, high bypass engine & 2, 2 & PW, CFM & Pratt \& Whitney, CFM International\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+243 & 737 & 100,000,000 & 1100G, 1B & geared turbofan, high bypass engine & 2, 2 & PW, CFM & Pratt \& Whitney, CFM International\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+156 & A380 & 400,000,000 & 900, 7000 & Trent 900, EA GP7000 & 4, 4 & RR, EA & Rolls Royce, Engine Alliance\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+457 & Typhoon & 110,000,000 & 2000 & EJ2000 & 2, 2 & RR & Rolls Royce\\
+&&&&&&&\\
+\hline
+\end{longtable}
+\end{center}
+\end{figure}
+#+end_export
 
 *** First Normal Form
 
 To achieve /first normal form/ each field must have only one /atomic/ value and each record must be unique. Each record also requires a unique key, whether that be composite or individual. In this case, the primary key for each row in the table is =id + component_id=. The table below shows all the data from before in /1nf/.
 
-|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
-|  id | name    | price       | engine_id | engine_name        | engine_quantity | supplier_id | supplier_name     |
-|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
-| 123 | A320    | 100,000,000 | 1100G     | geared turbofan    |               2 | PW          | Pratt & Whitney   |
-| 123 | A320    | 100,000,000 | 1A        | high bypass engine |               2 | CFM         | CFM International |
-| 243 | 737     | 100,000,000 | 1100G     | geared turbofan    |               2 | PW          | Pratt & Whitney   |
-| 243 | 737     | 100,000,000 | 1B        | high bypass engine |               2 | CFM         | CFM International |
-| 156 | A380    | 400,000,000 | 900       | Trent 900          |               4 | RR          | Rolls Royce       |
-| 156 | A380    | 400,000,000 | 7000      | EA GP7000          |               4 | EA          | Engine Alliance   |
-| 457 | Typhoon | 110,000,000 | 2000      | EJ2000             |               2 | RR          | Rolls Royce       |
-|-----+---------+-------------+-----------+--------------------+-----------------+-------------+-------------------|
+#+begin_export latex
+\begin{figure}[H]
+\begin{center}
+% \begin{longtable}{rlllllll}
+\begin{longtable}{ |C{0.05\textwidth}|C{0.08\textwidth}|C{0.105\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.1\textwidth}|C{0.07\textwidth}|C{0.1\textwidth}| }
+\hline
+&&&&&&&\\
+\textbf{id} & \textbf{name} & \textbf{price} & \textbf{engine \_id} & \textbf{engine \_name} & \textbf{engine\_ quantity} & \textbf{supplier \_id} & \textbf{supplier \_name}\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+123 & A320 & 100,000,000 & 1100G & geared turbofan & 2 & PW & Pratt \& Whitney\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+123 & A320 & 100,000,000 & 1A & high bypass engine & 2 & CFM & CFM International\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+243 & 737 & 100,000,000 & 1100G & geared turbofan & 2 & PW & Pratt \& Whitney\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+243 & 737 & 100,000,000 & 1B & high bypass engine & 2 & CFM & CFM International\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+156 & A380 & 400,000,000 & 900 & Trent 900 & 4 & RR & Rolls Royce\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+156 & A380 & 400,000,000 & 7000 & EA GP7000 & 4 & EA & Engine Alliance\\
+&&&&&&&\\
+\hline
+&&&&&&&\\
+457 & Typhoon & 110,000,000 & 2000 & EJ2000 & 2 & RR & Rolls Royce\\
+&&&&&&&\\
+\hline
+\end{longtable}
+\end{center}
+\end{figure}
+#+end_export
 
 *** Second Normal Form
 
@@ -73,13 +127,15 @@ Relationships may be /one-to-one/, /one-to-many/ (or vice-versa) or /many-to-man
 
 *E.g.* In this database, add a transaction table like this:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 aircraft >----< engine
 
 aircraft --< engine_option >-- engine
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Here is how the entity tables will look:
 
@@ -129,11 +185,13 @@ For data to be in /third normal form/, /1nf/ and /2nf/ need to be satisfied. In 
 
 Here is the relationship that can be identified:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 supplier ----< engine
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 With this type of relation, no transaction table is needed, therefore the complete /3nf/ database looks like this:
 
@@ -226,8 +284,9 @@ Assuming that a database has been set-up, the first step is to create the tables
 
 This example will use the db design from the normalisation example above, leaving some mistakes to be corrected later.
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 CREATE TABLE aircraft (
     id INT(255) NOT NULL AUTO_INCREMENT,
     name VARCHAR(255),
@@ -252,8 +311,9 @@ CREATE TABLE engine_option (
     ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (engine_id) REFERENCES engine (id)
     ON DELETE CASCADE ON UPDATE CASCADE);
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Notice that each column has a datatype, the number following each one represents the maximum display width or the precision in the case of =FLOAT=. The best information on these data-types is the official documentation: https://dev.mysql.com/doc/refman/8.0/en/data-types.html
 
@@ -267,12 +327,14 @@ Notice that each column has a datatype, the number following each one represents
 
 The list of tables can be shown and an individual table described with these commands respectively /(not on specification)/:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 show tables;
 describe table_name;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 *** Altering Tables
 
@@ -280,60 +342,73 @@ Once created, a table's definition may need to be changed. The =Alter Table= com
 
 Adding a constraint to a table is done like this (not on specification):
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 ALTER TABLE engine ADD FOREIGN KEY (supplier_id) REFERENCES supplier (id) ON DELETE CASCADE ON UPDATE CASCADE;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Adding a column is also possible:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 ALTER TABLE engine_option ADD engine_quantity INT(1);
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Existing columns can be renamed with ease:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 ALTER TABLE engine_option RENAME COLUMN engine_quantity TO engine_number;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 The definition of a column can be modified:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 ALTER TABLE engine_option MODIFY COLUMN engine_number INT(255) NOT NULL;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Columns can also be dropped or deleted:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 ALTER TABLE engine_option DROP COLUMN engine_number;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 *** Inserting Data
 
 The general syntax for a simple insertion is:
 
-#+begin_src
-
-INSERT INTO table_name (column_name, column_name, ...) VALUES
-    (value, value, ...),
-    ...;
-
-#+end_src
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
+INSERT INTO table_name (first_column_name, second_column_name) VALUES
+    (first_value, second_value),
+    (third_value, fourth_value);
+\end{minted}
+\end{figure}
+#+end_export
 
 Here are the insert statements for the aircraft demo:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 INSERT INTO supplier (id, name) VALUES
             ('PW', 'Pratt & Whitney'),
             ('CFM', 'CFM International'),
@@ -362,8 +437,9 @@ INSERT INTO engine_option (aircraft_id, engine_id, engine_number) VALUES
             (156, '900', 4),
             (156, '7000', 4),
             (457, '2000', 2);
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 *** Selecting Data (One Table)
 
@@ -371,12 +447,15 @@ Once there is some data in the database, organised in /3nf/, it is possible to s
 
 The most simple query returns data from just one table. Here are some examples:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 SELECT * FROM aircraft;
 SELECT name FROM supplier;
 SELECT name, supplier_id FROM engine;
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 The first command returns the values from all columns of the =aircraft= table, while the others specify certain, comma-separated columns to display.
 
@@ -386,13 +465,15 @@ There are a number of ways to select data from multiple tables, including /joins
 
 Here are some example queries across multiple tables:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engine.supplier_id;
 
 SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engine.supplier_id AND supplier.id = 'CFM';
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Note that the =WHERE= clause provides the condition for the selection. In the second query, =AND= is used to provide a second condition.
 
@@ -400,11 +481,13 @@ Note that the =WHERE= clause provides the condition for the selection. In the se
 
 The results of a select statement can be ordered in a certain way, using the =ORDER BY= statement. Here is an example:
 
-#+begin_src sql
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 SELECT * FROM aircraft ORDER BY id DESC;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 This will return all the results in order from highest id to lowest id. If the sort column is a string, the results will be sorted alphabetically. Multiple Columns can be specified as sort column, for example results might be sorted alphabetically by country and then city.
 
@@ -412,21 +495,24 @@ This will return all the results in order from highest id to lowest id. If the s
 
 For a fully fledged database query, this is the default syntax:
 
-#+begin_src
-
-SELECT column_name, column_name, ...
-FROM table_name, table_name, ...
-WHERE condition AND condition ...
-ORDER BY column_name, ... DESC/ASC;
-
-#+end_src
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
+SELECT first_column_name, second_column_name
+FROM first_table_name, second_table_name
+WHERE first_condition AND second_condition
+ORDER BY column_name DESC/ASC;
+\end{minted}
+\end{figure}
+#+end_export
 
 *** Updating Records
 
 In addition to the table's definition, records can be changed. The =UPDATE= command is used to do this. Here are a few examples:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{sql}
 UPDATE aircraft
 SET name = 'a320'
 WHERE id = 123;
@@ -434,8 +520,9 @@ WHERE id = 123;
 UPDATE aircraft
 SET price = price+20000000
 WHERE id = 243;
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Once again, the =WHERE= clause is used to supply the conditions for the statement.
 
@@ -557,29 +644,26 @@ Within the class for an object, certain attributes may be marked as /private/, p
 
 This is an example of a class, written in pseudocode:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 item = Class
-
     Public
-
         Function GetStockLevel
         Procedure UpdateStockLevel
         Procedure SellItem
         Procedure Describe
-
     Private
-
         Id: Integer
         StockLevel: Integer
         Name: String
         Description: String
-
 End
+\end{minted}
+\end{figure}
+#+end_export
 
-#+end_src
-
-Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes /getter/ and /setter/ methods are used to manipulate the attributes of a method. In this class, =GetStockLevel= and =UpdateStockLevel= perfrom this role.
+Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes /getter/ and /setter/ methods are used to manipulate the attributes of a method. In this class, =GetStockLevel= and =UpdateStockLevel= perform this role.
 
 *** Encapsulation
 
@@ -595,16 +679,18 @@ Using a combination of object orientated techniques, a single /interface/ can be
 
 A /message/ is simply a call to an object's methods. For example:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 object1.test_message(inputs)
 object2.test_message(inputs)
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 If the program is /polymorphic/, the same method (in this case '=test_message=') can be called on both =object1= and =object2=, even if they are instantiated from different classes. The results will depend on the objects implementation of that /message/. Note that the classes for these objects must define this behaviour. Therefore, the name of the methods and the call pattern are identical, but the contents of the method could be very different
 
-There are many constructs, across programming languages, that are used for building an interface over many classes. One example is /inheritance/, which is a object orientanted technique in itself, while another is the use of an /interface/.
+There are many constructs, across programming languages, that are used for building an interface over many classes. One example is /inheritance/, which is a object orientated technique in itself, while another is the use of an /interface/.
 
 *** Interfaces
 
@@ -612,60 +698,52 @@ A programming interface stipulates the messages which a related class must respo
 
 This is how an interface would look in pseudocode:
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 Public interface BankAccount
-
     Procedure GetAccNum
     Procedure GetSortCode
     Function Withdraw (Amount)
     Function CalcInterest (TimePeriod)
-
 End
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 The interface might be implemented like this (pseudocode example):
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 Class ReputableFirm implements BankAccount
-
     Public
-
         Procedure GetAccNum
         Procedure GetSortCode
         Function Withdraw (Amount)
         Function CalcInterest (TimePeriod)
-
     Private
-
         AccNum: Integer
         SortCode: Integer
         InterestRate: Float
         Balance: Double
-
 End
 
 LoanShark = Class implementing BankAccount
-
     Public
-
         Procedure GetAccNum
         Procedure GetSortCode
         Function Withdraw (Amount)
         Function CalcInterest (TimePeriod)
-
     Private
-
         AccNum: Integer
         SortCode: Integer
         InterestRate: Double
         Balance: Float
-
 End
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 Note that both classes implement the same public functions (same definition and parameters), however some of the attributes of either class differ. For example, an account with a loan shark may have an extortionate amount of interest, hence the rate is stored as a =Double= rather than a =Float=. The subclasses are responsible for implementing the methods specified by the interface, however the details of that implementation are unique to the classes themselves.
 
@@ -673,7 +751,7 @@ Note that both classes implement the same public functions (same definition and 
 
 A plain /interface/ is more suitable for vaguely unrelated objects, whereas /inheritance/ is designed for objects with behaviour in common. If inheritance is a good option, it can be said that the objects have an /"is a"/ relationship. For example a cat /is an/ animal.
 
-An object may /inherit/ from multiple other classes at once, or inherit from a single class which also inherited from another class in turn. A subclass has all the properties and methods of the superclass / parent class. With each level of inheritance, a subclass can do any of these things:
+An object may /inherit/ from multiple other classes at once, or inherit from a single class which also inherited from another class in turn. A subclass has all the properties and methods of the superclass/parent class. With each level of inheritance, a subclass can do any of these things:
 
 - add another method to those inherited from the parent class(es)
 - /override/ or change the behaviour of a certain inherited method entirely
@@ -683,35 +761,27 @@ In some programming languages it is possible to define entirely abstract classes
 
 Here is the example of inheritance from the textbook (pg 354):
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 Animal = Class
-
     Public
-
         Procedure MoveLeft
         Procedure MoveRight
-
     Protected
-
         Position: Integer
-
 End
 
 Cat = SubClass (Animal)
-
     Public
-
         Procedure MoveLeft (override)
         Procedure EatMouse
-
     Private
-
         Name: String
-
 End
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 
 Each subclass which inherits from the =Animal= parent class will have all the methods of the parent class. In the =Cat= subclass, the =MoveLeft= method is /overriden/, but the =MoveRight= method is not changed. This means that a cat object will move right in the same way as a generic animal if that message is sent to the object. The =Cat= object also adds the =EatMouse= method, which is specific to a cat.
@@ -727,83 +797,94 @@ This is an example of inheritance and polymorphism written in python, but the th
 
 The first part of the program is the definition of the base class, in this case it is a model of an animal. This is not marked as abstract, but its role is parent class and its purpose is defining a standard interface and some default behaviour. For the sake of simplicity, the base class (and derived classes) only have one method in this example.
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{python}
 class Animal(object):
 
-    def __init__(self):
 
+    def __init__(self):
         pass
 
+
     def describe(self):
-
         print("i am a generic animal")
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 With the base class established, two subclasses are defined, inheriting from the =Animal= class. These two classes model a bird and mammal respectively. They have more specific properties than the parent class and the =describe= method is overriden. The =Bird= class includes a call to the superclass' implementation of the message, as well as adding its own behaviour. In addition, the bird class has an additional property.
 
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{python}
 class Bird(Animal):
 
-    def __init__(self):
 
+    def __init__(self):
         self.can_fly = True
 
-    def describe(self):
 
+    def describe(self):
         Animal.describe(self)
         print("i am a bird\n")
 
+
+
 class Mammal(Animal):
 
-    def __init__(self):
 
+    def __init__(self):
         pass
 
+
     def describe(self):
-
         print("i am a mammal\n")
+\end{minted}
+\end{figure}
+#+end_export
 
-#+end_src
+A sub-routine is declared which can test the polymorphic design of the program. An instance object is passed to the sub-routine and the =describe()= method is called on the reference variable, irrespective of the object passed in. The outcome of the sub-routine will depend on the type of the object passed in, rather than the code in the sub-routine.
 
-A sub-routine is declared which can test the polymorphism of the program. An instance is passed to the sub-routine and the =describe= method is called on the reference variable, irrespective of the object passed in. The outcome of the sub-routine will depend on the type of the object passed in, rather than the code in the sub-routine.
-
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{python}
 def test_object(animal):
-
     animal.describe()
+\end{minted}
+\end{figure}
+#+end_export
 
-#+end_src
+The last part of the program is simply some driver code; two objects are instantiated and passed to the =test_object()= sub-routine.
 
-The last part of the program is simply some driver code; two objects are instantiated and passed to the =test_object= sub-routine.
-
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{python}
 bird = Bird()
 mammal = Mammal()
 
 test_object(bird)
 test_object(mammal)
+\end{minted}
+\end{figure}
+#+end_export
 
-#+end_src
+The output succinctly demonstrates the principle of polymorphism. Both objects share a common interface, which can be called upon by an external unit of code. The resulting output is a consequence of the object's type, not the operation requested.
 
-When run, the output shows the effect of sending the same message to two different classes using a common interface: /polymorphism/
-
-#+begin_src
-
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
 i am a generic animal
 i am a bird
 
 i am a mammal
-
-#+end_src
+\end{minted}
+\end{figure}
+#+end_export
 
 *** Association
 
-When two objects have a relationship that is not an /"is a"/ relationship, association by /composition/ or /aggregation/ may be more suitable. Such a relationship is usually a /"has a"/ relationship, for example a house /has a/ kitchen. There is usually some ownership involved, otherwise the objects can exist independently. The difference between the two types of association lies in the /lifecycle dependency/ of the contained classes.
+When two objects have a relationship that is not an /"is a"/ relationship, association by /composition/ or /aggregation/ may be more suitable. Such a relationship is usually a /"has a"/ relationship, for example a house /has a/ kitchen. There is usually some ownership involved, otherwise the objects can exist independently. The difference between the two types of association lies in the /life cycle dependency/ of the contained classes.
 
 - during /aggregation/ association, the subclasses continue to exist without the container class, eg. people in a sports team or a company still exist if either is disbanded
 - during /composition/ association, the contained classes are destroyed along with the container class, eg. rooms in a building disappear if the building is knocked down

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+aircraft \PYGZgt{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZlt{} engine
+
+aircraft \PYGZhy{}\PYGZhy{}\PYGZlt{} engine\PYGZus{}option \PYGZgt{}\PYGZhy{}\PYGZhy{} engine
+\end{Verbatim}

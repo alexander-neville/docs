@@ -1,0 +1,14 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+item = Class
+    Public
+        Function GetStockLevel
+        Procedure UpdateStockLevel
+        Procedure SellItem
+        Procedure Describe
+    Private
+        Id: Integer
+        StockLevel: Integer
+        Name: String
+        Description: String
+End
+\end{Verbatim}

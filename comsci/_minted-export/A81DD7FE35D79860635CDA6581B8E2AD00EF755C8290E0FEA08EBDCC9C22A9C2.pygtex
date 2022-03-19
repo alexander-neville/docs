@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{engine}\PYG{+w}{ }\PYG{k}{ADD}\PYG{+w}{ }\PYG{k}{FOREIGN}\PYG{+w}{ }\PYG{k}{KEY}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{supplier\PYGZus{}id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{REFERENCES}\PYG{+w}{ }\PYG{n}{supplier}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{id}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{DELETE}\PYG{+w}{ }\PYG{k}{CASCADE}\PYG{+w}{ }\PYG{k}{ON}\PYG{+w}{ }\PYG{k}{UPDATE}\PYG{+w}{ }\PYG{k}{CASCADE}\PYG{p}{;}
+\end{Verbatim}

@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Animal = Class
+    Public
+        Procedure MoveLeft
+        Procedure MoveRight
+    Protected
+        Position: Integer
+End
+
+Cat = SubClass (Animal)
+    Public
+        Procedure MoveLeft (override)
+        Procedure EatMouse
+    Private
+        Name: String
+End
+\end{Verbatim}

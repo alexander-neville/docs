@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{test\PYGZus{}object}\PYG{p}{(}\PYG{n}{animal}\PYG{p}{):}
+    \PYG{n}{animal}\PYG{o}{.}\PYG{n}{describe}\PYG{p}{()}
+\end{Verbatim}

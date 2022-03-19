@@ -1,7 +1,4 @@
-
-#+TITLE: Hardware, Software & Computer System Architecture
-#+AUTHOR: Alexander Neville
-#+OPTIONS: ^:{}
+#+latex_header: \usepackage{amsmath}
 
 * Hardware and Software
 

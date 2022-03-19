@@ -1,0 +1,4 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+show tables;
+describe table\PYGZus{}name;
+\end{Verbatim}

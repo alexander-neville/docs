@@ -1,0 +1,14 @@
+#+TITLE: Computer Science Notes
+#+AUTHOR: Alexander Neville
+#+OPTIONS: ^:{}
+#+latex_class_options: [9pt]
+#+INCLUDE: "./export_options.org"
+
+# completed sections
+#+INCLUDE: "./fundamentals.org"
+#+INCLUDE: "./computer_systems.org"
+
+# work needed
+#+INCLUDE: "./dsa.org"
+#+INCLUDE: "./communication.org"
+#+INCLUDE: "./software_engineering.org"

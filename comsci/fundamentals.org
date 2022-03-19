@@ -1,7 +1,4 @@
-
-#+TITLE: Fundamentals & Theory of Computer Science
-#+AUTHOR: Alexander Neville
-// #+OPTIONS: ^:{}
+#+latex_header: \usepackage{amsmath}
 
 * Fundamentals of Programming
 

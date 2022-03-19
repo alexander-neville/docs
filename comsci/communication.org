@@ -1,7 +1,4 @@
-
-#+TITLE: Communication & the Internet
-#+AUTHOR: Alexander Neville
-#+OPTIONS: ^:{}
+#+latex_header: \usepackage{amsmath}
 
 * Communication Technology and Consequences
 ** Communication Methods
