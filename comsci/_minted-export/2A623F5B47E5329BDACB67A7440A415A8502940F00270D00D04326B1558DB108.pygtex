@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+CASE variable of
+
+    value:
+
+        ....
+
+    value:
+
+        ....
+
+ENDCASE
+\end{Verbatim}

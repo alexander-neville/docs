@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+WHILE condition
+
+    ....
+
+ENDWHILE
+\end{Verbatim}

@@ -1,0 +1,6 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sensor\PYGZus{}data \PYGZlt{}\PYGZhy{} INPUT
+name \PYGZlt{}\PYGZhy{} USERINPUT
+
+OUTPUT name, sensor\PYGZus{}data
+\end{Verbatim}

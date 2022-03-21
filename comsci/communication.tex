@@ -1,0 +1,257 @@
+% Created 2022-03-21 Mon 20:57
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath}
+\author{Alexander Neville}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Alexander Neville},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.6)}, 
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+
+\section{Communication Technology and Consequences}
+\label{sec:orgb8640b2}
+\subsection{Communication Methods}
+\label{sec:orgf1b0c1d}
+\subsubsection{Serial Transmission}
+\label{sec:org7f9e536}
+
+During serial data transmission, bits are set one after the other down a single (serial) data channel. A second data wire will be needed for simultaneous bi-directional data transfer. Sometimes an additional \emph{ground} wire is used to reduce the adverse affects of interference. Additional control wires may also be used in serial data connections.
+
+\subsubsection{Parallel Transmission}
+\label{sec:orgd7bfe7f}
+
+Multiple bits of data are sent simultaneously along a number of parallel data wires.
+
+\subsubsection{Comparison of Methods}
+\label{sec:orgb887304}
+
+Each of the wires used to transmit individual bits in a parallel connection will differ slightly from the others. This subtle difference will affect the rate at which data can travel along the wire and hence the time taken for a bit to travel a certain distance. This causes bits to arrive at the receiver at different times, a phenomena know as \emph{skew}.
+
+Parallel transmission becomes impractical over larger distances, as \emph{skew} becomes more pronounced. Parallel transmission is, however, suitable in some environments, for example onboard motherboards and \emph{Integrated Circuits}, where distances are small and the increased speed is valuable.
+
+Serial connections have much smaller interfaces, making them suitable for mass manufacturing, especially in mobile devices and consumer electronics.
+
+\emph{Crosstalk} between the data channels of a parallel connection can cause interference and corruption. The danger of interference due to crosstalk increases with frequency. As a result, the frequency of serial connections can be safely increased beyond the practical limits of parallel connections, meaning more data can be transmitted in a given amount of time, even if less data is transferred per cycle.
+
+\subsubsection{Bit and Baud Rate}
+\label{sec:orgcb90c05}
+
+The two measures are linked with this equation:
+
+\emph{bit rate = baud rate * number of bits per baud}
+
+In typical serial connections, \emph{1s} and \emph{0s} are represented by high and low voltages in a cable, called non-return-to-zero \emph{(NRZ)} communication, where the signal voltage never returns to \emph{0v}. The \emph{baud rate} is the number of symbol changes per second - the number of times the signal voltage is changed / the frequency. The bit rate may be the same as the \emph{baud rate}, although - using signal modulation - more than 2 values may be encoded within a single cycle. In such a case, the \emph{bit rate} (the total number of bits transferred in a second) is equal to the \emph{baud rate} * the number of bits per \emph{baud}.
+
+Increasing the number of bits per \emph{baud} means more data can be transferred along a narrower (possibly serial) cable in a certain amount of time.
+
+\subsubsection{Baseband and Broadband}
+\label{sec:org05449ac}
+
+Broadband is an analogue data transfer method, meaning there are a \emph{continuous} range of values (voltages) and each symbol change can represent more than two values (as in binary). Broadband connections are often multi-channel and bidirectional. These connections are frequently use in \emph{WANs}.
+
+Baseband is a type of digital data connection, commonly used in \emph{LANs}, where the bit rate is often the same as the baud rate, hence each symbol is either a 0 or 1. Ethernet cables are baseband connections.
+
+\subsubsection{Latency and Bandwidth}
+\label{sec:org1391603}
+
+Latency is the time taken for some data to be transmitted a certain distance, ie. from sender to receiver, irrespective of how much data is sent at once. Latency is often measured in seconds \emph{(s)} or milliseconds \emph{(ms)}.
+
+Bandwidth loosely means how much data can be received at once, irrespective of the speed the signal can travel and hence the latency between sender and receiver. Bandwidth is often measured in bits per second \emph{(bps)} and has a direct relationship to bit rate.
+
+In data communication and networking, bandwidth is analogous to data transfer rate.
+
+\subsubsection{Synchronous Communication}
+\label{sec:orgf847ff8}
+
+During \emph{synchronous transmission}, both sender and receiver share a common clock cycle for coordinating signals. This communication method depends on that clock cycle to govern communication along the wire. This type of communication is best for connections that work in real time, with a constant flow of data, for example within a computer's processor.
+
+\subsubsection{Asynchronous Communication}
+\label{sec:orgfd795b3}
+
+There is another common communication method known as \emph{asynchronous transmission}. Neither the sender, nor the receiver share the same clock cycles. Communication is governed by start and stop bits, sent before and after a communique. The stop bit is always the opposite of the start bit. Despite the absence of a common clock, the sender and receiver must use the same baud/bit rate so that the receiver can understand the message once the start bit is received.
+
+\subsection{Network Topology}
+\label{sec:org78bbb5d}
+
+A single computer with no connection to any other devices is described as a \emph{stand-alone} computer system. When a computer is connected to one or more other computers, the resulting system can be described as a \emph{computer network}. Digital \emph{baseband} connections are often used inside a \emph{local area network}. Many smaller LANs spread over a large area are often joined to others by \emph{broadband} connections, creating a \emph{wide area network}.
+
+\emph{Physical} network topology defines how the devices are physically connected with hardware devices and equipment. \emph{Logical} network topology is the layout used by devices on a network to communicate using the physical network equipment provided.
+
+\subsubsection{Physical Bus Topology}
+\label{sec:org255bbfe}
+
+The \emph{physical bus topology} is a simple network configuration, used in many small home networks. Each device is connected to a \emph{backbone} cable which runs past every device. A \emph{terminator} is placed at either end of the bus.
+
+\textbf{Advantages:}
+
+\begin{itemize}
+\item A bus network is inexpensive to set up and easy to maintain.
+\item Less cable has to be laid/installed.
+\item Identifying problems with equipment can be easier.
+\end{itemize}
+
+\textbf{Disadvantages:}
+
+\begin{itemize}
+\item Data intended for one device on the network passes many other computers.
+\item The single backbone cable is subject to congestion as many devices need to communicate through the network.
+\item Collisions can occur as devices need to send data along on the bus.
+\item The single backbone cable is a single point of failure. If it is not functioning, it is impossible for devices on the network to communicate with one another.
+\end{itemize}
+
+\subsubsection{Physical Star Topology}
+\label{sec:orgef92a5d}
+
+The \emph{physical star} network configuration is a more complicated type of network, where each node has its own dedicated connection to the hub or router.
+
+\textbf{Advantages:}
+
+\begin{itemize}
+\item The star network is more secure, as data intended for one computer on the network does not pass by others.
+\item Dedicated cables for each device eliminate the risk of collisions between signals sent by different computers.
+\item This type of network is more flexible and expandable, as more hubs and devices can be connected to the hub.
+\end{itemize}
+
+\textbf{Disadvantages:}
+
+\begin{itemize}
+\item Star networks can be more difficult and expensive to implement as more cables need to be laid/installed.
+\item The central hub is a single point of failure. Should the hub fail, none of the devices on the network will be able to communicate with one another.
+\end{itemize}
+
+\subsubsection{Logical Topology}
+\label{sec:org8fbde44}
+
+Logical topology is the manner in which data is handled on top of a physical network. For example, a hub might use a bus protocol to push data outward onto a star network, similar to how a physical bus network behaves.
+
+\subsubsection{MAC Addresses}
+\label{sec:org1517629}
+\subsection{Client/Server}
+\label{sec:org99c9da2}
+
+A \emph{server} is a computer which services requests from a number of clients; a response is sent back to the connected client in return. A computer may be both a client and a server simultaneously. A server might be used to process or store data.
+
+Within a LAN, server(s) may be set-up to handle tasks common among all client computers on the network. Internet facing \emph{web-servers} are used to host websites and content on the internet.
+
+\textbf{Advantages:}
+
+A client-server configuration is preferred when central management over the whole network is needed, making this model popular in schools and businesses. Servers might be set up to handle user accounts, store files and manage backups.
+
+\textbf{Disadvantages:}
+
+A client-server network requires expensive hardware (the servers themselves) and personnel to maintain the servers. This makes the client-server model impractical on smaller home networks.
+
+\subsection{Peer-to-peer}
+\label{sec:org6ad5337}
+
+There is less core infrastructure in a decentralised peer-to-peer network. The services that would be provided by servers are shared amongst the clients.
+
+\textbf{Advantages:}
+
+No expensive server computers are required. Expertise and maintenance are not required on a peer-to-peer network.
+
+\textbf{Disadvantages:}
+
+All clients must be connected and powered-on for the network to function as expected. Peer-to-peer networking may leave a user's files visible to other devices on the network.
+
+\subsection{Wireless Networking}
+\label{sec:org82b70c1}
+\subsubsection{Wi-Fi}
+\label{sec:orgfec66f3}
+
+\emph{Wi-Fi}, standing for \emph{wireless fidelity}, is a type of wireless network standard designed to be interoperable with \emph{IEEE 802.11} protocol and work alongside Ethernet at the \emph{Network Access} layer. Devices using wi-fi can connect to a \emph{wireless access point} and communicate with any other device on the network.
+
+\subsubsection{NIC}
+\label{sec:orgfcbb043}
+
+In order to connect to a wireless network, a device must have a wireless network interface card \emph{(NIC)}, a device will have a similar card for all its other interfaces, eg. Ethernet. The NIC has a hardcoded MAC address. The combination of an NIC and a computer is called a \emph{station}.
+
+\subsubsection{SSID}
+\label{sec:org5408425}
+
+A service set identifier \emph{(SSID)} is a human readable name for a wireless network. It may be broadcast to devices within range of a \emph{WAP}, or kept private.
+
+\subsubsection{Security}
+\label{sec:org419ac66}
+
+Any device within range of a \emph{WAP} could connect to an unprotected wireless network. A network password is often used in wi-fi protected access \emph{(WPA)} networks. \emph{WPA2} is also a common standard. A network owner may also choose to set up a MAC whitelist for ultimate control over which devices may connect. In order to connect, the MAC address of a computer's NIC must be added to the whitelist.
+
+\subsubsection{CSMA/CA}
+\label{sec:org104a04e}
+
+Connected devices share the same channel to transmit data to the \emph{WAP}. In order to prevent multiple computers trying to communicate with the \emph{WAP} simultaneously, Carrier Sense Multiple Access with Collision Avoidance \emph{(CSMA/CA)} is used. Before data may be sent to the \emph{WAP}, the station checks if the channel is idle. If another device is communicating over the channel, the station waits a random amount of time before checking the status of the channel again. This process continues until the channel is free and the station is able to send data to the \emph{WAP}.
+
+\subsubsection{RTS/CTS}
+\label{sec:org3dc9323}
+
+One of the shortcomings of the \emph{CSMA/CA} standard is the \emph{hidden node} problem. It is possible that the \emph{WAP} is engaged with a station that cannot be seen or heard by a station that needs to send data. This situation is common on larger networks, where the \emph{WAP} serves a larger area.
+
+Once the channel appears idle to a station, a 'request to send' signal is sent to the \emph{WAP}. If the 'clear to send' signal is not received, the station waits a random amount of time before checking the channel status and resending the 'request to send' signal. If the \emph{WAP} is free, a 'clear to send' signal is returned to the station and the data can be transmitted.
+
+\subsection{Communication \& Privacy}
+\label{sec:org0c6e937}
+
+\emph{not implemented}
+
+\subsection{Social, Cultural \& Legal Issues}
+\label{sec:org5c11911}
+
+\emph{not implemented}
+
+\section{The Internet}
+\label{sec:org010792a}
+
+
+The \emph{Internet Protocol Suite}, often referred to as the \emph{TCP/IP} stack, is a collection of communication protocols adopted on the public internet and other similar computer networks. The whole protocol suite governs end-to-end communication between devices including stipulations about the way data is split into packets, addressed transmitted and routed.
+
+Much like the \emph{Open Systems Interconnection}, these conceptual network models arrange communication protocols into abstract layers.
+
+\subsection{Quick notes}
+\label{sec:orgaabde44}
+
+\begin{enumerate}
+\item Physical (bit, symbol) = Link
+\item Data link (frame) = Link
+\item Network (packet) = Internet
+\item Transport (segment, datagram) = Transport
+\item Session = Application
+\item Presentation = Application
+\item Application = Application
+\end{enumerate}
+
+\subsection{Uniform Resource Locators}
+\label{sec:org04c9df8}
+
+A URL is a specific type of \emph{Uniform Resource Identifier} or \textbf{URI}, designed to identify web resources on computer networks. A typical URL may resemble:
+
+\begin{verbatim}
+https://www.example.com:443/path?query
+\end{verbatim}
+
+In this example the \textbf{https} protocol is chosen, followed by the characters \texttt{://}. This whole component is called the \emph{scheme}. The next component is the host name or IP address, separated from the port number by a colon. The remaining components are the path to the resource or file in question and the query string, separated by a question mark.
+
+\subsection{Domain Names \& DNS}
+\label{sec:org9b59b0d}
+
+A domain is an identification string which defines or identifies a \emph{``realm of administrative autonomy, authority or control''} within the internet (Wikipedia). Domain names conform to the rules and regulations of the \emph{Domain Name System}. Any such string registered in the \textbf{DNS} is considered a domain name.
+
+Domain names are organised, or grouped, in subordinate divisions of the domain root, which is nameless (refer to \textbf{FQDN}). The first level of domains are called \emph{top-level-domains} or \textbf{TLDs} for short. \textbf{TLDs} include generic top-level domains such as \texttt{com}, \texttt{info}, \texttt{net}, \texttt{edu}, and \texttt{org} as well as the country code top-level domains. Below this tier are the second and third-level domains. These are openly available for reservation to internet users. Domain names work from right to left, with the top-level domain appearing on the right. Domain levels are separated with the \texttt{.} (full stop) character.
+
+\begin{itemize}
+\item A \emph{fully qualified domain name} is all the components of a domain name, which collectively specify the domain's exact location in the domain name system. \textbf{FQDNs} are terminated with a full stop, which is characteristic of this type of domain. The point represents the root domain, from which the domain can be located.
+
+\item A \emph{subdomain} is federated by the owner of the parent domain. There is no limit to how many subdomains may be used. Third-level domains are often used to identify a particular host server, eg \emph{mail} or \emph{www}. Such subdomains may only support the implied functionality.
+\end{itemize}
+
+The \emph{Internet Corporation for Assigned Names and Numbers} (ICANN) is the governing body for the name and number systems used on the internet. There are five \emph{Regional Internet Registries} globally. Registries are organisations which manage top-level domains. Through a memorandum of understanding, these registries cooperate through the unincorporated \emph{Number Resource Organisation}. Internet resources are distributed to RIRs and disseminated in accordance with the policies of the registry. The commercial sales of domain names are delegated to accredited \emph{internet registrars}. When a customer purchases, or more accurately \emph{leases}, a domain, the registrar notifies the registry which maintains the records.
+\end{document}

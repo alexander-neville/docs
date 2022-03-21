@@ -2,194 +2,204 @@
 \contentsline {subsection}{\numberline {1.1}Pseudocode}{5}{subsection.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.1}Syntax}{5}{subsubsection.1.1.1}%
 \contentsline {subsubsection}{\numberline {1.1.2}Flow Control}{6}{subsubsection.1.1.2}%
-\contentsline {subsubsection}{\numberline {1.1.3}Data structures}{7}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.3}Data structures}{8}{subsubsection.1.1.3}%
 \contentsline {subsubsection}{\numberline {1.1.4}Subroutines}{8}{subsubsection.1.1.4}%
-\contentsline {subsubsection}{\numberline {1.1.5}Files}{8}{subsubsection.1.1.5}%
-\contentsline {subsubsection}{\numberline {1.1.6}Exceptions}{8}{subsubsection.1.1.6}%
-\contentsline {section}{\numberline {2}Problem Solving and Theory of Computation}{10}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Problem Solving}{10}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Strategies}{10}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Structured Programming}{10}{subsection.2.3}%
-\contentsline {subsubsection}{\numberline {2.3.1}Block Structure}{10}{subsubsection.2.3.1}%
-\contentsline {subsubsection}{\numberline {2.3.2}Modularisation}{10}{subsubsection.2.3.2}%
-\contentsline {subsubsection}{\numberline {2.3.3}Hierarchy Charts}{11}{subsubsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.4}Testing}{11}{subsection.2.4}%
-\contentsline {subsection}{\numberline {2.5}Abstraction}{11}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Composition}{12}{subsection.2.6}%
-\contentsline {subsection}{\numberline {2.7}Automation}{12}{subsection.2.7}%
-\contentsline {subsection}{\numberline {2.8}Finite State Machines}{12}{subsection.2.8}%
-\contentsline {section}{\numberline {3}Data Representation}{14}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Number Systems}{14}{subsection.3.1}%
-\contentsline {subsubsection}{\numberline {3.1.1}Sets of Numbers}{14}{subsubsection.3.1.1}%
-\contentsline {subsubsection}{\numberline {3.1.2}Decimal}{14}{subsubsection.3.1.2}%
-\contentsline {subsubsection}{\numberline {3.1.3}Binary}{14}{subsubsection.3.1.3}%
-\contentsline {subsubsection}{\numberline {3.1.4}Hexadecimal and Octal}{14}{subsubsection.3.1.4}%
-\contentsline {subsection}{\numberline {3.2}Two's Complement}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Fixed Point Binary Numbers}{16}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Floating Point Binary Numbers}{16}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Conversion}{16}{subsubsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.5}Character Encoding}{17}{subsection.3.5}%
-\contentsline {subsubsection}{\numberline {3.5.1}ASCII}{17}{subsubsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.2}Unicode}{17}{subsubsection.3.5.2}%
-\contentsline {subsection}{\numberline {3.6}Error Checking and Correction}{17}{subsection.3.6}%
-\contentsline {subsubsection}{\numberline {3.6.1}Parity Checking}{17}{subsubsection.3.6.1}%
-\contentsline {subsubsection}{\numberline {3.6.2}Majority Voting}{18}{subsubsection.3.6.2}%
-\contentsline {subsubsection}{\numberline {3.6.3}Checksum}{18}{subsubsection.3.6.3}%
-\contentsline {subsubsection}{\numberline {3.6.4}Check Digits}{18}{subsubsection.3.6.4}%
-\contentsline {subsection}{\numberline {3.7}Analogue and Digital Data}{18}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Image Representation}{18}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Bitmap Files}{18}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}Limitations of Bitmap Files}{19}{subsubsection.3.8.2}%
-\contentsline {subsubsection}{\numberline {3.8.3}Colour Depth}{19}{subsubsection.3.8.3}%
-\contentsline {subsubsection}{\numberline {3.8.4}Metadata}{19}{subsubsection.3.8.4}%
-\contentsline {subsubsection}{\numberline {3.8.5}Vector Graphics}{19}{subsubsection.3.8.5}%
-\contentsline {subsection}{\numberline {3.9}Audio Representation}{20}{subsection.3.9}%
-\contentsline {subsubsection}{\numberline {3.9.1}Sample Rate}{20}{subsubsection.3.9.1}%
-\contentsline {subsubsection}{\numberline {3.9.2}Sample Depth}{20}{subsubsection.3.9.2}%
-\contentsline {subsubsection}{\numberline {3.9.3}Nyquist's Theorem}{20}{subsubsection.3.9.3}%
-\contentsline {subsubsection}{\numberline {3.9.4}Audio Storage and Files}{20}{subsubsection.3.9.4}%
-\contentsline {subsubsection}{\numberline {3.9.5}Recording}{20}{subsubsection.3.9.5}%
-\contentsline {subsubsection}{\numberline {3.9.6}Playback}{21}{subsubsection.3.9.6}%
-\contentsline {subsection}{\numberline {3.10}Compression}{21}{subsection.3.10}%
-\contentsline {subsubsection}{\numberline {3.10.1}Lossless}{21}{subsubsection.3.10.1}%
-\contentsline {subsubsection}{\numberline {3.10.2}Lossy}{22}{subsubsection.3.10.2}%
-\contentsline {subsection}{\numberline {3.11}Encryption}{22}{subsection.3.11}%
-\contentsline {subsubsection}{\numberline {3.11.1}Caesar Ciphers}{22}{subsubsection.3.11.1}%
-\contentsline {subsubsection}{\numberline {3.11.2}Vernam Ciphers}{22}{subsubsection.3.11.2}%
-\contentsline {section}{\numberline {4}Hardware and Software}{24}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Classification of Software}{24}{subsection.4.1}%
-\contentsline {subsubsection}{\numberline {4.1.1}System Software}{24}{subsubsection.4.1.1}%
-\contentsline {subsubsection}{\numberline {4.1.2}Application Software}{25}{subsubsection.4.1.2}%
-\contentsline {subsection}{\numberline {4.2}Programming Language Specification}{25}{subsection.4.2}%
-\contentsline {subsubsection}{\numberline {4.2.1}Low-Level Languages}{25}{subsubsection.4.2.1}%
-\contentsline {subsubsection}{\numberline {4.2.2}High-Level Languages}{26}{subsubsection.4.2.2}%
-\contentsline {subsubsection}{\numberline {4.2.3}Abstraction}{26}{subsubsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.3}Programming Language Translation}{26}{subsection.4.3}%
-\contentsline {subsubsection}{\numberline {4.3.1}Assemblers}{27}{subsubsection.4.3.1}%
-\contentsline {subsubsection}{\numberline {4.3.2}Compilers}{27}{subsubsection.4.3.2}%
-\contentsline {subsubsection}{\numberline {4.3.3}Interpreters}{27}{subsubsection.4.3.3}%
-\contentsline {subsubsection}{\numberline {4.3.4}Bytecode}{27}{subsubsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.4}Boolean Logic \& Algebra}{28}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Computer Organisation and Architecture}{29}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Harvard \& Von Neuman Architecture}{29}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Motherboard}{29}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}CPU Disambiguation}{29}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}CPU Components}{29}{subsection.5.4}%
-\contentsline {subsubsection}{\numberline {5.4.1}Processor Clock}{29}{subsubsection.5.4.1}%
-\contentsline {subsubsection}{\numberline {5.4.2}Control Unit}{30}{subsubsection.5.4.2}%
-\contentsline {subsubsection}{\numberline {5.4.3}Arithmetic and Logic Unit}{30}{subsubsection.5.4.3}%
-\contentsline {subsubsection}{\numberline {5.4.4}General Purpose Registers}{30}{subsubsection.5.4.4}%
-\contentsline {subsubsection}{\numberline {5.4.5}Dedicated Registers}{30}{subsubsection.5.4.5}%
-\contentsline {subsection}{\numberline {5.5}Motherboard Buses}{31}{subsection.5.5}%
-\contentsline {subsubsection}{\numberline {5.5.1}Address Bus}{31}{subsubsection.5.5.1}%
-\contentsline {subsubsection}{\numberline {5.5.2}Data Bus}{31}{subsubsection.5.5.2}%
-\contentsline {subsubsection}{\numberline {5.5.3}Control Bus}{31}{subsubsection.5.5.3}%
-\contentsline {subsection}{\numberline {5.6}IO Controllers}{31}{subsection.5.6}%
-\contentsline {subsection}{\numberline {5.7}Cache}{32}{subsection.5.7}%
-\contentsline {subsection}{\numberline {5.8}FDE Cycle}{32}{subsection.5.8}%
-\contentsline {subsubsection}{\numberline {5.8.1}Fetch}{32}{subsubsection.5.8.1}%
-\contentsline {subsubsection}{\numberline {5.8.2}Decode}{32}{subsubsection.5.8.2}%
-\contentsline {subsubsection}{\numberline {5.8.3}Execute}{32}{subsubsection.5.8.3}%
-\contentsline {subsection}{\numberline {5.9}Interrupts}{32}{subsection.5.9}%
-\contentsline {subsection}{\numberline {5.10}Processor Performance}{33}{subsection.5.10}%
-\contentsline {subsubsection}{\numberline {5.10.1}Clock Frequency}{33}{subsubsection.5.10.1}%
-\contentsline {subsubsection}{\numberline {5.10.2}Word Length}{33}{subsubsection.5.10.2}%
-\contentsline {subsubsection}{\numberline {5.10.3}Address Size}{33}{subsubsection.5.10.3}%
-\contentsline {subsubsection}{\numberline {5.10.4}Multiple Cores}{33}{subsubsection.5.10.4}%
-\contentsline {subsection}{\numberline {5.11}Instruction Sets}{33}{subsection.5.11}%
-\contentsline {subsection}{\numberline {5.12}Addressing Modes}{34}{subsection.5.12}%
-\contentsline {subsection}{\numberline {5.13}Assembly Language}{34}{subsection.5.13}%
-\contentsline {subsubsection}{\numberline {5.13.1}Fibonacci Example}{34}{subsubsection.5.13.1}%
-\contentsline {subsubsection}{\numberline {5.13.2}Bit-wise Operations}{35}{subsubsection.5.13.2}%
-\contentsline {subsubsection}{\numberline {5.13.3}Logical Shifts}{35}{subsubsection.5.13.3}%
-\contentsline {subsection}{\numberline {5.14}IO Devices}{36}{subsection.5.14}%
-\contentsline {subsubsection}{\numberline {5.14.1}Barcodes}{36}{subsubsection.5.14.1}%
-\contentsline {subsubsection}{\numberline {5.14.2}QR codes}{36}{subsubsection.5.14.2}%
-\contentsline {subsubsection}{\numberline {5.14.3}Digital Cameras}{37}{subsubsection.5.14.3}%
-\contentsline {subsubsection}{\numberline {5.14.4}RFID}{37}{subsubsection.5.14.4}%
-\contentsline {subsubsection}{\numberline {5.14.5}Laser Printers}{38}{subsubsection.5.14.5}%
-\contentsline {subsection}{\numberline {5.15}Secondary Storage}{38}{subsection.5.15}%
-\contentsline {subsubsection}{\numberline {5.15.1}Hard Disk Drives}{38}{subsubsection.5.15.1}%
-\contentsline {subsubsection}{\numberline {5.15.2}Optical Devices}{39}{subsubsection.5.15.2}%
-\contentsline {subsubsection}{\numberline {5.15.3}Solid State Drives}{40}{subsubsection.5.15.3}%
-\contentsline {section}{\numberline {6}Data Structures}{42}{section.6}%
-\contentsline {section}{\numberline {7}Algorithms}{43}{section.7}%
-\contentsline {section}{\numberline {8}Regular languages}{44}{section.8}%
-\contentsline {section}{\numberline {9}Communication Technology and Consequences}{45}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Communication Methods}{45}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Serial Transmission}{45}{subsubsection.9.1.1}%
-\contentsline {subsubsection}{\numberline {9.1.2}Parallel Transmission}{45}{subsubsection.9.1.2}%
-\contentsline {subsubsection}{\numberline {9.1.3}Comparison of Methods}{45}{subsubsection.9.1.3}%
-\contentsline {subsubsection}{\numberline {9.1.4}Bit and Baud Rate}{45}{subsubsection.9.1.4}%
-\contentsline {subsubsection}{\numberline {9.1.5}Baseband and Broadband}{46}{subsubsection.9.1.5}%
-\contentsline {subsubsection}{\numberline {9.1.6}Latency and Bandwidth}{46}{subsubsection.9.1.6}%
-\contentsline {subsubsection}{\numberline {9.1.7}Synchronous Communication}{46}{subsubsection.9.1.7}%
-\contentsline {subsubsection}{\numberline {9.1.8}Asynchronous Communication}{46}{subsubsection.9.1.8}%
-\contentsline {subsection}{\numberline {9.2}Network Topology}{46}{subsection.9.2}%
-\contentsline {subsubsection}{\numberline {9.2.1}Physical Bus Topology}{47}{subsubsection.9.2.1}%
-\contentsline {subsubsection}{\numberline {9.2.2}Physical Star Topology}{47}{subsubsection.9.2.2}%
-\contentsline {subsubsection}{\numberline {9.2.3}Logical Topology}{47}{subsubsection.9.2.3}%
-\contentsline {subsubsection}{\numberline {9.2.4}MAC Addresses}{48}{subsubsection.9.2.4}%
-\contentsline {subsection}{\numberline {9.3}Client/Server}{48}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Peer-to-peer}{48}{subsection.9.4}%
-\contentsline {subsection}{\numberline {9.5}Wireless Networking}{48}{subsection.9.5}%
-\contentsline {subsubsection}{\numberline {9.5.1}Wi-Fi}{48}{subsubsection.9.5.1}%
-\contentsline {subsubsection}{\numberline {9.5.2}NIC}{48}{subsubsection.9.5.2}%
-\contentsline {subsubsection}{\numberline {9.5.3}SSID}{49}{subsubsection.9.5.3}%
-\contentsline {subsubsection}{\numberline {9.5.4}Security}{49}{subsubsection.9.5.4}%
-\contentsline {subsubsection}{\numberline {9.5.5}CSMA/CA}{49}{subsubsection.9.5.5}%
-\contentsline {subsubsection}{\numberline {9.5.6}RTS/CTS}{49}{subsubsection.9.5.6}%
-\contentsline {subsection}{\numberline {9.6}Communication \& Privacy}{49}{subsection.9.6}%
-\contentsline {subsection}{\numberline {9.7}Social, Cultural \& Legal Issues}{49}{subsection.9.7}%
-\contentsline {section}{\numberline {10}The Internet}{50}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Quick notes}{50}{subsection.10.1}%
-\contentsline {section}{\numberline {11}Databases and Software Development}{51}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Introduction to Databases}{51}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Database Systems Overview}{51}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Relationships}{51}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Normalisation}{52}{subsection.11.4}%
-\contentsline {subsubsection}{\numberline {11.4.1}Un-normalised}{52}{subsubsection.11.4.1}%
-\contentsline {subsubsection}{\numberline {11.4.2}First Normal Form}{52}{subsubsection.11.4.2}%
-\contentsline {subsubsection}{\numberline {11.4.3}Second Normal Form}{53}{subsubsection.11.4.3}%
-\contentsline {subsubsection}{\numberline {11.4.4}Third Normal Form}{54}{subsubsection.11.4.4}%
-\contentsline {subsection}{\numberline {11.5}Diagrams}{56}{subsection.11.5}%
-\contentsline {subsubsection}{\numberline {11.5.1}Entity Descriptions}{56}{subsubsection.11.5.1}%
-\contentsline {subsubsection}{\numberline {11.5.2}Entity Relation Diagrams}{56}{subsubsection.11.5.2}%
-\contentsline {subsection}{\numberline {11.6}SQL}{56}{subsection.11.6}%
-\contentsline {subsubsection}{\numberline {11.6.1}Creating Tables}{57}{subsubsection.11.6.1}%
-\contentsline {subsubsection}{\numberline {11.6.2}Altering Tables}{59}{subsubsection.11.6.2}%
-\contentsline {subsubsection}{\numberline {11.6.3}Inserting Data}{60}{subsubsection.11.6.3}%
-\contentsline {subsubsection}{\numberline {11.6.4}Selecting Data (One Table)}{61}{subsubsection.11.6.4}%
-\contentsline {subsubsection}{\numberline {11.6.5}Selecting Data (Multiple Tables)}{62}{subsubsection.11.6.5}%
-\contentsline {subsubsection}{\numberline {11.6.6}Ordering Results}{62}{subsubsection.11.6.6}%
-\contentsline {subsubsection}{\numberline {11.6.7}Full Query}{62}{subsubsection.11.6.7}%
-\contentsline {subsubsection}{\numberline {11.6.8}Updating Records}{63}{subsubsection.11.6.8}%
-\contentsline {subsection}{\numberline {11.7}Client-Server Databases}{63}{subsection.11.7}%
-\contentsline {subsubsection}{\numberline {11.7.1}Record Locking}{63}{subsubsection.11.7.1}%
-\contentsline {subsubsection}{\numberline {11.7.2}Deadlock}{64}{subsubsection.11.7.2}%
-\contentsline {subsubsection}{\numberline {11.7.3}Serialisation \& Timestamp Ordering}{64}{subsubsection.11.7.3}%
-\contentsline {subsubsection}{\numberline {11.7.4}Commitment Ordering}{64}{subsubsection.11.7.4}%
-\contentsline {subsection}{\numberline {11.8}Approach to Problem Solving}{64}{subsection.11.8}%
-\contentsline {subsubsection}{\numberline {11.8.1}Analysis}{64}{subsubsection.11.8.1}%
-\contentsline {subsubsection}{\numberline {11.8.2}Agile Modelling}{64}{subsubsection.11.8.2}%
-\contentsline {subsubsection}{\numberline {11.8.3}Design}{65}{subsubsection.11.8.3}%
-\contentsline {subsubsection}{\numberline {11.8.4}Implementation}{65}{subsubsection.11.8.4}%
-\contentsline {subsubsection}{\numberline {11.8.5}Testing}{65}{subsubsection.11.8.5}%
-\contentsline {subsubsection}{\numberline {11.8.6}Evaluation}{65}{subsubsection.11.8.6}%
-\contentsline {section}{\numberline {12}OOP and Functional Programming}{66}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Imperative Programming}{66}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Procedural Languages}{66}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Object Orientation}{66}{subsection.12.3}%
-\contentsline {subsubsection}{\numberline {12.3.1}Implementations of OOP}{66}{subsubsection.12.3.1}%
-\contentsline {subsubsection}{\numberline {12.3.2}Classes}{66}{subsubsection.12.3.2}%
-\contentsline {subsubsection}{\numberline {12.3.3}Encapsulation}{67}{subsubsection.12.3.3}%
-\contentsline {subsubsection}{\numberline {12.3.4}Instantiation}{68}{subsubsection.12.3.4}%
-\contentsline {subsubsection}{\numberline {12.3.5}Polymorphism}{68}{subsubsection.12.3.5}%
-\contentsline {subsubsection}{\numberline {12.3.6}Interfaces}{68}{subsubsection.12.3.6}%
-\contentsline {subsubsection}{\numberline {12.3.7}Inheritance}{70}{subsubsection.12.3.7}%
-\contentsline {subsubsection}{\numberline {12.3.8}Demonstration}{71}{subsubsection.12.3.8}%
-\contentsline {subsubsection}{\numberline {12.3.9}Association}{73}{subsubsection.12.3.9}%
-\contentsline {subsubsection}{\numberline {12.3.10}Access Modifiers}{74}{subsubsection.12.3.10}%
-\contentsline {subsubsection}{\numberline {12.3.11}Class Diagrams}{74}{subsubsection.12.3.11}%
-\contentsline {subsubsection}{\numberline {12.3.12}Advantages of OOP}{74}{subsubsection.12.3.12}%
-\contentsline {subsection}{\numberline {12.4}Functional Programming}{75}{subsection.12.4}%
+\contentsline {subsubsection}{\numberline {1.1.5}Files}{9}{subsubsection.1.1.5}%
+\contentsline {subsubsection}{\numberline {1.1.6}Exceptions}{9}{subsubsection.1.1.6}%
+\contentsline {section}{\numberline {2}Problem Solving and Theory of Computation}{11}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Problem Solving}{11}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Strategies}{11}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Structured Programming}{11}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Block Structure}{11}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}Modularisation}{11}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}Hierarchy Charts}{12}{subsubsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.4}Testing}{12}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Abstraction}{12}{subsection.2.5}%
+\contentsline {subsection}{\numberline {2.6}Composition}{13}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.7}Automation}{13}{subsection.2.7}%
+\contentsline {subsection}{\numberline {2.8}Finite State Machines}{13}{subsection.2.8}%
+\contentsline {section}{\numberline {3}Data Representation}{15}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Number Systems}{15}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Sets of Numbers}{15}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Decimal}{15}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}Binary}{15}{subsubsection.3.1.3}%
+\contentsline {subsubsection}{\numberline {3.1.4}Hexadecimal and Octal}{15}{subsubsection.3.1.4}%
+\contentsline {subsection}{\numberline {3.2}Two's Complement}{16}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Fixed Point Binary Numbers}{17}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Floating Point Binary Numbers}{17}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Conversion}{18}{subsubsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.5}Character Encoding}{18}{subsection.3.5}%
+\contentsline {subsubsection}{\numberline {3.5.1}ASCII}{18}{subsubsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.2}Unicode}{18}{subsubsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.6}Error Checking and Correction}{18}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Parity Checking}{19}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Majority Voting}{19}{subsubsection.3.6.2}%
+\contentsline {subsubsection}{\numberline {3.6.3}Checksum}{19}{subsubsection.3.6.3}%
+\contentsline {subsubsection}{\numberline {3.6.4}Check Digits}{19}{subsubsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.7}Analogue and Digital Data}{19}{subsection.3.7}%
+\contentsline {subsection}{\numberline {3.8}Image Representation}{20}{subsection.3.8}%
+\contentsline {subsubsection}{\numberline {3.8.1}Bitmap Files}{20}{subsubsection.3.8.1}%
+\contentsline {subsubsection}{\numberline {3.8.2}Limitations of Bitmap Files}{20}{subsubsection.3.8.2}%
+\contentsline {subsubsection}{\numberline {3.8.3}Colour Depth}{20}{subsubsection.3.8.3}%
+\contentsline {subsubsection}{\numberline {3.8.4}Metadata}{20}{subsubsection.3.8.4}%
+\contentsline {subsubsection}{\numberline {3.8.5}Vector Graphics}{21}{subsubsection.3.8.5}%
+\contentsline {subsection}{\numberline {3.9}Audio Representation}{21}{subsection.3.9}%
+\contentsline {subsubsection}{\numberline {3.9.1}Sample Rate}{21}{subsubsection.3.9.1}%
+\contentsline {subsubsection}{\numberline {3.9.2}Sample Depth}{21}{subsubsection.3.9.2}%
+\contentsline {subsubsection}{\numberline {3.9.3}Nyquist's Theorem}{21}{subsubsection.3.9.3}%
+\contentsline {subsubsection}{\numberline {3.9.4}Audio Storage and Files}{21}{subsubsection.3.9.4}%
+\contentsline {subsubsection}{\numberline {3.9.5}Recording}{22}{subsubsection.3.9.5}%
+\contentsline {subsubsection}{\numberline {3.9.6}Playback}{22}{subsubsection.3.9.6}%
+\contentsline {subsection}{\numberline {3.10}Compression}{22}{subsection.3.10}%
+\contentsline {subsubsection}{\numberline {3.10.1}Lossless}{22}{subsubsection.3.10.1}%
+\contentsline {subsubsection}{\numberline {3.10.2}Lossy}{23}{subsubsection.3.10.2}%
+\contentsline {subsection}{\numberline {3.11}Encryption}{23}{subsection.3.11}%
+\contentsline {subsubsection}{\numberline {3.11.1}Caesar Ciphers}{23}{subsubsection.3.11.1}%
+\contentsline {subsubsection}{\numberline {3.11.2}Vernam Ciphers}{23}{subsubsection.3.11.2}%
+\contentsline {section}{\numberline {4}Hardware and Software}{25}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Classification of Software}{25}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}System Software}{25}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}Application Software}{26}{subsubsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.2}Programming Language Specification}{26}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}Low-Level Languages}{26}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}High-Level Languages}{27}{subsubsection.4.2.2}%
+\contentsline {subsubsection}{\numberline {4.2.3}Abstraction}{27}{subsubsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.3}Programming Language Translation}{27}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}Assemblers}{28}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}Compilers}{28}{subsubsection.4.3.2}%
+\contentsline {subsubsection}{\numberline {4.3.3}Interpreters}{28}{subsubsection.4.3.3}%
+\contentsline {subsubsection}{\numberline {4.3.4}Bytecode}{28}{subsubsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.4}Boolean Logic \& Algebra}{29}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}De Morgan's Laws}{29}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}General Rules}{30}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}Commutative Rules}{30}{subsubsection.4.4.3}%
+\contentsline {subsubsection}{\numberline {4.4.4}Associative Rules}{30}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Distributive Rules}{30}{subsubsection.4.4.5}%
+\contentsline {subsubsection}{\numberline {4.4.6}Absorption Rules}{31}{subsubsection.4.4.6}%
+\contentsline {section}{\numberline {5}Computer Organisation and Architecture}{32}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Harvard \& Von Neuman Architecture}{32}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Motherboard}{32}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}CPU Disambiguation}{32}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}CPU Components}{32}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Processor Clock}{32}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}Control Unit}{33}{subsubsection.5.4.2}%
+\contentsline {subsubsection}{\numberline {5.4.3}Arithmetic and Logic Unit}{33}{subsubsection.5.4.3}%
+\contentsline {subsubsection}{\numberline {5.4.4}General Purpose Registers}{33}{subsubsection.5.4.4}%
+\contentsline {subsubsection}{\numberline {5.4.5}Dedicated Registers}{33}{subsubsection.5.4.5}%
+\contentsline {subsection}{\numberline {5.5}Motherboard Buses}{34}{subsection.5.5}%
+\contentsline {subsubsection}{\numberline {5.5.1}Address Bus}{34}{subsubsection.5.5.1}%
+\contentsline {subsubsection}{\numberline {5.5.2}Data Bus}{34}{subsubsection.5.5.2}%
+\contentsline {subsubsection}{\numberline {5.5.3}Control Bus}{34}{subsubsection.5.5.3}%
+\contentsline {subsection}{\numberline {5.6}IO Controllers}{34}{subsection.5.6}%
+\contentsline {subsection}{\numberline {5.7}Cache}{35}{subsection.5.7}%
+\contentsline {subsection}{\numberline {5.8}FDE Cycle}{35}{subsection.5.8}%
+\contentsline {subsubsection}{\numberline {5.8.1}Fetch}{35}{subsubsection.5.8.1}%
+\contentsline {subsubsection}{\numberline {5.8.2}Decode}{35}{subsubsection.5.8.2}%
+\contentsline {subsubsection}{\numberline {5.8.3}Execute}{35}{subsubsection.5.8.3}%
+\contentsline {subsection}{\numberline {5.9}Interrupts}{35}{subsection.5.9}%
+\contentsline {subsection}{\numberline {5.10}Processor Performance}{36}{subsection.5.10}%
+\contentsline {subsubsection}{\numberline {5.10.1}Clock Frequency}{36}{subsubsection.5.10.1}%
+\contentsline {subsubsection}{\numberline {5.10.2}Word Length}{36}{subsubsection.5.10.2}%
+\contentsline {subsubsection}{\numberline {5.10.3}Address Size}{36}{subsubsection.5.10.3}%
+\contentsline {subsubsection}{\numberline {5.10.4}Multiple Cores}{36}{subsubsection.5.10.4}%
+\contentsline {subsection}{\numberline {5.11}Instruction Sets}{36}{subsection.5.11}%
+\contentsline {subsection}{\numberline {5.12}Addressing Modes}{37}{subsection.5.12}%
+\contentsline {subsection}{\numberline {5.13}Assembly Language}{37}{subsection.5.13}%
+\contentsline {subsubsection}{\numberline {5.13.1}Fibonacci Example}{37}{subsubsection.5.13.1}%
+\contentsline {subsubsection}{\numberline {5.13.2}Bit-wise Operations}{38}{subsubsection.5.13.2}%
+\contentsline {subsubsection}{\numberline {5.13.3}Logical Shifts}{38}{subsubsection.5.13.3}%
+\contentsline {subsection}{\numberline {5.14}IO Devices}{39}{subsection.5.14}%
+\contentsline {subsubsection}{\numberline {5.14.1}Barcodes}{39}{subsubsection.5.14.1}%
+\contentsline {subsubsection}{\numberline {5.14.2}QR codes}{39}{subsubsection.5.14.2}%
+\contentsline {subsubsection}{\numberline {5.14.3}Digital Cameras}{40}{subsubsection.5.14.3}%
+\contentsline {subsubsection}{\numberline {5.14.4}RFID}{40}{subsubsection.5.14.4}%
+\contentsline {subsubsection}{\numberline {5.14.5}Laser Printers}{41}{subsubsection.5.14.5}%
+\contentsline {subsection}{\numberline {5.15}Secondary Storage}{41}{subsection.5.15}%
+\contentsline {subsubsection}{\numberline {5.15.1}Hard Disk Drives}{41}{subsubsection.5.15.1}%
+\contentsline {subsubsection}{\numberline {5.15.2}Optical Devices}{42}{subsubsection.5.15.2}%
+\contentsline {subsubsection}{\numberline {5.15.3}Solid State Drives}{43}{subsubsection.5.15.3}%
+\contentsline {section}{\numberline {6}Data Structures}{45}{section.6}%
+\contentsline {section}{\numberline {7}Algorithms}{46}{section.7}%
+\contentsline {section}{\numberline {8}Regular languages}{47}{section.8}%
+\contentsline {section}{\numberline {9}Communication Technology and Consequences}{48}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Communication Methods}{48}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Serial Transmission}{48}{subsubsection.9.1.1}%
+\contentsline {subsubsection}{\numberline {9.1.2}Parallel Transmission}{48}{subsubsection.9.1.2}%
+\contentsline {subsubsection}{\numberline {9.1.3}Comparison of Methods}{48}{subsubsection.9.1.3}%
+\contentsline {subsubsection}{\numberline {9.1.4}Bit and Baud Rate}{48}{subsubsection.9.1.4}%
+\contentsline {subsubsection}{\numberline {9.1.5}Baseband and Broadband}{49}{subsubsection.9.1.5}%
+\contentsline {subsubsection}{\numberline {9.1.6}Latency and Bandwidth}{49}{subsubsection.9.1.6}%
+\contentsline {subsubsection}{\numberline {9.1.7}Synchronous Communication}{49}{subsubsection.9.1.7}%
+\contentsline {subsubsection}{\numberline {9.1.8}Asynchronous Communication}{49}{subsubsection.9.1.8}%
+\contentsline {subsection}{\numberline {9.2}Network Topology}{49}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Physical Bus Topology}{50}{subsubsection.9.2.1}%
+\contentsline {subsubsection}{\numberline {9.2.2}Physical Star Topology}{50}{subsubsection.9.2.2}%
+\contentsline {subsubsection}{\numberline {9.2.3}Logical Topology}{50}{subsubsection.9.2.3}%
+\contentsline {subsubsection}{\numberline {9.2.4}MAC Addresses}{51}{subsubsection.9.2.4}%
+\contentsline {subsection}{\numberline {9.3}Client/Server}{51}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Peer-to-peer}{51}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Wireless Networking}{51}{subsection.9.5}%
+\contentsline {subsubsection}{\numberline {9.5.1}Wi-Fi}{51}{subsubsection.9.5.1}%
+\contentsline {subsubsection}{\numberline {9.5.2}NIC}{51}{subsubsection.9.5.2}%
+\contentsline {subsubsection}{\numberline {9.5.3}SSID}{52}{subsubsection.9.5.3}%
+\contentsline {subsubsection}{\numberline {9.5.4}Security}{52}{subsubsection.9.5.4}%
+\contentsline {subsubsection}{\numberline {9.5.5}CSMA/CA}{52}{subsubsection.9.5.5}%
+\contentsline {subsubsection}{\numberline {9.5.6}RTS/CTS}{52}{subsubsection.9.5.6}%
+\contentsline {subsection}{\numberline {9.6}Communication \& Privacy}{52}{subsection.9.6}%
+\contentsline {subsection}{\numberline {9.7}Social, Cultural \& Legal Issues}{52}{subsection.9.7}%
+\contentsline {section}{\numberline {10}The Internet}{53}{section.10}%
+\contentsline {subsection}{\numberline {10.1}Uniform Resource Locators}{53}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}Domain Names \& DNS}{53}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}Protocol Stack}{54}{subsection.10.3}%
+\contentsline {subsection}{\numberline {10.4}IP Addresses}{54}{subsection.10.4}%
+\contentsline {subsection}{\numberline {10.5}Local Networks}{55}{subsection.10.5}%
+\contentsline {section}{\numberline {11}Databases and Software Development}{56}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Introduction to Databases}{56}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Database Systems Overview}{56}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Relationships}{56}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Normalisation}{57}{subsection.11.4}%
+\contentsline {subsubsection}{\numberline {11.4.1}Un-normalised}{57}{subsubsection.11.4.1}%
+\contentsline {subsubsection}{\numberline {11.4.2}First Normal Form}{57}{subsubsection.11.4.2}%
+\contentsline {subsubsection}{\numberline {11.4.3}Second Normal Form}{58}{subsubsection.11.4.3}%
+\contentsline {subsubsection}{\numberline {11.4.4}Third Normal Form}{59}{subsubsection.11.4.4}%
+\contentsline {subsection}{\numberline {11.5}Diagrams}{61}{subsection.11.5}%
+\contentsline {subsubsection}{\numberline {11.5.1}Entity Descriptions}{61}{subsubsection.11.5.1}%
+\contentsline {subsubsection}{\numberline {11.5.2}Entity Relation Diagrams}{61}{subsubsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.6}SQL}{62}{subsection.11.6}%
+\contentsline {subsubsection}{\numberline {11.6.1}Creating Tables}{62}{subsubsection.11.6.1}%
+\contentsline {subsubsection}{\numberline {11.6.2}Altering Tables}{64}{subsubsection.11.6.2}%
+\contentsline {subsubsection}{\numberline {11.6.3}Inserting Data}{65}{subsubsection.11.6.3}%
+\contentsline {subsubsection}{\numberline {11.6.4}Selecting Data (One Table)}{66}{subsubsection.11.6.4}%
+\contentsline {subsubsection}{\numberline {11.6.5}Selecting Data (Multiple Tables)}{67}{subsubsection.11.6.5}%
+\contentsline {subsubsection}{\numberline {11.6.6}Ordering Results}{67}{subsubsection.11.6.6}%
+\contentsline {subsubsection}{\numberline {11.6.7}Full Query}{67}{subsubsection.11.6.7}%
+\contentsline {subsubsection}{\numberline {11.6.8}Updating Records}{68}{subsubsection.11.6.8}%
+\contentsline {subsection}{\numberline {11.7}Client-Server Databases}{68}{subsection.11.7}%
+\contentsline {subsubsection}{\numberline {11.7.1}Record Locking}{68}{subsubsection.11.7.1}%
+\contentsline {subsubsection}{\numberline {11.7.2}Deadlock}{69}{subsubsection.11.7.2}%
+\contentsline {subsubsection}{\numberline {11.7.3}Serialisation \& Timestamp Ordering}{69}{subsubsection.11.7.3}%
+\contentsline {subsubsection}{\numberline {11.7.4}Commitment Ordering}{69}{subsubsection.11.7.4}%
+\contentsline {subsection}{\numberline {11.8}Approach to Problem Solving}{69}{subsection.11.8}%
+\contentsline {subsubsection}{\numberline {11.8.1}Analysis}{69}{subsubsection.11.8.1}%
+\contentsline {subsubsection}{\numberline {11.8.2}Agile Modelling}{69}{subsubsection.11.8.2}%
+\contentsline {subsubsection}{\numberline {11.8.3}Design}{70}{subsubsection.11.8.3}%
+\contentsline {subsubsection}{\numberline {11.8.4}Implementation}{70}{subsubsection.11.8.4}%
+\contentsline {subsubsection}{\numberline {11.8.5}Testing}{70}{subsubsection.11.8.5}%
+\contentsline {subsubsection}{\numberline {11.8.6}Evaluation}{70}{subsubsection.11.8.6}%
+\contentsline {section}{\numberline {12}OOP and Functional Programming}{71}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Imperative Programming}{71}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Procedural Languages}{71}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Object Orientation}{71}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Implementations of OOP}{71}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}Classes}{72}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.3}Encapsulation}{73}{subsubsection.12.3.3}%
+\contentsline {subsubsection}{\numberline {12.3.4}Instantiation}{73}{subsubsection.12.3.4}%
+\contentsline {subsubsection}{\numberline {12.3.5}Polymorphism}{73}{subsubsection.12.3.5}%
+\contentsline {subsubsection}{\numberline {12.3.6}Interfaces}{73}{subsubsection.12.3.6}%
+\contentsline {subsubsection}{\numberline {12.3.7}Inheritance}{75}{subsubsection.12.3.7}%
+\contentsline {subsubsection}{\numberline {12.3.8}Demonstration}{76}{subsubsection.12.3.8}%
+\contentsline {subsubsection}{\numberline {12.3.9}Association}{78}{subsubsection.12.3.9}%
+\contentsline {subsubsection}{\numberline {12.3.10}Access Modifiers}{79}{subsubsection.12.3.10}%
+\contentsline {subsubsection}{\numberline {12.3.11}Class Diagrams}{79}{subsubsection.12.3.11}%
+\contentsline {subsubsection}{\numberline {12.3.12}Advantages of OOP}{79}{subsubsection.12.3.12}%
+\contentsline {subsection}{\numberline {12.4}Functional Programming}{80}{subsection.12.4}%

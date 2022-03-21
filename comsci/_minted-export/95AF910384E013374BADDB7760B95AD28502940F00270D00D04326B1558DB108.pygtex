@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+FOR variable \PYGZlt{}\PYGZhy{} value TO value STEP value
+
+    ....
+
+ENDFOR
+\end{Verbatim}

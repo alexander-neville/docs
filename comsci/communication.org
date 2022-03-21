@@ -159,16 +159,74 @@ Once the channel appears idle to a station, a 'request to send' signal is sent t
 * The Internet
 
 
-The /Internet Protocol Suite/, often referred to as the /TCP/IP/ stack, is a collection of communication protocols adopted on the public internet and other similar computer networks. The whole protocol suite governs end-to-end communication between devices including stipulations about the way data is split into packets, addressed transmitted and routed. (last sentence from wikipedia)
+The /Internet Protocol Suite/, often referred to as the /TCP/IP/ stack, is a collection of communication protocols adopted on the public internet and other similar computer networks. The whole protocol suite governs end-to-end communication between devices including stipulations about the way data is split into packets, addressed transmitted and routed. Much like the /Open Systems Interconnection/, these conceptual network models arrange communication protocols into abstract layers.
 
-Much like the /Open Systems Interconnection/, these conceptual network models arrange communication protocols into abstract layers.
+# 1. Physical (bit, symbol) = Link
+# 2. Data link (frame) = Link
+# 3. Network (packet) = Internet
+# 4. Transport (segment, datagram) = Transport
+# 5. Session = Application
+# 6. Presentation = Application
+# 7. Application = Application
 
-** Quick notes
+** Uniform Resource Locators
 
-1. Physical (bit, symbol) = Link
-2. Data link (frame) = Link
-3. Network (packet) = Internet
-4. Transport (segment, datagram) = Transport
-5. Session = Application
-6. Presentation = Application
-7. Application = Application
+A URL is a specific type of /Uniform Resource Identifier/ or URI, designed to identify web resources on computer networks. A typical URL may resemble:
+
+#+begin_src
+https://www.example.com:443/path?query
+#+end_src
+
+In the example above the *https* protocol is used, followed by the characters =://=. This whole component of the URL is called the /scheme/. The next component is the host name or IP address, separated from the port number by a colon. The remaining components are the path to the resource or file in question and the query string, separated by a question mark.
+
+** Domain Names & DNS
+
+A domain is an identification string which defines or identifies a /"realm of administrative autonomy, authority or control"/ within the internet (Wikipedia). Domain names conform to the rules and regulations of the /Domain Name System/, which maps a domain to other types of information, such as an IP address. Any such string registered in the *DNS* is considered a domain name.
+
+Domain names are organised, or grouped, in subordinate divisions of the domain root, which is nameless (refer to *FQDN*). The first level of domains are called /top-level-domains/ or *TLDs* for short. *TLDs* include generic top-level domains such as =com=, =info=, =net=, =edu=, and =org= as well as the country code top-level domains. Below this tier are the second and third-level domains. These are openly available for reservation to internet users. Domain names work from right to left, with the top-level domain appearing on the right. Domain levels are separated with the =.= (full stop) character.
+
+- A /fully qualified domain name/ is all the components of a domain name, which collectively specify the domain's exact location in the domain name system. *FQDNs* are terminated with a full stop, which is characteristic of this type of domain. The point represents the root domain, from which the domain can be located.
+
+- A /subdomain/ is federated by the owner of the parent domain. There is no limit to how many subdomains may be used. Third-level domains are often used to identify a particular host server, eg /mail/ or /www/. Such subdomains may only support the implied functionality.
+
+The /Internet Corporation for Assigned Names and Numbers/ (ICANN) is the governing body for the name and number systems used on the internet. There are five /Regional Internet Registries/ globally. Registries are organisations which manage top-level domains. Through a memorandum of understanding, these registries cooperate through the unincorporated /Number Resource Organisation/. Internet resources are distributed to RIRs and disseminated in accordance with the policies of the registry. The commercial sales of domain names are delegated to accredited /internet registrars/. When a customer purchases, or more accurately /leases/, a domain, the registrar notifies the registry which maintains the records. Regional registries allocate blocks of IP addresses to local internet registries, most often internet service providers.
+
+** Protocol Stack
+
+The internet protocol suite is a layered model, in which transmitted data descends through the layers as it is sent. This process is reversed when the data is received. At each layer, the data is further encapsulated in accordance with the workings of the lower-level protocol. The data handled at each layer is sometimes referred to as the /Protocol Datagram Unit/ (PDU). Each layer communicates with the layers immediately adjacent to itself, either the layer above or below during operation.
+
+- *Application Layer:* contains abstract communication protocols used in process-to-process communication over an Internet Protocol (IP) network.
+
+- *Transport Layer:* responsible for device-to-device (or end-to-end) communication for applications. This layer facilitates connection-orientated communication (TCP) or best-effort stateless communication (UDP). The PDU for the transport layer is the /segment/ for TCP and the /datagram/ for UDP.
+
+- *Network Layer:* responsible for inter-network communication through network gateways. The PDU of the network layer is the IP packet. The protocols working at this level, most notably IP, are not connection orientated themselves, although can respond to transport layer service requests to provide such a system.
+
+- *Link Layer:* communication protocols limited to the physical connections of the current node within the same network segment. The link layer PDU is called a /frame/.
+
+** IP Addresses
+
+An /Internet Protocol/ address is a unique number assigned to a network interface involved in internet communication. The address identifies and locates the host, which allows a path to the host to be established. IPv4 is a 32-bit standard, although such small addresses have caused IP address shortages. To address this IPv6 addresses are 128 bits in length, offering many more addresses. A single IP address must be unique within a particular network, though the same address may be used on two separate networks.
+
+The first portion of an address refers to the network, while the remaining bits are used to identify specific devices. Classful addressing was used to separate the network and host sections of a given address. The table below summarises how many bits were used in class A, B and C addressing. Class D was used for multicast addressing and class E was used for reserved addresses.
+
+|-------+--------------|
+| Class | Network Bits |
+|-------+--------------|
+| A     |            8 |
+| B     |           16 |
+| C     |           24 |
+|-------+--------------|
+
+Classful addressing has been superseded by CIDR notation, where the number of bits in the host portion is appended onto the IP address after a forward slash, for example: =103.27.104.92/24=. This value can be used to determine of the subnet mask, which can be applied to the IP address with a logical AND operation to reveal the network portion. The subnet mask is a 32 bit number containing 1s in what would be the network portion of the address.
+
+Large networks are often divided into smaller subnets for ease of operation and performance. Administration is made easier by reducing the broadcast domain of a single device on a network.
+
+** Local Networks
+
+The rapid consumption of available addresses that afflicts the 32-bit IPv4 system has been slowed by the uptake of private, non-routable addresses in local networks. These addresses must remain unique within the local network, although there is no expectation that these addresses are globally unique, they may be reused on another network. As a result, acquiring a private IP address does not involve an internet registry. Communication between two devices on different networks requires another system, called /Network Address Translation/ (NAT).
+
+/Dynamic Host Configuration Protocol/ automatically provides IP information to devices on a network. This includes the allocation of an IP address and networking information such as the subnet mask. IP addresses may be allocated /dynamically/, whereby one device may receive any address from the pool of available addresses and be subject to a changing address, or by /static/ reservation, where a single device permanently uses the same private IP address.
+
+If a device inside one network with a private IP address needs to communicate with a device on the public internet, its private IP address is replaced with the public IP address of the network gateway. Any response to the outgoing communication will reach the network router, which recorded ongoing communications in a translation table. Using this information, the publicly routable address is replaced with the private IP address of the correct device.
+
+To allow devices outside a particular network access to a server operating within, /port forwarding/ rules are configured on the network router. The firewall maps incoming requests on specified ports to devices within the network.

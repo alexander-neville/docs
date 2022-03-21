@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+1111 = (\PYGZhy{}8) + 4 + 2 + 1 = \PYGZhy{}1
+1000 = (\PYGZhy{}8) + 0 + 0 + 0 = \PYGZhy{}8
+0000 = (\PYGZhy{}0) + 0 + 0 + 0 = 0
+0101 = (\PYGZhy{}0) + 4 + 0 + 1 = 5
+1011 = (\PYGZhy{}8) + 0 + 2 + 1 = \PYGZhy{}5
+\end{Verbatim}

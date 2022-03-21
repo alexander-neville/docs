@@ -266,11 +266,22 @@ In an entity description, each line represents a table. The first section is the
 
 /ER/ diagrams are a more visual way of representing a database layout. There are two common types, those which include the table/entity name only and those which show the columns and foreign key relationships. Here are some examples:
 
-#+CAPTION: an abstract ER diagram, showing the relationships between entities
-[[./images/simple_er.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth,keepaspectratio, frame]{./images/er_simple.png}
+\caption{An abstract entity relation diagram}
+\end{figure}
+#+end_export
 
-#+CAPTION: a detailed ER diagram, demonstrating the key constraints in the DB
-[[./images/advanced_er.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/er_complex.png}
+\caption{A more detailed entity relation diagram}
+\end{figure}
+#+end_export
+
 
 ** SQL
 
@@ -631,8 +642,13 @@ Here are some notes on how to use some of python's OOP features: https://github.
 
 Since /OOP/ is a paradigm, many languages support similar, although slightly different, programming techniques for working with types and objects. Generally speaking a named instance of a object is a /reference type/, holding a pointer to where the object itself resides in memory.
 
-#+CAPTION: variable reference diagram
-[[./images/reference.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/reference.png}
+\caption{Reference type}
+\end{figure}
+#+end_export
 
 There are many different implementations of objects across different languages, from /structs/ in C and /object literals/ in Javascript to /classes/ in python and C++.
 
@@ -663,7 +679,7 @@ End
 \end{figure}
 #+end_export
 
-Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes /getter/ and /setter/ methods are used to manipulate the attributes of a method. In this class, =GetStockLevel= and =UpdateStockLevel= perform this role.
+Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes /getter/ and /setter/ methods are used to manipulate the attributes of a method. In this class, =GetStockLevel()= and =UpdateStockLevel()= perform this role.
 
 *** Encapsulation
 
@@ -784,12 +800,15 @@ End
 #+end_export
 
 
-Each subclass which inherits from the =Animal= parent class will have all the methods of the parent class. In the =Cat= subclass, the =MoveLeft= method is /overriden/, but the =MoveRight= method is not changed. This means that a cat object will move right in the same way as a generic animal if that message is sent to the object. The =Cat= object also adds the =EatMouse= method, which is specific to a cat.
+Each subclass which inherits from the =Animal= parent class will have all the methods of the parent class. In the =Cat= subclass, the =MoveLeft= method is /overriden/, but the =MoveRight= method is not changed. This means that a cat object will move right in the same way as a generic animal if that message is sent to the object. The =Cat= object also adds the =EatMouse= method, which is specific to a cat. Here is a diagram of inheritance:
 
-Here is a diagram of inheritance:
-
-#+CAPTION: inheritance from Animal superclass
-[[./images/inheritance.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/inheritance.png}
+\caption{Diagram of multiple inheritance}
+\end{figure}
+#+end_export
 
 *** Demonstration
 
@@ -889,13 +908,21 @@ When two objects have a relationship that is not an /"is a"/ relationship, assoc
 - during /aggregation/ association, the subclasses continue to exist without the container class, eg. people in a sports team or a company still exist if either is disbanded
 - during /composition/ association, the contained classes are destroyed along with the container class, eg. rooms in a building disappear if the building is knocked down
 
-There are common diagrams of each type of association:
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/aggregation.png}
+\caption{Association by aggregation}
+\end{figure}
+#+end_export
 
-#+CAPTION:association by aggregation
-[[./images/aggregation.png]]
-
-#+CAPTION: association by composition
-[[./images/composition.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/composition.png}
+\caption{Associaiton by composition}
+\end{figure}
+#+end_export
 
 *** Access Modifiers
 
@@ -907,7 +934,7 @@ In programming languages, /information hiding/ can be enforced, so that program 
 
 *** Class Diagrams
 
-As is the case with DB design, there are a number of different diagrams designed to make working in the OOP style easier to plan. One common standard is the UML /(unified moddeling language)/ diagram.
+As is the case with DB design, there are a number of different diagrams designed to make working in the OOP style easier to plan. One common standard is the UML /(unified modelling language)/ diagram.
 
 A single =-= sign is a private attribute, a =+= is a public attribute/method and =#= is used for protected attributes.
 

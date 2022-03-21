@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+hello
+  7           0 LOAD\PYGZus{}GLOBAL              0 (print)
+              2 LOAD\PYGZus{}CONST               1 (\PYGZsq{}hello\PYGZsq{})
+              4 CALL\PYGZus{}FUNCTION            1
+              6 POP\PYGZus{}TOP
+              8 LOAD\PYGZus{}CONST               0 (None)
+             10 RETURN\PYGZus{}VALUE
+\end{Verbatim}
