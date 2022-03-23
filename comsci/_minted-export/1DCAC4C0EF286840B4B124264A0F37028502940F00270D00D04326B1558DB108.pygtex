@@ -1,15 +1,9 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 TRY
-
     ....
-
 EXCEPT
-
     OUTPUT \PYGZdq{}there was an error\PYGZdq{}
-
 ELSE
-
     OUTPUT \PYGZdq{}end of statement\PYGZdq{}
-
 ENDEXCEPT
 \end{Verbatim}

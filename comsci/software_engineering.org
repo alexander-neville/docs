@@ -938,8 +938,13 @@ As is the case with DB design, there are a number of different diagrams designed
 
 A single =-= sign is a private attribute, a =+= is a public attribute/method and =#= is used for protected attributes.
 
-#+CAPTION: A UML diagram for the standard animal example
-[[./images/uml.png]]
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth,keepaspectratio, frame]{./images/uml.png}
+\caption{A UML diagram for the standard animal example}
+\end{figure}
+#+end_export
 
 *** Advantages of OOP
 
@@ -952,4 +957,34 @@ OOP is preferred to earlier procedural techniques for a number of reasons:
 
 ** Functional Programming
 
-/not implemented/
+Another significant programming paradigm is the functional technique, in which composing functions are used to map values to one another, as opposed to the execution of a sequence of imperative statements. Functions are /first-class citizens/ in functional languages; they can be bound, passed and returned from other functions and can generally be used like any other data type.
+
+Functional programming is derived from /lambda calculus/, a formal system of computation which uses only functions. Functional programs, particularly /pure/ functional programs, can be formally verified as correct. Larger programs can be constructed, or /composed/, from these smaller modular parts, in the knowledge that each function behaves as expected. This paradigm makes development easier and faster, without the risk of side-effects causing issues or bugs in the program.
+
+*** First-class and Higher-order Functions
+
+A /higher-order/ function is one which can either take functions as arguments or return them as results. Higher-order functions describe functions which operate on other functions, which implies the use of first-class functions, a computer science term for programming entities with no restriction on their use.
+
+*** Purely Functional Languages
+
+A /pure/ function is one which causes no side-effects and does not edit a global state. This includes any side-effects in memory or on disk via I/O.
+
+- If a function is pure and is called with a set of arguments of the same specification, the same output can be expected if the same call is made repeatedly. This is called /referential transparency/ or /idempotence/.
+
+- If there is no common dependency between two pure functions, the can be executed in any order, or at the same time. This makes purely functional code /thread-safe/ and /lazy/; functions can be applied in any order as required.
+
+- If the result of a computation is not used and not required elsewhere, the computation or evaluation of a particular function need not occur at all. This gives compilers greater freedom to optimise code.
+
+*** Recursion
+
+Iteration, which is common in procedural languages, is achieved with recursion in functional languages. A recursive function invokes itself until a base case is reached. Recursion does require that a stack is maintained to handle the scopes, which can become expensive in space. Certain compilers can recognise types of recursion and provide optimisation.
+
+*** Function Application
+
+** Big Data
+
+Big Data is a term used to describe datasets which are very large in volume, which either exceed the memory capacity of computers used to process the data or exceed the storage capacity of a single device or both. Such data is often /unstructured/, it is impossible to store in a relational database.
+
+Functional programming lends itself towards big data. The lack of side effects and ease of parallelism makes it easier to deploy functional algorithms across many cores and computers to process data efficiently. Other features of the functional paradigm, such as immutability make development and debugging of algorithms easier, especially in complicated and long running programs.
+
+An alternative way of organising data to typical relational databases is the fact-based model. Immutable facts are recorded once, with a timestamp and are never modified or deleted. If the fact is to be changed, a second fact is added with a more recent timestamp.

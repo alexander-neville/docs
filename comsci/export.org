@@ -1,7 +1,7 @@
 #+TITLE: Computer Science Notes
 #+AUTHOR: Alexander Neville
 #+OPTIONS: ^:{}
-#+latex_class_options: [9pt]
+#+latex_class_options: [10pt]
 #+INCLUDE: "./export_options.org"
 
 # completed sections

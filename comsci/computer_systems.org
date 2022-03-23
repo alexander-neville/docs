@@ -175,6 +175,7 @@ hello
 \end{minted}
 \end{figure}
 #+end_export
+\newpage
 
 ** Boolean Logic & Algebra
 

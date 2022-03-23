@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYGZlt{}expression\PYGZgt{} ::= \PYGZlt{}factor\PYGZgt{} | \PYGZlt{}factor\PYGZgt{} * \PYGZlt{}factor\PYGZgt{} | \PYGZlt{}factor\PYGZgt{} / \PYGZlt{}factor
+\PYGZlt{}factor\PYGZgt{} ::= \PYGZlt{}term\PYGZgt{} | \PYGZlt{}term\PYGZgt{} + \PYGZlt{}term\PYGZgt{} | \PYGZlt{}term\PYGZgt{} \PYGZhy{} \PYGZlt{}term\PYGZgt{}
+\PYGZlt{}term\PYGZgt{} ::= \PYGZlt{}expression\PYGZgt{} | \PYGZlt{}number\PYGZgt{}
+\PYGZlt{}number\PYGZgt{} ::= \PYGZlt{}digit\PYGZgt{} | \PYGZlt{}digit\PYGZgt{}\PYGZlt{}number\PYGZgt{}
+\PYGZlt{}digit\PYGZgt{} ::= 0|1|2|3|4|5|6|7|8|9
+\end{Verbatim}

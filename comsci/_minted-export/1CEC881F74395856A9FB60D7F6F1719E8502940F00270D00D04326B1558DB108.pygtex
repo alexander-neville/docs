@@ -1,11 +1,7 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 IF (condition) THEN
-
     ....
-
 ELSE IF (condition) THEN
-
     ....
-
 ENDIF
 \end{Verbatim}

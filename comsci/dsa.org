@@ -1,4 +1,6 @@
 #+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amssymb}
+#+latex_header: \usepackage{amsfonts}
 
 * Data Structures
 
@@ -10,4 +12,160 @@
 
 * Regular languages
 
-/not implemented/
+A /regular language/ can be defined by a regular expression or finite state machine.
+
+** Mealy Machines
+
+/Mealy machines/ are a type of FSM with an output determined by the current state and the input. The example in figure \ref{img:mealy}, is an exclusive OR operation on the last two inputs.
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.4\textwidth, keepaspectratio, frame]{./images/mealy.png}
+\caption{A typical Mealy machine}
+\label{img:mealy}
+\end{figure}
+#+end_export
+
+The state transition diagram can also be represented with a transition table.
+
+|-------+---------+--------+------|
+| Input | Current | Ouptut | Next |
+|-------+---------+--------+------|
+|     0 | S0      |      0 | S1   |
+|     1 | S0      |      0 | S2   |
+|     0 | S1      |      0 | S1   |
+|     1 | S1      |      1 | S2   |
+|     0 | S2      |      1 | S1   |
+|     1 | S2      |      0 | S2   |
+|-------+---------+--------+------|
+
+** Sets
+
+A set is an unordered collection of values, in which any one value may occur at most once. Sets may defined simply by listing each member.
+
+\[A = \{2,4,6,8\}\]
+
+There are a number of common sets:
+
+- empty set: $\{\}$ or $\phi$, containing no elements
+- natural numbers: $\mathbb{N} = \{1,2,3,4,5,...\}$
+- whole numbers: $\mathbb{Z} = \{...,-2,-1,0,1,2,...\}$
+- rational numbers: $\mathbb{Q}$, any value which can be expressed as a ratio
+- real numbers = $\mathbb{R}$, the set of real world quantities
+
+*** Finite and Infinite Sets
+
+A finite set contains a number of elements which can be counted off to a particular number. Finite sets include $\{1,6,8,9\}$ and $\{1,3,5,...99\}$. The /cardinality/ of a set is the total number of elements in the set. Infinite sets may countable or not countable. Despite being infinite, $\mathbb{N}$ is countable; it is possible to determine the next number in the set and count of elements. A fully countable set can be measured against a subset of the natural numbers, whereas a countably infinite set, can be countered interminably.
+
+*** Set Comprehensions
+
+More complicated sets may be defined by comprehension, a more compact syntax than writing out the whole set.
+
+\[B = \{n^2 | n \in \mathbb{N} \wedge n < 5\}\]
+
+*** Cartesian Product of Two Sets
+
+The /Cartesian product/ of two sets is written $A \times B$ and is the set of all ordered pairs $(a, b)$ where $a$ appears in $A$ and $b$ appears in $B$. If $A = \{2,4,6\}$ and $B = \{1,3,5\}$, $A \times B$ is:
+
+\[\{(2,1), (2,3), (2,5), (4,1), (4,3), (4,5), (6,1), (6,3), (6,5)\}\]
+
+*** Sets and Subsets
+
+If every element in $A$ is also a member of set $B$, $A$ is a subset of $B$, written:
+
+\[A \subseteq B\]
+
+It could also be said that $B$ is a superset of $A$:
+
+\[B \supseteq A\]
+
+If $B$ contains another element not in $A$, then $A$ is said to be a proper or strict subset of $B$:
+
+\[A \subset B\]
+
+*** Set Operations
+
+The /union/ of $A$ and $B$ is all of the elements in either set or in both, written:
+
+
+\[A {\displaystyle \cup } B\]
+
+The /intersection/ of $A$ and $B$ is all of the elements both sets, written:
+
+\[A {\displaystyle \cap } B\]
+
+The difference between the sets $A$ and $B$ is all the elements in one set, but not the other, expressed:
+
+\[A - B = \{x | x \in A \wedge x \not\in B\}\]
+
+** Regular Expressions
+
+A regular expression is a string of characters used as a search pattern in text. Regular expressions can be used to define the string accepted by an automata. Various metacharacters have special significance in regular expressions. These are summarised in the table below.
+
+|---------------+-----------------------|
+| Metacharacter | Use                   |
+|---------------+-----------------------|
+| ()            | Grouping              |
+| Pipe          | Logical OR            |
+| ?             | 0 or 1 occurence      |
+| *             | 0 or more occurrences |
+| +             | 1 or more occurrences |
+|---------------+-----------------------|
+
+** Turing Machine
+
+A Turing machine is an ideal computer system which is possible of implementing any computer algorithm. The machine has a /head/ capable of reading and writing to cells on an infinitely long piece of tape. During operation, the system is capable of performing an operation determined by its current state; the contents of the current cell and a set of user-specified instructions. A Turing machine may operate on any alphabet.
+
+The state transition diagram of a Turing machine designed to increment a binary number by one is show below. The equivalent finite state machine is show in figure \ref{img:turing_machine}.
+
+|---------+-------+--------+------+------|
+| Current | Input | Output | Dir. | Next |
+|---------+-------+--------+------+------|
+| S0      |     E |      E | L    | S1   |
+| S0      |     0 |      0 | R    | S0   |
+| S0      |     1 |      1 | R    | S0   |
+| S1      |     E |      1 | R    | S2   |
+| S1      |     0 |      1 | L    | S2   |
+| S1      |     1 |      0 | L    | S1   |
+| S2      |     E |      E | L    | S3   |
+| S2      |     0 |      0 | R    | S2   |
+| S2      |     1 |      1 | R    | S2   |
+|---------+-------+--------+------+------|
+
+For any particular row in the state transition table, a /transition function/ can express the behaviour of the machine. The syntax is given below.
+
+\[\delta (\text{Current, Input}) = (\text{Next, Output, Dir.})\]
+
+#+begin_export latex
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth, keepaspectratio, frame]{./images/turing.png}
+\caption{A typical Turing machine}
+\label{img:turing_machine}
+\end{figure}
+#+end_export
+
+This simple type of Turing machine is capable of performing one type of computation. The /Universal Turing Machine/ is capable of simulating any commutable sequence. /"if this machine *U* is supplied with the tape on the beginning of which is the string of quintuples separated by semicolons of some computing machine *M*, then *U* will compute the same sequence as *M*"/. If *U* was able to interpret the description of *M* in this way, this constitutes a very abstract description of the /stored program computer/.
+
+** Backus-Naur Form
+
+Spoken languages, used to communicate between people, are called /natural languages/. These languages are loosely defined and too ambiguous for computers to interpret. Programming languages, which are designed to be interpreted by a computer, are called /context-free grammars/, which means that any non-terminal string in a production rule can always be expressed as a string of terminals and/or non-terminals, as in:
+
+\[A \rightarrow \alpha\]
+
+A /terminal/ is an elementary piece of syntax in a grammar, for example a digit or letter; it cannot be expressed by any other combination of symbols. /Context-free/ means it is not significant where the production rule is applied; Any non-terminal on the left can be expressed in terms of the string of non-terminals and terminals on the right.
+
+The definition of a grammar is called a /meta-language/ or /meta-syntax/. A common example is /Backus-Naur Form/ (BNF). Such a syntax is capable of many constructs a regular expression cannot handle and is able to express some others far more elegantly. Features like recursion are made easy in BNF: constructs like numbers may be defined as either a single digit, or an existing number and another digit. The process of applying the grammar rules to a string to determine validity is called /parsing/. BNF syntax is a set of grammatical rules, each of them called a /production/
+
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
+<expression> ::= <factor> | <factor> * <factor> | <factor> / <factor
+<factor> ::= <term> | <term> + <term> | <term> - <term>
+<term> ::= <expression> | <number>
+<number> ::= <digit> | <digit><number>
+<digit> ::= 0|1|2|3|4|5|6|7|8|9
+\end{minted}
+\end{figure}
+#+end_export

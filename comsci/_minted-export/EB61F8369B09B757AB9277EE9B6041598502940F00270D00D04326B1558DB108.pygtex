@@ -1,10 +1,8 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 OPEN file for reading
 FOR line \PYGZlt{}\PYGZhy{} 1 TO num\PYGZus{}lines
-
     record = READLINE(file, line)
     OUTPUT record[1], record[2], ...
-
 ENDFOR
 CLOSE file
 \end{Verbatim}

@@ -1,15 +1,11 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 SUB procedure
-
     ....
-
 END SUB
 
 SUB function(input)
-
     ....
     RETURN output
-
 ENDSUB
 
 procedure

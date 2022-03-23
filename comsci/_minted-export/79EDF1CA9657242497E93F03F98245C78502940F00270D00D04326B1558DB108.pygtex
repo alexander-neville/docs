@@ -1,7 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 REPEAT
-
     ....
-
 UNTIL condition
 \end{Verbatim}
