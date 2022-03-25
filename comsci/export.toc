@@ -163,61 +163,63 @@
 \contentsline {subsection}{\numberline {10.3}Protocol Stack}{55}{subsection.10.3}%
 \contentsline {subsection}{\numberline {10.4}IP Addresses}{55}{subsection.10.4}%
 \contentsline {subsection}{\numberline {10.5}TCP Handshake}{56}{subsection.10.5}%
-\contentsline {subsection}{\numberline {10.6}TLS \& Encryption}{56}{subsection.10.6}%
-\contentsline {subsection}{\numberline {10.7}Local Networks}{56}{subsection.10.7}%
-\contentsline {subsection}{\numberline {10.8}Internet Security}{57}{subsection.10.8}%
-\contentsline {section}{\numberline {11}Databases and Software Development}{58}{section.11}%
-\contentsline {subsection}{\numberline {11.1}Introduction to Databases}{58}{subsection.11.1}%
-\contentsline {subsection}{\numberline {11.2}Database Systems Overview}{58}{subsection.11.2}%
-\contentsline {subsection}{\numberline {11.3}Relationships}{58}{subsection.11.3}%
-\contentsline {subsection}{\numberline {11.4}Normalisation}{59}{subsection.11.4}%
-\contentsline {subsubsection}{\numberline {11.4.1}Un-normalised}{59}{subsubsection.11.4.1}%
-\contentsline {subsubsection}{\numberline {11.4.2}First Normal Form}{59}{subsubsection.11.4.2}%
-\contentsline {subsubsection}{\numberline {11.4.3}Second Normal Form}{60}{subsubsection.11.4.3}%
-\contentsline {subsubsection}{\numberline {11.4.4}Third Normal Form}{61}{subsubsection.11.4.4}%
-\contentsline {subsection}{\numberline {11.5}Diagrams}{63}{subsection.11.5}%
-\contentsline {subsubsection}{\numberline {11.5.1}Entity Descriptions}{63}{subsubsection.11.5.1}%
-\contentsline {subsubsection}{\numberline {11.5.2}Entity Relation Diagrams}{63}{subsubsection.11.5.2}%
-\contentsline {subsection}{\numberline {11.6}SQL}{64}{subsection.11.6}%
-\contentsline {subsubsection}{\numberline {11.6.1}Creating Tables}{64}{subsubsection.11.6.1}%
-\contentsline {subsubsection}{\numberline {11.6.2}Altering Tables}{66}{subsubsection.11.6.2}%
-\contentsline {subsubsection}{\numberline {11.6.3}Inserting Data}{67}{subsubsection.11.6.3}%
-\contentsline {subsubsection}{\numberline {11.6.4}Selecting Data (One Table)}{68}{subsubsection.11.6.4}%
-\contentsline {subsubsection}{\numberline {11.6.5}Selecting Data (Multiple Tables)}{69}{subsubsection.11.6.5}%
-\contentsline {subsubsection}{\numberline {11.6.6}Ordering Results}{69}{subsubsection.11.6.6}%
-\contentsline {subsubsection}{\numberline {11.6.7}Full Query}{69}{subsubsection.11.6.7}%
-\contentsline {subsubsection}{\numberline {11.6.8}Updating Records}{70}{subsubsection.11.6.8}%
-\contentsline {subsection}{\numberline {11.7}Client-Server Databases}{70}{subsection.11.7}%
-\contentsline {subsubsection}{\numberline {11.7.1}Record Locking}{70}{subsubsection.11.7.1}%
-\contentsline {subsubsection}{\numberline {11.7.2}Deadlock}{71}{subsubsection.11.7.2}%
-\contentsline {subsubsection}{\numberline {11.7.3}Serialisation \& Timestamp Ordering}{71}{subsubsection.11.7.3}%
-\contentsline {subsubsection}{\numberline {11.7.4}Commitment Ordering}{71}{subsubsection.11.7.4}%
-\contentsline {subsection}{\numberline {11.8}Approach to Problem Solving}{71}{subsection.11.8}%
-\contentsline {subsubsection}{\numberline {11.8.1}Analysis}{71}{subsubsection.11.8.1}%
-\contentsline {subsubsection}{\numberline {11.8.2}Agile Modelling}{71}{subsubsection.11.8.2}%
-\contentsline {subsubsection}{\numberline {11.8.3}Design}{72}{subsubsection.11.8.3}%
-\contentsline {subsubsection}{\numberline {11.8.4}Implementation}{72}{subsubsection.11.8.4}%
-\contentsline {subsubsection}{\numberline {11.8.5}Testing}{72}{subsubsection.11.8.5}%
-\contentsline {subsubsection}{\numberline {11.8.6}Evaluation}{72}{subsubsection.11.8.6}%
-\contentsline {section}{\numberline {12}OOP and Functional Programming}{73}{section.12}%
-\contentsline {subsection}{\numberline {12.1}Imperative Programming}{73}{subsection.12.1}%
-\contentsline {subsection}{\numberline {12.2}Procedural Languages}{73}{subsection.12.2}%
-\contentsline {subsection}{\numberline {12.3}Object Orientation}{73}{subsection.12.3}%
-\contentsline {subsubsection}{\numberline {12.3.1}Implementations of OOP}{73}{subsubsection.12.3.1}%
-\contentsline {subsubsection}{\numberline {12.3.2}Classes}{74}{subsubsection.12.3.2}%
-\contentsline {subsubsection}{\numberline {12.3.3}Encapsulation}{75}{subsubsection.12.3.3}%
-\contentsline {subsubsection}{\numberline {12.3.4}Instantiation}{75}{subsubsection.12.3.4}%
-\contentsline {subsubsection}{\numberline {12.3.5}Polymorphism}{75}{subsubsection.12.3.5}%
-\contentsline {subsubsection}{\numberline {12.3.6}Interfaces}{75}{subsubsection.12.3.6}%
-\contentsline {subsubsection}{\numberline {12.3.7}Inheritance}{77}{subsubsection.12.3.7}%
-\contentsline {subsubsection}{\numberline {12.3.8}Demonstration}{78}{subsubsection.12.3.8}%
-\contentsline {subsubsection}{\numberline {12.3.9}Association}{80}{subsubsection.12.3.9}%
-\contentsline {subsubsection}{\numberline {12.3.10}Access Modifiers}{81}{subsubsection.12.3.10}%
-\contentsline {subsubsection}{\numberline {12.3.11}Class Diagrams}{81}{subsubsection.12.3.11}%
-\contentsline {subsubsection}{\numberline {12.3.12}Advantages of OOP}{81}{subsubsection.12.3.12}%
-\contentsline {subsection}{\numberline {12.4}Functional Programming}{82}{subsection.12.4}%
-\contentsline {subsubsection}{\numberline {12.4.1}First-class and Higher-order Functions}{82}{subsubsection.12.4.1}%
-\contentsline {subsubsection}{\numberline {12.4.2}Purely Functional Languages}{82}{subsubsection.12.4.2}%
-\contentsline {subsubsection}{\numberline {12.4.3}Recursion}{83}{subsubsection.12.4.3}%
-\contentsline {subsubsection}{\numberline {12.4.4}Function Application}{83}{subsubsection.12.4.4}%
-\contentsline {subsection}{\numberline {12.5}Big Data}{83}{subsection.12.5}%
+\contentsline {subsection}{\numberline {10.6}Asymmetric Encryption}{56}{subsection.10.6}%
+\contentsline {subsection}{\numberline {10.7}Digital Signatures \& Certificates}{57}{subsection.10.7}%
+\contentsline {subsection}{\numberline {10.8}TLS}{57}{subsection.10.8}%
+\contentsline {subsection}{\numberline {10.9}Local Networks}{57}{subsection.10.9}%
+\contentsline {subsection}{\numberline {10.10}Internet Security}{58}{subsection.10.10}%
+\contentsline {section}{\numberline {11}Databases and Software Development}{59}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Introduction to Databases}{59}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Database Systems Overview}{59}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Relationships}{59}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Normalisation}{60}{subsection.11.4}%
+\contentsline {subsubsection}{\numberline {11.4.1}Un-normalised}{60}{subsubsection.11.4.1}%
+\contentsline {subsubsection}{\numberline {11.4.2}First Normal Form}{60}{subsubsection.11.4.2}%
+\contentsline {subsubsection}{\numberline {11.4.3}Second Normal Form}{61}{subsubsection.11.4.3}%
+\contentsline {subsubsection}{\numberline {11.4.4}Third Normal Form}{62}{subsubsection.11.4.4}%
+\contentsline {subsection}{\numberline {11.5}Diagrams}{64}{subsection.11.5}%
+\contentsline {subsubsection}{\numberline {11.5.1}Entity Descriptions}{64}{subsubsection.11.5.1}%
+\contentsline {subsubsection}{\numberline {11.5.2}Entity Relation Diagrams}{64}{subsubsection.11.5.2}%
+\contentsline {subsection}{\numberline {11.6}SQL}{65}{subsection.11.6}%
+\contentsline {subsubsection}{\numberline {11.6.1}Creating Tables}{65}{subsubsection.11.6.1}%
+\contentsline {subsubsection}{\numberline {11.6.2}Altering Tables}{67}{subsubsection.11.6.2}%
+\contentsline {subsubsection}{\numberline {11.6.3}Inserting Data}{68}{subsubsection.11.6.3}%
+\contentsline {subsubsection}{\numberline {11.6.4}Selecting Data (One Table)}{69}{subsubsection.11.6.4}%
+\contentsline {subsubsection}{\numberline {11.6.5}Selecting Data (Multiple Tables)}{70}{subsubsection.11.6.5}%
+\contentsline {subsubsection}{\numberline {11.6.6}Ordering Results}{70}{subsubsection.11.6.6}%
+\contentsline {subsubsection}{\numberline {11.6.7}Full Query}{70}{subsubsection.11.6.7}%
+\contentsline {subsubsection}{\numberline {11.6.8}Updating Records}{71}{subsubsection.11.6.8}%
+\contentsline {subsection}{\numberline {11.7}Client-Server Databases}{71}{subsection.11.7}%
+\contentsline {subsubsection}{\numberline {11.7.1}Record Locking}{71}{subsubsection.11.7.1}%
+\contentsline {subsubsection}{\numberline {11.7.2}Deadlock}{72}{subsubsection.11.7.2}%
+\contentsline {subsubsection}{\numberline {11.7.3}Serialisation \& Timestamp Ordering}{72}{subsubsection.11.7.3}%
+\contentsline {subsubsection}{\numberline {11.7.4}Commitment Ordering}{72}{subsubsection.11.7.4}%
+\contentsline {subsection}{\numberline {11.8}Approach to Problem Solving}{72}{subsection.11.8}%
+\contentsline {subsubsection}{\numberline {11.8.1}Analysis}{72}{subsubsection.11.8.1}%
+\contentsline {subsubsection}{\numberline {11.8.2}Agile Modelling}{72}{subsubsection.11.8.2}%
+\contentsline {subsubsection}{\numberline {11.8.3}Design}{73}{subsubsection.11.8.3}%
+\contentsline {subsubsection}{\numberline {11.8.4}Implementation}{73}{subsubsection.11.8.4}%
+\contentsline {subsubsection}{\numberline {11.8.5}Testing}{73}{subsubsection.11.8.5}%
+\contentsline {subsubsection}{\numberline {11.8.6}Evaluation}{73}{subsubsection.11.8.6}%
+\contentsline {section}{\numberline {12}OOP and Functional Programming}{74}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Imperative Programming}{74}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Procedural Languages}{74}{subsection.12.2}%
+\contentsline {subsection}{\numberline {12.3}Object Orientation}{74}{subsection.12.3}%
+\contentsline {subsubsection}{\numberline {12.3.1}Implementations of OOP}{74}{subsubsection.12.3.1}%
+\contentsline {subsubsection}{\numberline {12.3.2}Classes}{75}{subsubsection.12.3.2}%
+\contentsline {subsubsection}{\numberline {12.3.3}Encapsulation}{76}{subsubsection.12.3.3}%
+\contentsline {subsubsection}{\numberline {12.3.4}Instantiation}{76}{subsubsection.12.3.4}%
+\contentsline {subsubsection}{\numberline {12.3.5}Polymorphism}{76}{subsubsection.12.3.5}%
+\contentsline {subsubsection}{\numberline {12.3.6}Interfaces}{76}{subsubsection.12.3.6}%
+\contentsline {subsubsection}{\numberline {12.3.7}Inheritance}{78}{subsubsection.12.3.7}%
+\contentsline {subsubsection}{\numberline {12.3.8}Demonstration}{79}{subsubsection.12.3.8}%
+\contentsline {subsubsection}{\numberline {12.3.9}Association}{81}{subsubsection.12.3.9}%
+\contentsline {subsubsection}{\numberline {12.3.10}Access Modifiers}{82}{subsubsection.12.3.10}%
+\contentsline {subsubsection}{\numberline {12.3.11}Class Diagrams}{82}{subsubsection.12.3.11}%
+\contentsline {subsubsection}{\numberline {12.3.12}Advantages of OOP}{82}{subsubsection.12.3.12}%
+\contentsline {subsection}{\numberline {12.4}Functional Programming}{83}{subsection.12.4}%
+\contentsline {subsubsection}{\numberline {12.4.1}First-class and Higher-order Functions}{83}{subsubsection.12.4.1}%
+\contentsline {subsubsection}{\numberline {12.4.2}Purely Functional Languages}{83}{subsubsection.12.4.2}%
+\contentsline {subsubsection}{\numberline {12.4.3}Recursion}{84}{subsubsection.12.4.3}%
+\contentsline {subsubsection}{\numberline {12.4.4}Function Application}{84}{subsubsection.12.4.4}%
+\contentsline {subsection}{\numberline {12.5}Big Data}{84}{subsection.12.5}%
