@@ -965,6 +965,21 @@ Functional programming is derived from /lambda calculus/, a formal system of com
 
 A /higher-order/ function is one which can either take functions as arguments or return them as results. Higher-order functions describe functions which operate on other functions, which implies the use of first-class functions, a computer science term for programming entities with no restriction on their use.
 
+The examples given below demonstrate the common higher-order functions =foldl=, =map= and =filter=. The =fold= function recursively collapses a data structure into a single value according to the given function, the =map= function applies the specified function to each element in a list and the =filter= function returns a list of elements from the original list satisfying a particular condition.
+
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
+Prelude> map (+ 5) [1,2,3,4]
+[6,7,8,9]
+Prelude> filter (< 5) [3,4,5,6]
+[3,4]
+Prelude> foldl (+) 0 [1,2,3,4]
+10
+\end{minted}
+\end{figure}
+#+end_export
+
 *** Purely Functional Languages
 
 A /pure/ function is one which causes no side-effects and does not edit a global state. This includes any side-effects in memory or on disk via I/O.
@@ -980,6 +995,31 @@ A /pure/ function is one which causes no side-effects and does not edit a global
 Iteration, which is common in procedural languages, is achieved with recursion in functional languages. A recursive function invokes itself until a base case is reached. Recursion does require that a stack is maintained to handle the scopes, which can become expensive in space. Certain compilers can recognise types of recursion and provide optimisation.
 
 *** Function Application
+
+In purely functional languages such as Haskell, functions may only have a single argument. Functions with more arguments use /partial application/, not to be confused with /currying/ to break a function with $n$ arguments into $n$ functions with 1 argument.
+
+Consider the below example. The addition operator is bound to =a=, and the resulting function can be used as expected. If =a= is called with only a single argument, an error is produced, indicating that the returned value is a function which cannot be printed. If instead the result is bound to another identifier, the return value is proven to be a function itself, operating on a single argument.
+
+#+begin_export latex
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
+Prelude> a = (+)
+Prelude> a 2 5
+7
+Prelude> a 2
+
+<interactive>:8:1: error:
+    • No instance for (Show (Integer -> Integer))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+Prelude> b = a 2
+Prelude> b 5
+7
+Prelude>
+\end{minted}
+\end{figure}
+#+end_export
 
 ** Big Data
 

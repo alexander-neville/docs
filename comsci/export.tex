@@ -1,4 +1,4 @@
-% Created 2022-03-23 Wed 23:34
+% Created 2022-03-25 Fri 21:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[10pt]{article}
 \usepackage[hidelinks]{hyperref}
@@ -105,17 +105,17 @@
 % \tableofcontents
 
 \section{Fundamentals of Programming}
-\label{sec:orgc4db3c3}
+\label{sec:org2b616d2}
 
 An algorithm is a series of steps underlying every process including programs. An abstract view of any program/algorithm is \emph{input -> process -> output}.
 
 \subsection{Pseudocode}
-\label{sec:org93d0381}
+\label{sec:org8f2c1cc}
 
 Rather than try and solve a problem while implementing a program, it can help to try and outline the solution in a abstract manner and then write the code to solve the problem. Pseudocode is a flexible method of planning an algorithm that is easier to read and understand, while keeping in the programming mindset. Pseudocode is written like a program, with data types, flow control, operators etc.
 
 \subsubsection{Syntax}
-\label{sec:org5077f2f}
+\label{sec:org60e7238}
 
 \textbf{Comments:}
 
@@ -176,7 +176,7 @@ OUTPUT name, sensor_data
 \end{figure}
 
 \subsubsection{Flow Control}
-\label{sec:org85de4f3}
+\label{sec:orgd381e59}
 
 Pseudocode can combine its syntax with flow control mechanisms to build more functional programs.
 
@@ -250,12 +250,12 @@ ENDFOR
 \end{figure}
 
 \subsubsection{Data structures}
-\label{sec:org009afa0}
+\label{sec:org47205cf}
 
 Arrays are a collection type which are usually filled with data of one type and unite values under one identifier. Individual values can be accessed with indexing eg. \texttt{array[x]} will return the value at position \emph{x} along \emph{array}. Arrays may be multi-dimensional and values can be addressed like this: \texttt{array[x][y]}.
 
 \subsubsection{Subroutines}
-\label{sec:org2066060}
+\label{sec:org3b5573a}
 
 A subroutine is a named block of code within a program. A subroutine may perform an operation as in a \emph{procedure} or return a value to the main program as a \emph{function.} In pseudocode a subroutine can be defined and called like this:
 
@@ -276,7 +276,7 @@ data <- function(data)
 \end{figure}
 
 \subsubsection{Files}
-\label{sec:org8227e68}
+\label{sec:org6f17f75}
 
 To store data permanently, It must be written to a file on disk. A file contains \emph{records} (rows) with many \emph{fields}. Data can be read from a file like this:
 
@@ -292,7 +292,7 @@ CLOSE file
 \end{figure}
 
 \subsubsection{Exceptions}
-\label{sec:orgd3e0ef2}
+\label{sec:org0ee62f1}
 
 To define behaviour for an error condition, exception handling can be used.
 
@@ -309,14 +309,14 @@ ENDEXCEPT
 \end{figure}
 
 \section{Problem Solving and Theory of Computation}
-\label{sec:org0b95011}
+\label{sec:org57daeda}
 \subsection{Problem Solving}
-\label{sec:orgaf95789}
+\label{sec:orgc7533da}
 
 Besides writing larger programs, computing has many applications involving smaller problems. A \emph{puzzle} is a problem that is solved by selecting the right inputs. This process can be performed computationally. The problem may be \emph{specific}, having a certain number of inputs (eg. 3), or \emph{general}, having \emph{n} number of inputs. These values can be used to calculate the efficiency of an algorithm.
 
 \subsection{Strategies}
-\label{sec:orgc898096}
+\label{sec:orgb905b96}
 
 There are some common strategies for solving logic/computational problems:
 
@@ -326,12 +326,12 @@ There are some common strategies for solving logic/computational problems:
 \end{itemize}
 
 \subsection{Structured Programming}
-\label{sec:orged21231}
+\label{sec:orgc4cadcc}
 
 In order to ease development and make maintainable programs, an algorithm is divided into smaller parts.
 
 \subsubsection{Block Structure}
-\label{sec:orgf5c06e7}
+\label{sec:org214cc9b}
 
 In block-structured languages, an algorithm can be broken down into the repeated use of just three structures:
 
@@ -344,7 +344,7 @@ In block-structured languages, an algorithm can be broken down into the repeated
 Modern programming languages use syntax elements to make these \emph{blocks} apparent. Curly brackets, \texttt{\{\},} or indentation and significant white space might be used to make code blocks visually distinct.
 
 \subsubsection{Modularisation}
-\label{sec:org08c4221}
+\label{sec:orga2cac2d}
 
 An algorithm is repeatedly broken down into smaller parts until each can easily be implemented in a single \emph{sub-routine}, sometimes called a \emph{module}. This is called \emph{top-down} design. The advantages of this technique include:
 
@@ -355,7 +355,7 @@ An algorithm is repeatedly broken down into smaller parts until each can easily 
 \end{itemize}
 
 \subsubsection{Hierarchy Charts}
-\label{sec:orgf63f1e7}
+\label{sec:orgaf44831}
 
 A hierarchy chart is a way of visualising how an algorithm is broken down. Each step may be a logical block or a sub-routine that has been programmed. A hierarchy chart does not describe the implementation of a problem, nor the control flow within each module.
 
@@ -366,12 +366,12 @@ A hierarchy chart is a way of visualising how an algorithm is broken down. Each 
 \end{figure}
 
 \subsection{Testing}
-\label{sec:org885d376}
+\label{sec:org48ebb78}
 
 All algorithms should be thoroughly tested to detect problems that could occur under certain conditions. Any inputs should be tested with \emph{normal}, \emph{boundary} and \emph{erroneous} data. Before running a program, it may be \emph{dry-run}, using a trace table.
 
 \subsection{Abstraction}
-\label{sec:org58da84a}
+\label{sec:orgb7f45a9}
 
 \emph{Abstraction} is the process of simplifying something by removing unnecessary details. This is a common technique in programming, as most high-level operations are made irrespective of the hardware and machine operations that need to take place.
 
@@ -382,17 +382,17 @@ Abstraction by \emph{generalisation} is a technique used to remove context from 
 Data can also be subject to abstraction. The behaviour of numbers, when subject to mathematical operations, depends on the number's type, eg. float or integer, rather than the program code.
 
 \subsection{Composition}
-\label{sec:orgc961776}
+\label{sec:org119fc3d}
 
 Breaking an algorithm down, via any method, is called \emph{decomposition}. The process of combining existing smaller modules to solve a larger problem is called \emph{composition}.
 
 \subsection{Automation}
-\label{sec:org0aa41af}
+\label{sec:orgd8d5ad8}
 
 \emph{not implemented}
 
 \subsection{Finite State Machines}
-\label{sec:orgd2f854f}
+\label{sec:org364da7a}
 
 A \emph{finite state machine} is an abstract view of some computation. Using \emph{states} and \emph{transitions}, an FSM demonstrates how a system responds to an event under various conditions (states).
 
@@ -421,11 +421,11 @@ S3 & S1 & S3\\
 \end{center}
 
 \section{Data Representation}
-\label{sec:orgb70cd6c}
+\label{sec:org6ff8868}
 \subsection{Number Systems}
-\label{sec:orgcb80570}
+\label{sec:org35efcd7}
 \subsubsection{Sets of Numbers}
-\label{sec:org5d6d2c0}
+\label{sec:orgb771fd5}
 
 \begin{itemize}
 \item Whole Numbers = \emph{Z} (negative or positive integers)
@@ -436,12 +436,12 @@ S3 & S1 & S3\\
 \end{itemize}
 
 \subsubsection{Decimal}
-\label{sec:orgf4cca0a}
+\label{sec:org1614a02}
 
 Decimal (Base 10) is the number system we use on a daily basis. It may originate from the ten fingers and toes humans have. With current technology, it is impossible to use base 10 in computer systems.
 
 \subsubsection{Binary}
-\label{sec:org12f0e84}
+\label{sec:org72ea446}
 
 Binary is the number system used in computing and understood by a computer's processor. It is used because of the relative ease of distinguishing between just two states: \emph{on} \& \emph{off}. The disadvantage of this system is representing large amounts of complex data. With only two states, many binary bits in sequence are needed to represent real world data. In decimal, 10 values can be represented with one character and the total number of values available with \emph{n} characters is:
 
@@ -458,7 +458,7 @@ While, with binary, the number of available values when using \emph{n} bits is:
 So in order to get an equivalent range of values, the value \emph{n} must be larger when using binary. This is manageable in a computer and the advantages significantly outweigh the disadvantages, however this is difficult for people to work with and understand. Binary is long and repetitive, making working with binary slow and error prone.
 
 \subsubsection{Hexadecimal and Octal}
-\label{sec:org212067b}
+\label{sec:orgaa38e5d}
 
 Hexadecimal (Base 16) and Octal (Base 8) are used to make working with computers easier. The range of values that can be represented with \emph{n} place values is:
 
@@ -487,7 +487,7 @@ The same is true of Base 4 and Base 32, but these are not used nearly as frequen
 \end{itemize}
 
 \subsection{Two's Complement}
-\label{sec:orga6fda37}
+\label{sec:org80d5fc1}
 
 There are a number of different techniques for handling negative numbers in computer systems. \emph{Two's Complement} is a common method of doing so, as two's complement numbers can be treated like a regular value during computation.
 
@@ -544,7 +544,7 @@ Computers generally rely on two's complement to perform subtraction, using only 
 \end{itemize}
 
 \subsection{Fixed Point Binary Numbers}
-\label{sec:org67a8790}
+\label{sec:orgcb24270}
 
 In a fixed point binary value, some bits fall before and after the point. The position of the point is usually determined as needed. Using such a system, any bits before the point are treated as usual. For any bit after the point, its value is \(2^{-n}\), where \(n\) is the position from the decimal point.
 
@@ -565,12 +565,12 @@ n & power of 2 & value\\
 The position of the decimal point within a fixed point binary value can determine the properties of the number: \emph{range} vs \emph{precision}
 
 \subsection{Floating Point Binary Numbers}
-\label{sec:org31ee601}
+\label{sec:orge30f994}
 
 Fixed point binary numbers only offer limited precision, unless an extra-ordinary number of bits are used. Many bits are needed to represent very small fractions and many bits are needed to represent very large numbers, even if fixed point binary is not applied. \emph{Floating Point} binary values work like scientific notation, making them suitable for extremely large or small numbers. In such a number the bit pattern used is split into two parts: the \emph{mantissa} and the \emph{exponent}.
 
 \subsubsection{Conversion}
-\label{sec:orge082cec}
+\label{sec:org9676c75}
 
 This table shows how to convert \texttt{01101 011} into a fixed point binary number. When given a floating point number, the point's default position is just after the first bit (as in scientific notation). The mantissa records how many places to the right the point needs to move. (Nb. on the first row, the default position of the point is shown)
 
@@ -588,58 +588,58 @@ mantissa & exponent & exponent decimal\\
 \end{center}
 
 \subsection{Character Encoding}
-\label{sec:org710bf7a}
+\label{sec:org911f6ad}
 
 Human readable characters need to be represented numerically for use in computer systems. The given numerical value for a character can be expressed in decimal, but binary is always used by computers. Two very common standards for character encoding are \emph{ASCII} and \emph{Unicode}. Note that not all data is encoded with these standards; compiled code and many image formats are \emph{raw binary} data. This kind of data cannot be read by a human or displayed in a text editor.
 
 \subsubsection{ASCII}
-\label{sec:org5aba76f}
+\label{sec:orgdda0d57}
 
 The first major encoding standard was ASCII. ASCII was designed to be a 7 bit standard, allowing 128 different characters to be represented, while leaving space for a parity bit within each byte. Later on, an eighth bit was added to extend the number of possible characters which could be used. The new 8 bit ASCII maintained compatibility with the original standard; the first 128 characters are the same. 8 bit \textbf{ASCII} is sometimes called \textbf{UTF-8}.
 
 \subsubsection{Unicode}
-\label{sec:orgf2b30aa}
+\label{sec:orgf9a2b64}
 
 As the internet became pervasive and computers in all parts of the world became connected, a new standard was needed to manage more languages and their character sets. \emph{Unicode} was developed to solve this problem. It was initially a 16 bit standard, allowing 65,536 different characters to be represented, enough for multiple character sets. The first 8 bits of this character set matched those of 8 bit \textbf{ASCII}, so there is some compatibility. \textbf{UTF-32} now exists, offering over a million different individual characters. The downside of these enlarged standards is the size. \textbf{UTF-32} is twice as large as \textbf{UTF-16} and twice as large again as ASCII. This means text encoded with Unicode will take up more storage on a computer and take longer to transmit.
 
 \subsection{Error Checking and Correction}
-\label{sec:orga307c25}
+\label{sec:org6b5a419}
 
 Errors can occur when data is read, inputted or transmitted. There are many ways to identify when an error has occurred and how errors can be corrected.
 
 \subsubsection{Parity Checking}
-\label{sec:org0b11364}
+\label{sec:org241bcef}
 
 Parity bits are a common method for protecting against errors during communication. 7 bit \emph{ASCII} lends itself towards transmitting a parity bit within each byte. Even or odd parity may be used. The parity bit ensures that the total of all the bits (including the parity bit) is an odd or even number in accordance with the technique being used. Upon receiving data, the recipient can check the total of the bits. If the total does not correspond to the chosen parity, an error has occurred. This method cannot detect \emph{transposition errors} (when the order of bits is changed), nor are they able to identify errors affecting more than one bit.
 
 \subsubsection{Majority Voting}
-\label{sec:orge0bb1fe}
+\label{sec:orgc897ed2}
 
 When majority voting is used, each bit is transmitted repeatedly. An odd number of repetitions must be used so there is not a \emph{tie}. The received values for each bit are compared and the \emph{popular} result is taken to be the true value of that bit. Hence, there is a means of correcting potential errors. Eg. one of three transmissions of a single bit may differ from the two others. It can be concluded that this bit is erroneous and its value discarded. Transmitting data repeatedly, for the purpose of error detection and correction, significantly increases the time taken to send a certain communication. Majority voting is often infeasible, because of the time it takes.
 
 \subsubsection{Checksum}
-\label{sec:org2420668}
+\label{sec:org1d216c1}
 
 A checksum is a thorough method of error detection. An algorithm is applied to a piece of data before it is sent, the result being the checksum. The checksum is transmitted with the block of data. Upon receipt of the block, the same algorithm is applied to the data (which might have been corrupted). The checksum calculated by the receiver is compared with the transmitted checksum. If the two values do not match, an error has occurred. If the two values do match, it is likely that no error has occurred.
 
 \subsubsection{Check Digits}
-\label{sec:org5ac5e60}
+\label{sec:org2a60a4c}
 
 The role of a \emph{check digit} is to prevent \emph{transcription} errors (or other similar I/O errors) of identifiers and other short pieces of data. Check digits are often attached to barcodes, ISBNs and credit card numbers.
 A checkdigit is calculated by running a number through an algorithm. The result is usually printed alongside the data, wherever it appears. Devices like barcode readers can calculate the checkdigit based on the obtained number and compare it too the existing checkdigit. If the two values do not match, an error has occurred. If the two values do match, it is likely that no error has occurred.
 
 \subsection{Analogue and Digital Data}
-\label{sec:orgfd8a3b8}
+\label{sec:org22a113c}
 
 Analogue data is \emph{continuous}, having physical quantities which are changing constantly. This kind of data can only be truly represented by a continuous range of values. For the sake of digital representation, analogue waveforms and other continuous sets of data are sampled at intervals, or in certain places. Each of these samples contains data which is quantifiable, so it may be used and stored by a computer. Therefore any digital representation of analogue data is an approximation of some quantity at a certain time and place.
 
 \subsection{Image Representation}
-\label{sec:org3376c62}
+\label{sec:orgda13ef2}
 
 Image data can be broadly categorised into two types: \emph{photographs} and \emph{digital graphics}. While there is no scientific definition for either of these terms, a photograph is generally captured by a camera, while computerised digital graphics are typically designed or generated. Photographs are usually stored as \emph{bitmap} images, while \emph{vector} graphic files are more suitable for computerised images.
 
 \subsubsection{Bitmap Files}
-\label{sec:org5f9d170}
+\label{sec:org272f5b3}
 
 Bitmap images are composed of \emph{pixels}. A 'picture element', or a \emph{pixel}, is the smallest identifiable area of an image and each pixel will contain information about the image at that point.
 
@@ -650,12 +650,12 @@ The \emph{resolution} is the number of \emph{dots per inch} (dpi). An image of g
 Bitmap files store an approximation of real world analogue data and they are ideal for photographs, which have constantly changing colour gradients and no distinct boundaries.
 
 \subsubsection{Limitations of Bitmap Files}
-\label{sec:org2cd35bd}
+\label{sec:org49d8e33}
 
 The \emph{size} of an image (in pixels) does not determine the area its is displayed on. Should an image need to be displayed in a physical form that is greater than the original dimensions, the resolution (ppi/dpi) is diminished. For simple graphics, a bitmap file's size may exceed that of a vectorised file format.
 
 \subsubsection{Colour Depth}
-\label{sec:org46c6caf}
+\label{sec:org3d14620}
 
 In a bitmap file, each picture element has an associated colour code. The length of this value determines the number of colours which can be represented.
 
@@ -670,46 +670,46 @@ As there are three channels, the total number of colours is:
 A colour depth of 3 bytes offers more colours than the human eye can distinguish between, hence there is little benefit using a greater depth. A larger colour depth increases file size, so it is sometimes advantageous to use a reduced set of colours.
 
 \subsubsection{Metadata}
-\label{sec:org325d8ac}
+\label{sec:orgecde0a9}
 
 This is data stored in the header of a bitmap file, containing all the information needed to display the image. Eg. columns, rows, colour depth, etc.
 
 \subsubsection{Vector Graphics}
-\label{sec:org21e0274}
+\label{sec:org36cffe3}
 
 A vector file consists of a drawing list, containing a list of all the shapes that need to be drawn to \emph{construct} the image. Unlike a bitmap, the shapes listed in a vector file can be redrawn and the image constructed proportionally to suit any display size. This makes vector graphics ideal for images which may need to be displayed in many places at different sizes.
 
 The file size of a vector graphic will depend on the number of objects which have to be drawn, rather than the size and quality of the image. Photographs cannot be represented with vector graphic files easily, because of the complex shapes and many colour gradient, with few distinct boundaries.
 
 \subsection{Audio Representation}
-\label{sec:org58ff8cf}
+\label{sec:orgc859418}
 
 Sound is a type of analogue data, which is - in nature - a continuous wave. This data must undergo analogue to digital conversion.
 
 \subsubsection{Sample Rate}
-\label{sec:orga6a5715}
+\label{sec:orgbe14f0d}
 
 In order to represent a continuous sound wave as discrete digital data, many quantised \emph{samples} must be taken at regular intervals. The frequency of the recording, also called the \emph{sample rate}, is the number of samples per second. The greater the sample rate, the closer the digital representation of the audio is to the original sound.
 
 \subsubsection{Sample Depth}
-\label{sec:org1a4975c}
+\label{sec:orgd43a6a6}
 
 As well as increasing the number of samples stored, audio quality can be improved by increasing the \emph{bit depth}. The bit depth is the number of bits used to store the amplitude of the sound at a given sample. The higher the bit depth, the closer the amplitude to its original value. \emph{Nb. amplitude is often represented on the Y axis, against time on the X axis}
 
 \subsubsection{Nyquist's Theorem}
-\label{sec:orged80344}
+\label{sec:org56dca64}
 
 Discrete digital data cannot perfectly represent all of the properties of a continuous analogue waveform. In 1928, Harry Nyquist theorised that a recording must be sampled at twice the maximum frequency of the analogue sound to produce an accurate recording. For the human ear, the maximum audible frequency is 20,000Hz. Therefore, audio is often sampled at 44,100Hz, beyond which there is no apparent difference in sound quality to humans.
 
 \subsubsection{Audio Storage and Files}
-\label{sec:org955ad36}
+\label{sec:org9c6da99}
 
 Audio which is recorded from a live source is stored and can be played back using a DAC and a speaker. There are many common file formats for sound and video, many of which use compression. Sound files may also contain metadata about the file.
 
 Sound may also be 'stored' as a MIDI file, a set of steps which can be interpreted by software to synthesise new sound. It is primarily a tool for music artists to create new music which can later be recorded. As MIDI files do not try to replicate analogue data with lots of samples, they may be smaller in size to a recording of similar length and quality.
 
 \subsubsection{Recording}
-\label{sec:org3da0210}
+\label{sec:org2b84b75}
 
 \begin{enumerate}
 \item A computer peripheral (microphone) is used to convert a sound wave into an oscillating electrical signal.
@@ -720,7 +720,7 @@ Sound may also be 'stored' as a MIDI file, a set of steps which can be interpret
 \end{enumerate}
 
 \subsubsection{Playback}
-\label{sec:org001e4d7}
+\label{sec:org9da69fd}
 
 \begin{enumerate}
 \item In order to present the stored data, it must be converted back to an analogue form. A \emph{DAC} (digital to analogue converter) can be used to this effect.
@@ -729,14 +729,14 @@ Sound may also be 'stored' as a MIDI file, a set of steps which can be interpret
 \end{enumerate}
 
 \subsection{Compression}
-\label{sec:orge1ff79d}
+\label{sec:orgd93180b}
 
 Image and sound files can be very large and repetitive. Generally, a small reduction in quality is tolerated, making these files good candidates for lossy compression, where the quality is somewhat reduced to achieve greater compression ratios.
 
 Text files, including programs, are rarely as large as other types of data, however reducing their file size is sometimes needed. It is essential that compressed text files can be recreated without any loss in quality. Lossless compression is a compression method which maintains the exact quality of the uncompressed data, so it can be read exactly as intended after compression and subsequent uncompression. The compression ratios of Lossless compression techniques rarely equal those of lossy compression.
 
 \subsubsection{Lossless}
-\label{sec:org2914820}
+\label{sec:org313a2e3}
 
 Lossless compression ensures the original file can be recreated from the compressed file. Therefore the compressed file must convey \emph{exactly} the same information as the original in a slightly different way. Lossless compression algorithms typically reduce repetition within files as a means of compression.
 
@@ -755,17 +755,17 @@ Dictionary compression is a more flexible type of lossless compression. The comp
 Nb. The compressed file must include the dictionary that is used. Dictionary compression works best with larger files, where the size of the dictionary is offset by the amount of repetition removed.
 
 \subsubsection{Lossy}
-\label{sec:org805721b}
+\label{sec:org5a7f12c}
 
 Unlike lossless compression, lossy compression is irreversible, as data is \textbf{permanently} removed from the file. This means that the effectiveness of lossy compression is not dependent on an amount of repetition within the file. However, this method reduces the quality of the file which is compressed, making it unsuitable for text and similar sorts of data.
 
 \subsection{Encryption}
-\label{sec:org4e03269}
+\label{sec:orge83a637}
 
 Encryption is the process of changing data so that it is only readable to the intended recipient. A cipher is an algorithm which encrypts some data. Decryption of cipher text requires the \emph{key} used to encrypt the file and the encryption method must be known. The original data is referred to as plain text and the encrypted data is referred to as cipher text.
 
 \subsubsection{Caesar Ciphers}
-\label{sec:org911b88a}
+\label{sec:org28f47ca}
 
 This is a very old, basic cipher, using character replacement. One character in the cipher text always represents the same plain text character.
 
@@ -776,7 +776,7 @@ A substitution cipher may also be used. With such a cipher, the letters are rand
 All Caesar ciphers are fairly easy to decipher without the key. In the case of a shift cipher, brute force is possible as there are only 25 possible keys. Frequency of the ciphertext characters can be analysed as every occurrence will refer to a certain plain text character. In English, certain characters and combinations are more frequent so the most common cipher text characters can be found and decrypted.
 
 \subsubsection{Vernam Ciphers}
-\label{sec:orgc8b74a6}
+\label{sec:org09c256a}
 
 The Vernam cipher is a more secure algorithm. It requires a key in the form of a one-time pad. \emph{One-time} means it should only be used once, to ensure its randomness. The key must be as long, or greater than, the plain text to be encrypted.
 
@@ -804,20 +804,20 @@ The one-time pad which is used must be generated randomly, only this can guarant
 Vernam ciphers are not always used in computer systems, even though it is mathematically secure. Given current computing power, many other algorithms - which can be cracked - will take long enough that any efforts to crack the encryption will not be viable. This is called computational security.
 
 \section{Hardware and Software}
-\label{sec:orgbc0f79f}
+\label{sec:orgc402d9e}
 
 Hardware is the name given to physical equipment that constitutes a computer. Meanwhile, software is program code stored digitally and used to perform a task.
 
 \subsection{Classification of Software}
-\label{sec:org5995d39}
+\label{sec:orga85e60e}
 \subsubsection{System Software}
-\label{sec:org2d20e5b}
+\label{sec:orgc64a5d7}
 
 System software is the collection of software needed to run a computer system, including an operating system. A general purpose operating system will usually ship with additional software to make the computer more functional. There are other types of system software.
 
 \begin{enumerate}
 \item Operating Systems
-\label{sec:org45e2afb}
+\label{sec:org351c9af}
 
 An operating system \emph{(OS)} is a piece of software designed to manage a computer's hardware on behalf of running applications and ultimately the computer user. The operating system interacts directly with the system's resources, exposing available operations to other applications, a good example of a programming \emph{API}. The benefit of an operating system is versatility. With an \emph{OS} installed there is no need for each application to perform low level operations and the computer will be able to perform many different tasks without reprogramming.
 
@@ -833,7 +833,7 @@ An operating system \emph{(OS)} is a piece of software designed to manage a comp
 \end{itemize}
 
 \item Utility Software
-\label{sec:orgca99f0e}
+\label{sec:org72f5063}
 
 Utility software is often included with an operating system to help maintain the machine, but the user may choose to install more of these utilities. Typically, the operating system itself will use the installed utility software, although the user may choose to use the software manually.
 
@@ -848,24 +848,24 @@ Utility software is often included with an operating system to help maintain the
 \end{itemize}
 
 \item Code Libraries
-\label{sec:org44c0137}
+\label{sec:org19598de}
 
 Many programming languages have a library of code that is \emph{built-in}, to simplify common operations. This code can be packaged and implemented in many different ways, but the core functions are usually included with the language and stored on a users computer. Some common library extensions are: \textbf{.dll} and \textbf{.so}. Should a program need functionality from the libraries, it is \emph{imported} in the source code.
 
 \item Translators
-\label{sec:orgaa1887d}
+\label{sec:org20abd49}
 
 Translators are required to transform written source code into executable machine code, with various steps along the way. The different types of translators are covered below.
 \end{enumerate}
 
 \subsubsection{Application Software}
-\label{sec:org472b3ed}
+\label{sec:orgdcceba2}
 
 Application software is designed to work on a certain operating system and perform tasks for the user. This type of software may be shipped along with an operating system, although a user may choose to install or remove this type of software on a regular basis. Application software is developed in different ways for different customers. Here are some common ways software is made and distributed: \emph{General Purpose}, \emph{Specific Purpose} and \emph{Bespoke}.
 
 \begin{enumerate}
 \item General Purpose
-\label{sec:org71d0e5e}
+\label{sec:orgfaf82b0}
 
 \begin{itemize}
 \item Includes mainstream products like office suites or graphics programs
@@ -874,7 +874,7 @@ Application software is designed to work on a certain operating system and perfo
 \end{itemize}
 
 \item Special Purpose
-\label{sec:org34eeef3}
+\label{sec:org50e73c4}
 
 \begin{itemize}
 \item This is also a type of application software, but unlike general purpose software, this type of software serves a more specific audience
@@ -884,7 +884,7 @@ Application software is designed to work on a certain operating system and perfo
 \end{itemize}
 
 \item Bespoke Software
-\label{sec:org2a4183e}
+\label{sec:orgb09e650}
 
 A business may choose to have software developed specially for them by some software developers. This is called \emph{bespoke software}.
 
@@ -898,15 +898,15 @@ A business may choose to have software developed specially for them by some soft
 \end{enumerate}
 
 \subsection{Programming Language Specification}
-\label{sec:orgf1b6aeb}
+\label{sec:orgff9c348}
 \subsubsection{Low-Level Languages}
-\label{sec:orge5142b9}
+\label{sec:orgc79d803}
 
 The two main types of low-level language are \emph{machine code} and \emph{assembly language}.
 
 \begin{enumerate}
 \item Machine Code
-\label{sec:org196f969}
+\label{sec:orgd199139}
 
 Machine code is written entirely in binary and as a result it can be executed by a computer without the need for translation. At this level, abstraction is limited and a program consists of the set of operations the processor must perform.
 
@@ -915,7 +915,7 @@ Machine code instructions are composed of an \emph{opcode} and associated \emph{
 Binary is repetitive and lengthy, making mistakes like transcription errors very common. Once a program has been developed, the machine code is difficult to understand and debug.
 
 \item Assembly language
-\label{sec:org0606c0b}
+\label{sec:orgbfe251e}
 
 Assembly language was designed to make working with native machine code easier. Opcodes are replaced by mnemonics, while hexadecimal and decimal numbers are often used in place of operands. Assembly language reduces the amount of errors made when inputting code and makes the code easier to read and understand.
 
@@ -923,7 +923,7 @@ Generally speaking, each line of code in an assembly language program correspond
 \end{enumerate}
 
 \subsubsection{High-Level Languages}
-\label{sec:org1b8f4d8}
+\label{sec:org666378f}
 
 As \emph{operating systems} developed, it became possible to write programs which could be run on many platforms.  The languages used to write these programs became known as \emph{high-level} languages. A high-level language will need to be converted, or \emph{translated}, into executable code for each platform it is used on.
 
@@ -934,22 +934,22 @@ High-level languages are much more suitable for designing complex algorithms, as
 A programming \emph{paradigm} is a way of classifying high-level programming languages. The \emph{Imperative} programming language paradigm includes both the \emph{procedural} and \emph{object orientated} techniques. Meanwhile, the \emph{declarative} paradigm includes languages like SQL and the \emph{functional} programming style.
 
 \subsubsection{Abstraction}
-\label{sec:orga096f45}
+\label{sec:org5ed5ad3}
 
 High-level languages are more \emph{abstract} than low-level languages. Each line of python contains far more operations than a line of x86 assembly. Should a process need to be made very efficient, the very minimum level of abstraction should be used. If some process involves specific hardware, it may be useful to use a low-level language to get the best performance from it.
 
 \subsection{Programming Language Translation}
-\label{sec:org961b543}
+\label{sec:org81760a7}
 
 Besides native machine code, all other types of programming language, including assembly, need to be converted into a format the computer can understand. This process is called \emph{translation}. The two most common methods of translating source code written in a high-level language into object code are \emph{compilation} and \emph{interpretation}.
 
 \subsubsection{Assemblers}
-\label{sec:org2dcde62}
+\label{sec:org4f41749}
 
 While assembly is a type of low-level language, it requires translation. The tool used to do this is called an \emph{assembler}. The result of running assembly code through an assembler is object code. Object code may need to be run through a \emph{linker} program to make executable code (not on specification).
 
 \subsubsection{Compilers}
-\label{sec:orgf9f6303}
+\label{sec:org4651c8a}
 
 A compiler is a program that can translate code written in a high-level language into executable code. The compiler program runs over inputted source code, performing a series of checks and identifying how to construct the object code output.
 
@@ -964,7 +964,7 @@ A program written in a compiled language is usually distributed by sharing the c
 \end{itemize}
 
 \subsubsection{Interpreters}
-\label{sec:org1dfbcf0}
+\label{sec:org1b7def7}
 
 An interpreter translates a program into executable machine code instructions at run-time. Sometimes there is an intermediate type of compiled code, called \emph{bytecode}.
 
@@ -980,7 +980,7 @@ As the interpreter works line by line, some code may be translated and run befor
 \end{itemize}
 
 \subsubsection{Bytecode}
-\label{sec:org117d100}
+\label{sec:orgcad6a97}
 
 In order to improve the performance and portability of high-level code, \emph{bytecode compilation} is sometimes used (usually in interpreted languages). This divides the compilation process into two parts:
 
@@ -1021,17 +1021,17 @@ hello
 \newpage
 
 \subsection{Boolean Logic \& Algebra}
-\label{sec:org0e240f2}
+\label{sec:orgbaf65c5}
 
 \subsubsection{De Morgan's Laws}
-\label{sec:org006913b}
+\label{sec:org93bde3b}
 
 \[\overline{A + B} = \overline{A}  \boldsymbol{\cdot} \overline{B}\]
 
 \[\overline{A \boldsymbol{\cdot} B} = \overline{A} + \overline{B}\]
 
 \subsubsection{General Rules}
-\label{sec:org52303b6}
+\label{sec:org766520f}
 
 \[X \boldsymbol{\cdot} 0 = 0\]
 
@@ -1052,35 +1052,35 @@ hello
 \[\overline{\overline{X}} = X\]
 
 \subsubsection{Commutative Rules}
-\label{sec:org06e51d0}
+\label{sec:org58c8813}
 
 \[X \boldsymbol{\cdot} Y = Y \boldsymbol{\cdot} X\]
 
 \[X + Y = Y + X\]
 
 \subsubsection{Associative Rules}
-\label{sec:orgd554f0a}
+\label{sec:orga13cc76}
 
 \[X \boldsymbol{\cdot} ( Y \boldsymbol{\cdot} Z) = ( X \boldsymbol{\cdot} Y) \boldsymbol{\cdot} Z\]
 
 \subsubsection{Distributive Rules}
-\label{sec:org38bb52d}
+\label{sec:orge581260}
 
 \[X \boldsymbol{\cdot} (Y + Z) = X \boldsymbol{\cdot} Y + X \boldsymbol{\cdot} Z\]
 
 \[(X + Y) \boldsymbol{\cdot} (Z + W) = X \boldsymbol{\cdot} W + X \boldsymbol{\cdot} Z + Y \boldsymbol{\cdot} Z + Y \boldsymbol{\cdot} Z\]
 
 \subsubsection{Absorption Rules}
-\label{sec:org3ad72bb}
+\label{sec:org41bfc0d}
 
 \[X + (X \boldsymbol{\cdot} Y) = X\]
 
 \[X \boldsymbol{\cdot} (X + Y) = X\]
 
 \section{Computer Organisation and Architecture}
-\label{sec:org58555f7}
+\label{sec:org25fc68c}
 \subsection{Harvard \& Von Neuman Architecture}
-\label{sec:orgbdaafd1}
+\label{sec:org1db665c}
 
 Many early computers could only perform one operation. The \emph{Stored Program Concept} allows a computer to store its instructions in re-programmable memory. This means that a computer could be instructed to perform a new operation without the disassembly of the machine. There are two main types of computer architecture designed with this general purpose computing paradigm in mind.
 
@@ -1089,12 +1089,12 @@ The \emph{Harvard} architecture separates instructions and data, having a dedica
 The \emph{Von Neuman} architecture has only one area of memory for both instructions and data. Instructions and data have to be fetched serially, which is often slower. However, this architecture is much more flexible and is used in most general purpose personal computers and mobile devices.
 
 \subsection{Motherboard}
-\label{sec:orgf8066af}
+\label{sec:org7dbecb8}
 
 A Computer's motherboard connects all the components of a computer together. The Central Processing Unit (\emph{CPU)} is housed on the motherboard. The motherboard also houses the computer's interfaces to external components, including the \emph{RAM} and \emph{IO} devices. Processor buses join components on the motherboard, allowing the \emph{CPU} to control the operation of the whole computer.
 
 \subsection{CPU Disambiguation}
-\label{sec:org8f4bd98}
+\label{sec:orgee88d46}
 
 \emph{CPUs} are implemented on a Integrated Circuit \emph{IC} metal-oxide-semiconductor \emph{MOS} microprocessor chip. Many chips have more than one processor core, these chips are called \emph{multi-core processors}. Each core may have more than 1 thread, creating \emph{virtual cores}. A chip with multiple cores, virtual or physical, will appear to the operating system as multiple \textbf{CPUs}. The A-Level specification describes the operation of a single \emph{CPU}.
 
@@ -1103,35 +1103,35 @@ In short, a \emph{processor} is mounted on a \emph{motherboard} and may have mul
 Silicon is a useful material for constructing processors. Silicon has semiconductor properties which mean it can behave like a switch, becoming conductive under certain conditions. The flow of charge is how processing works and so changing the conductivity of the chip is required.
 
 \subsection{CPU Components}
-\label{sec:org1b62699}
+\label{sec:org2b50472}
 \subsubsection{Processor Clock}
-\label{sec:orgcf3c5e5}
+\label{sec:org9af5c0b}
 
 The system clock generates an oscillating signal, with a frequency in the billions of Hz range. One clock cycle is the time taken for the clock to return to its default position. A CPU operation begins at the beginning of a clock cycle and cannot be complete until the clock cycle has finished. One CPU operation may span many clock cycles.
 
 \subsubsection{Control Unit}
-\label{sec:org3cf41d8}
+\label{sec:orgca57269}
 
 All the operations and flow of data around the CPU is governed by the control unit. Once an instruction is received, the control unit will organise its execution, including any required mathematical operations in the \emph{ALU}. The control unit also handles data operations, including accessing main memory and general purpose registers.
 
 \subsubsection{Arithmetic and Logic Unit}
-\label{sec:orgef21d20}
+\label{sec:orgd6d090e}
 
 The \emph{ALU} contains circuits capable of most mathematical operations and services requests from the control unit. The ALU will store some information as flags in the \emph{Status Register}, important when making comparison operations.
 
 \subsubsection{General Purpose Registers}
-\label{sec:org4291c76}
+\label{sec:orgd7706b5}
 
 Modern computer processors have 16 general purpose registers. These are areas of fast, expensive, on-chip storage. In a 64 bit machine, one of these registers is 64 bits in size, although smaller registers are addressable, taking up the least significant bits of their larger counterparts. The data used in \emph{ALU} operations is read from and stored back into these registers.
 
 \subsubsection{Dedicated Registers}
-\label{sec:org1aa786e}
+\label{sec:org31fcdb5}
 
 There are a number of specialised registers within the control unit, necessary for the operation of the computer. Unlike general purpose registers, they are not used to hold the operands and results of ALU operations.
 
 \begin{enumerate}
 \item Status Register
-\label{sec:orge5caf29}
+\label{sec:orgd0f807c}
 
 Following an ALU operation, \emph{flags} (individual bits) are set in the status register. These Indicate the result of the last operation. Here are some common status register flags:
 
@@ -1152,43 +1152,43 @@ IF & interrupt enabled\\
 \end{center}
 
 \item Memory Buffer Register
-\label{sec:org8c954fd}
+\label{sec:org22b6b9c}
 
 Data that has been copied from main memory is stored here while it awaits an operation. Newly fetched instructions will he copied here initially before they are copied into the \emph{CIR} and decoded.
 
 \item Current Instruction Register
-\label{sec:org6be12ba}
+\label{sec:orga25fc8d}
 
 After an instruction is put in the \emph{MBR}, it is copied into the \emph{CIR} and decoded ahead of execution.
 
 \item Program Counter
-\label{sec:org437ebaa}
+\label{sec:orgdf104e8}
 
 The program counter is responsible for managing the flow of execution. During a fetch, the value of the program counter is copied to the \emph{MAR} so that the next instruction can be retrieved. During instruction execution, the program counter is able to record the address of the next instruction so that program flow can resume after data is fetched form memory, altering the value in the \emph{MAR}. In normal operation the \emph{PC} is incremented so that the next instruction is fetched from the next address in memory, although the contents of the \emph{PC} can be modified to perform a jump and resume operation from elsewhere in the program.
 
 \item Memory Address Register
-\label{sec:orgd8ca8e6}
+\label{sec:orga74fbad}
 
 The memory address register will hold an address from which data is to be retrieved or written to. Instructions are also fetched from the address held by this register during the \emph{FDE} cycle.
 \end{enumerate}
 
 \subsection{Motherboard Buses}
-\label{sec:org9bbec48}
+\label{sec:orga75eab1}
 
 The \emph{processor} is connected to other motherboard components by \emph{buses}. A bus is a \emph{parallel} wire, through which addresses, data and control signals can flow. Motherboard communication is \emph{synchronous} and the distances involved are short. There are three main buses on any motherboard, which are collectively referred to as the \emph{system bus}.
 
 \subsubsection{Address Bus}
-\label{sec:org4e2f93c}
+\label{sec:orge8ee8e2}
 
 The address bus is a uni-directional wire, capable of transferring an address from the \emph{MAR} to main memory. The address bus is also used to identify \emph{IO} devices during data input and output.
 
 \subsubsection{Data Bus}
-\label{sec:org1b7a500}
+\label{sec:orgc69a9b1}
 
 This bus is bi-directional and allows data to flow between the processor and main memory in either direction. The bus is also used to share data amongst all the other components between these two.
 
 \subsubsection{Control Bus}
-\label{sec:orga52a621}
+\label{sec:orgf8804d4}
 
 Control signals are sent between motherboard components along this bus. The control bus is bi-directional, meaning these signals can flow either way. Here are some example control signals:
 
@@ -1205,14 +1205,14 @@ Control signals are sent between motherboard components along this bus. The cont
 Many of these signals may be raised by devices other than the control unit.
 
 \subsection{IO Controllers}
-\label{sec:orgfa92d98}
+\label{sec:org641012d}
 
 An \emph{IO} controller sits between the processor and a peripheral device. Device controllers are addressable by the processor and receive instructions and data through the \emph{system bus}. The controller is responsible for converting \emph{CPU} input/output requests to device specific instructions during normal operation.
 
 An \emph{IO} controller is also responsible for detecting and managing connected devices, raising processor \emph{interrupts} when action needs to be taken. This means that the processor can dedicate its time to \emph{FDE} operations rather than device management, significantly improving efficiency.
 
 \subsection{Cache}
-\label{sec:orgb59887c}
+\label{sec:org95401a5}
 
 Cache is a small, expensive area of a computer's memory. Cache memory is sometimes located on-chip or at least very nearby. Different \emph{CPUs} will have different cache configurations. In a multi-core processor some of the cache may be shared by all of the processor cores.
 
@@ -1224,59 +1224,59 @@ A computer will often have different levels of cache, for example:
 \end{itemize}
 
 \subsection{FDE Cycle}
-\label{sec:org941039f}
+\label{sec:org6769d0b}
 
 Execution of a machine code instruction can be separated into three distinct phases: \emph{fetch}, \emph{decode} and \emph{execute}. In a modern computer this happens many times per second.
 
 \subsubsection{Fetch}
-\label{sec:org1739f2f}
+\label{sec:org7222c5b}
 
 The value of the \emph{PC} is copied to the \emph{MAR}. This address is sent to the device's memory along the \emph{address bus}. The value stored in the specified address is returned to the processor on the \emph{data bus}. This value is temporarily stored in the \emph{MBR} while the \emph{PC} is incremented and operation is synchronised with the system clock. The fetch ends as the contents of the \emph{MBR} are copied to the \emph{CIR}.
 
 \subsubsection{Decode}
-\label{sec:org418c43f}
+\label{sec:org3a6b963}
 
 The machine code instruction in the \emph{CIR} is interpreted. The instruction is split into opcode and operand sections. Depending on the addressing mode (which is part of the opcode) and the requested operation, any additional data that is required is fetched and stored in one of the general purpose registers.
 
 \subsubsection{Execute}
-\label{sec:org243d757}
+\label{sec:org90d1030}
 
 The specified operation is performed, having been decoded and identified. If the \emph{ALU} is involved, \emph{status register} flags are set and the results of the operation are stored in either the \emph{accumulator}, general purpose registers or main memory, depending on the device.
 
 \subsection{Interrupts}
-\label{sec:org4a296b1}
+\label{sec:org2bebd15}
 
 During the \emph{FDE} cycle, the processor will periodically check for \emph{interrupts}. Interrupt signals are carried to the processor via the \emph{control bus}. These signals may originate from \emph{IO} controllers and hence from hardware devices, or they might be raised by running software.
 
 When an interrupt is received and detected, the operating system determines its urgency and how to safely suspend operation and service it. When it is safe to do so, presently executing instructions and their data are pushed on to the \emph{system stack} and processor time is given to the \emph{Interrupt Service Routine}. Once the interrupt is dealt with, control returns to the processor's previous task, provided that the situation was recoverable.
 
 \subsection{Processor Performance}
-\label{sec:org6835bda}
+\label{sec:org42c1f59}
 
 A number of factors affect the time a computer will take to perform a given operation or set of operations. No measure alone is able to definitively determine the performance of a computer.
 
 \subsubsection{Clock Frequency}
-\label{sec:org56e2f72}
+\label{sec:orga492f49}
 
 The clock speed of a processor governs all \emph{CPU} operations, so theoretically a processor with a higher clock frequency can perform processor actions faster. In practice this is not a reliable single measurement of performance, as other factors dictate the amount of processing that can be performed with a certain number of cycles.
 
 \subsubsection{Word Length}
-\label{sec:org8dabf8a}
+\label{sec:org099406c}
 
 The word length of a processor is the number of bits that a \emph{CPU} can operate on in a single action. This value tends to be the same as the size of the processor's registers and the width of the computer's data bus. Modern, general-purpose computers tend to use a 64-bit word length. A processor with a smaller word length will have to make successive fetch operations to work on a similar amount of data to a computer with a larger word length. This will increase the number of clock cycles used to process an amount of data.
 
 \subsubsection{Address Size}
-\label{sec:org79ef654}
+\label{sec:org4c4df84}
 
 The size of the address register and the width of the address bus limit the number of addressable memory locations in one operation. With \emph{n} bits the number of memory locations available is equal to \(2^{n}\). With 32 bits this is 4GB of memory. If there is a smaller amount of main memory, the processor will have to copy data back and forth between secondary storage and memory more frequently, to make sure that running processes are performant enough. Multi-tasking may be more difficult with less \emph{RAM}. Under certain conditions this will not affect performance at all. Nb. the length of an address is usually the same as the word length.
 
 \subsubsection{Multiple Cores}
-\label{sec:org13e0922}
+\label{sec:org52ac6be}
 
 A processor may have multiple CPUs, whether they be physical \emph{cores} or virtual \emph{threads}. Each CPU can perform a separate \emph{FDE} cycle, significantly improving theoretical processing capability, although not all software will be able to make use of these extra CPUs, limiting the performance gains in most situations.
 
 \subsection{Instruction Sets}
-\label{sec:org8a64b19}
+\label{sec:orgc6e9ae1}
 
 Computers have different ways of representing available operations to programmers. An instruction set describes the operations a processor can perform with a binary value. An instruction set is specific to a certain processor architecture. The operations that a processor can perform may be similar to those of another processor, although the instruction set, used to trigger those operations, may be entirely different. The instruction set determines how machine code is interpreted and hence written. Each instruction in the instruction set has a binary value, so machine code, which is written in binary, can be directly understood by the processor without translation.
 
@@ -1294,7 +1294,7 @@ Computers have different ways of representing available operations to programmer
 A machine code \emph{instruction} usually has two parts: the \emph{opcode} and the \emph{operand(s)}. The opcode corresponds to an instruction and the operand(s) are effectively arguments.
 
 \subsection{Addressing Modes}
-\label{sec:org31d6a7f}
+\label{sec:org9a87eb9}
 
 When constructing a machine code instruction, part of the opcode is the \emph{addressing mode}. This defines how the arguments ought to be interpreted. There are two main types of addressing mode: \emph{immediate} and \emph{direct}.
 
@@ -1304,12 +1304,12 @@ When constructing a machine code instruction, part of the opcode is the \emph{ad
 \end{itemize}
 
 \subsection{Assembly Language}
-\label{sec:orgfe48af0}
+\label{sec:orgee4bf74}
 
 Here are my x86\_64 assembly notes and examples: \url{https://github.com/alexander-neville/assembly}. AQA has its own instruction set, found here: \url{https://filestore.aqa.org.uk/resources/computing/AQA-75162-75172-ALI.PDF} and there is a simulator capable of running these instructions here: \url{https://peterhigginson.co.uk/AQA/}
 
 \subsubsection{Fibonacci Example}
-\label{sec:org4f22474}
+\label{sec:orgd932944}
 
 This is a good example of some AQA assembly. The program prints the first 10 Fibonacci numbers, using some basic operations and comparisons.
 
@@ -1334,7 +1334,7 @@ LOOP:
 \end{verbatim}
 
 \subsubsection{Bit-wise Operations}
-\label{sec:orgc29a89a}
+\label{sec:org00977f5}
 
 A bitwise operation operates on each bit, irrespective of its value. To determine whether a binary number is odd or even a bitwise and operation can be used. The binary number undergoes \emph{AND} with \emph{000\ldots{}1}. This operation is shown bellow (a \texttt{-} means any value)
 
@@ -1358,7 +1358,7 @@ The result is only \emph{1} if the last bit of the number is \emph{1}. Other dig
 To flip all the bits, a logical \emph{NOT} operation can be used. Additionally a register can undergo an \emph{XOR} operation with \emph{111\ldots{}1} to achieve the same result. Once a number has been inverted, 1 can be added to find the two's complement of the original number.
 
 \subsubsection{Logical Shifts}
-\label{sec:orgbc488c1}
+\label{sec:org9ba0673}
 
 During a shift operation, the entire contents of the register can be moved. In a left shift \emph{(LSL)}, the \emph{most significant bit} is moved out of the register. In a right shift (\emph{LSR)}, the \emph{least significant bit} is moved out of the register. The bit which is lost from the register is stored in the \emph{carry flag} in the \emph{status register}. This kind of operation can be used to check whether a number is even or odd:
 
@@ -1377,9 +1377,9 @@ During a shift operation, the entire contents of the register can be moved. In a
 Following a \emph{LSR} and then a \emph{LSL} the least significant bit is set to zero, irrespective of its initial zero. The result of this operation can be compared to the initial value. If the two values are not equal, the \emph{LSB} must have been a one and hence the initial value was odd.
 
 \subsection{IO Devices}
-\label{sec:org876544b}
+\label{sec:org50f2eb7}
 \subsubsection{Barcodes}
-\label{sec:orgb4cb35d}
+\label{sec:org5a13e69}
 
 A barcode is a reliable way of storing a small amount of information. This makes them suitable for storing some sort of identification number that can be looked up in a database. It is up to retailers to store information about the associated product. Eg. Two retailers may sell the same product, with the same barcode, although each retailer will store different data about that product, including price, etc.
 
@@ -1396,7 +1396,7 @@ A barcode will typically include a \emph{quiet area} before the barcode to reduc
 A barcode reader will emit laser light, which is reflected by a moving mirror over the whole barcode. The black strips on the white background reduce the light reflected from certain (black) parts of the barcode. The amount of laser light returned is detected by a photo-diode or a \emph{CCD}, and is converted to an electrical signal. This undergoes \emph{ADC} conversion and then the data can be retrieved from the bit pattern.
 
 \subsubsection{QR codes}
-\label{sec:org76ca8e5}
+\label{sec:org6ce60fa}
 
 A \emph{quick response} code is a type of \emph{two dimensional} barcode that can be read by smartphones and other personal devices. \emph{QR} codes are able to store more information than a barcode, although more processing is needed. This means they are more suitable for storing complex data like \emph{URLs}, rather than id numbers for use in an organisation. \emph{QR} codes are inherently less reliable and less tolerant to damage than barcodes, because more information is packed into a smaller space, leaving much smaller margins for error.
 
@@ -1405,7 +1405,7 @@ A \emph{quick response} code is a type of \emph{two dimensional} barcode that ca
 Computer vision and image processing techniques are used to find the data encoded in a \emph{QR} code. The photograph to work on is obtained with the device's camera. Bitwise logic can be used to check the areas of the barcode and determine if a pixel is light or dark.
 
 \subsubsection{Digital Cameras}
-\label{sec:orgafdf24a}
+\label{sec:org662e992}
 
 A camera allows analogue data (light) to be converted to digital data and stored within a computer system. These can be purpose built devices, although it is common for mobile telephones to have a camera assembly.
 
@@ -1423,7 +1423,7 @@ A camera allows analogue data (light) to be converted to digital data and stored
 When the shutter is open, light is focused onto the \emph{sensor} by the camera's lens. The sensor might be a Charge Coupled Device \emph{(CCD)} or a Complimentary Metal Oxide Semiconductor \emph{(CMOS)}. In either case, the intensity of light reaching the sensor is measured in millions of locations, by photoelectric cells (one for each pixel in image). \emph{Colour Filters} are used to separate light into three channels ahead of the sensor, so colour can be recorded.
 
 \subsubsection{RFID}
-\label{sec:org0bf288e}
+\label{sec:org3a38565}
 
 \emph{Radio Frequency Identification} is a method of storing and transmitting small amounts of information over small distances via radio waves. The RFID system does not need line of sight, nor physical contact to transfer data. Different implementations of the system have ranges from a few cm to hundreds of metres.
 
@@ -1443,7 +1443,7 @@ RFID \emph{tags} are often attached to inventory items like a barcode. Using a \
 The \emph{passive} system depends on high intensity emission from the reader to be activated, so the \emph{transponder} (RFID device), must be close to the reader. \emph{Active} systems have a power source, so they are able to transmit a signal to a receiver that is much further away.
 
 \subsubsection{Laser Printers}
-\label{sec:orgfc7b4f5}
+\label{sec:orge4a5bef}
 
 A laser printer is ideal for printing documents in large volumes. As opposed to the liquid ink in an \emph{inkjet} printer, a laser printer uses dry, powdered toner. The up-front cost of a laser printer is high, although the running costs are often lower.
 
@@ -1462,7 +1462,7 @@ A laser printer is ideal for printing documents in large volumes. As opposed to 
 Before a page is printed, the drum is covered in a negative electric charge (excess of electrons). The mirror assembly reflects the beam from the laser light source over the drum, removing the negative charge in certain areas and creating an inverse of the image to be printed. Negatively charged toner adheres to the positive/neutral parts of the drum. Paper is rolled across the drum and the toner is transferred to it, creating the image on the page. Finally the paper is passed through the fuser, where it is heated, binding the toner to the page.
 
 \subsection{Secondary Storage}
-\label{sec:orgcd7dff9}
+\label{sec:orgb51433d}
 
 Registers, cache and main memory are all \emph{volatile} storage media and they depend on electrical power to hold data. In addition, the cost of \emph{RAM} and other motherboard components per unit of storage is high. The physical space available on the motherboard and the processor chip is also limited.
 
@@ -1471,7 +1471,7 @@ These factors introduce the need for an alternative, \emph{non-volatile}, mass s
 Secondary storage is more distant from the processor, so it can take a long time for data to be returned. As a result, the processor will never fetch instructions directly from secondary storage without loading them into memory first.
 
 \subsubsection{Hard Disk Drives}
-\label{sec:org656e733}
+\label{sec:orgeb37bf8}
 
 A \emph{HDD} is a type of magnetic storage; ferrous iron particles can be polarised to encode data.
 
@@ -1496,7 +1496,7 @@ To retrieve data from a hard disk drive, the read-write heads must be moved to t
 The use of moving parts can make this type of storage less reliable. It is possible that detritus in the drive can cause the disk to be damaged and the data corrupted at any time.
 
 \subsubsection{Optical Devices}
-\label{sec:orgff5c779}
+\label{sec:org64c8f85}
 
 Optical disks are a portable way of storing smaller amounts of data. Optical disks may be read only \emph{(CD-ROM)}, recordable \emph{(CD-R)} or fully re-writable \emph{(CD-RW)}. Optical disks are cheap to manufacture and distribute. These disks can be removed from one device and moved to another with ease.
 
@@ -1530,7 +1530,7 @@ Certain types of compact disk can be rewritten. A high powered laser heats and d
 A typical \emph{CD-ROM}, the oldest type of optical storage can hold about 650-700 MB of data, while a modern \emph{Blu-Ray} disk can store upwards of 50 GB of data. As technology has improved, shorter wavelengths of light are used to read the disk. This means the size of pits and lands can be reduced and still read at the same apparent resolution. More pits and lands can fit on the same length of track and the spiral can be packed more closely, increasing the amount of track that can fit on a single disk.
 
 \subsubsection{Solid State Drives}
-\label{sec:org371e074}
+\label{sec:orgcface61}
 
 A Solid State Drive \emph{(SSD)} is a modern type of secondary storage, frequently used in personal devices. There are two common implementations of \emph{EEPROM}, those which use \emph{NOR} logic and those which use \emph{NAND}. The latter technology is more widely used in mass storage, as the storage density is higher and the cost per unit of storage is lower.
 
@@ -1575,22 +1575,22 @@ The typical capacity of an \emph{SSD} is smaller than that of a \emph{HDD} and t
 While the longevity of \emph{SSDs} is a topic of debate, they can be considered generally more reliable. The absence of moving parts reduces of the chance of the device suddenly failing, although the number of read write cycles is limited.
 
 \section{Data Structures}
-\label{sec:org1cde0f8}
+\label{sec:orgd849e57}
 
 \emph{not implemented}
 
 \section{Algorithms}
-\label{sec:org3e91557}
+\label{sec:org25b1c53}
 
 \emph{not implemented}
 
 \section{Regular languages}
-\label{sec:orgc79b844}
+\label{sec:org05705b3}
 
 A \emph{regular language} can be defined by a regular expression or finite state machine.
 
 \subsection{Mealy Machines}
-\label{sec:org27ce091}
+\label{sec:org14a0838}
 
 \emph{Mealy machines} are a type of FSM with an output determined by the current state and the input. The example in figure \ref{img:mealy}, is an exclusive OR operation on the last two inputs.
 
@@ -1619,7 +1619,7 @@ Input & Current & Ouptut & Next\\
 \end{center}
 
 \subsection{Sets}
-\label{sec:org4edd14e}
+\label{sec:orgbf5aaf8}
 
 A set is an unordered collection of values, in which any one value may occur at most once. Sets may defined simply by listing each member.
 
@@ -1636,26 +1636,26 @@ There are a number of common sets:
 \end{itemize}
 
 \subsubsection{Finite and Infinite Sets}
-\label{sec:org73c464e}
+\label{sec:org12aa438}
 
 A finite set contains a number of elements which can be counted off to a particular number. Finite sets include \(\{1,6,8,9\}\) and \(\{1,3,5,...99\}\). The \emph{cardinality} of a set is the total number of elements in the set. Infinite sets may countable or not countable. Despite being infinite, \(\mathbb{N}\) is countable; it is possible to determine the next number in the set and count of elements. A fully countable set can be measured against a subset of the natural numbers, whereas a countably infinite set, can be countered interminably.
 
 \subsubsection{Set Comprehensions}
-\label{sec:orgb110260}
+\label{sec:orgb8daf1e}
 
 More complicated sets may be defined by comprehension, a more compact syntax than writing out the whole set.
 
 \[B = \{n^2 | n \in \mathbb{N} \wedge n < 5\}\]
 
 \subsubsection{Cartesian Product of Two Sets}
-\label{sec:org62ae225}
+\label{sec:org9d4a1f1}
 
 The \emph{Cartesian product} of two sets is written \(A \times B\) and is the set of all ordered pairs \((a, b)\) where \(a\) appears in \(A\) and \(b\) appears in \(B\). If \(A = \{2,4,6\}\) and \(B = \{1,3,5\}\), \(A \times B\) is:
 
 \[\{(2,1), (2,3), (2,5), (4,1), (4,3), (4,5), (6,1), (6,3), (6,5)\}\]
 
 \subsubsection{Sets and Subsets}
-\label{sec:org3028206}
+\label{sec:org0f3f523}
 
 If every element in \(A\) is also a member of set \(B\), \(A\) is a subset of \(B\), written:
 
@@ -1670,7 +1670,7 @@ If \(B\) contains another element not in \(A\), then \(A\) is said to be a prope
 \[A \subset B\]
 
 \subsubsection{Set Operations}
-\label{sec:orgac49420}
+\label{sec:orgc887c04}
 
 The \emph{union} of \(A\) and \(B\) is all of the elements in either set or in both, written:
 
@@ -1686,7 +1686,7 @@ The difference between the sets \(A\) and \(B\) is all the elements in one set, 
 \[A - B = \{x | x \in A \wedge x \not\in B\}\]
 
 \subsection{Regular Expressions}
-\label{sec:org36adc58}
+\label{sec:org2466378}
 
 A regular expression is a string of characters used as a search pattern in text. Regular expressions can be used to define the string accepted by an automata. Various metacharacters have special significance in regular expressions. These are summarised in the table below.
 
@@ -1705,7 +1705,7 @@ Pipe & Logical OR\\
 \end{center}
 
 \subsection{Turing Machine}
-\label{sec:orgbdde317}
+\label{sec:org7289a36}
 
 A Turing machine is an ideal computer system which is possible of implementing any computer algorithm. The machine has a \emph{head} capable of reading and writing to cells on an infinitely long piece of tape. During operation, the system is capable of performing an operation determined by its current state; the contents of the current cell and a set of user-specified instructions. A Turing machine may operate on any alphabet.
 
@@ -1743,7 +1743,7 @@ For any particular row in the state transition table, a \emph{transition functio
 This simple type of Turing machine is capable of performing one type of computation. The \emph{Universal Turing Machine} is capable of simulating any commutable sequence. \emph{``if this machine \textbf{U} is supplied with the tape on the beginning of which is the string of quintuples separated by semicolons of some computing machine \textbf{M}, then \textbf{U} will compute the same sequence as \textbf{M}''}. If \textbf{U} was able to interpret the description of \textbf{M} in this way, this constitutes a very abstract description of the \emph{stored program computer}.
 
 \subsection{Backus-Naur Form}
-\label{sec:org54c0c6b}
+\label{sec:orgb9b6877}
 
 Spoken languages, used to communicate between people, are called \emph{natural languages}. These languages are loosely defined and too ambiguous for computers to interpret. Programming languages, which are designed to be interpreted by a computer, are called \emph{context-free grammars}, which means that any non-terminal string in a production rule can always be expressed as a string of terminals and/or non-terminals, as in:
 
@@ -1764,21 +1764,21 @@ The definition of a grammar is called a \emph{meta-language} or \emph{meta-synta
 \end{figure}
 
 \section{Communication Technology and Consequences}
-\label{sec:orgeeb8e04}
+\label{sec:org501a029}
 \subsection{Communication Methods}
-\label{sec:orgf02390f}
+\label{sec:org8e77606}
 \subsubsection{Serial Transmission}
-\label{sec:org67799f2}
+\label{sec:orge590c0c}
 
 During serial data transmission, bits are set one after the other down a single (serial) data channel. A second data wire will be needed for simultaneous bi-directional data transfer. Sometimes an additional \emph{ground} wire is used to reduce the adverse affects of interference. Additional control wires may also be used in serial data connections.
 
 \subsubsection{Parallel Transmission}
-\label{sec:orge8fa012}
+\label{sec:orgf85dc7d}
 
 Multiple bits of data are sent simultaneously along a number of parallel data wires.
 
 \subsubsection{Comparison of Methods}
-\label{sec:org0fb529b}
+\label{sec:orgc9e764f}
 
 Each of the wires used to transmit individual bits in a parallel connection will differ slightly from the others. This subtle difference will affect the rate at which data can travel along the wire and hence the time taken for a bit to travel a certain distance. This causes bits to arrive at the receiver at different times, a phenomena know as \emph{skew}.
 
@@ -1789,7 +1789,7 @@ Serial connections have much smaller interfaces, making them suitable for mass m
 \emph{Crosstalk} between the data channels of a parallel connection can cause interference and corruption. The danger of interference due to crosstalk increases with frequency. As a result, the frequency of serial connections can be safely increased beyond the practical limits of parallel connections, meaning more data can be transmitted in a given amount of time, even if less data is transferred per cycle.
 
 \subsubsection{Bit and Baud Rate}
-\label{sec:orgb3e9947}
+\label{sec:orga54f47e}
 
 The two measures are linked with this equation:
 
@@ -1800,14 +1800,14 @@ In typical serial connections, \emph{1s} and \emph{0s} are represented by high a
 Increasing the number of bits per \emph{baud} means more data can be transferred along a narrower (possibly serial) cable in a certain amount of time.
 
 \subsubsection{Baseband and Broadband}
-\label{sec:orgd254e41}
+\label{sec:org364da79}
 
 Broadband is an analogue data transfer method, meaning there are a \emph{continuous} range of values (voltages) and each symbol change can represent more than two values (as in binary). Broadband connections are often multi-channel and bidirectional. These connections are frequently use in \emph{WANs}.
 
 Baseband is a type of digital data connection, commonly used in \emph{LANs}, where the bit rate is often the same as the baud rate, hence each symbol is either a 0 or 1. Ethernet cables are baseband connections.
 
 \subsubsection{Latency and Bandwidth}
-\label{sec:orgec844f5}
+\label{sec:org89a489b}
 
 Latency is the time taken for some data to be transmitted a certain distance, ie. from sender to receiver, irrespective of how much data is sent at once. Latency is often measured in seconds \emph{(s)} or milliseconds \emph{(ms)}.
 
@@ -1816,24 +1816,24 @@ Bandwidth loosely means how much data can be received at once, irrespective of t
 In data communication and networking, bandwidth is analogous to data transfer rate.
 
 \subsubsection{Synchronous Communication}
-\label{sec:org133e5d6}
+\label{sec:orge245b64}
 
 During \emph{synchronous transmission}, both sender and receiver share a common clock cycle for coordinating signals. This communication method depends on that clock cycle to govern communication along the wire. This type of communication is best for connections that work in real time, with a constant flow of data, for example within a computer's processor.
 
 \subsubsection{Asynchronous Communication}
-\label{sec:orged3a07e}
+\label{sec:org6f04871}
 
 There is another common communication method known as \emph{asynchronous transmission}. Neither the sender, nor the receiver share the same clock cycles. Communication is governed by start and stop bits, sent before and after a communique. The stop bit is always the opposite of the start bit. Despite the absence of a common clock, the sender and receiver must use the same baud/bit rate so that the receiver can understand the message once the start bit is received.
 
 \subsection{Network Topology}
-\label{sec:orgb12b711}
+\label{sec:org520dd7c}
 
 A single computer with no connection to any other devices is described as a \emph{stand-alone} computer system. When a computer is connected to one or more other computers, the resulting system can be described as a \emph{computer network}. Digital \emph{baseband} connections are often used inside a \emph{local area network}. Many smaller LANs spread over a large area are often joined to others by \emph{broadband} connections, creating a \emph{wide area network}.
 
 \emph{Physical} network topology defines how the devices are physically connected with hardware devices and equipment. \emph{Logical} network topology is the layout used by devices on a network to communicate using the physical network equipment provided.
 
 \subsubsection{Physical Bus Topology}
-\label{sec:org513edf2}
+\label{sec:orgb37cd17}
 
 The \emph{physical bus topology} is a simple network configuration, used in many small home networks. Each device is connected to a \emph{backbone} cable which runs past every device. A \emph{terminator} is placed at either end of the bus.
 
@@ -1855,7 +1855,7 @@ The \emph{physical bus topology} is a simple network configuration, used in many
 \end{itemize}
 
 \subsubsection{Physical Star Topology}
-\label{sec:org73d85d3}
+\label{sec:org179677d}
 
 The \emph{physical star} network configuration is a more complicated type of network, where each node has its own dedicated connection to the hub or router.
 
@@ -1875,14 +1875,14 @@ The \emph{physical star} network configuration is a more complicated type of net
 \end{itemize}
 
 \subsubsection{Logical Topology}
-\label{sec:org55f9c25}
+\label{sec:org45dcc76}
 
 Logical topology is the manner in which data is handled on top of a physical network. For example, a hub might use a bus protocol to push data outward onto a star network, similar to how a physical bus network behaves.
 
 \subsubsection{MAC Addresses}
-\label{sec:org5beb9a4}
+\label{sec:org09b65e9}
 \subsection{Client/Server}
-\label{sec:orgd2d84e8}
+\label{sec:orgc580c6e}
 
 A \emph{server} is a computer which services requests from a number of clients; a response is sent back to the connected client in return. A computer may be both a client and a server simultaneously. A server might be used to process or store data.
 
@@ -1897,7 +1897,7 @@ A client-server configuration is preferred when central management over the whol
 A client-server network requires expensive hardware (the servers themselves) and personnel to maintain the servers. This makes the client-server model impractical on smaller home networks.
 
 \subsection{Peer-to-peer}
-\label{sec:orgf8603f5}
+\label{sec:org832b63f}
 
 There is less core infrastructure in a decentralised peer-to-peer network. The services that would be provided by servers are shared amongst the clients.
 
@@ -1910,57 +1910,57 @@ No expensive server computers are required. Expertise and maintenance are not re
 All clients must be connected and powered-on for the network to function as expected. Peer-to-peer networking may leave a user's files visible to other devices on the network.
 
 \subsection{Wireless Networking}
-\label{sec:orga28d450}
+\label{sec:org3d62070}
 \subsubsection{Wi-Fi}
-\label{sec:orgdb64320}
+\label{sec:org595b34b}
 
 \emph{Wi-Fi}, standing for \emph{wireless fidelity}, is a type of wireless network standard designed to be interoperable with \emph{IEEE 802.11} protocol and work alongside Ethernet at the \emph{Network Access} layer. Devices using wi-fi can connect to a \emph{wireless access point} and communicate with any other device on the network.
 
 \subsubsection{NIC}
-\label{sec:org7bb9ad0}
+\label{sec:org6306217}
 
 In order to connect to a wireless network, a device must have a wireless network interface card \emph{(NIC)}, a device will have a similar card for all its other interfaces, eg. Ethernet. The NIC has a hardcoded MAC address. The combination of an NIC and a computer is called a \emph{station}.
 
 \subsubsection{SSID}
-\label{sec:org4e9e0c0}
+\label{sec:org6ed90ea}
 
 A service set identifier \emph{(SSID)} is a human readable name for a wireless network. It may be broadcast to devices within range of a \emph{WAP}, or kept private.
 
 \subsubsection{Security}
-\label{sec:orgfa9532e}
+\label{sec:org978f658}
 
 Any device within range of a \emph{WAP} could connect to an unprotected wireless network. A network password is often used in wi-fi protected access \emph{(WPA)} networks. \emph{WPA2} is also a common standard. A network owner may also choose to set up a MAC whitelist for ultimate control over which devices may connect. In order to connect, the MAC address of a computer's NIC must be added to the whitelist.
 
 \subsubsection{CSMA/CA}
-\label{sec:orgbba8798}
+\label{sec:orgf25425f}
 
 Connected devices share the same channel to transmit data to the \emph{WAP}. In order to prevent multiple computers trying to communicate with the \emph{WAP} simultaneously, Carrier Sense Multiple Access with Collision Avoidance \emph{(CSMA/CA)} is used. Before data may be sent to the \emph{WAP}, the station checks if the channel is idle. If another device is communicating over the channel, the station waits a random amount of time before checking the status of the channel again. This process continues until the channel is free and the station is able to send data to the \emph{WAP}.
 
 \subsubsection{RTS/CTS}
-\label{sec:orgb445795}
+\label{sec:org1f4f824}
 
 One of the shortcomings of the \emph{CSMA/CA} standard is the \emph{hidden node} problem. It is possible that the \emph{WAP} is engaged with a station that cannot be seen or heard by a station that needs to send data. This situation is common on larger networks, where the \emph{WAP} serves a larger area.
 
 Once the channel appears idle to a station, a 'request to send' signal is sent to the \emph{WAP}. If the 'clear to send' signal is not received, the station waits a random amount of time before checking the channel status and resending the 'request to send' signal. If the \emph{WAP} is free, a 'clear to send' signal is returned to the station and the data can be transmitted.
 
 \subsection{Communication \& Privacy}
-\label{sec:orgd87ad69}
+\label{sec:orgbf95b81}
 
 \emph{not implemented}
 
 \subsection{Social, Cultural \& Legal Issues}
-\label{sec:org16c135f}
+\label{sec:orga219d29}
 
 \emph{not implemented}
 
 \section{The Internet}
-\label{sec:org6a1f39f}
+\label{sec:org7111c5f}
 
 
 The \emph{Internet Protocol Suite}, often referred to as the \emph{TCP/IP} stack, is a collection of communication protocols adopted on the public internet and other similar computer networks. The whole protocol suite governs end-to-end communication between devices including stipulations about the way data is split into packets, addressed transmitted and routed. Much like the \emph{Open Systems Interconnection}, these conceptual network models arrange communication protocols into abstract layers.
 
 \subsection{Uniform Resource Locators}
-\label{sec:org07942bc}
+\label{sec:orga4d3fa8}
 
 A URL is a specific type of \emph{Uniform Resource Identifier} or URI, designed to identify web resources on computer networks. A typical URL may resemble:
 
@@ -1971,7 +1971,7 @@ https://www.example.com:443/path?query
 In the example above the \textbf{https} protocol is used, followed by the characters \texttt{://}. This whole component of the URL is called the \emph{scheme}. The next component is the host name or IP address, separated from the port number by a colon. The remaining components are the path to the resource or file in question and the query string, separated by a question mark.
 
 \subsection{Domain Names \& DNS}
-\label{sec:orgd0a93b0}
+\label{sec:orga919399}
 
 A domain is an identification string which defines or identifies a \emph{``realm of administrative autonomy, authority or control''} within the internet (Wikipedia). Domain names conform to the rules and regulations of the \emph{Domain Name System}, which maps a domain to other types of information, such as an IP address. Any such string registered in the \textbf{DNS} is considered a domain name.
 
@@ -1986,7 +1986,7 @@ Domain names are organised, or grouped, in subordinate divisions of the domain r
 The \emph{Internet Corporation for Assigned Names and Numbers} (ICANN) is the governing body for the name and number systems used on the internet. There are five \emph{Regional Internet Registries} globally. Registries are organisations which manage top-level domains. Through a memorandum of understanding, these registries cooperate through the unincorporated \emph{Number Resource Organisation}. Internet resources are distributed to RIRs and disseminated in accordance with the policies of the registry. The commercial sales of domain names are delegated to accredited \emph{internet registrars}. When a customer purchases, or more accurately \emph{leases}, a domain, the registrar notifies the registry which maintains the records. Regional registries allocate blocks of IP addresses to local internet registries, most often internet service providers.
 
 \subsection{Protocol Stack}
-\label{sec:org002692c}
+\label{sec:org3c809ee}
 
 The internet protocol suite is a layered model, in which transmitted data descends through the layers as it is sent. This process is reversed when the data is received. At each layer, the data is further encapsulated in accordance with the workings of the lower-level protocol. The data handled at each layer is sometimes referred to as the \emph{Protocol Datagram Unit} (PDU). A PDU is composed of protocol-specific control information or header and trailer sections and user data, which may be further encapsulated by protocols operating in layers above. Each layer communicates with the layers immediately adjacent to itself, either the layer above or below during operation.
 
@@ -2001,7 +2001,7 @@ The internet protocol suite is a layered model, in which transmitted data descen
 \end{itemize}
 
 \subsection{IP Addresses}
-\label{sec:org9b1cc02}
+\label{sec:orgdc37ef0}
 
 An \emph{Internet Protocol} address is a unique number assigned to a network interface involved in internet communication. The address identifies and locates the host, which allows a path to the host to be established. IPv4 is a 32-bit standard, although such small addresses have caused IP address shortages. To address this IPv6 addresses are 128 bits in length, offering many more addresses. A single IP address must be unique within a particular network, though the same address may be used on two separate networks.
 
@@ -2024,7 +2024,7 @@ Classful addressing has been superseded by CIDR notation, where the number of bi
 Large networks are often divided into smaller subnets for ease of operation and performance. Administration is made easier by reducing the broadcast domain of a single device on a network.
 
 \subsection{TCP Handshake}
-\label{sec:orgf5963f2}
+\label{sec:org588aec3}
 
 Transmission control protocol is used in conjunction with IP, which is not stateful by itself. TCP is solely responsibly for managing a stateful connection. The journey of each segment is managed by the lower level IP protocol, while TCP remains responsible for the overall dialogue; reconstructing whole communications from individual segments and requesting lost packets are sent again. A TCP segment consists of a segment header and data section.
 
@@ -2051,12 +2051,12 @@ There are two disconnect methods: the abrupt TCP reset (RST) and the graceful fo
 \end{enumerate}
 
 \subsection{TLS \& Encryption}
-\label{sec:orgb8c495d}
+\label{sec:orgb6219ef}
 
 \emph{Transport Layer Security} (TLS) is an encryption protocol designed to secure internet communication. TLS and the SSL protocol, which it replaces, do not fit neatly into any one layer of the TCP/IP stack. TLS does depend on a stateful connection, so it exists somewhere above the transport layer. Like TCP, TLS requires a handshake to establish a secure connection.
 
 \subsection{Local Networks}
-\label{sec:org2b39435}
+\label{sec:org1366219}
 
 The rapid consumption of available addresses that afflicts the 32-bit IPv4 system has been slowed by the uptake of private, non-routable addresses in local networks. These addresses must remain unique within the local network, although there is no expectation that these addresses are globally unique, they may be reused on another network. As a result, acquiring a private IP address does not involve an internet registry. Communication between two devices on different networks requires another system, called \emph{Network Address Translation} (NAT).
 
@@ -2069,7 +2069,7 @@ The rapid consumption of available addresses that afflicts the 32-bit IPv4 syste
 \end{itemize}
 
 \subsection{Internet Security}
-\label{sec:orgb1266fb}
+\label{sec:org3a6c218}
 
 Routing devices, joining two networks may incorporate a security system called a \emph{firewall}. Different firewall implementations may be hardware or software devices. A dedicated firewall device may contain two NICs connected to a single computer, one facing the internal network that the firewall is designed to protect and the other facing the external untrustworthy network.
 
@@ -2082,14 +2082,14 @@ Routing devices, joining two networks may incorporate a security system called a
 \end{itemize}
 
 \section{Databases and Software Development}
-\label{sec:org6ea0978}
+\label{sec:orge3b1c72}
 \subsection{Introduction to Databases}
-\label{sec:org2e6ad9f}
+\label{sec:org857cbd1}
 
 The purpose of any database is to store data in the most intuitive manner possible, minimising the required disk space and delivering the most performant system. The Relational Database Management System \emph{(RDBMS)} has become a popular database paradigm, although some others exist. A \emph{RDBMS} is based on entity modelling and the relationships between entities.
 
 \subsection{Database Systems Overview}
-\label{sec:org92e8d2a}
+\label{sec:org2c830ca}
 
 In production, applications like \emph{mysql} or \emph{mariadb} are used. These are two examples of a \emph{RDBMS}. A database server tends to run as a service in the background. It is usually possible to connect to a running database server, either locally or remotely, through the database console. Within the \emph{container database}, the individual databases are found. Each database is composed of \emph{tables} and information can be retrieved from one or many of these tables during a \emph{query}.
 
@@ -2098,7 +2098,7 @@ In the \emph{RDBMS} paradigm, each \emph{entity} within a dataset is represented
 Every record in a table must be uniquely identifiable. A selection of columns, used together, will constitute the \emph{primary key} (all the data needed to select exactly one record from a table). It is possible that a record can be identified with the value of just one column. When the values held by multiple columns are needed, this is described as a \emph{composite key}. On an entity level, the information needed to identify an instance is called the \emph{entity identifier.}
 
 \subsection{Relationships}
-\label{sec:orgef868e3}
+\label{sec:org58a25dc}
 
 Not only do entities have attributes, they also have relationships with other entities. Sometimes these relationships are logical, apparent within the data, while other times they are created to model data within the constraints of a \emph{RDMS}. When such an entity is created it can usually be traced back to some abstract entity like a seat on a flight, a job listing or a sale in a shop.
 
@@ -2115,14 +2115,14 @@ When one record maps to more than one other record, this is a \emph{one-to-many}
 A \emph{many-to-many} relationship can often be problematic, especially in a \emph{RDMS}. in order to reduce repetition within a database, a transaction table is usually built between tables with such a relationship. This reduces the \emph{many-to-many} into two \emph{one-to-many} relationships. The resulting transaction table will usually have a composite key, constituted by the foreign keys of the two records that are being linked. Seeing as this is the intended purpose of the table, a separate identifier is not usually required.
 
 \subsection{Normalisation}
-\label{sec:orga859883}
+\label{sec:org258c36c}
 
 In order to reduce data duplication and make insightful queries easier to construct, there are some rules to follow. These rules dictate which \emph{normal form} a database is in. \emph{First normal form} is essential for most Database Management Systems \emph{DBMS}, while third normal form is ideal. The general rule is:
 
 \emph{The data depends on the key (1nf), the whole key (2nf) and nothing but the key (3nf)}
 
 \subsubsection{Un-normalised}
-\label{sec:org3153c19}
+\label{sec:org1a8d45d}
 
 \emph{There are many companies involved in the production of a modern airliner, this hypothetical dataset joins aircraft to the companies which make the engines (not on specification!).}
 
@@ -2160,7 +2160,7 @@ This table shows some data which is human-readable, but difficult to query. A ma
 \end{figure}
 
 \subsubsection{First Normal Form}
-\label{sec:org73e1cac}
+\label{sec:org177e4ef}
 
 To achieve \emph{first normal form} each field must have only one \emph{atomic} value and each record must be unique. Each record also requires a unique key, whether that be composite or individual. In this case, the primary key for each row in the table is \texttt{id + component\_id}. The table below shows all the data from before in \emph{1nf}.
 
@@ -2206,7 +2206,7 @@ To achieve \emph{first normal form} each field must have only one \emph{atomic} 
 \end{figure}
 
 \subsubsection{Second Normal Form}
-\label{sec:org21ec66c}
+\label{sec:org1f2f433}
 
 To satisfy \emph{second normal form} the data must meet  the criteria of \emph{1nf} and there must be no partial dependencies. A partial dependency can happen when a composite key is used. To make \emph{2nf} easy to achieve, relationships are often brought in here. To manage this, determine the separate entities in the data and create a table for each of them. By splitting up all the entities it is easier to make useful queries.
 
@@ -2277,7 +2277,7 @@ aircraft\_id & engine\_id & engine\_quantity\\
 \end{center}
 
 \subsubsection{Third Normal Form}
-\label{sec:org009bc1c}
+\label{sec:org35dc1cc}
 
 For data to be in \emph{third normal form}, \emph{1nf} and \emph{2nf} need to be satisfied. In addition, data in a record may not have any \emph{non-key} dependency, sometimes called lateral dependency. \emph{2nf} already establishes the need to depend on the whole key, but \emph{3nf} means that a field may not depend on any other attribute in addition to the primary key. In this database, the engine \texttt{supplier\_name} depends on the engine's \texttt{id}, but it also depends on \texttt{supplier\_id}. These situations are a good indication that another entity can be found and a new table created. This was not a problem in \emph{2nf}, because a \texttt{supplier} has a less troublesome \emph{one-to-many} relationship with the engine's \texttt{id}.
 
@@ -2359,12 +2359,12 @@ aircraft\_id & engine\_id & engine\_quantity\\
 \end{center}
 
 \subsection{Diagrams}
-\label{sec:org502499a}
+\label{sec:org379068f}
 
 There are a number of different methods used to design and plan complicated database layouts. Some are visual, while others, like \emph{entity descriptions}, are not.
 
 \subsubsection{Entity Descriptions}
-\label{sec:org4be9a84}
+\label{sec:org72d4248}
 
 In an entity description, each line represents a table. The first section is the table name and then, within brackets, the attributes being implemented as columns. This vaguely resembles a SQL statement, although the data-types and constraints are missing. The key is underlined and any foreign keys are usually italicised.
 
@@ -2379,7 +2379,7 @@ In an entity description, each line represents a table. The first section is the
 \end{itemize}
 
 \subsubsection{Entity Relation Diagrams}
-\label{sec:org7605a04}
+\label{sec:orgcf2517f}
 
 \emph{ER} diagrams are a more visual way of representing a database layout. There are two common types, those which include the table/entity name only and those which show the columns and foreign key relationships. Here are some examples:
 
@@ -2397,14 +2397,14 @@ In an entity description, each line represents a table. The first section is the
 
 
 \subsection{SQL}
-\label{sec:orgd7ede9d}
+\label{sec:org07784cd}
 
 SQL, standing for \emph{structured query language}, is a declarative, high-level language for manipulating and querying databases. There are a number of SQL compatible database programs, two common ones being MYSQL and Mariadb. Database administration and set-up are not required parts of the A-Level specification.
 
 SQL commands are generally shown in uppercase, although in most implementations they are case-insensitive. A command can span multiple lines, white-space rarely matters and commands are finished with a semicolon.
 
 \subsubsection{Creating Tables}
-\label{sec:org26be3f9}
+\label{sec:orgf5f4ea1}
 
 Assuming that a database has been set-up, the first step is to create the tables which will hold the data. As there are some foreign key relationships, it is important that the tables are created in the right order.
 
@@ -2461,7 +2461,7 @@ describe table_name;
 \end{figure}
 
 \subsubsection{Altering Tables}
-\label{sec:org1792e71}
+\label{sec:orgb535e8e}
 
 Once created, a table's definition may need to be changed. The \texttt{Alter Table} command is used for this.
 
@@ -2506,7 +2506,7 @@ ALTER TABLE engine_option DROP COLUMN engine_number;
 \end{figure}
 
 \subsubsection{Inserting Data}
-\label{sec:org8935a15}
+\label{sec:orgc50c985}
 
 The general syntax for a simple insertion is:
 
@@ -2554,7 +2554,7 @@ INSERT INTO engine_option (aircraft_id, engine_id, engine_number) VALUES
 \end{figure}
 
 \subsubsection{Selecting Data (One Table)}
-\label{sec:orgd6314ba}
+\label{sec:org412b9fd}
 
 Once there is some data in the database, organised in \emph{3nf}, it is possible to start making some queries to return records, using the \texttt{SELECT} statement.
 
@@ -2571,7 +2571,7 @@ SELECT name, supplier_id FROM engine;
 The first command returns the values from all columns of the \texttt{aircraft} table, while the others specify certain, comma-separated columns to display.
 
 \subsubsection{Selecting Data (Multiple Tables)}
-\label{sec:orgccbd7c6}
+\label{sec:org5238ce7}
 
 There are a number of ways to select data from multiple tables, including \emph{joins} and \emph{sub-selects}, neither of which are on the a-level specification.
 
@@ -2588,7 +2588,7 @@ SELECT supplier.name, engine.name FROM supplier, engine WHERE supplier.id = engi
 Note that the \texttt{WHERE} clause provides the condition for the selection. In the second query, \texttt{AND} is used to provide a second condition.
 
 \subsubsection{Ordering Results}
-\label{sec:orgf0b3994}
+\label{sec:orgfc3eb3f}
 
 The results of a select statement can be ordered in a certain way, using the \texttt{ORDER BY} statement. Here is an example:
 
@@ -2601,7 +2601,7 @@ SELECT * FROM aircraft ORDER BY id DESC;
 This will return all the results in order from highest id to lowest id. If the sort column is a string, the results will be sorted alphabetically. Multiple Columns can be specified as sort column, for example results might be sorted alphabetically by country and then city.
 
 \subsubsection{Full Query}
-\label{sec:orgd72f501}
+\label{sec:org466df3e}
 
 For a fully fledged database query, this is the default syntax:
 
@@ -2615,7 +2615,7 @@ ORDER BY column_name DESC/ASC;
 \end{figure}
 
 \subsubsection{Updating Records}
-\label{sec:org196e5e0}
+\label{sec:orge58656d}
 
 In addition to the table's definition, records can be changed. The \texttt{UPDATE} command is used to do this. Here are a few examples:
 
@@ -2634,12 +2634,12 @@ WHERE id = 243;
 Once again, the \texttt{WHERE} clause is used to supply the conditions for the statement.
 
 \subsection{Client-Server Databases}
-\label{sec:orge3c4b8f}
+\label{sec:org7edddbe}
 
 Many modern \emph{RDBMS} support a client-server model, where the database is stored on a central server and many clients can connect across the network. This is useful in retail, for example, where individual stores can access the same information about products, without the need for the data to be stored locally. Other benefits include the consistency of data, which can be guaranteed by storing it in one place only. In addition, the integrity of the data is upheld, as backups and access rights are managed centrally.
 
 \subsubsection{Record Locking}
-\label{sec:org561f1ff}
+\label{sec:org38c2b30}
 
 If one client needs to modify a record, the encapsulating block of data is copied to the client workstation. Once the data has been modified, the block is submitted back to the central server.
 
@@ -2648,7 +2648,7 @@ If another client checked out the same block during this period, and resubmitted
 To solve this problem, \emph{record locking} was introduced, whereby a block being modified by a client cannot be accessed until it is returned to the server. This prevents simultaneous access completely, upholding the consistency of the data.
 
 \subsubsection{Deadlock}
-\label{sec:org321e3a6}
+\label{sec:orgcf1df32}
 
 The problem with \emph{record locking} is \emph{dead-lock}. It is possible that two different clients \emph{(1 \& 2)} have taken out different blocks of data \emph{(A \& B)} and now they both want to access the data held by the other client.
 
@@ -2660,7 +2660,7 @@ The problem with \emph{record locking} is \emph{dead-lock}. It is possible that 
 Neither client returns the data and both wait for one another unknowingly. There are a number of techniques used to solve \emph{deadlock}.
 
 \subsubsection{Serialisation \& Timestamp Ordering}
-\label{sec:org0a7f0be}
+\label{sec:orgf0bf33f}
 
 In order to prevent concurrent access, each record has two timestamps, \emph{read} and \emph{write} which are set whenever a transaction is applied. When a transaction begins it is also given a timestamp.
 
@@ -2669,19 +2669,19 @@ Whenever transactions need to be applied, the timestamps are checked and the tra
 Using all of this information, the DB management software can apply transactions in the order they began and keep the data consistent.
 
 \subsubsection{Commitment Ordering}
-\label{sec:org2eecae7}
+\label{sec:org589e8c3}
 
 Commitment Ordering is another \emph{serialisation} technique, used to manage concurrent access. In addition to the time transactions were initialised, modifications are ordered by the dependencies on one another and the data stored in the DB.
 
 \subsection{Approach to Problem Solving}
-\label{sec:org440318b}
+\label{sec:orgb21390a}
 \subsubsection{Analysis}
-\label{sec:org3fc82f8}
+\label{sec:org080a93c}
 
 Before development begins, the requirements of the client must be established. This includes identifying the shortcomings of existing solutions. Some of the factors to consider include the client's existing data and how it will be handled by the new system.
 
 \subsubsection{Agile Modelling}
-\label{sec:orgb42b1d1}
+\label{sec:org16df0fc}
 
 A large project is sometimes broken down into smaller parts like implementing a certain feature. During development, certain parts of the project may be developed at different rates.
 
@@ -2690,7 +2690,7 @@ The analysis of one feature may be concluded after the implementation of another
 Working with a client can be an \emph{iterative process}. The client will provide feedback regularly, as prototypes are built. This allows the program to be \emph{refined} as it is developed.
 
 \subsubsection{Design}
-\label{sec:org3d49efd}
+\label{sec:org27db1ef}
 
 After the requirements of the project have been finalised between the developers and the client, the developers can decide how the program will be made. Factors to consider include:
 
@@ -2705,12 +2705,12 @@ After the requirements of the project have been finalised between the developers
 \end{itemize}
 
 \subsubsection{Implementation}
-\label{sec:orgc6fd0b5}
+\label{sec:org95b3c67}
 
 During the implementation section, the requirements identified in the analysis section are met using the techniques outlined in the design phase. Whilst the features are being implemented, it is important to keep to the \emph{critical path}, the required features must be met before any others.
 
 \subsubsection{Testing}
-\label{sec:orga1d2bdc}
+\label{sec:orgb200371}
 
 All inputs are tested with normal, boundary and erroneous data. Other tests include:
 
@@ -2726,19 +2726,19 @@ Once the system is working, the client performs \emph{acceptance testing}, makin
 Testing is also an \emph{iterative process}. Should the software fail the client's acceptance testing, for example, the developers may make some changes and run the new code through existing tests.
 
 \subsubsection{Evaluation}
-\label{sec:orge1d5663}
+\label{sec:orgdf87403}
 
 Three to six months after the delivery of the software, a post-implementation review may be conducted to determine the final quality and suitability of the system. The project may be judged on \emph{effectiveness}, \emph{usability} and \emph{maintainability} by the client. Thw review is a good opportunity to discuss improvements to the software.
 
 \section{OOP and Functional Programming}
-\label{sec:org806f118}
+\label{sec:org586dce9}
 \subsection{Imperative Programming}
-\label{sec:orgd86ca68}
+\label{sec:org3f06e58}
 
 Early high-level languages fell into the \emph{imperative} category, meaning a program consisted of a series of steps, executed in order, to solve a problem. This paradigm developed naturally, as programs featured explicit steps for a computer to perform, in contrast to \emph{declarative} languages.
 
 \subsection{Procedural Languages}
-\label{sec:org93b1960}
+\label{sec:org09faf1a}
 
 Programs that divided these steps into separate functions and subroutines were called \emph{procedural} languages. The control flow of a procedural program follows a sequence of subroutine calls. Data in such programs is held separately in primitive types. Each piece of data exists in a certain scope, whether that is \emph{global} or \emph{local}, and data can be passed to a sub-routine as an argument.
 
@@ -2752,14 +2752,14 @@ Sub-routines can be divided into two types:
 Many modern imperative languages support both types of sub-routine. \emph{Purely functional} languages are those which only support the latter, the benefits of which are explained in the functional programming section.
 
 \subsection{Object Orientation}
-\label{sec:orgfbbc236}
+\label{sec:orgfe2ec0f}
 
 More modern programming languages associated data with behaviour, creating \emph{objects}. In an object orientated program, both real world data and program code are considered objects.
 
 Here are some notes on how to use some of python's OOP features: \url{https://github.com/alexander-neville/docs/blob/main/python.org}
 
 \subsubsection{Implementations of OOP}
-\label{sec:orgae749cd}
+\label{sec:orgf44f16e}
 
 Since \emph{OOP} is a paradigm, many languages support similar, although slightly different, programming techniques for working with types and objects. Generally speaking a named instance of a object is a \emph{reference type}, holding a pointer to where the object itself resides in memory.
 
@@ -2772,7 +2772,7 @@ Since \emph{OOP} is a paradigm, many languages support similar, although slightl
 There are many different implementations of objects across different languages, from \emph{structs} in C and \emph{object literals} in Javascript to \emph{classes} in python and C++.
 
 \subsubsection{Classes}
-\label{sec:orgfe66f99}
+\label{sec:org0c7138d}
 
 While it is possible to work in the object orientated style without classes, it is a useful construct pervasive in most OOP languages. A class is a blueprint for an object, defining the data and behaviour of an object.
 
@@ -2800,17 +2800,17 @@ End
 Most attributes of the object are marked as private, while the object's behaviour is usually public. This is how other parts of the code interact with the object. Sometimes \emph{getter} and \emph{setter} methods are used to manipulate the attributes of a method. In this class, \texttt{GetStockLevel()} and \texttt{UpdateStockLevel()} perform this role.
 
 \subsubsection{Encapsulation}
-\label{sec:org321b903}
+\label{sec:org4da68d4}
 
 The association of data with behaviour, especially the use of \emph{getter} and \emph{setter} sub-routines, is called \emph{encapsulation}. By including the methods which operate on the data with the data itself, in a single object, access to the data from the program at large is restricted, hiding implantation details and better maintaining state across the program. Additionally, an interface can easily be built around the data, by modelling objects with classes, which makes the organisation of a larger project much simpler.
 
 \subsubsection{Instantiation}
-\label{sec:org2a0049c}
+\label{sec:orge174a7d}
 
 A class may also include a \emph{constructor}, a sub-routine used to create an \emph{instance} of and object. This sub-routine is run when an object is \emph{instantiated} from a class. Each instantiated object has all the attributes and methods defined by the class. The precise value of each of these properties is associated with the instance, so it is possible to have many different instances of a single object. In most programming languages an instance is a reference type.
 
 \subsubsection{Polymorphism}
-\label{sec:org217e128}
+\label{sec:org529b575}
 
 Using a combination of object orientated techniques, a single \emph{interface} can be shared by a number of different objects (instantiated from different classes). This means that a single \emph{message} applied to a number of instances will cause a different action depending on the type of object receiving the message. For this technique to work, each object must implement some behaviour for the \emph{message}.
 
@@ -2828,7 +2828,7 @@ If the program is \emph{polymorphic}, the same method (in this case '\texttt{tes
 There are many constructs, across programming languages, that are used for building an interface over many classes. One example is \emph{inheritance}, which is a object orientated technique in itself, while another is the use of an \emph{interface}.
 
 \subsubsection{Interfaces}
-\label{sec:orgab54d4f}
+\label{sec:org36b9b78}
 
 A programming interface stipulates the messages which a related class must respond to. The interface does not define any behaviour itself and the behaviour of each subclass for the messages does not need to be known.
 
@@ -2880,7 +2880,7 @@ End
 Note that both classes implement the same public functions (same definition and parameters), however some of the attributes of either class differ. For example, an account with a loan shark may have an extortionate amount of interest, hence the rate is stored as a \texttt{Double} rather than a \texttt{Float}. The subclasses are responsible for implementing the methods specified by the interface, however the details of that implementation are unique to the classes themselves.
 
 \subsubsection{Inheritance}
-\label{sec:orgeb6c11b}
+\label{sec:org97d572e}
 
 A plain \emph{interface} is more suitable for vaguely unrelated objects, whereas \emph{inheritance} is designed for objects with behaviour in common. If inheritance is a good option, it can be said that the objects have an \emph{``is a''} relationship. For example a cat \emph{is an} animal.
 
@@ -2926,7 +2926,7 @@ Each subclass which inherits from the \texttt{Animal} parent class will have all
 \end{figure}
 
 \subsubsection{Demonstration}
-\label{sec:org8a242d2}
+\label{sec:org11999af}
 
 This is an example of inheritance and polymorphism written in python, but the theory is applicable to the a-level topic.
 
@@ -3008,7 +3008,7 @@ i am a mammal
 \end{figure}
 
 \subsubsection{Association}
-\label{sec:org5319cb3}
+\label{sec:org5d8afe7}
 
 When two objects have a relationship that is not an \emph{``is a''} relationship, association by \emph{composition} or \emph{aggregation} may be more suitable. Such a relationship is usually a \emph{``has a''} relationship, for example a house \emph{has a} kitchen. There is usually some ownership involved, otherwise the objects can exist independently. The difference between the two types of association lies in the \emph{life cycle dependency} of the contained classes.
 
@@ -3030,7 +3030,7 @@ When two objects have a relationship that is not an \emph{``is a''} relationship
 \end{figure}
 
 \subsubsection{Access Modifiers}
-\label{sec:org18aa44b}
+\label{sec:orgbd03d74}
 
 In programming languages, \emph{information hiding} can be enforced, so that program code must use an object's interface to retrieve data. There are generally three main modifiers:
 
@@ -3041,7 +3041,7 @@ In programming languages, \emph{information hiding} can be enforced, so that pro
 \end{itemize}
 
 \subsubsection{Class Diagrams}
-\label{sec:org4f99983}
+\label{sec:orgcfeeabb}
 
 As is the case with DB design, there are a number of different diagrams designed to make working in the OOP style easier to plan. One common standard is the UML \emph{(unified modelling language)} diagram.
 
@@ -3054,7 +3054,7 @@ A single \texttt{-} sign is a private attribute, a \texttt{+} is a public attrib
 \end{figure}
 
 \subsubsection{Advantages of OOP}
-\label{sec:orgdc1a8a4}
+\label{sec:org26825e1}
 
 OOP is preferred to earlier procedural techniques for a number of reasons:
 
@@ -3066,19 +3066,32 @@ OOP is preferred to earlier procedural techniques for a number of reasons:
 \end{itemize}
 
 \subsection{Functional Programming}
-\label{sec:orgfe33b90}
+\label{sec:org67e1478}
 
 Another significant programming paradigm is the functional technique, in which composing functions are used to map values to one another, as opposed to the execution of a sequence of imperative statements. Functions are \emph{first-class citizens} in functional languages; they can be bound, passed and returned from other functions and can generally be used like any other data type.
 
 Functional programming is derived from \emph{lambda calculus}, a formal system of computation which uses only functions. Functional programs, particularly \emph{pure} functional programs, can be formally verified as correct. Larger programs can be constructed, or \emph{composed}, from these smaller modular parts, in the knowledge that each function behaves as expected. This paradigm makes development easier and faster, without the risk of side-effects causing issues or bugs in the program.
 
 \subsubsection{First-class and Higher-order Functions}
-\label{sec:org9f94af3}
+\label{sec:orge02bd90}
 
 A \emph{higher-order} function is one which can either take functions as arguments or return them as results. Higher-order functions describe functions which operate on other functions, which implies the use of first-class functions, a computer science term for programming entities with no restriction on their use.
 
+The examples given below demonstrate the common higher-order functions \texttt{foldl}, \texttt{map} and \texttt{filter}. The \texttt{fold} function recursively collapses a data structure into a single value according to the given function, the \texttt{map} function applies the specified function to each element in a list and the \texttt{filter} function returns a list of elements from the original list satisfying a particular condition.
+
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
+Prelude> map (+ 5) [1,2,3,4]
+[6,7,8,9]
+Prelude> filter (< 5) [3,4,5,6]
+[3,4]
+Prelude> foldl (+) 0 [1,2,3,4]
+10
+\end{minted}
+\end{figure}
+
 \subsubsection{Purely Functional Languages}
-\label{sec:org183ebd5}
+\label{sec:org4065731}
 
 A \emph{pure} function is one which causes no side-effects and does not edit a global state. This includes any side-effects in memory or on disk via I/O.
 
@@ -3091,15 +3104,38 @@ A \emph{pure} function is one which causes no side-effects and does not edit a g
 \end{itemize}
 
 \subsubsection{Recursion}
-\label{sec:orge56aec8}
+\label{sec:org7102f58}
 
 Iteration, which is common in procedural languages, is achieved with recursion in functional languages. A recursive function invokes itself until a base case is reached. Recursion does require that a stack is maintained to handle the scopes, which can become expensive in space. Certain compilers can recognise types of recursion and provide optimisation.
 
 \subsubsection{Function Application}
-\label{sec:orgdfa7908}
+\label{sec:org9a5f5d5}
+
+In purely functional languages such as Haskell, functions may only have a single argument. Functions with more arguments use \emph{partial application}, not to be confused with \emph{currying} to break a function with \(n\) arguments into \(n\) functions with 1 argument.
+
+Consider the below example. The addition operator is bound to \texttt{a}, and the resulting function can be used as expected. If \texttt{a} is called with only a single argument, an error is produced, indicating that the returned value is a function which cannot be printed. If instead the result is bound to another identifier, the return value is proven to be a function itself, operating on a single argument.
+
+\begin{figure}[H]
+\begin{minted}[ frame=single, framesep=8mm, rulecolor=RuleGray, baselinestretch=1.3, fontsize=\small, breaklines, fontfamily=tt]{text}
+Prelude> a = (+)
+Prelude> a 2 5
+7
+Prelude> a 2
+
+<interactive>:8:1: error:
+    • No instance for (Show (Integer -> Integer))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+Prelude> b = a 2
+Prelude> b 5
+7
+Prelude>
+\end{minted}
+\end{figure}
 
 \subsection{Big Data}
-\label{sec:org0dd8149}
+\label{sec:orgf8df50a}
 
 Big Data is a term used to describe datasets which are very large in volume, which either exceed the memory capacity of computers used to process the data or exceed the storage capacity of a single device or both. Such data is often \emph{unstructured}, it is impossible to store in a relational database.
 

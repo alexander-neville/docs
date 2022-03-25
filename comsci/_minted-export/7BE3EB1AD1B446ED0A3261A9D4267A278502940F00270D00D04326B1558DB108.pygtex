@@ -1,0 +1,8 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Prelude\PYGZgt{} map (+ 5) [1,2,3,4]
+[6,7,8,9]
+Prelude\PYGZgt{} filter (\PYGZlt{} 5) [3,4,5,6]
+[3,4]
+Prelude\PYGZgt{} foldl (+) 0 [1,2,3,4]
+10
+\end{Verbatim}

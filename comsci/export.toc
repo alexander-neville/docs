@@ -218,6 +218,6 @@
 \contentsline {subsection}{\numberline {12.4}Functional Programming}{82}{subsection.12.4}%
 \contentsline {subsubsection}{\numberline {12.4.1}First-class and Higher-order Functions}{82}{subsubsection.12.4.1}%
 \contentsline {subsubsection}{\numberline {12.4.2}Purely Functional Languages}{82}{subsubsection.12.4.2}%
-\contentsline {subsubsection}{\numberline {12.4.3}Recursion}{82}{subsubsection.12.4.3}%
+\contentsline {subsubsection}{\numberline {12.4.3}Recursion}{83}{subsubsection.12.4.3}%
 \contentsline {subsubsection}{\numberline {12.4.4}Function Application}{83}{subsubsection.12.4.4}%
 \contentsline {subsection}{\numberline {12.5}Big Data}{83}{subsection.12.5}%

@@ -1,0 +1,16 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+Prelude\PYGZgt{} a = (+)
+Prelude\PYGZgt{} a 2 5
+7
+Prelude\PYGZgt{} a 2
+
+\PYGZlt{}interactive\PYGZgt{}:8:1: error:
+    • No instance for (Show (Integer \PYGZhy{}\PYGZgt{} Integer))
+        arising from a use of ‘print’
+        (maybe you haven\PYGZsq{}t applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+Prelude\PYGZgt{} b = a 2
+Prelude\PYGZgt{} b 5
+7
+Prelude\PYGZgt{}
+\end{Verbatim}
