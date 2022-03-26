@@ -1,4 +1,5 @@
 #+TITLE: Maths Notes
+#+latex_header: \usepackage{amsmath}
 
 * Trigonometry
 ** Reciprocal Trigonometric Functions
@@ -7,11 +8,11 @@ The identity $\sin^{2}(\theta) + \cos^{2}(\theta) = 1$ is the foundation for two
 
 Dividing by $\cos^{2}(\theta)$:
 
-- \[\dfrac{\sin^{2}(\theta)}{\cos^{2}(\theta)}+ \dfrac{\cos^{2}(\theta)}{\cos^{2}(\theta)} = \dfrac{1}{cos^{2}(\theta)}\]
+- \[\dfrac{\sin^{2}(\theta)}{\cos^{2}(\theta)} + \dfrac{\cos^{2}(\theta)}{\cos^{2}(\theta)} = \dfrac{1}{cos^{2}(\theta)}\]
 
 Dividing by $\sin^{2}(\theta)$:
 
-- \[\dfrac{\sin^{2}(\theta)}{\sin^{2}(\theta)}+ \dfrac{\cos^{2}(\theta)}{\sin^{2}(\theta)} = \dfrac{1}{sin^{2}(\theta)}\]
+- \[\dfrac{\sin^{2}(\theta)}{\sin^{2}(\theta)} + \dfrac{\cos^{2}(\theta)}{\sin^{2}(\theta)} = \dfrac{1}{sin^{2}(\theta)}\]
 
 The two identities:
 
