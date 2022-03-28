@@ -44,8 +44,8 @@
 #+latex_header: \pagestyle{fancy}
 #+latex_header: \fancyhf{}
 #+latex_header: \pagestyle{fancy}
-#+latex_header: \rhead{\emph{Alexander F. Neville}}
-#+latex_header: \lhead{AQA A-Level Computer Science}
+#+latex_header: \rhead{\emph{Alex Neville}}
+#+latex_header: \lhead{Computer Science}
 #+latex_header: \rfoot{\thepage}
 #+latex_header: \lfoot{\leftmark}
 #+latex_header: \renewcommand{\headrulewidth}{1pt}

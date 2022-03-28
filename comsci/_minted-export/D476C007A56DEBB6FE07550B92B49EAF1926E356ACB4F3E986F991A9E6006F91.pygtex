@@ -1,0 +1,26 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{aircraft} \PYG{p}{(}
+    \PYG{n}{id} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL} \PYG{n}{AUTO\PYGZus{}INCREMENT}\PYG{p}{,}
+    \PYG{n}{name} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+    \PYG{n}{price} \PYG{n+nb}{FLOAT}\PYG{p}{(}\PYG{l+m+mi}{24}\PYG{p}{),}
+    \PYG{k}{PRIMARY} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{id}\PYG{p}{));}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{supplier} \PYG{p}{(}
+    \PYG{n}{id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+    \PYG{n}{name} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+    \PYG{k}{PRIMARY} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{id}\PYG{p}{));}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{engine} \PYG{p}{(}
+    \PYG{n}{id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+    \PYG{n}{name} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{),}
+    \PYG{n}{supplier\PYGZus{}id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{3}\PYG{p}{),}
+    \PYG{k}{PRIMARY} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{id}\PYG{p}{));}
+
+\PYG{k}{CREATE} \PYG{k}{TABLE} \PYG{n}{engine\PYGZus{}option} \PYG{p}{(}
+    \PYG{n}{aircraft\PYGZus{}id} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{,}
+    \PYG{n}{engine\PYGZus{}id} \PYG{n+nb}{VARCHAR}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{),}
+    \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{aircraft\PYGZus{}id}\PYG{p}{)} \PYG{k}{REFERENCES} \PYG{n}{aircraft} \PYG{p}{(}\PYG{n}{id}\PYG{p}{)}
+    \PYG{k}{ON} \PYG{k}{DELETE} \PYG{k}{CASCADE} \PYG{k}{ON} \PYG{k}{UPDATE} \PYG{k}{CASCADE}\PYG{p}{,}
+    \PYG{k}{FOREIGN} \PYG{k}{KEY} \PYG{p}{(}\PYG{n}{engine\PYGZus{}id}\PYG{p}{)} \PYG{k}{REFERENCES} \PYG{n}{engine} \PYG{p}{(}\PYG{n}{id}\PYG{p}{)}
+    \PYG{k}{ON} \PYG{k}{DELETE} \PYG{k}{CASCADE} \PYG{k}{ON} \PYG{k}{UPDATE} \PYG{k}{CASCADE}\PYG{p}{);}
+\end{Verbatim}

@@ -95,6 +95,9 @@ The /physical star/ network configuration is a more complicated type of network,
 Logical topology is the manner in which data is handled on top of a physical network. For example, a hub might use a bus protocol to push data outward onto a star network, similar to how a physical bus network behaves.
 
 *** MAC Addresses
+
+/not implemented/
+
 ** Client/Server
 
 A /server/ is a computer which services requests from a number of clients; a response is sent back to the connected client in return. A computer may be both a client and a server simultaneously. A server might be used to process or store data.

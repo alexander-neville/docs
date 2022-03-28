@@ -2,7 +2,7 @@
 #+TITLE: Physics Notes
 #+OPTIONS: toc:nil
 #+OPTIONS: H:12
-#+latex_class_options: [12pt]
+#+latex_class_options: [10pt]
 #+latex_header: \usepackage{amsmath}
 #+latex_header: \usepackage{amssymb}
 #+INCLUDE: "./options.org"

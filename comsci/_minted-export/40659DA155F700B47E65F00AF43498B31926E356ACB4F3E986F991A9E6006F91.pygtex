@@ -1,0 +1,9 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{UPDATE} \PYG{n}{aircraft}
+\PYG{k}{SET} \PYG{n}{name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}a320\PYGZsq{}}
+\PYG{k}{WHERE} \PYG{n}{id} \PYG{o}{=} \PYG{l+m+mi}{123}\PYG{p}{;}
+
+\PYG{k}{UPDATE} \PYG{n}{aircraft}
+\PYG{k}{SET} \PYG{n}{price} \PYG{o}{=} \PYG{n}{price}\PYG{o}{+}\PYG{l+m+mi}{20000000}
+\PYG{k}{WHERE} \PYG{n}{id} \PYG{o}{=} \PYG{l+m+mi}{243}\PYG{p}{;}
+\end{Verbatim}

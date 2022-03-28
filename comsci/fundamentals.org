@@ -1,8 +1,10 @@
 #+latex_header: \usepackage{amsmath}
+#+latex_header: \usepackage{amssymb}
+#+latex_header: \usepackage{amsfonts}
 
 * Fundamentals of Programming
 
-An algorithm is a series of steps underlying every process including programs. An abstract view of any program/algorithm is /input -> process -> output/.
+An algorithm is a series of steps underlying every process including programs. An abstract view of any program/algorithm is /input, process, output/.
 
 ** Pseudocode
 
@@ -35,7 +37,7 @@ The === sign is often used. A left arrow =<-= is sometimes used to show the flow
 
 Like other languages, the symbols =*/-+= are used. In addition these rules tend to apply:
 
-- Assignment operators are rarely used as they tend to obfuscate the step by step approach to problem solving; code is usually broken into /input -> process -> output/ cycle.
+- Assignment operators are rarely used as they tend to obfuscate the step by step approach to problem solving; code is usually broken into /input, process, output/ cycle.
 - To raise a number to a certain power, this syntax is used: =x**n=, where /x/ is the base and /n/ in the exponent.
 
 *Keyword Functions:*
@@ -306,11 +308,13 @@ The typical FSM diagram can also be represented by a /state transition table/, w
 ** Number Systems
 *** Sets of Numbers
 
-- Whole Numbers = /Z/ (negative or positive integers)
-- Natural Numbers = /N/ (integers above 0)
-- Rational Numbers = /Q/ (can be expressed precisely as a fraction)
-- Real Numbers = /R/ (anything that can be expressed numerically, includes irrational numbers)
-- Ordinal Numbers: /first/, /second/, /third/
+There are a number of common sets:
+
+- empty set: $\{\}$ or $\phi$, containing no elements
+- natural numbers: $\mathbb{N} = \{1,2,3,4,5,...\}$
+- whole numbers: $\mathbb{Z} = \{...,-2,-1,0,1,2,...\}$
+- rational numbers: $\mathbb{Q}$, any value which can be expressed as a ratio
+- real numbers = $\mathbb{R}$, the set of real world quantities
 
 *** Decimal
 

@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{INSERT} \PYG{k}{INTO} \PYG{k}{table\PYGZus{}name} \PYG{p}{(}\PYG{n}{first\PYGZus{}column\PYGZus{}name}\PYG{p}{,} \PYG{n}{second\PYGZus{}column\PYGZus{}name}\PYG{p}{)} \PYG{k}{VALUES}
+    \PYG{p}{(}\PYG{n}{first\PYGZus{}value}\PYG{p}{,} \PYG{n}{second\PYGZus{}value}\PYG{p}{),}
+    \PYG{p}{(}\PYG{n}{third\PYGZus{}value}\PYG{p}{,} \PYG{n}{fourth\PYGZus{}value}\PYG{p}{);}
+\end{Verbatim}

@@ -1,3 +1,0 @@
-\begin{Verbatim}[commandchars=\\\{\}]
-\PYG{k}{ALTER}\PYG{+w}{ }\PYG{k}{TABLE}\PYG{+w}{ }\PYG{n}{engine\PYGZus{}option}\PYG{+w}{ }\PYG{k}{RENAME}\PYG{+w}{ }\PYG{k}{COLUMN}\PYG{+w}{ }\PYG{n}{engine\PYGZus{}quantity}\PYG{+w}{ }\PYG{k}{TO}\PYG{+w}{ }\PYG{n}{engine\PYGZus{}number}\PYG{p}{;}
-\end{Verbatim}

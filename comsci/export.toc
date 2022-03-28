@@ -150,7 +150,7 @@
 \contentsline {subsection}{\numberline {9.4}Peer-to-peer}{52}{subsection.9.4}%
 \contentsline {subsection}{\numberline {9.5}Wireless Networking}{52}{subsection.9.5}%
 \contentsline {subsubsection}{\numberline {9.5.1}Wi-Fi}{52}{subsubsection.9.5.1}%
-\contentsline {subsubsection}{\numberline {9.5.2}NIC}{52}{subsubsection.9.5.2}%
+\contentsline {subsubsection}{\numberline {9.5.2}NIC}{53}{subsubsection.9.5.2}%
 \contentsline {subsubsection}{\numberline {9.5.3}SSID}{53}{subsubsection.9.5.3}%
 \contentsline {subsubsection}{\numberline {9.5.4}Security}{53}{subsubsection.9.5.4}%
 \contentsline {subsubsection}{\numberline {9.5.5}CSMA/CA}{53}{subsubsection.9.5.5}%

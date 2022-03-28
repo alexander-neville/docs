@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{ALTER} \PYG{k}{TABLE} \PYG{n}{engine\PYGZus{}option} \PYG{k}{MODIFY} \PYG{k}{COLUMN} \PYG{n}{engine\PYGZus{}number} \PYG{n+nb}{INT}\PYG{p}{(}\PYG{l+m+mi}{255}\PYG{p}{)} \PYG{k}{NOT} \PYG{k}{NULL}\PYG{p}{;}
+\end{Verbatim}

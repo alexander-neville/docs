@@ -1,8 +1,15 @@
 #+TITLE: Computer Science Notes
 #+AUTHOR: Alexander Neville
+#+OPTIONS: toc:nil
 #+OPTIONS: ^:{}
 #+latex_class_options: [10pt]
 #+INCLUDE: "./export_options.org"
+
+#+begin_export latex
+\thispagestyle{empty}
+\newpage
+\tableofcontents
+#+end_export
 
 # completed sections
 #+INCLUDE: "./fundamentals.org"

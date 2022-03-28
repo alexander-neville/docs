@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{n}{supplier}\PYG{p}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{engine}\PYG{p}{.}\PYG{n}{name} \PYG{k}{FROM} \PYG{n}{supplier}\PYG{p}{,} \PYG{n}{engine} \PYG{k}{WHERE} \PYG{n}{supplier}\PYG{p}{.}\PYG{n}{id} \PYG{o}{=} \PYG{n}{engine}\PYG{p}{.}\PYG{n}{supplier\PYGZus{}id}\PYG{p}{;}
+
+\PYG{k}{SELECT} \PYG{n}{supplier}\PYG{p}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{engine}\PYG{p}{.}\PYG{n}{name} \PYG{k}{FROM} \PYG{n}{supplier}\PYG{p}{,} \PYG{n}{engine} \PYG{k}{WHERE} \PYG{n}{supplier}\PYG{p}{.}\PYG{n}{id} \PYG{o}{=} \PYG{n}{engine}\PYG{p}{.}\PYG{n}{supplier\PYGZus{}id} \PYG{k}{AND} \PYG{n}{supplier}\PYG{p}{.}\PYG{n}{id} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}CFM\PYGZsq{}}\PYG{p}{;}
+\end{Verbatim}

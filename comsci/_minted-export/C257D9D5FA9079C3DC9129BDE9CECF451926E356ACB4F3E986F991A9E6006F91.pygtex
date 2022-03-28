@@ -1,0 +1,3 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{SELECT} \PYG{o}{*} \PYG{k}{FROM} \PYG{n}{aircraft} \PYG{k}{ORDER} \PYG{k}{BY} \PYG{n}{id} \PYG{k}{DESC}\PYG{p}{;}
+\end{Verbatim}
